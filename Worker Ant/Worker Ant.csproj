@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BreakBasic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BreakBasic.Designer.cs">
+      <DependentUpon>BreakBasic.cs</DependentUpon>
+    </Compile>
     <Compile Include="FullView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,15 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToBreakBasic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBreakBasic.Designer.cs">
+      <DependentUpon>ToBreakBasic.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BreakBasic.resx">
+      <DependentUpon>BreakBasic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FullView.resx">
       <DependentUpon>FullView.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToBreakBasic.resx">
+      <DependentUpon>ToBreakBasic.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

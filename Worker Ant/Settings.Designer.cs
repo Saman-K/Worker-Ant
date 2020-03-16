@@ -55,8 +55,10 @@
             this.checkBoxSimpleView = new System.Windows.Forms.CheckBox();
             this.labelSimpleView = new System.Windows.Forms.Label();
             this.buttonAdminSet = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.picBoxIcon = new System.Windows.Forms.PictureBox();
+            this.picBoxClose = new System.Windows.Forms.PictureBox();
+            this.picBoxInfo = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxSetSmart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakSmart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkSmart)).BeginInit();
@@ -67,14 +69,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakRecovery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkRecovery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(36, 9);
+            this.labelWinName.Location = new System.Drawing.Point(31, 9);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(45, 13);
             this.labelWinName.TabIndex = 2;
@@ -82,6 +86,7 @@
             // 
             // groupBoxSetSmart
             // 
+            this.groupBoxSetSmart.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxSetSmart.Controls.Add(this.numUDBreakSmart);
             this.groupBoxSetSmart.Controls.Add(this.numUDWorkSmart);
             this.groupBoxSetSmart.Controls.Add(this.labelBreakSmart);
@@ -127,6 +132,7 @@
             // 
             // groupBoxSetProgress
             // 
+            this.groupBoxSetProgress.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxSetProgress.Controls.Add(this.numUDBreakProgress);
             this.groupBoxSetProgress.Controls.Add(this.numUDWorkProgress);
             this.groupBoxSetProgress.Controls.Add(this.labelBreakProgress);
@@ -172,6 +178,7 @@
             // 
             // groupBoxSetRecovery
             // 
+            this.groupBoxSetRecovery.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxSetRecovery.Controls.Add(this.numUDBreakRecovery);
             this.groupBoxSetRecovery.Controls.Add(this.numUDWorkRecovery);
             this.groupBoxSetRecovery.Controls.Add(this.labelBreakRecovery);
@@ -218,6 +225,7 @@
             // labelRoundSet
             // 
             this.labelRoundSet.AutoSize = true;
+            this.labelRoundSet.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelRoundSet.Location = new System.Drawing.Point(184, 111);
             this.labelRoundSet.Name = "labelRoundSet";
             this.labelRoundSet.Size = new System.Drawing.Size(50, 13);
@@ -234,7 +242,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(263, 199);
+            this.btnSave.Location = new System.Drawing.Point(263, 200);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 9;
@@ -244,7 +252,7 @@
             // btnDefault
             // 
             this.btnDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDefault.Location = new System.Drawing.Point(182, 199);
+            this.btnDefault.Location = new System.Drawing.Point(182, 200);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(75, 23);
             this.btnDefault.TabIndex = 10;
@@ -254,6 +262,7 @@
             // labelSafetyInfo
             // 
             this.labelSafetyInfo.AutoSize = true;
+            this.labelSafetyInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelSafetyInfo.Location = new System.Drawing.Point(184, 136);
             this.labelSafetyInfo.Name = "labelSafetyInfo";
             this.labelSafetyInfo.Size = new System.Drawing.Size(57, 13);
@@ -272,6 +281,7 @@
             // labelAudioAlert
             // 
             this.labelAudioAlert.AutoSize = true;
+            this.labelAudioAlert.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelAudioAlert.Location = new System.Drawing.Point(184, 156);
             this.labelAudioAlert.Name = "labelAudioAlert";
             this.labelAudioAlert.Size = new System.Drawing.Size(57, 13);
@@ -299,6 +309,7 @@
             // labelSimpleView
             // 
             this.labelSimpleView.AutoSize = true;
+            this.labelSimpleView.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelSimpleView.Location = new System.Drawing.Point(184, 176);
             this.labelSimpleView.Name = "labelSimpleView";
             this.labelSimpleView.Size = new System.Drawing.Size(63, 13);
@@ -308,39 +319,62 @@
             // buttonAdminSet
             // 
             this.buttonAdminSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAdminSet.Location = new System.Drawing.Point(12, 199);
+            this.buttonAdminSet.Location = new System.Drawing.Point(12, 200);
             this.buttonAdminSet.Name = "buttonAdminSet";
             this.buttonAdminSet.Size = new System.Drawing.Size(75, 23);
             this.buttonAdminSet.TabIndex = 17;
             this.buttonAdminSet.Text = "Admin";
             this.buttonAdminSet.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // picBoxIcon
             // 
-            this.pictureBox2.Image = global::Worker_Ant.Properties.Resources.X_Close;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.X_Close;
+            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Name = "picBoxIcon";
+            this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
+            this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBoxIcon.TabIndex = 1;
+            this.picBoxIcon.TabStop = false;
             // 
-            // pictureBoxClose
+            // picBoxClose
             // 
-            this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
-            this.pictureBoxClose.Location = new System.Drawing.Point(305, 0);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(45, 25);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxClose.TabIndex = 0;
-            this.pictureBoxClose.TabStop = false;
+            this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
+            this.picBoxClose.Location = new System.Drawing.Point(305, 0);
+            this.picBoxClose.Name = "picBoxClose";
+            this.picBoxClose.Size = new System.Drawing.Size(45, 25);
+            this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBoxClose.TabIndex = 0;
+            this.picBoxClose.TabStop = false;
+            // 
+            // picBoxInfo
+            // 
+            this.picBoxInfo.Image = global::Worker_Ant.Properties.Resources.Info_L;
+            this.picBoxInfo.Location = new System.Drawing.Point(270, 5);
+            this.picBoxInfo.Name = "picBoxInfo";
+            this.picBoxInfo.Size = new System.Drawing.Size(15, 15);
+            this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBoxInfo.TabIndex = 18;
+            this.picBoxInfo.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(350, 210);
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 234);
+            this.ClientSize = new System.Drawing.Size(350, 235);
+            this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.buttonAdminSet);
             this.Controls.Add(this.labelSimpleView);
             this.Controls.Add(this.checkBoxSimpleView);
@@ -356,8 +390,9 @@
             this.Controls.Add(this.groupBoxSetProgress);
             this.Controls.Add(this.groupBoxSetSmart);
             this.Controls.Add(this.labelWinName);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBoxClose);
+            this.Controls.Add(this.picBoxIcon);
+            this.Controls.Add(this.picBoxClose);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Settings";
             this.Text = " ";
@@ -374,8 +409,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakRecovery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkRecovery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,8 +420,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxClose;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox picBoxClose;
+        private System.Windows.Forms.PictureBox picBoxIcon;
         private System.Windows.Forms.Label labelWinName;
         private System.Windows.Forms.GroupBox groupBoxSetSmart;
         private System.Windows.Forms.NumericUpDown numUDBreakSmart;
@@ -412,5 +449,7 @@
         private System.Windows.Forms.CheckBox checkBoxSimpleView;
         private System.Windows.Forms.Label labelSimpleView;
         private System.Windows.Forms.Button buttonAdminSet;
+        private System.Windows.Forms.PictureBox picBoxInfo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

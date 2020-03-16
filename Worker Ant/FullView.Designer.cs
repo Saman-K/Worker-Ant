@@ -59,6 +59,7 @@
             this.picBoxInfo = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxManual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownBreakManual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
@@ -68,16 +69,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxManual
             // 
             this.groupBoxManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxManual.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxManual.Controls.Add(this.numUpDownBreakManual);
             this.groupBoxManual.Controls.Add(this.numUDWorkManual);
             this.groupBoxManual.Controls.Add(this.labelBreakManual);
             this.groupBoxManual.Controls.Add(this.labelWorkManual);
-            this.groupBoxManual.Location = new System.Drawing.Point(178, 38);
+            this.groupBoxManual.Location = new System.Drawing.Point(178, 39);
             this.groupBoxManual.Name = "groupBoxManual";
             this.groupBoxManual.Size = new System.Drawing.Size(160, 69);
             this.groupBoxManual.TabIndex = 0;
@@ -119,14 +122,14 @@
             // groupBoxCountdown
             // 
             this.groupBoxCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBoxCountdown.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBoxCountdown.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxCountdown.Controls.Add(this.labelRoundNumCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelBreakTimeCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkTimeCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelRoundCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelBreakCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkCountdown);
-            this.groupBoxCountdown.Location = new System.Drawing.Point(12, 108);
+            this.groupBoxCountdown.Location = new System.Drawing.Point(12, 109);
             this.groupBoxCountdown.Name = "groupBoxCountdown";
             this.groupBoxCountdown.Size = new System.Drawing.Size(160, 80);
             this.groupBoxCountdown.TabIndex = 1;
@@ -191,7 +194,7 @@
             // 
             this.progressBarCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarCountdown.Location = new System.Drawing.Point(12, 194);
+            this.progressBarCountdown.Location = new System.Drawing.Point(12, 195);
             this.progressBarCountdown.Name = "progressBarCountdown";
             this.progressBarCountdown.Size = new System.Drawing.Size(164, 23);
             this.progressBarCountdown.TabIndex = 3;
@@ -200,9 +203,9 @@
             // 
             this.radioBtnSmart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioBtnSmart.AutoSize = true;
-            this.radioBtnSmart.BackColor = System.Drawing.SystemColors.Control;
+            this.radioBtnSmart.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radioBtnSmart.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioBtnSmart.Location = new System.Drawing.Point(12, 61);
+            this.radioBtnSmart.Location = new System.Drawing.Point(12, 62);
             this.radioBtnSmart.Name = "radioBtnSmart";
             this.radioBtnSmart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radioBtnSmart.Size = new System.Drawing.Size(52, 17);
@@ -214,42 +217,45 @@
             // 
             this.radioBtnProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioBtnProgress.AutoSize = true;
-            this.radioBtnProgress.Location = new System.Drawing.Point(12, 84);
+            this.radioBtnProgress.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioBtnProgress.Location = new System.Drawing.Point(12, 85);
             this.radioBtnProgress.Name = "radioBtnProgress";
             this.radioBtnProgress.Size = new System.Drawing.Size(66, 17);
             this.radioBtnProgress.TabIndex = 5;
             this.radioBtnProgress.TabStop = true;
             this.radioBtnProgress.Text = "Progress";
-            this.radioBtnProgress.UseVisualStyleBackColor = true;
+            this.radioBtnProgress.UseVisualStyleBackColor = false;
             // 
             // radioBtnRecovery
             // 
             this.radioBtnRecovery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioBtnRecovery.AutoSize = true;
-            this.radioBtnRecovery.Location = new System.Drawing.Point(12, 38);
+            this.radioBtnRecovery.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioBtnRecovery.Location = new System.Drawing.Point(12, 39);
             this.radioBtnRecovery.Name = "radioBtnRecovery";
             this.radioBtnRecovery.Size = new System.Drawing.Size(71, 17);
             this.radioBtnRecovery.TabIndex = 6;
             this.radioBtnRecovery.TabStop = true;
             this.radioBtnRecovery.Text = "Recovery";
-            this.radioBtnRecovery.UseVisualStyleBackColor = true;
+            this.radioBtnRecovery.UseVisualStyleBackColor = false;
             // 
             // radioBtnManual
             // 
             this.radioBtnManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioBtnManual.AutoSize = true;
-            this.radioBtnManual.Location = new System.Drawing.Point(172, 34);
+            this.radioBtnManual.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioBtnManual.Location = new System.Drawing.Point(172, 35);
             this.radioBtnManual.Name = "radioBtnManual";
             this.radioBtnManual.Size = new System.Drawing.Size(60, 17);
             this.radioBtnManual.TabIndex = 7;
             this.radioBtnManual.TabStop = true;
             this.radioBtnManual.Text = "Manual";
-            this.radioBtnManual.UseVisualStyleBackColor = true;
+            this.radioBtnManual.UseVisualStyleBackColor = false;
             // 
             // btnSetReset
             // 
             this.btnSetReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetReset.Location = new System.Drawing.Point(182, 194);
+            this.btnSetReset.Location = new System.Drawing.Point(182, 195);
             this.btnSetReset.Name = "btnSetReset";
             this.btnSetReset.Size = new System.Drawing.Size(75, 23);
             this.btnSetReset.TabIndex = 7;
@@ -259,7 +265,7 @@
             // btnStartStop
             // 
             this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartStop.Location = new System.Drawing.Point(263, 194);
+            this.btnStartStop.Location = new System.Drawing.Point(263, 195);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
             this.btnStartStop.TabIndex = 8;
@@ -269,13 +275,14 @@
             // groupBoxPreview
             // 
             this.groupBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxPreview.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxPreview.Controls.Add(this.labelRoundNumPreview);
             this.groupBoxPreview.Controls.Add(this.labelBreakTimePreview);
             this.groupBoxPreview.Controls.Add(this.labelWorkTimePreview);
             this.groupBoxPreview.Controls.Add(this.labelRoundPreview);
             this.groupBoxPreview.Controls.Add(this.labelBreakPreview);
             this.groupBoxPreview.Controls.Add(this.labelWorkPreview);
-            this.groupBoxPreview.Location = new System.Drawing.Point(178, 108);
+            this.groupBoxPreview.Location = new System.Drawing.Point(178, 109);
             this.groupBoxPreview.Name = "groupBoxPreview";
             this.groupBoxPreview.Size = new System.Drawing.Size(160, 80);
             this.groupBoxPreview.TabIndex = 9;
@@ -339,7 +346,7 @@
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(36, 9);
+            this.labelWinName.Location = new System.Drawing.Point(31, 7);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(61, 13);
             this.labelWinName.TabIndex = 10;
@@ -348,7 +355,7 @@
             // picBoxSetting
             // 
             this.picBoxSetting.Image = global::Worker_Ant.Properties.Resources.Setting_L;
-            this.picBoxSetting.Location = new System.Drawing.Point(247, 5);
+            this.picBoxSetting.Location = new System.Drawing.Point(249, 5);
             this.picBoxSetting.Name = "picBoxSetting";
             this.picBoxSetting.Size = new System.Drawing.Size(15, 15);
             this.picBoxSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -358,7 +365,7 @@
             // picBoxInfo
             // 
             this.picBoxInfo.Image = global::Worker_Ant.Properties.Resources.Info_L;
-            this.picBoxInfo.Location = new System.Drawing.Point(268, 5);
+            this.picBoxInfo.Location = new System.Drawing.Point(270, 5);
             this.picBoxInfo.Name = "picBoxInfo";
             this.picBoxInfo.Size = new System.Drawing.Size(15, 15);
             this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -387,11 +394,23 @@
             this.picBoxIcon.TabIndex = 11;
             this.picBoxIcon.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(350, 205);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // FullViewWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 229);
+            this.ClientSize = new System.Drawing.Size(350, 230);
             this.Controls.Add(this.picBoxSetting);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.picBoxClose);
@@ -407,6 +426,7 @@
             this.Controls.Add(this.progressBarCountdown);
             this.Controls.Add(this.groupBoxCountdown);
             this.Controls.Add(this.groupBoxManual);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FullViewWin";
             this.Text = "Worker Ant";
@@ -422,6 +442,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,6 +481,7 @@
         private System.Windows.Forms.PictureBox picBoxInfo;
         private System.Windows.Forms.PictureBox picBoxSetting;
         private System.Windows.Forms.NumericUpDown numUpDownBreakManual;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
