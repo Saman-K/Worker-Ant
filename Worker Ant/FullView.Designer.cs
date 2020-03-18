@@ -386,7 +386,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.X_Close;
+            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);

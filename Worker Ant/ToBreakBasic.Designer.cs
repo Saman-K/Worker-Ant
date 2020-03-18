@@ -31,16 +31,16 @@
             this.btnYesToBreakBasic = new System.Windows.Forms.Button();
             this.btnNoToBreakBasic = new System.Windows.Forms.Button();
             this.labelWinName = new System.Windows.Forms.Label();
-            this.picBoxIcon = new System.Windows.Forms.PictureBox();
-            this.picBoxClose = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelLiveWorkTime = new System.Windows.Forms.Label();
             this.labelDoYouWant = new System.Windows.Forms.Label();
             this.labelBreakWillSL = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBoxIcon = new System.Windows.Forms.PictureBox();
+            this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,36 +73,6 @@
             this.labelWinName.TabIndex = 9;
             this.labelWinName.Text = "Worker Ant";
             // 
-            // picBoxIcon
-            // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.X_Close;
-            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
-            this.picBoxIcon.Name = "picBoxIcon";
-            this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
-            this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBoxIcon.TabIndex = 8;
-            this.picBoxIcon.TabStop = false;
-            // 
-            // picBoxClose
-            // 
-            this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
-            this.picBoxClose.Location = new System.Drawing.Point(305, 0);
-            this.picBoxClose.Name = "picBoxClose";
-            this.picBoxClose.Size = new System.Drawing.Size(45, 25);
-            this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picBoxClose.TabIndex = 7;
-            this.picBoxClose.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
             // labelLiveWorkTime
             // 
             this.labelLiveWorkTime.AutoSize = true;
@@ -134,6 +104,38 @@
             this.labelBreakWillSL.TabIndex = 16;
             this.labelBreakWillSL.Text = "Break will start in";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBWH128;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // picBoxIcon
+            // 
+            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
+            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Name = "picBoxIcon";
+            this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
+            this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBoxIcon.TabIndex = 8;
+            this.picBoxIcon.TabStop = false;
+            // 
+            // picBoxClose
+            // 
+            this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
+            this.picBoxClose.Location = new System.Drawing.Point(305, 0);
+            this.picBoxClose.Name = "picBoxClose";
+            this.picBoxClose.Size = new System.Drawing.Size(45, 25);
+            this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBoxClose.TabIndex = 7;
+            this.picBoxClose.TabStop = false;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -161,9 +163,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ToBreakBasic";
             this.Text = "ToBreakBasic";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

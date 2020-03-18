@@ -103,6 +103,26 @@ namespace Worker_Ant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Whorker_AntBW25 {
+            get {
+                object obj = ResourceManager.GetObject("Whorker_AntBW25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Whorker_AntBWH128 {
+            get {
+                object obj = ResourceManager.GetObject("Whorker_AntBWH128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap X_Close {
             get {
                 object obj = ResourceManager.GetObject("X_Close", resourceCulture);
