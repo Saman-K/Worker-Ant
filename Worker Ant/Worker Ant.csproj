@@ -52,6 +52,7 @@
     <Compile Include="BreakBasic.Designer.cs">
       <DependentUpon>BreakBasic.cs</DependentUpon>
     </Compile>
+    <Compile Include="CountDown.cs" />
     <Compile Include="FullView.cs">
       <SubType>Form</SubType>
     </Compile>
