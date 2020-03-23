@@ -261,6 +261,7 @@
             this.btnSetReset.TabIndex = 7;
             this.btnSetReset.Text = "Set";
             this.btnSetReset.UseVisualStyleBackColor = true;
+            this.btnSetReset.Click += new System.EventHandler(this.btnSetReset_Click);
             // 
             // btnStartStop
             // 

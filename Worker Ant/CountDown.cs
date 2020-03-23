@@ -11,6 +11,10 @@ namespace Worker_Ant
         int breakTime;
         int workTime;
         int round;
-
+        
+        public void SetPresetTimeVer()
+        {
+            //check to see which radiobtn is selcted
+        }
     }
 }

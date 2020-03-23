@@ -46,18 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BreakBasic.cs">
+    <Compile Include="BreakBasicWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BreakBasic.Designer.cs">
-      <DependentUpon>BreakBasic.cs</DependentUpon>
+    <Compile Include="BreakBasicWin.Designer.cs">
+      <DependentUpon>BreakBasicWin.cs</DependentUpon>
     </Compile>
     <Compile Include="CountDown.cs" />
-    <Compile Include="FullView.cs">
+    <Compile Include="FullViewWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FullView.Designer.cs">
-      <DependentUpon>FullView.cs</DependentUpon>
+    <Compile Include="FullViewWin.Designer.cs">
+      <DependentUpon>FullViewWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,34 +66,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs">
+    <Compile Include="SettingsWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <Compile Include="SettingsWin.Designer.cs">
+      <DependentUpon>SettingsWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToBreakBasic.cs">
+    <Compile Include="ToBreakBasicWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToBreakBasic.Designer.cs">
-      <DependentUpon>ToBreakBasic.cs</DependentUpon>
+    <Compile Include="ToBreakBasicWin.Designer.cs">
+      <DependentUpon>ToBreakBasicWin.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BreakBasic.resx">
-      <DependentUpon>BreakBasic.cs</DependentUpon>
+    <EmbeddedResource Include="BreakBasicWin.resx">
+      <DependentUpon>BreakBasicWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FullView.resx">
-      <DependentUpon>FullView.cs</DependentUpon>
+    <EmbeddedResource Include="FullViewWin.resx">
+      <DependentUpon>FullViewWin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <EmbeddedResource Include="SettingsWin.resx">
+      <DependentUpon>SettingsWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToBreakBasic.resx">
-      <DependentUpon>ToBreakBasic.cs</DependentUpon>
+    <EmbeddedResource Include="ToBreakBasicWin.resx">
+      <DependentUpon>ToBreakBasicWin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

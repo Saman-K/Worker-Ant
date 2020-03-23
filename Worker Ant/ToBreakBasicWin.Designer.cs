@@ -1,6 +1,6 @@
 ﻿namespace Worker_Ant
 {
-    partial class ToBreakBasic
+    partial class ToBreakBasicWin
     {
         /// <summary>
         /// Required designer variable.

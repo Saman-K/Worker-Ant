@@ -1,6 +1,6 @@
 ﻿namespace Worker_Ant
 {
-    partial class Settings
+    partial class SettingsWin
     {
         /// <summary>
         /// Required designer variable.

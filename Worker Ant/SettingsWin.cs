@@ -10,16 +10,12 @@ using System.Windows.Forms;
 
 namespace Worker_Ant
 {
-    public partial class BreakBasic : Form
+    public partial class SettingsWin : Form
     {
-        public BreakBasic()
+        public SettingsWin()
         {
             InitializeComponent();
         }
 
-        private void BreakBasic_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
