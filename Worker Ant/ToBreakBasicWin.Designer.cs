@@ -63,15 +63,19 @@
             this.btnNoToBreakBasic.TabIndex = 10;
             this.btnNoToBreakBasic.Text = "No";
             this.btnNoToBreakBasic.UseVisualStyleBackColor = true;
+            this.btnNoToBreakBasic.Click += new System.EventHandler(this.btnNoToBreakBasic_Click);
             // 
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(31, 9);
+            this.labelWinName.Location = new System.Drawing.Point(31, 7);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(61, 13);
             this.labelWinName.TabIndex = 9;
             this.labelWinName.Text = "Worker Ant";
+            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             // 
             // labelLiveWorkTime
             // 
@@ -124,6 +128,9 @@
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxIcon.TabIndex = 8;
             this.picBoxIcon.TabStop = false;
+            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             // 
             // picBoxClose
             // 
@@ -135,6 +142,9 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 7;
             this.picBoxClose.TabStop = false;
+            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -145,7 +155,7 @@
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 
-            // ToBreakBasic
+            // ToBreakBasicWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,8 +171,11 @@
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ToBreakBasic";
+            this.Name = "ToBreakBasicWin";
             this.Text = "ToBreakBasic";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();

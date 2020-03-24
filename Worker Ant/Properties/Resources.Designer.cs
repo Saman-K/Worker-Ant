@@ -83,9 +83,9 @@ namespace Worker_Ant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Setting {
+        internal static System.Drawing.Bitmap Settings {
             get {
-                object obj = ResourceManager.GetObject("Setting", resourceCulture);
+                object obj = ResourceManager.GetObject("Settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Worker_Ant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Setting_L {
+        internal static System.Drawing.Bitmap Settings_L {
             get {
-                object obj = ResourceManager.GetObject("Setting_L", resourceCulture);
+                object obj = ResourceManager.GetObject("Settings_L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

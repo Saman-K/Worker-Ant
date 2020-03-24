@@ -55,7 +55,7 @@
             this.labelBreakPreview = new System.Windows.Forms.Label();
             this.labelWorkPreview = new System.Windows.Forms.Label();
             this.labelWinName = new System.Windows.Forms.Label();
-            this.picBoxSetting = new System.Windows.Forms.PictureBox();
+            this.picBoxSettings = new System.Windows.Forms.PictureBox();
             this.picBoxInfo = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
@@ -65,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
             this.groupBoxCountdown.SuspendLayout();
             this.groupBoxPreview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxSetting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
@@ -352,16 +352,22 @@
             this.labelWinName.Size = new System.Drawing.Size(61, 13);
             this.labelWinName.TabIndex = 10;
             this.labelWinName.Text = "Worker Ant";
+            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             // 
-            // picBoxSetting
+            // picBoxSettings
             // 
-            this.picBoxSetting.Image = global::Worker_Ant.Properties.Resources.Setting_L;
-            this.picBoxSetting.Location = new System.Drawing.Point(249, 5);
-            this.picBoxSetting.Name = "picBoxSetting";
-            this.picBoxSetting.Size = new System.Drawing.Size(15, 15);
-            this.picBoxSetting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBoxSetting.TabIndex = 14;
-            this.picBoxSetting.TabStop = false;
+            this.picBoxSettings.Image = global::Worker_Ant.Properties.Resources.Settings_L;
+            this.picBoxSettings.Location = new System.Drawing.Point(249, 5);
+            this.picBoxSettings.Name = "picBoxSettings";
+            this.picBoxSettings.Size = new System.Drawing.Size(15, 15);
+            this.picBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBoxSettings.TabIndex = 14;
+            this.picBoxSettings.TabStop = false;
+            this.picBoxSettings.Click += new System.EventHandler(this.picBoxSettings_Click);
+            this.picBoxSettings.MouseEnter += new System.EventHandler(this.picBoxSettings_MouseEnter);
+            this.picBoxSettings.MouseLeave += new System.EventHandler(this.picBoxSettings_MouseLeave);
             // 
             // picBoxInfo
             // 
@@ -372,6 +378,9 @@
             this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxInfo.TabIndex = 13;
             this.picBoxInfo.TabStop = false;
+            this.picBoxInfo.Click += new System.EventHandler(this.picBoxInfo_Click);
+            this.picBoxInfo.MouseEnter += new System.EventHandler(this.picBoxInfo_MouseEnter);
+            this.picBoxInfo.MouseLeave += new System.EventHandler(this.picBoxInfo_MouseLeave);
             // 
             // picBoxClose
             // 
@@ -384,6 +393,10 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 12;
             this.picBoxClose.TabStop = false;
+            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
+            this.picBoxClose.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.picBoxClose_MouseDoubleClick);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
             // 
             // picBoxIcon
             // 
@@ -394,6 +407,9 @@
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxIcon.TabIndex = 11;
             this.picBoxIcon.TabStop = false;
+            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             // 
             // pictureBox1
             // 
@@ -412,7 +428,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 230);
-            this.Controls.Add(this.picBoxSetting);
+            this.Controls.Add(this.picBoxSettings);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.picBoxIcon);
@@ -430,7 +446,11 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FullViewWin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Worker Ant";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             this.groupBoxManual.ResumeLayout(false);
             this.groupBoxManual.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownBreakManual)).EndInit();
@@ -439,7 +459,7 @@
             this.groupBoxCountdown.PerformLayout();
             this.groupBoxPreview.ResumeLayout(false);
             this.groupBoxPreview.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxSetting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
@@ -480,7 +500,7 @@
         private System.Windows.Forms.PictureBox picBoxIcon;
         private System.Windows.Forms.PictureBox picBoxClose;
         private System.Windows.Forms.PictureBox picBoxInfo;
-        private System.Windows.Forms.PictureBox picBoxSetting;
+        private System.Windows.Forms.PictureBox picBoxSettings;
         private System.Windows.Forms.NumericUpDown numUpDownBreakManual;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

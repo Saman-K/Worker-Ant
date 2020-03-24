@@ -55,9 +55,9 @@
             this.checkBoxSimpleView = new System.Windows.Forms.CheckBox();
             this.labelSimpleView = new System.Windows.Forms.Label();
             this.buttonAdminSet = new System.Windows.Forms.Button();
+            this.picBoxInfo = new System.Windows.Forms.PictureBox();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
-            this.picBoxInfo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxSetSmart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakSmart)).BeginInit();
@@ -69,9 +69,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakRecovery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkRecovery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,9 @@
             this.labelWinName.Size = new System.Drawing.Size(45, 13);
             this.labelWinName.TabIndex = 2;
             this.labelWinName.Text = "Settings";
+            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             // 
             // groupBoxSetSmart
             // 
@@ -248,6 +251,7 @@
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDefault
             // 
@@ -326,6 +330,19 @@
             this.buttonAdminSet.Text = "Admin";
             this.buttonAdminSet.UseVisualStyleBackColor = true;
             // 
+            // picBoxInfo
+            // 
+            this.picBoxInfo.Image = global::Worker_Ant.Properties.Resources.Info_L;
+            this.picBoxInfo.Location = new System.Drawing.Point(270, 5);
+            this.picBoxInfo.Name = "picBoxInfo";
+            this.picBoxInfo.Size = new System.Drawing.Size(15, 15);
+            this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBoxInfo.TabIndex = 18;
+            this.picBoxInfo.TabStop = false;
+            this.picBoxInfo.Click += new System.EventHandler(this.picBoxInfo_Click);
+            this.picBoxInfo.MouseEnter += new System.EventHandler(this.picBoxInfo_MouseEnter);
+            this.picBoxInfo.MouseLeave += new System.EventHandler(this.picBoxInfo_MouseLeave);
+            // 
             // picBoxIcon
             // 
             this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
@@ -335,6 +352,9 @@
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxIcon.TabIndex = 1;
             this.picBoxIcon.TabStop = false;
+            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             // 
             // picBoxClose
             // 
@@ -346,16 +366,9 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 0;
             this.picBoxClose.TabStop = false;
-            // 
-            // picBoxInfo
-            // 
-            this.picBoxInfo.Image = global::Worker_Ant.Properties.Resources.Info_L;
-            this.picBoxInfo.Location = new System.Drawing.Point(270, 5);
-            this.picBoxInfo.Name = "picBoxInfo";
-            this.picBoxInfo.Size = new System.Drawing.Size(15, 15);
-            this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBoxInfo.TabIndex = 18;
-            this.picBoxInfo.TabStop = false;
+            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -369,7 +382,7 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // Settings
+            // SettingsWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -394,8 +407,11 @@
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Settings";
+            this.Name = "SettingsWin";
             this.Text = " ";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             this.groupBoxSetSmart.ResumeLayout(false);
             this.groupBoxSetSmart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakSmart)).EndInit();
@@ -409,9 +425,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakRecovery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkRecovery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
