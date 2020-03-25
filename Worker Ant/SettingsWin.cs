@@ -77,10 +77,18 @@ namespace Worker_Ant
             winCouter.winName = "InfoWin";
             winCouter.ChackWins();
         }
-
+        //------------------------------------------------------------------------- btn
+        //save btn
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            var countDown = new CountDown();
+            countDown.SavePresetTimeToSettings("save");
+        }
+        //default btn
+        private void btnDefault_Click(object sender, EventArgs e)
+        {
+            var countDown = new CountDown();
+            countDown.SetPresetTimeToDefault();
         }
     }
 }

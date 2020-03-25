@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Worker_Ant
 {
-    class WinBehavior
+    public class WinBehavior
     {
         public string winName;
         bool winIsOpen;

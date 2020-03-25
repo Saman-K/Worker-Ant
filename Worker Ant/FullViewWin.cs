@@ -103,11 +103,18 @@ namespace Worker_Ant
         //button set/reset click
         private void btnSetReset_Click(object sender, EventArgs e)
         {
+            var countDown = new CountDown();
             //btnSetReset.Text = "Reset";
             ////add a void in countdoun class to grabe the data from the preset and send it to the timer
 
             //labelRoundNumCountdown.Text = Properties.Settings.Default.roundCountdown.ToString();
+            
+            if (radioBtnManual.Checked == true)
+            {
+                countDown.SavePresetTimeToSettings("set");
+            }
 
+            countDown.InsertSettingsData("FullViweWin");
         }
     }
 }

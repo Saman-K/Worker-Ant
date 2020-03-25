@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxManual = new System.Windows.Forms.GroupBox();
-            this.numUpDownBreakManual = new System.Windows.Forms.NumericUpDown();
+            this.numUDBreakManual = new System.Windows.Forms.NumericUpDown();
             this.numUDWorkManual = new System.Windows.Forms.NumericUpDown();
             this.labelBreakManual = new System.Windows.Forms.Label();
             this.labelWorkManual = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBoxManual.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownBreakManual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
             this.groupBoxCountdown.SuspendLayout();
             this.groupBoxPreview.SuspendLayout();
@@ -76,7 +76,7 @@
             // 
             this.groupBoxManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxManual.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBoxManual.Controls.Add(this.numUpDownBreakManual);
+            this.groupBoxManual.Controls.Add(this.numUDBreakManual);
             this.groupBoxManual.Controls.Add(this.numUDWorkManual);
             this.groupBoxManual.Controls.Add(this.labelBreakManual);
             this.groupBoxManual.Controls.Add(this.labelWorkManual);
@@ -87,19 +87,44 @@
             this.groupBoxManual.TabStop = false;
             this.groupBoxManual.Text = "Manual";
             // 
-            // numUpDownBreakManual
+            // numUDBreakManual
             // 
-            this.numUpDownBreakManual.Location = new System.Drawing.Point(83, 40);
-            this.numUpDownBreakManual.Name = "numUpDownBreakManual";
-            this.numUpDownBreakManual.Size = new System.Drawing.Size(70, 20);
-            this.numUpDownBreakManual.TabIndex = 11;
+            this.numUDBreakManual.Location = new System.Drawing.Point(83, 40);
+            this.numUDBreakManual.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUDBreakManual.Name = "numUDBreakManual";
+            this.numUDBreakManual.Size = new System.Drawing.Size(70, 20);
+            this.numUDBreakManual.TabIndex = 11;
+            this.numUDBreakManual.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numUDWorkManual
             // 
+            this.numUDWorkManual.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numUDWorkManual.Location = new System.Drawing.Point(83, 14);
+            this.numUDWorkManual.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numUDWorkManual.Name = "numUDWorkManual";
             this.numUDWorkManual.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkManual.TabIndex = 10;
+            this.numUDWorkManual.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // labelBreakManual
             // 
@@ -453,7 +478,7 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             this.groupBoxManual.ResumeLayout(false);
             this.groupBoxManual.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownBreakManual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).EndInit();
             this.groupBoxCountdown.ResumeLayout(false);
             this.groupBoxCountdown.PerformLayout();
@@ -472,7 +497,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxManual;
-        private System.Windows.Forms.NumericUpDown numUDWorkManual;
         private System.Windows.Forms.Label labelBreakManual;
         private System.Windows.Forms.Label labelWorkManual;
         private System.Windows.Forms.GroupBox groupBoxCountdown;
@@ -483,10 +507,6 @@
         private System.Windows.Forms.Label labelBreakCountdown;
         private System.Windows.Forms.Label labelWorkCountdown;
         private System.Windows.Forms.ProgressBar progressBarCountdown;
-        private System.Windows.Forms.RadioButton radioBtnSmart;
-        private System.Windows.Forms.RadioButton radioBtnProgress;
-        private System.Windows.Forms.RadioButton radioBtnRecovery;
-        private System.Windows.Forms.RadioButton radioBtnManual;
         private System.Windows.Forms.Button btnSetReset;
         private System.Windows.Forms.Button btnStartStop;
         private System.Windows.Forms.GroupBox groupBoxPreview;
@@ -501,8 +521,13 @@
         private System.Windows.Forms.PictureBox picBoxClose;
         private System.Windows.Forms.PictureBox picBoxInfo;
         private System.Windows.Forms.PictureBox picBoxSettings;
-        private System.Windows.Forms.NumericUpDown numUpDownBreakManual;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.NumericUpDown numUDWorkManual;
+        public System.Windows.Forms.NumericUpDown numUDBreakManual;
+        public System.Windows.Forms.RadioButton radioBtnSmart;
+        public System.Windows.Forms.RadioButton radioBtnProgress;
+        public System.Windows.Forms.RadioButton radioBtnRecovery;
+        public System.Windows.Forms.RadioButton radioBtnManual;
     }
 }
 

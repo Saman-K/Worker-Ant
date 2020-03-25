@@ -145,6 +145,5 @@ namespace Worker_Ant
             picBoxClose.BackColor = SystemColors.ControlDark;
 
         }
-
     }
 }

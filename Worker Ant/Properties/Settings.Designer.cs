@@ -130,5 +130,41 @@ namespace Worker_Ant.Properties {
                 this["roundCountdown"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool saftyInfo {
+            get {
+                return ((bool)(this["saftyInfo"]));
+            }
+            set {
+                this["saftyInfo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool audioAlert {
+            get {
+                return ((bool)(this["audioAlert"]));
+            }
+            set {
+                this["audioAlert"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool simpleView {
+            get {
+                return ((bool)(this["simpleView"]));
+            }
+            set {
+                this["simpleView"] = value;
+            }
+        }
     }
 }

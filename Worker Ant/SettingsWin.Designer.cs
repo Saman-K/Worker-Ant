@@ -78,7 +78,7 @@
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(31, 9);
+            this.labelWinName.Location = new System.Drawing.Point(31, 7);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(45, 13);
             this.labelWinName.TabIndex = 2;
@@ -104,16 +104,36 @@
             // numUDBreakSmart
             // 
             this.numUDBreakSmart.Location = new System.Drawing.Point(84, 40);
+            this.numUDBreakSmart.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUDBreakSmart.Name = "numUDBreakSmart";
             this.numUDBreakSmart.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakSmart.TabIndex = 11;
+            this.numUDBreakSmart.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numUDWorkSmart
             // 
             this.numUDWorkSmart.Location = new System.Drawing.Point(83, 14);
+            this.numUDWorkSmart.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUDWorkSmart.Name = "numUDWorkSmart";
             this.numUDWorkSmart.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkSmart.TabIndex = 10;
+            this.numUDWorkSmart.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // labelBreakSmart
             // 
@@ -150,16 +170,36 @@
             // numUDBreakProgress
             // 
             this.numUDBreakProgress.Location = new System.Drawing.Point(84, 40);
+            this.numUDBreakProgress.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUDBreakProgress.Name = "numUDBreakProgress";
             this.numUDBreakProgress.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakProgress.TabIndex = 11;
+            this.numUDBreakProgress.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numUDWorkProgress
             // 
             this.numUDWorkProgress.Location = new System.Drawing.Point(83, 14);
+            this.numUDWorkProgress.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUDWorkProgress.Name = "numUDWorkProgress";
             this.numUDWorkProgress.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkProgress.TabIndex = 10;
+            this.numUDWorkProgress.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // labelBreakProgress
             // 
@@ -196,16 +236,36 @@
             // numUDBreakRecovery
             // 
             this.numUDBreakRecovery.Location = new System.Drawing.Point(84, 40);
+            this.numUDBreakRecovery.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUDBreakRecovery.Name = "numUDBreakRecovery";
             this.numUDBreakRecovery.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakRecovery.TabIndex = 11;
+            this.numUDBreakRecovery.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numUDWorkRecovery
             // 
             this.numUDWorkRecovery.Location = new System.Drawing.Point(83, 14);
+            this.numUDWorkRecovery.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUDWorkRecovery.Name = "numUDWorkRecovery";
             this.numUDWorkRecovery.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkRecovery.TabIndex = 10;
+            this.numUDWorkRecovery.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // labelBreakRecovery
             // 
@@ -238,9 +298,24 @@
             // numUDRound
             // 
             this.numUDRound.Location = new System.Drawing.Point(261, 109);
+            this.numUDRound.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numUDRound.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numUDRound.Name = "numUDRound";
             this.numUDRound.Size = new System.Drawing.Size(71, 20);
             this.numUDRound.TabIndex = 8;
+            this.numUDRound.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnSave
             // 
@@ -262,6 +337,7 @@
             this.btnDefault.TabIndex = 10;
             this.btnDefault.Text = "Default";
             this.btnDefault.UseVisualStyleBackColor = true;
+            this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
             // 
             // labelSafetyInfo
             // 
@@ -276,6 +352,7 @@
             // checkBoxSafetyInfo
             // 
             this.checkBoxSafetyInfo.AutoSize = true;
+            this.checkBoxSafetyInfo.Enabled = false;
             this.checkBoxSafetyInfo.Location = new System.Drawing.Point(317, 136);
             this.checkBoxSafetyInfo.Name = "checkBoxSafetyInfo";
             this.checkBoxSafetyInfo.Size = new System.Drawing.Size(15, 14);
@@ -295,6 +372,7 @@
             // checkBoxAudioAlert
             // 
             this.checkBoxAudioAlert.AutoSize = true;
+            this.checkBoxAudioAlert.Enabled = false;
             this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 156);
             this.checkBoxAudioAlert.Name = "checkBoxAudioAlert";
             this.checkBoxAudioAlert.Size = new System.Drawing.Size(15, 14);
@@ -304,6 +382,7 @@
             // checkBoxSimpleView
             // 
             this.checkBoxSimpleView.AutoSize = true;
+            this.checkBoxSimpleView.Enabled = false;
             this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 176);
             this.checkBoxSimpleView.Name = "checkBoxSimpleView";
             this.checkBoxSimpleView.Size = new System.Drawing.Size(15, 14);
@@ -323,6 +402,7 @@
             // buttonAdminSet
             // 
             this.buttonAdminSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAdminSet.Enabled = false;
             this.buttonAdminSet.Location = new System.Drawing.Point(12, 200);
             this.buttonAdminSet.Name = "buttonAdminSet";
             this.buttonAdminSet.Size = new System.Drawing.Size(75, 23);
@@ -440,32 +520,32 @@
         private System.Windows.Forms.PictureBox picBoxIcon;
         private System.Windows.Forms.Label labelWinName;
         private System.Windows.Forms.GroupBox groupBoxSetSmart;
-        private System.Windows.Forms.NumericUpDown numUDBreakSmart;
-        private System.Windows.Forms.NumericUpDown numUDWorkSmart;
         private System.Windows.Forms.Label labelBreakSmart;
         private System.Windows.Forms.Label labelWorkSmart;
         private System.Windows.Forms.GroupBox groupBoxSetProgress;
-        private System.Windows.Forms.NumericUpDown numUDBreakProgress;
-        private System.Windows.Forms.NumericUpDown numUDWorkProgress;
         private System.Windows.Forms.Label labelBreakProgress;
         private System.Windows.Forms.Label labelWorkProgress;
         private System.Windows.Forms.GroupBox groupBoxSetRecovery;
-        private System.Windows.Forms.NumericUpDown numUDBreakRecovery;
-        private System.Windows.Forms.NumericUpDown numUDWorkRecovery;
         private System.Windows.Forms.Label labelBreakRecovery;
         private System.Windows.Forms.Label labelWorkRecovery;
         private System.Windows.Forms.Label labelRoundSet;
-        private System.Windows.Forms.NumericUpDown numUDRound;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDefault;
         private System.Windows.Forms.Label labelSafetyInfo;
-        private System.Windows.Forms.CheckBox checkBoxSafetyInfo;
         private System.Windows.Forms.Label labelAudioAlert;
-        private System.Windows.Forms.CheckBox checkBoxAudioAlert;
-        private System.Windows.Forms.CheckBox checkBoxSimpleView;
         private System.Windows.Forms.Label labelSimpleView;
         private System.Windows.Forms.Button buttonAdminSet;
         private System.Windows.Forms.PictureBox picBoxInfo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.NumericUpDown numUDBreakSmart;
+        public System.Windows.Forms.NumericUpDown numUDWorkSmart;
+        public System.Windows.Forms.NumericUpDown numUDBreakProgress;
+        public System.Windows.Forms.NumericUpDown numUDWorkProgress;
+        public System.Windows.Forms.NumericUpDown numUDBreakRecovery;
+        public System.Windows.Forms.NumericUpDown numUDWorkRecovery;
+        public System.Windows.Forms.NumericUpDown numUDRound;
+        public System.Windows.Forms.CheckBox checkBoxSafetyInfo;
+        public System.Windows.Forms.CheckBox checkBoxAudioAlert;
+        public System.Windows.Forms.CheckBox checkBoxSimpleView;
+        public System.Windows.Forms.Button btnSave;
     }
 }
