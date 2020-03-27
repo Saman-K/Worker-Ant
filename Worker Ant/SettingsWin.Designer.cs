@@ -97,7 +97,7 @@
             this.groupBoxSetSmart.Location = new System.Drawing.Point(178, 31);
             this.groupBoxSetSmart.Name = "groupBoxSetSmart";
             this.groupBoxSetSmart.Size = new System.Drawing.Size(160, 69);
-            this.groupBoxSetSmart.TabIndex = 4;
+            this.groupBoxSetSmart.TabIndex = 3;
             this.groupBoxSetSmart.TabStop = false;
             this.groupBoxSetSmart.Text = "Smart";
             // 
@@ -111,7 +111,7 @@
             0});
             this.numUDBreakSmart.Name = "numUDBreakSmart";
             this.numUDBreakSmart.Size = new System.Drawing.Size(70, 20);
-            this.numUDBreakSmart.TabIndex = 11;
+            this.numUDBreakSmart.TabIndex = 6;
             this.numUDBreakSmart.Value = new decimal(new int[] {
             1,
             0,
@@ -128,7 +128,7 @@
             0});
             this.numUDWorkSmart.Name = "numUDWorkSmart";
             this.numUDWorkSmart.Size = new System.Drawing.Size(71, 20);
-            this.numUDWorkSmart.TabIndex = 10;
+            this.numUDWorkSmart.TabIndex = 5;
             this.numUDWorkSmart.Value = new decimal(new int[] {
             10,
             0,
@@ -163,7 +163,7 @@
             this.groupBoxSetProgress.Location = new System.Drawing.Point(12, 106);
             this.groupBoxSetProgress.Name = "groupBoxSetProgress";
             this.groupBoxSetProgress.Size = new System.Drawing.Size(160, 69);
-            this.groupBoxSetProgress.TabIndex = 5;
+            this.groupBoxSetProgress.TabIndex = 2;
             this.groupBoxSetProgress.TabStop = false;
             this.groupBoxSetProgress.Text = "Progress";
             // 
@@ -177,7 +177,7 @@
             0});
             this.numUDBreakProgress.Name = "numUDBreakProgress";
             this.numUDBreakProgress.Size = new System.Drawing.Size(70, 20);
-            this.numUDBreakProgress.TabIndex = 11;
+            this.numUDBreakProgress.TabIndex = 4;
             this.numUDBreakProgress.Value = new decimal(new int[] {
             1,
             0,
@@ -194,7 +194,7 @@
             0});
             this.numUDWorkProgress.Name = "numUDWorkProgress";
             this.numUDWorkProgress.Size = new System.Drawing.Size(71, 20);
-            this.numUDWorkProgress.TabIndex = 10;
+            this.numUDWorkProgress.TabIndex = 3;
             this.numUDWorkProgress.Value = new decimal(new int[] {
             10,
             0,
@@ -229,7 +229,7 @@
             this.groupBoxSetRecovery.Location = new System.Drawing.Point(12, 31);
             this.groupBoxSetRecovery.Name = "groupBoxSetRecovery";
             this.groupBoxSetRecovery.Size = new System.Drawing.Size(160, 69);
-            this.groupBoxSetRecovery.TabIndex = 6;
+            this.groupBoxSetRecovery.TabIndex = 1;
             this.groupBoxSetRecovery.TabStop = false;
             this.groupBoxSetRecovery.Text = "Recovery";
             // 
@@ -243,7 +243,7 @@
             0});
             this.numUDBreakRecovery.Name = "numUDBreakRecovery";
             this.numUDBreakRecovery.Size = new System.Drawing.Size(70, 20);
-            this.numUDBreakRecovery.TabIndex = 11;
+            this.numUDBreakRecovery.TabIndex = 2;
             this.numUDBreakRecovery.Value = new decimal(new int[] {
             1,
             0,
@@ -260,7 +260,7 @@
             0});
             this.numUDWorkRecovery.Name = "numUDWorkRecovery";
             this.numUDWorkRecovery.Size = new System.Drawing.Size(71, 20);
-            this.numUDWorkRecovery.TabIndex = 10;
+            this.numUDWorkRecovery.TabIndex = 1;
             this.numUDWorkRecovery.Value = new decimal(new int[] {
             10,
             0,
@@ -310,7 +310,7 @@
             0});
             this.numUDRound.Name = "numUDRound";
             this.numUDRound.Size = new System.Drawing.Size(71, 20);
-            this.numUDRound.TabIndex = 8;
+            this.numUDRound.TabIndex = 7;
             this.numUDRound.Value = new decimal(new int[] {
             1,
             0,
@@ -323,7 +323,7 @@
             this.btnSave.Location = new System.Drawing.Point(263, 200);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 9;
+            this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -334,7 +334,7 @@
             this.btnDefault.Location = new System.Drawing.Point(182, 200);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(75, 23);
-            this.btnDefault.TabIndex = 10;
+            this.btnDefault.TabIndex = 11;
             this.btnDefault.Text = "Default";
             this.btnDefault.UseVisualStyleBackColor = true;
             this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
@@ -356,7 +356,7 @@
             this.checkBoxSafetyInfo.Location = new System.Drawing.Point(317, 136);
             this.checkBoxSafetyInfo.Name = "checkBoxSafetyInfo";
             this.checkBoxSafetyInfo.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxSafetyInfo.TabIndex = 12;
+            this.checkBoxSafetyInfo.TabIndex = 8;
             this.checkBoxSafetyInfo.UseVisualStyleBackColor = true;
             // 
             // labelAudioAlert
@@ -376,7 +376,7 @@
             this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 156);
             this.checkBoxAudioAlert.Name = "checkBoxAudioAlert";
             this.checkBoxAudioAlert.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxAudioAlert.TabIndex = 14;
+            this.checkBoxAudioAlert.TabIndex = 9;
             this.checkBoxAudioAlert.UseVisualStyleBackColor = true;
             // 
             // checkBoxSimpleView
@@ -386,7 +386,7 @@
             this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 176);
             this.checkBoxSimpleView.Name = "checkBoxSimpleView";
             this.checkBoxSimpleView.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxSimpleView.TabIndex = 15;
+            this.checkBoxSimpleView.TabIndex = 10;
             this.checkBoxSimpleView.UseVisualStyleBackColor = true;
             // 
             // labelSimpleView
@@ -536,6 +536,7 @@
         private System.Windows.Forms.Button buttonAdminSet;
         private System.Windows.Forms.PictureBox picBoxInfo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.NumericUpDown numUDBreakSmart;
         public System.Windows.Forms.NumericUpDown numUDWorkSmart;
         public System.Windows.Forms.NumericUpDown numUDBreakProgress;
@@ -546,6 +547,5 @@
         public System.Windows.Forms.CheckBox checkBoxSafetyInfo;
         public System.Windows.Forms.CheckBox checkBoxAudioAlert;
         public System.Windows.Forms.CheckBox checkBoxSimpleView;
-        public System.Windows.Forms.Button btnSave;
     }
 }

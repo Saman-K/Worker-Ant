@@ -7,85 +7,148 @@ using System.Windows.Forms;
 
 namespace Worker_Ant
 {
-    class CountDown
+    class Countdown : FullViewWin
     {
-        //int breakTime;
-        //int workTime;
-        //int round;
-        
+        public decimal breakTimeCoutdown;
+        public decimal workTimeCoutdown;
+        public decimal roundsCountdown;
+        Timer tWorkTimer = new Timer();
+        Timer tBreakTimer = new Timer();
 
         public void SetPresetTimeVer()
         {
             //check to see which radiobtn is selcted
         }
-
-        // save settings and menual in the fullviewwin
-        public void SavePresetTimeToSettings(string buttonPressed) 
+        //------------------------------------------------------------------------- save to settings 
+        // save preset times to settings
+        public void SaveTimesPresetsToSettings(decimal recoveryWorkTime, decimal recoveryBreakTime, decimal smartWorkTime, decimal smartBreakTime, decimal progressWorkTime, decimal progressBreakTime)
         {
-            if (buttonPressed == "save")
-            {
-                var settingsWin = new Worker_Ant.SettingsWin();
-                Properties.Settings.Default.recoveryWorkTime = Convert.ToInt32(settingsWin.numUDWorkRecovery.Value);
-                Properties.Settings.Default.recoveryBreakTime = Convert.ToInt32(settingsWin.numUDBreakRecovery.Value);
-                Properties.Settings.Default.smartWorkTime = Convert.ToInt32(settingsWin.numUDWorkSmart.Value);
-                Properties.Settings.Default.smartBreakTime = Convert.ToInt32(settingsWin.numUDBreakSmart.Value);
-                Properties.Settings.Default.progressWorkTime = Convert.ToInt32(settingsWin.numUDWorkProgress.Value);
-                Properties.Settings.Default.progressBreakTime = Convert.ToInt32(settingsWin.numUDBreakProgress.Value);
-                Properties.Settings.Default.roundCountdown = Convert.ToInt32(settingsWin.numUDRound.Value);
-
-                //Properties.Settings.Default.audioAlert = settingsWin.checkBoxAudioAlert.Checked;
-                //Properties.Settings.Default.simpleView = settingsWin.checkBoxSimpleView.Checked;
-                //Properties.Settings.Default.saftyInfo = settingsWin.checkBoxSafetyInfo.Checked;
-
-                InsertSettingsData("");
-            }
-            else if (buttonPressed == "set")
-            {
-                var fullViewWin = new FullViewWin();
-                Properties.Settings.Default.manualWorkTime = Convert.ToInt32(fullViewWin.numUDWorkManual);
-                Properties.Settings.Default.manualBreakTime = Convert.ToInt32(fullViewWin.numUDBreakManual);
-                MessageBox.Show("set has been pressed and menuall has been saved");
-            }
+            Properties.Settings.Default.recoveryWorkTime = recoveryWorkTime;
+            Properties.Settings.Default.recoveryBreakTime = recoveryBreakTime;
+            Properties.Settings.Default.smartWorkTime = smartWorkTime;
+            Properties.Settings.Default.smartBreakTime = smartBreakTime;
+            Properties.Settings.Default.progressWorkTime = progressWorkTime;
+            Properties.Settings.Default.progressBreakTime = progressBreakTime;
         }
-        // set setting to default
+        // save user setting to app settings
+        public void SaveSettingsPresetsToSettings(decimal roundCountdown,bool audioAlert, bool simpleView, bool saftyInfo)
+        {
+            Properties.Settings.Default.roundCountdown = roundCountdown;
+
+            //Properties.Settings.Default.audioAlert = audioAlert;
+            //Properties.Settings.Default.simpleView = simpleView;
+            //Properties.Settings.Default.saftyInfo = saftyInfo;
+            InsertSettingsData("Settings");
+
+        }
+        // save menual in the fullviewwin to settings 
+        public void SaveManualTimeToSettings(decimal manualWorkTime, decimal manualBreakTime)
+        {
+            Properties.Settings.Default.manualWorkTime = manualWorkTime;
+            Properties.Settings.Default.manualBreakTime = manualBreakTime;
+
+            MessageBox.Show("input " + Properties.Settings.Default.manualBreakTime + " output" + Properties.Settings.Default.manualWorkTime);
+            InsertSettingsData("FullViewWin");
+        }
+        //
+        //
+        //
+        //
+        //redo
+        //  |
+        //  V
+        //
+        //
+        //------------------------------------------------------------------------- set setting to default
         public void SetPresetTimeToDefault()
         {
-            Properties.Settings.Default.recoveryWorkTime = 0;
-            Properties.Settings.Default.recoveryBreakTime = 0;
-            Properties.Settings.Default.smartWorkTime = 0;
-            Properties.Settings.Default.smartBreakTime = 0;
-            Properties.Settings.Default.progressWorkTime = 0;
-            Properties.Settings.Default.progressBreakTime = 0;
+            Properties.Settings.Default.recoveryWorkTime = 10;
+            Properties.Settings.Default.recoveryBreakTime = 1;
+            Properties.Settings.Default.smartWorkTime = 10;
+            Properties.Settings.Default.smartBreakTime = 1;
+            Properties.Settings.Default.progressWorkTime = 10;
+            Properties.Settings.Default.progressBreakTime = 1;
             Properties.Settings.Default.roundCountdown = 1;
 
             //settingsWin.checkBoxSafetyInfo.Checked = true;
             //settingsWin.checkBoxAudioAlert.Checked = true;
             //settingsWin.checkBoxSimpleView.Checked = true;
 
-            InsertSettingsData("");
+            InsertSettingsData("Settings");
         }
-        // refresh data from the data base 
-        public void InsertSettingsData(string calledFrom)
+        //------------------------------------------------------------------------- refresh data from the data base 
+        private void InsertSettingsData(string calledFrom)
         {
+            var settingsWin = new Worker_Ant.SettingsWin();
+            var fullViewWin = new Worker_Ant.FullViewWin();
+            // refresh after save 
             if (calledFrom == "FullViewWin")
             {
-
+                //fullViewWin.numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime;
+                fullViewWin.numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime;
             }
-            else
+            else if (calledFrom == "Settings")
             {
-                var settingsWin = new Worker_Ant.SettingsWin();
                 settingsWin.numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime;
                 settingsWin.numUDBreakRecovery.Value = Properties.Settings.Default.recoveryBreakTime;
                 settingsWin.numUDWorkSmart.Value = Properties.Settings.Default.smartWorkTime;
                 settingsWin.numUDBreakSmart.Value = Properties.Settings.Default.smartBreakTime;
                 settingsWin.numUDWorkProgress.Value = Properties.Settings.Default.progressWorkTime;
-                settingsWin.numUDBreakProgress.Value = Properties.Settings.Default.progressBreakTime;
+                settingsWin.numUDBreakProgress.Value = Properties.Settings.Default.progressBreakTime ;
                 settingsWin.numUDRound.Value = Properties.Settings.Default.roundCountdown;
 
                 //settingsWin.checkBoxAudioAlert.Checked = Properties.Settings.Default.audioAlert;
                 //settingsWin.checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
                 //settingsWin.checkBoxSafetyInfo.Checked = Properties.Settings.Default.saftyInfo;
             }
+        }
+        //
+        //
+        //   ^
+        //   |
+        //
+        //redo
+        //
+        //
+        //
+        //
+        //------------------------------------------------------------------------- insert data to preview/set/reset to start
+        public void InsertDataToPreview(string chosenRadioBtn)
+        {
+            switch (chosenRadioBtn)
+            {
+                case ("Recovery"):
+                    workTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.recoveryWorkTime);
+                    breakTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.recoveryBreakTime);
+                    break;
+                case ("Smart"):
+                    workTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.smartWorkTime);
+                    breakTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.smartBreakTime);
+                    break;
+                case ("Progress"):
+                    workTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.progressWorkTime);
+                    breakTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.progressBreakTime);
+                    break;
+                case ("Manual"):
+                    workTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.manualWorkTime);
+                    breakTimeCoutdown = Convert.ToInt32(Properties.Settings.Default.manualBreakTime);
+                    break;
+                default:
+                    MessageBox.Show("Redio button is not selected");
+                    break;
+            }
+
+            roundsCountdown = Convert.ToInt32(Properties.Settings.Default.roundCountdown);
+        }
+        // start timer 
+        public void StartTimer()
+        {
+            
+        }
+        // stop timer 
+        public void StopTimer()
+        {
+
         }
     }
 }

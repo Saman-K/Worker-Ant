@@ -103,18 +103,36 @@ namespace Worker_Ant
         //button set/reset click
         private void btnSetReset_Click(object sender, EventArgs e)
         {
-            var countDown = new CountDown();
-            //btnSetReset.Text = "Reset";
+            var countdown = new Countdown();
+            btnSetReset.Text = "Reset";
             ////add a void in countdoun class to grabe the data from the preset and send it to the timer
 
             //labelRoundNumCountdown.Text = Properties.Settings.Default.roundCountdown.ToString();
-            
-            if (radioBtnManual.Checked == true)
+            if (radioBtnRecovery.Checked == true)
             {
-                countDown.SavePresetTimeToSettings("set");
+                countdown.InsertDataToPreview("Recovery");
             }
+            else if (radioBtnSmart.Checked == true)
+            {
+                countdown.InsertDataToPreview("Smart");
+            }
+            else if (radioBtnProgress.Checked == true)
+            {
+                countdown.InsertDataToPreview("Progress");
+            }
+            else if (radioBtnManual.Checked == true)
+            {
+                countdown.SaveManualTimeToSettings( numUDWorkManual.Value, numUDBreakManual.Value);
+                countdown.InsertDataToPreview("Manual");
+            }
+            labelWorkTimePreview.Text = (countdown.workTimeCoutdown).ToString() + " Min";
+            labelBreakTimePreview.Text = (countdown.breakTimeCoutdown).ToString() + " Min";
+            labelRoundNumPreview.Text = countdown.roundsCountdown.ToString() + " Round";
+        }
+        //start button clicked
+        private void btnStartStop_Click(object sender, EventArgs e)
+        {
 
-            countDown.InsertSettingsData("FullViweWin");
         }
     }
 }

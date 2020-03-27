@@ -25,10 +25,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int recoveryWorkTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public decimal recoveryWorkTime {
             get {
-                return ((int)(this["recoveryWorkTime"]));
+                return ((decimal)(this["recoveryWorkTime"]));
             }
             set {
                 this["recoveryWorkTime"] = value;
@@ -37,10 +37,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int recoveryBreakTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public decimal recoveryBreakTime {
             get {
-                return ((int)(this["recoveryBreakTime"]));
+                return ((decimal)(this["recoveryBreakTime"]));
             }
             set {
                 this["recoveryBreakTime"] = value;
@@ -49,10 +49,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int smartWorkTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public decimal smartWorkTime {
             get {
-                return ((int)(this["smartWorkTime"]));
+                return ((decimal)(this["smartWorkTime"]));
             }
             set {
                 this["smartWorkTime"] = value;
@@ -61,10 +61,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int smartBreakTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public decimal smartBreakTime {
             get {
-                return ((int)(this["smartBreakTime"]));
+                return ((decimal)(this["smartBreakTime"]));
             }
             set {
                 this["smartBreakTime"] = value;
@@ -73,10 +73,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int progressWorkTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public decimal progressWorkTime {
             get {
-                return ((int)(this["progressWorkTime"]));
+                return ((decimal)(this["progressWorkTime"]));
             }
             set {
                 this["progressWorkTime"] = value;
@@ -85,10 +85,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int progressBreakTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public decimal progressBreakTime {
             get {
-                return ((int)(this["progressBreakTime"]));
+                return ((decimal)(this["progressBreakTime"]));
             }
             set {
                 this["progressBreakTime"] = value;
@@ -97,10 +97,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int manualWorkTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public decimal manualWorkTime {
             get {
-                return ((int)(this["manualWorkTime"]));
+                return ((decimal)(this["manualWorkTime"]));
             }
             set {
                 this["manualWorkTime"] = value;
@@ -109,10 +109,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int manualBreakTime {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public decimal manualBreakTime {
             get {
-                return ((int)(this["manualBreakTime"]));
+                return ((decimal)(this["manualBreakTime"]));
             }
             set {
                 this["manualBreakTime"] = value;
@@ -121,10 +121,10 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int roundCountdown {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public decimal roundCountdown {
             get {
-                return ((int)(this["roundCountdown"]));
+                return ((decimal)(this["roundCountdown"]));
             }
             set {
                 this["roundCountdown"] = value;

@@ -2,32 +2,32 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Worker_Ant.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="recoveryWorkTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="recoveryWorkTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="recoveryBreakTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="recoveryBreakTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="smartWorkTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="smartWorkTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="smartBreakTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="smartBreakTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="progressWorkTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="progressWorkTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="progressBreakTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="progressBreakTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="manualWorkTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="manualWorkTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="manualBreakTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="manualBreakTime" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="roundCountdown" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="roundCountdown" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="saftyInfo" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

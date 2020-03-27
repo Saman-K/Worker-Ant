@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBoxManual = new System.Windows.Forms.GroupBox();
             this.numUDBreakManual = new System.Windows.Forms.NumericUpDown();
             this.numUDWorkManual = new System.Windows.Forms.NumericUpDown();
@@ -60,6 +61,7 @@
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBoxManual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
@@ -97,7 +99,8 @@
             0});
             this.numUDBreakManual.Name = "numUDBreakManual";
             this.numUDBreakManual.Size = new System.Drawing.Size(70, 20);
-            this.numUDBreakManual.TabIndex = 11;
+            this.numUDBreakManual.TabIndex = 2;
+            this.numUDBreakManual.TabStop = false;
             this.numUDBreakManual.Value = new decimal(new int[] {
             1,
             0,
@@ -119,7 +122,8 @@
             0});
             this.numUDWorkManual.Name = "numUDWorkManual";
             this.numUDWorkManual.Size = new System.Drawing.Size(71, 20);
-            this.numUDWorkManual.TabIndex = 10;
+            this.numUDWorkManual.TabIndex = 1;
+            this.numUDWorkManual.TabStop = false;
             this.numUDWorkManual.Value = new decimal(new int[] {
             10,
             0,
@@ -234,7 +238,8 @@
             this.radioBtnSmart.Name = "radioBtnSmart";
             this.radioBtnSmart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radioBtnSmart.Size = new System.Drawing.Size(52, 17);
-            this.radioBtnSmart.TabIndex = 4;
+            this.radioBtnSmart.TabIndex = 2;
+            this.radioBtnSmart.TabStop = true;
             this.radioBtnSmart.Text = "Smart";
             this.radioBtnSmart.UseVisualStyleBackColor = false;
             // 
@@ -246,7 +251,7 @@
             this.radioBtnProgress.Location = new System.Drawing.Point(12, 85);
             this.radioBtnProgress.Name = "radioBtnProgress";
             this.radioBtnProgress.Size = new System.Drawing.Size(66, 17);
-            this.radioBtnProgress.TabIndex = 5;
+            this.radioBtnProgress.TabIndex = 3;
             this.radioBtnProgress.TabStop = true;
             this.radioBtnProgress.Text = "Progress";
             this.radioBtnProgress.UseVisualStyleBackColor = false;
@@ -259,7 +264,7 @@
             this.radioBtnRecovery.Location = new System.Drawing.Point(12, 39);
             this.radioBtnRecovery.Name = "radioBtnRecovery";
             this.radioBtnRecovery.Size = new System.Drawing.Size(71, 17);
-            this.radioBtnRecovery.TabIndex = 6;
+            this.radioBtnRecovery.TabIndex = 1;
             this.radioBtnRecovery.TabStop = true;
             this.radioBtnRecovery.Text = "Recovery";
             this.radioBtnRecovery.UseVisualStyleBackColor = false;
@@ -272,7 +277,7 @@
             this.radioBtnManual.Location = new System.Drawing.Point(172, 35);
             this.radioBtnManual.Name = "radioBtnManual";
             this.radioBtnManual.Size = new System.Drawing.Size(60, 17);
-            this.radioBtnManual.TabIndex = 7;
+            this.radioBtnManual.TabIndex = 4;
             this.radioBtnManual.TabStop = true;
             this.radioBtnManual.Text = "Manual";
             this.radioBtnManual.UseVisualStyleBackColor = false;
@@ -283,7 +288,7 @@
             this.btnSetReset.Location = new System.Drawing.Point(182, 195);
             this.btnSetReset.Name = "btnSetReset";
             this.btnSetReset.Size = new System.Drawing.Size(75, 23);
-            this.btnSetReset.TabIndex = 7;
+            this.btnSetReset.TabIndex = 5;
             this.btnSetReset.Text = "Set";
             this.btnSetReset.UseVisualStyleBackColor = true;
             this.btnSetReset.Click += new System.EventHandler(this.btnSetReset_Click);
@@ -294,9 +299,10 @@
             this.btnStartStop.Location = new System.Drawing.Point(263, 195);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
-            this.btnStartStop.TabIndex = 8;
+            this.btnStartStop.TabIndex = 6;
             this.btnStartStop.Text = "Start";
             this.btnStartStop.UseVisualStyleBackColor = true;
+            this.btnStartStop.Click += new System.EventHandler(this.btnStartStop_Click);
             // 
             // groupBoxPreview
             // 
@@ -528,6 +534,7 @@
         public System.Windows.Forms.RadioButton radioBtnProgress;
         public System.Windows.Forms.RadioButton radioBtnRecovery;
         public System.Windows.Forms.RadioButton radioBtnManual;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

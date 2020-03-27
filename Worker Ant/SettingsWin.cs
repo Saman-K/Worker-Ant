@@ -81,14 +81,15 @@ namespace Worker_Ant
         //save btn
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var countDown = new CountDown();
-            countDown.SavePresetTimeToSettings("save");
+            var countdown = new Countdown();
+            countdown.SaveTimesPresetsToSettings(numUDWorkRecovery.Value,numUDBreakRecovery.Value,numUDWorkProgress.Value,numUDBreakProgress.Value,numUDWorkSmart.Value,numUDBreakSmart.Value);
+            countdown.SaveSettingsPresetsToSettings(numUDRound.Value, checkBoxAudioAlert.Checked,checkBoxSimpleView.Checked,checkBoxSafetyInfo.Checked);
         }
         //default btn
         private void btnDefault_Click(object sender, EventArgs e)
         {
-            var countDown = new CountDown();
-            countDown.SetPresetTimeToDefault();
+            var countdown = new Countdown();
+            countdown.SetPresetTimeToDefault();
         }
     }
 }
