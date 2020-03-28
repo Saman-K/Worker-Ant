@@ -25,7 +25,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
         public decimal recoveryWorkTime {
             get {
                 return ((decimal)(this["recoveryWorkTime"]));
@@ -37,7 +37,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public decimal recoveryBreakTime {
             get {
                 return ((decimal)(this["recoveryBreakTime"]));
@@ -49,7 +49,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
         public decimal smartWorkTime {
             get {
                 return ((decimal)(this["smartWorkTime"]));
@@ -61,7 +61,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public decimal smartBreakTime {
             get {
                 return ((decimal)(this["smartBreakTime"]));
@@ -73,7 +73,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("55")]
         public decimal progressWorkTime {
             get {
                 return ((decimal)(this["progressWorkTime"]));
@@ -85,7 +85,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public decimal progressBreakTime {
             get {
                 return ((decimal)(this["progressBreakTime"]));
@@ -97,7 +97,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("45")]
         public decimal manualWorkTime {
             get {
                 return ((decimal)(this["manualWorkTime"]));
@@ -109,7 +109,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
         public decimal manualBreakTime {
             get {
                 return ((decimal)(this["manualBreakTime"]));
@@ -164,6 +164,18 @@ namespace Worker_Ant.Properties {
             }
             set {
                 this["simpleView"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Manual")]
+        public string radioBtnChecked {
+            get {
+                return ((string)(this["radioBtnChecked"]));
+            }
+            set {
+                this["radioBtnChecked"] = value;
             }
         }
     }

@@ -3,28 +3,28 @@
   <Profiles />
   <Settings>
     <Setting Name="recoveryWorkTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">30</Value>
     </Setting>
     <Setting Name="recoveryBreakTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="smartWorkTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">40</Value>
     </Setting>
     <Setting Name="smartBreakTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="progressWorkTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">55</Value>
     </Setting>
     <Setting Name="progressBreakTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="manualWorkTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">10</Value>
+      <Value Profile="(Default)">45</Value>
     </Setting>
     <Setting Name="manualBreakTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">1</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="roundCountdown" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">1</Value>
@@ -37,6 +37,9 @@
     </Setting>
     <Setting Name="simpleView" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="radioBtnChecked" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Manual</Value>
     </Setting>
   </Settings>
 </SettingsFile>

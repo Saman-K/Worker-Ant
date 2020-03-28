@@ -38,17 +38,8 @@ namespace Worker_Ant
             //Properties.Settings.Default.audioAlert = audioAlert;
             //Properties.Settings.Default.simpleView = simpleView;
             //Properties.Settings.Default.saftyInfo = saftyInfo;
-            InsertSettingsData("Settings");
+            //InsertSettingsData("Settings");
 
-        }
-        // save menual in the fullviewwin to settings 
-        public void SaveManualTimeToSettings(decimal manualWorkTime, decimal manualBreakTime)
-        {
-            Properties.Settings.Default.manualWorkTime = manualWorkTime;
-            Properties.Settings.Default.manualBreakTime = manualBreakTime;
-
-            MessageBox.Show("input " + Properties.Settings.Default.manualBreakTime + " output" + Properties.Settings.Default.manualWorkTime);
-            InsertSettingsData("FullViewWin");
         }
         //
         //
@@ -59,49 +50,33 @@ namespace Worker_Ant
         //  V
         //
         //
-        //------------------------------------------------------------------------- set setting to default
-        public void SetPresetTimeToDefault()
-        {
-            Properties.Settings.Default.recoveryWorkTime = 10;
-            Properties.Settings.Default.recoveryBreakTime = 1;
-            Properties.Settings.Default.smartWorkTime = 10;
-            Properties.Settings.Default.smartBreakTime = 1;
-            Properties.Settings.Default.progressWorkTime = 10;
-            Properties.Settings.Default.progressBreakTime = 1;
-            Properties.Settings.Default.roundCountdown = 1;
 
-            //settingsWin.checkBoxSafetyInfo.Checked = true;
-            //settingsWin.checkBoxAudioAlert.Checked = true;
-            //settingsWin.checkBoxSimpleView.Checked = true;
-
-            InsertSettingsData("Settings");
-        }
         //------------------------------------------------------------------------- refresh data from the data base 
-        private void InsertSettingsData(string calledFrom)
-        {
-            var settingsWin = new Worker_Ant.SettingsWin();
-            var fullViewWin = new Worker_Ant.FullViewWin();
-            // refresh after save 
-            if (calledFrom == "FullViewWin")
-            {
-                //fullViewWin.numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime;
-                fullViewWin.numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime;
-            }
-            else if (calledFrom == "Settings")
-            {
-                settingsWin.numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime;
-                settingsWin.numUDBreakRecovery.Value = Properties.Settings.Default.recoveryBreakTime;
-                settingsWin.numUDWorkSmart.Value = Properties.Settings.Default.smartWorkTime;
-                settingsWin.numUDBreakSmart.Value = Properties.Settings.Default.smartBreakTime;
-                settingsWin.numUDWorkProgress.Value = Properties.Settings.Default.progressWorkTime;
-                settingsWin.numUDBreakProgress.Value = Properties.Settings.Default.progressBreakTime ;
-                settingsWin.numUDRound.Value = Properties.Settings.Default.roundCountdown;
+        ////private void InsertSettingsData(string calledFrom)
+        ////{
+        ////    var settingsWin = new Worker_Ant.SettingsWin();
+        ////    var fullViewWin = new Worker_Ant.FullViewWin();
+        ////    refresh after save
+        ////    if (calledFrom == "FullViewWin")
+        ////    {
+        ////        fullViewWin.numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime;
+        ////        fullViewWin.numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime;
+        ////    }
+        ////    else if (calledFrom == "Settings")
+        ////    {
+        ////        settingsWin.numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime;
+        ////        settingsWin.numUDBreakRecovery.Value = Properties.Settings.Default.recoveryBreakTime;
+        ////        settingsWin.numUDWorkSmart.Value = Properties.Settings.Default.smartWorkTime;
+        ////        settingsWin.numUDBreakSmart.Value = Properties.Settings.Default.smartBreakTime;
+        ////        settingsWin.numUDWorkProgress.Value = Properties.Settings.Default.progressWorkTime;
+        ////        settingsWin.numUDBreakProgress.Value = Properties.Settings.Default.progressBreakTime;
+        ////        settingsWin.numUDRound.Value = Properties.Settings.Default.roundCountdown;
 
-                //settingsWin.checkBoxAudioAlert.Checked = Properties.Settings.Default.audioAlert;
-                //settingsWin.checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
-                //settingsWin.checkBoxSafetyInfo.Checked = Properties.Settings.Default.saftyInfo;
-            }
-        }
+        ////        settingsWin.checkBoxAudioAlert.Checked = Properties.Settings.Default.audioAlert;
+        ////        settingsWin.checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
+        ////        settingsWin.checkBoxSafetyInfo.Checked = Properties.Settings.Default.saftyInfo;
+        ////    }
+        ////}
         //
         //
         //   ^
@@ -112,6 +87,23 @@ namespace Worker_Ant
         //
         //
         //
+        //------------------------------------------------------------------------- set setting to default
+        public void SetPresetTimeToDefault()
+        {
+            Properties.Settings.Default.recoveryWorkTime = 30;
+            Properties.Settings.Default.recoveryBreakTime = 2;
+            Properties.Settings.Default.smartWorkTime = 40;
+            Properties.Settings.Default.smartBreakTime = 4;
+            Properties.Settings.Default.progressWorkTime = 55;
+            Properties.Settings.Default.progressBreakTime = 5;
+            Properties.Settings.Default.roundCountdown = 1;
+
+            //settingsWin.checkBoxSafetyInfo.Checked = true;
+            //settingsWin.checkBoxAudioAlert.Checked = true;
+            //settingsWin.checkBoxSimpleView.Checked = true;
+
+            //InsertSettingsData("Settings");
+        }
         //------------------------------------------------------------------------- insert data to preview/set/reset to start
         public void InsertDataToPreview(string chosenRadioBtn)
         {
@@ -140,6 +132,7 @@ namespace Worker_Ant
 
             roundsCountdown = Convert.ToInt32(Properties.Settings.Default.roundCountdown);
         }
+        // btn
         // start timer 
         public void StartTimer()
         {

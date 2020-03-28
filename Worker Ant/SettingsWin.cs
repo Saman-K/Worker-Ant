@@ -81,9 +81,9 @@ namespace Worker_Ant
         //save btn
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var countdown = new Countdown();
-            countdown.SaveTimesPresetsToSettings(numUDWorkRecovery.Value,numUDBreakRecovery.Value,numUDWorkProgress.Value,numUDBreakProgress.Value,numUDWorkSmart.Value,numUDBreakSmart.Value);
-            countdown.SaveSettingsPresetsToSettings(numUDRound.Value, checkBoxAudioAlert.Checked,checkBoxSimpleView.Checked,checkBoxSafetyInfo.Checked);
+            //var countdown = new Countdown();
+            //countdown.SaveTimesPresetsToSettings(numUDWorkRecovery.Value, numUDBreakRecovery.Value, numUDWorkSmart.Value, numUDBreakSmart.Value, numUDWorkProgress.Value, numUDBreakProgress.Value);
+            //countdown.SaveSettingsPresetsToSettings(numUDRound.Value, checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxSafetyInfo.Checked);
         }
         //default btn
         private void btnDefault_Click(object sender, EventArgs e)

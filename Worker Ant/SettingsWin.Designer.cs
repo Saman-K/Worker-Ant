@@ -103,6 +103,7 @@
             // 
             // numUDBreakSmart
             // 
+            this.numUDBreakSmart.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "smartBreakTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDBreakSmart.Location = new System.Drawing.Point(84, 40);
             this.numUDBreakSmart.Minimum = new decimal(new int[] {
             1,
@@ -112,14 +113,11 @@
             this.numUDBreakSmart.Name = "numUDBreakSmart";
             this.numUDBreakSmart.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakSmart.TabIndex = 6;
-            this.numUDBreakSmart.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUDBreakSmart.Value = global::Worker_Ant.Properties.Settings.Default.smartBreakTime;
             // 
             // numUDWorkSmart
             // 
+            this.numUDWorkSmart.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "smartWorkTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDWorkSmart.Location = new System.Drawing.Point(83, 14);
             this.numUDWorkSmart.Minimum = new decimal(new int[] {
             1,
@@ -129,11 +127,7 @@
             this.numUDWorkSmart.Name = "numUDWorkSmart";
             this.numUDWorkSmart.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkSmart.TabIndex = 5;
-            this.numUDWorkSmart.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.numUDWorkSmart.Value = global::Worker_Ant.Properties.Settings.Default.smartWorkTime;
             // 
             // labelBreakSmart
             // 
@@ -169,6 +163,7 @@
             // 
             // numUDBreakProgress
             // 
+            this.numUDBreakProgress.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "progressBreakTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDBreakProgress.Location = new System.Drawing.Point(84, 40);
             this.numUDBreakProgress.Minimum = new decimal(new int[] {
             1,
@@ -178,14 +173,11 @@
             this.numUDBreakProgress.Name = "numUDBreakProgress";
             this.numUDBreakProgress.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakProgress.TabIndex = 4;
-            this.numUDBreakProgress.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUDBreakProgress.Value = global::Worker_Ant.Properties.Settings.Default.progressBreakTime;
             // 
             // numUDWorkProgress
             // 
+            this.numUDWorkProgress.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "progressWorkTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDWorkProgress.Location = new System.Drawing.Point(83, 14);
             this.numUDWorkProgress.Minimum = new decimal(new int[] {
             1,
@@ -195,11 +187,7 @@
             this.numUDWorkProgress.Name = "numUDWorkProgress";
             this.numUDWorkProgress.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkProgress.TabIndex = 3;
-            this.numUDWorkProgress.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.numUDWorkProgress.Value = global::Worker_Ant.Properties.Settings.Default.progressWorkTime;
             // 
             // labelBreakProgress
             // 
@@ -235,6 +223,7 @@
             // 
             // numUDBreakRecovery
             // 
+            this.numUDBreakRecovery.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "recoveryBreakTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDBreakRecovery.Location = new System.Drawing.Point(84, 40);
             this.numUDBreakRecovery.Minimum = new decimal(new int[] {
             1,
@@ -244,14 +233,11 @@
             this.numUDBreakRecovery.Name = "numUDBreakRecovery";
             this.numUDBreakRecovery.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakRecovery.TabIndex = 2;
-            this.numUDBreakRecovery.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUDBreakRecovery.Value = global::Worker_Ant.Properties.Settings.Default.recoveryBreakTime;
             // 
             // numUDWorkRecovery
             // 
+            this.numUDWorkRecovery.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "recoveryWorkTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDWorkRecovery.Location = new System.Drawing.Point(83, 14);
             this.numUDWorkRecovery.Minimum = new decimal(new int[] {
             1,
@@ -261,11 +247,7 @@
             this.numUDWorkRecovery.Name = "numUDWorkRecovery";
             this.numUDWorkRecovery.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkRecovery.TabIndex = 1;
-            this.numUDWorkRecovery.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.numUDWorkRecovery.Value = global::Worker_Ant.Properties.Settings.Default.recoveryWorkTime;
             // 
             // labelBreakRecovery
             // 
@@ -297,6 +279,7 @@
             // 
             // numUDRound
             // 
+            this.numUDRound.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "roundCountdown", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDRound.Location = new System.Drawing.Point(261, 109);
             this.numUDRound.Maximum = new decimal(new int[] {
             10,
@@ -311,15 +294,12 @@
             this.numUDRound.Name = "numUDRound";
             this.numUDRound.Size = new System.Drawing.Size(71, 20);
             this.numUDRound.TabIndex = 7;
-            this.numUDRound.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUDRound.Value = global::Worker_Ant.Properties.Settings.Default.roundCountdown;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(263, 200);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -352,6 +332,8 @@
             // checkBoxSafetyInfo
             // 
             this.checkBoxSafetyInfo.AutoSize = true;
+            this.checkBoxSafetyInfo.Checked = global::Worker_Ant.Properties.Settings.Default.saftyInfo;
+            this.checkBoxSafetyInfo.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "saftyInfo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxSafetyInfo.Enabled = false;
             this.checkBoxSafetyInfo.Location = new System.Drawing.Point(317, 136);
             this.checkBoxSafetyInfo.Name = "checkBoxSafetyInfo";
@@ -372,6 +354,8 @@
             // checkBoxAudioAlert
             // 
             this.checkBoxAudioAlert.AutoSize = true;
+            this.checkBoxAudioAlert.Checked = global::Worker_Ant.Properties.Settings.Default.audioAlert;
+            this.checkBoxAudioAlert.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "audioAlert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxAudioAlert.Enabled = false;
             this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 156);
             this.checkBoxAudioAlert.Name = "checkBoxAudioAlert";
@@ -382,6 +366,8 @@
             // checkBoxSimpleView
             // 
             this.checkBoxSimpleView.AutoSize = true;
+            this.checkBoxSimpleView.Checked = global::Worker_Ant.Properties.Settings.Default.simpleView;
+            this.checkBoxSimpleView.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "simpleView", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxSimpleView.Enabled = false;
             this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 176);
             this.checkBoxSimpleView.Name = "checkBoxSimpleView";
@@ -467,6 +453,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 235);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.buttonAdminSet);
             this.Controls.Add(this.labelSimpleView);
@@ -476,7 +463,6 @@
             this.Controls.Add(this.checkBoxSafetyInfo);
             this.Controls.Add(this.labelSafetyInfo);
             this.Controls.Add(this.btnDefault);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.numUDRound);
             this.Controls.Add(this.labelRoundSet);
             this.Controls.Add(this.groupBoxSetRecovery);

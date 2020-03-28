@@ -122,7 +122,7 @@ namespace Worker_Ant
             }
             else if (radioBtnManual.Checked == true)
             {
-                countdown.SaveManualTimeToSettings( numUDWorkManual.Value, numUDBreakManual.Value);
+                //countdown.SaveManualTimeToSettings( numUDWorkManual.Value, numUDBreakManual.Value);
                 countdown.InsertDataToPreview("Manual");
             }
             labelWorkTimePreview.Text = (countdown.workTimeCoutdown).ToString() + " Min";
@@ -133,6 +133,18 @@ namespace Worker_Ant
         private void btnStartStop_Click(object sender, EventArgs e)
         {
 
+        }
+        // radio button  manual
+        private void radioBtnManual_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioBtnManual.Checked == true)
+            {
+                groupBoxManual.Enabled = true;
+            }
+            else if (radioBtnManual.Checked == false)
+            {
+                groupBoxManual.Enabled = false;
+            }
         }
     }
 }
