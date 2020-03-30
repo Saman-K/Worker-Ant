@@ -53,6 +53,7 @@
             this.btnYesToBreakBasic.TabIndex = 11;
             this.btnYesToBreakBasic.Text = "Yes";
             this.btnYesToBreakBasic.UseVisualStyleBackColor = true;
+            this.btnYesToBreakBasic.Click += new System.EventHandler(this.btnYesToBreakBasic_Click);
             // 
             // btnNoToBreakBasic
             // 

@@ -11,9 +11,9 @@ namespace Worker_Ant
 {
     partial class InfoWin : Form
     {
-        int mouseXAxis;
-        int mouseYAxis;
-        bool mouseDrag;
+        internal int _mouseXAxis;
+        internal int _mouseYAxis;
+        internal bool _mouseDrag;
 
         public InfoWin()
         {
@@ -110,23 +110,23 @@ namespace Worker_Ant
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDrag = true;
-            mouseXAxis = Cursor.Position.X - this.Left;
-            mouseYAxis = Cursor.Position.Y - this.Top;
+            _mouseDrag = true;
+            _mouseXAxis = Cursor.Position.X - this.Left;
+            _mouseYAxis = Cursor.Position.Y - this.Top;
         }
         //form mouse move
         private void Win_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDrag)
+            if (_mouseDrag)
             {
-                this.Left = Cursor.Position.X - mouseXAxis;
-                this.Top = Cursor.Position.Y - mouseYAxis;
+                this.Left = Cursor.Position.X - _mouseXAxis;
+                this.Top = Cursor.Position.Y - _mouseYAxis;
             }
         }
         //form mouse up
         private void Win_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseDrag = false;
+            _mouseDrag = false;
         }
         //-------------------------------------------------------------------------pic close
         //click
@@ -143,6 +143,11 @@ namespace Worker_Ant
         private void picBoxClose_MouseEnter(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
+
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
 
         }
     }

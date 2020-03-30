@@ -12,35 +12,34 @@ namespace Worker_Ant
 {
     public partial class FullViewWin : Form
     {
-        int mouseXAxis;
-        int mouseYAxis;
-        bool mouseDrag;
+        internal int _mouseXAxis;
+        internal int _mouseYAxis;
+        internal bool _mouseDrag;
 
         public FullViewWin()
         {
             InitializeComponent();
         }
         //-------------------------------------------------------------------------win move
-        //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDrag = true;
-            mouseXAxis = Cursor.Position.X - this.Left;
-            mouseYAxis = Cursor.Position.Y - this.Top;
+            _mouseDrag = true;
+            _mouseXAxis = Cursor.Position.X - this.Left;
+            _mouseYAxis = Cursor.Position.Y - this.Top;
         }
         //form mouse move
         private void Win_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDrag)
+            if (_mouseDrag)
             {
-                this.Left = Cursor.Position.X - mouseXAxis;
-                this.Top = Cursor.Position.Y - mouseYAxis;
+                this.Left = Cursor.Position.X - _mouseXAxis;
+                this.Top = Cursor.Position.Y - _mouseYAxis;
             }
         }
         //form mouse up
         private void Win_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseDrag = false;
+            _mouseDrag = false;
         }
         //-------------------------------------------------------------------------pic close
         //click
@@ -99,15 +98,13 @@ namespace Worker_Ant
             winCouter.winName = "SettingsWin";
             winCouter.ChackWins();
         }
-        //-------------------------------------------------------------------------button click
+        //------------------------------------------------------------------------- button click
         //button set/reset click
         private void btnSetReset_Click(object sender, EventArgs e)
         {
             var countdown = new Countdown();
             btnSetReset.Text = "Reset";
             ////add a void in countdoun class to grabe the data from the preset and send it to the timer
-
-            //labelRoundNumCountdown.Text = Properties.Settings.Default.roundCountdown.ToString();
             if (radioBtnRecovery.Checked == true)
             {
                 countdown.InsertDataToPreview("Recovery");
@@ -122,19 +119,19 @@ namespace Worker_Ant
             }
             else if (radioBtnManual.Checked == true)
             {
-                //countdown.SaveManualTimeToSettings( numUDWorkManual.Value, numUDBreakManual.Value);
                 countdown.InsertDataToPreview("Manual");
             }
-            labelWorkTimePreview.Text = (countdown.workTimeCoutdown).ToString() + " Min";
-            labelBreakTimePreview.Text = (countdown.breakTimeCoutdown).ToString() + " Min";
-            labelRoundNumPreview.Text = countdown.roundsCountdown.ToString() + " Round";
+            labelWorkTimePreview.Text = (countdown.WorkTimerCountdown + " Min").ToString();
+            labelBreakTimePreview.Text = (countdown.BreakTimerCountdown + " Min").ToString();
+            labelRoundNumPreview.Text = (countdown.RoundsCountdown + " Round").ToString();
         }
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
         {
 
         }
-        // radio button  manual
+        //------------------------------------------------------------------------- radio button
+        // manual
         private void radioBtnManual_CheckedChanged(object sender, EventArgs e)
         {
             if (radioBtnManual.Checked == true)
@@ -146,5 +143,18 @@ namespace Worker_Ant
                 groupBoxManual.Enabled = false;
             }
         }
+        //------------------------------------------------------------------------- Timer 
+        //
+        private void tWorkCountdown_Tick(object sender, EventArgs e)
+        {
+
+        }
+        //
+        private void tBreakCountdown_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
