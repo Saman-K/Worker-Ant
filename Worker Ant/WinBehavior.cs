@@ -9,10 +9,10 @@ namespace Worker_Ant
 {
     public class WinBehavior
     {
-        public string winName;
+        //public string winName;
         bool winIsOpen;
         //-------------------------------------------------------------------------check windows to let only one to be visibel
-        public void ChackWins()
+        public void ChackWins(string winName)
         {
             foreach (Form win in Application.OpenForms)
             {

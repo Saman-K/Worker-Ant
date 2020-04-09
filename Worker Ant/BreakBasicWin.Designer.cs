@@ -165,10 +165,10 @@
         private System.Windows.Forms.PictureBox picBoxClose;
         private System.Windows.Forms.Label labelWinName;
         private System.Windows.Forms.PictureBox picBoxIcon;
-        private System.Windows.Forms.Button btnOkBreakBasic;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelTheBreakWEI;
         private System.Windows.Forms.Label labelLiveBreakTime;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.Button btnOkBreakBasic;
     }
 }

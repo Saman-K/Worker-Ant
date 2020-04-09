@@ -74,8 +74,7 @@ namespace Worker_Ant
         private void picBoxInfo_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
-            winCouter.winName = "InfoWin";
-            winCouter.ChackWins();
+            winCouter.ChackWins("InfoWin");
         }
         //------------------------------------------------------------------------- btn
         //default btn

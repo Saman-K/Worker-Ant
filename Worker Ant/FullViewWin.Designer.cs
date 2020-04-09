@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBoxManual = new System.Windows.Forms.GroupBox();
             this.numUDBreakManual = new System.Windows.Forms.NumericUpDown();
             this.numUDWorkManual = new System.Windows.Forms.NumericUpDown();
@@ -61,8 +60,6 @@
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioBtnManual = new System.Windows.Forms.RadioButton();
-            this.tWorkCountdown = new System.Windows.Forms.Timer(this.components);
-            this.tBreakCountdown = new System.Windows.Forms.Timer(this.components);
             this.groupBoxManual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
@@ -105,6 +102,7 @@
             this.numUDBreakManual.TabIndex = 2;
             this.numUDBreakManual.TabStop = false;
             this.numUDBreakManual.Value = global::Worker_Ant.Properties.Settings.Default.manualBreakTime;
+            this.numUDBreakManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
             // numUDWorkManual
             // 
@@ -125,6 +123,7 @@
             this.numUDWorkManual.TabIndex = 1;
             this.numUDWorkManual.TabStop = false;
             this.numUDWorkManual.Value = global::Worker_Ant.Properties.Settings.Default.manualWorkTime;
+            this.numUDWorkManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
             // labelBreakManual
             // 
@@ -238,6 +237,7 @@
             this.radioBtnSmart.TabStop = true;
             this.radioBtnSmart.Text = "Smart";
             this.radioBtnSmart.UseVisualStyleBackColor = false;
+            this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
             // radioBtnProgress
             // 
@@ -251,6 +251,7 @@
             this.radioBtnProgress.TabStop = true;
             this.radioBtnProgress.Text = "Progress";
             this.radioBtnProgress.UseVisualStyleBackColor = false;
+            this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
             // radioBtnRecovery
             // 
@@ -264,6 +265,7 @@
             this.radioBtnRecovery.TabStop = true;
             this.radioBtnRecovery.Text = "Recovery";
             this.radioBtnRecovery.UseVisualStyleBackColor = false;
+            this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
             // btnSetReset
             // 
@@ -449,17 +451,7 @@
             this.radioBtnManual.TabStop = true;
             this.radioBtnManual.Text = "Manual";
             this.radioBtnManual.UseVisualStyleBackColor = false;
-            this.radioBtnManual.CheckedChanged += new System.EventHandler(this.radioBtnManual_CheckedChanged);
-            // 
-            // tWorkCountdown
-            // 
-            this.tWorkCountdown.Interval = 1000;
-            this.tWorkCountdown.Tick += new System.EventHandler(this.tWorkCountdown_Tick);
-            // 
-            // tBreakCountdown
-            // 
-            this.tBreakCountdown.Interval = 1000;
-            this.tBreakCountdown.Tick += new System.EventHandler(this.tBreakCountdown_Tick);
+            this.radioBtnManual.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
             // FullViewWin
             // 
@@ -513,19 +505,11 @@
         private System.Windows.Forms.Label labelBreakManual;
         private System.Windows.Forms.Label labelWorkManual;
         private System.Windows.Forms.GroupBox groupBoxCountdown;
-        private System.Windows.Forms.Label labelRoundNumCountdown;
-        private System.Windows.Forms.Label labelBreakTimeCountdown;
-        private System.Windows.Forms.Label labelWorkTimeCountdown;
         private System.Windows.Forms.Label labelRoundCountdown;
         private System.Windows.Forms.Label labelBreakCountdown;
         private System.Windows.Forms.Label labelWorkCountdown;
         private System.Windows.Forms.ProgressBar progressBarCountdown;
-        private System.Windows.Forms.Button btnSetReset;
-        private System.Windows.Forms.Button btnStartStop;
         private System.Windows.Forms.GroupBox groupBoxPreview;
-        private System.Windows.Forms.Label labelRoundNumPreview;
-        private System.Windows.Forms.Label labelBreakTimePreview;
-        private System.Windows.Forms.Label labelWorkTimePreview;
         private System.Windows.Forms.Label labelRoundPreview;
         private System.Windows.Forms.Label labelBreakPreview;
         private System.Windows.Forms.Label labelWorkPreview;
@@ -541,8 +525,14 @@
         public System.Windows.Forms.RadioButton radioBtnProgress;
         public System.Windows.Forms.RadioButton radioBtnRecovery;
         public System.Windows.Forms.RadioButton radioBtnManual;
-        private System.Windows.Forms.Timer tWorkCountdown;
-        private System.Windows.Forms.Timer tBreakCountdown;
+        public System.Windows.Forms.Label labelRoundNumCountdown;
+        public System.Windows.Forms.Label labelBreakTimeCountdown;
+        public System.Windows.Forms.Label labelWorkTimeCountdown;
+        public System.Windows.Forms.Button btnSetReset;
+        public System.Windows.Forms.Button btnStartStop;
+        public System.Windows.Forms.Label labelRoundNumPreview;
+        public System.Windows.Forms.Label labelBreakTimePreview;
+        public System.Windows.Forms.Label labelWorkTimePreview;
     }
 }
 

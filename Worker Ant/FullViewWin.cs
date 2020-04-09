@@ -15,7 +15,7 @@ namespace Worker_Ant
         internal int _mouseXAxis;
         internal int _mouseYAxis;
         internal bool _mouseDrag;
-
+        internal (int,int,int) _getTimeData;
         public FullViewWin()
         {
             InitializeComponent();
@@ -77,8 +77,7 @@ namespace Worker_Ant
         private void picBoxInfo_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
-            winCouter.winName = "InfoWin";
-            winCouter.ChackWins();
+            winCouter.ChackWins("InfoWin");
         }
         //------------------------------------------------------------------------- pic change settings
         //settings enter
@@ -95,66 +94,72 @@ namespace Worker_Ant
         private void picBoxSettings_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
-            winCouter.winName = "SettingsWin";
-            winCouter.ChackWins();
+            winCouter.ChackWins("SettingsWin");
         }
         //------------------------------------------------------------------------- button click
         //button set/reset click
         private void btnSetReset_Click(object sender, EventArgs e)
         {
-            var countdown = new Countdown();
             btnSetReset.Text = "Reset";
-            ////add a void in countdoun class to grabe the data from the preset and send it to the timer
-            if (radioBtnRecovery.Checked == true)
-            {
-                countdown.InsertDataToPreview("Recovery");
-            }
-            else if (radioBtnSmart.Checked == true)
-            {
-                countdown.InsertDataToPreview("Smart");
-            }
-            else if (radioBtnProgress.Checked == true)
-            {
-                countdown.InsertDataToPreview("Progress");
-            }
-            else if (radioBtnManual.Checked == true)
-            {
-                countdown.InsertDataToPreview("Manual");
-            }
-            labelWorkTimePreview.Text = (countdown.WorkTimerCountdown + " Min").ToString();
-            labelBreakTimePreview.Text = (countdown.BreakTimerCountdown + " Min").ToString();
-            labelRoundNumPreview.Text = (countdown.RoundsCountdown + " Round").ToString();
+
+            getTimeData();
+
+            labelWorkTimeCountdown.Text = _getTimeData.Item1.ToString() + " Mins";
+            labelBreakTimeCountdown.Text = _getTimeData.Item2.ToString() + " Mins";
+            labelRoundNumCountdown.Text = _getTimeData.Item3.ToString();
         }
+
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
         {
+            getTimeData();
 
+            if (btnStartStop.Text == "Start")
+            {
+                btnStartStop.Text = "Stop";
+            }
+            else if(btnStartStop.Text == "Stop")
+            {
+                btnStartStop.Text = "Start";
+            }
         }
         //------------------------------------------------------------------------- radio button
         // manual
-        private void radioBtnManual_CheckedChanged(object sender, EventArgs e)
+        private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioBtnManual.Checked == true)
-            {
-                groupBoxManual.Enabled = true;
-            }
-            else if (radioBtnManual.Checked == false)
+            getTimeData();
+
+            labelWorkTimePreview.Text = _getTimeData.Item1.ToString() + " Mins";
+            labelBreakTimePreview.Text = _getTimeData.Item2.ToString() + " Mins";
+            labelRoundNumPreview.Text = _getTimeData.Item3.ToString() ;
+
+        }
+        //------------------------------------------------------------------------- get data
+        // get time data frome settings
+        private void getTimeData()
+        {
+            if (radioBtnManual.Checked == false)
             {
                 groupBoxManual.Enabled = false;
             }
+
+            if (radioBtnManual.Checked == true)
+            {
+                _getTimeData = Countdown.InsertDataToPreview("Manual");
+                groupBoxManual.Enabled = true;
+            }
+            else if (radioBtnRecovery.Checked == true)
+            {
+                _getTimeData = Countdown.InsertDataToPreview("Recovery");
+            }
+            else if (radioBtnSmart.Checked == true)
+            {
+                _getTimeData = Countdown.InsertDataToPreview("Smart");
+            }
+            else if (radioBtnProgress.Checked == true)
+            {
+                _getTimeData = Countdown.InsertDataToPreview("Progress");
+            }
         }
-        //------------------------------------------------------------------------- Timer 
-        //
-        private void tWorkCountdown_Tick(object sender, EventArgs e)
-        {
-
-        }
-        //
-        private void tBreakCountdown_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }
