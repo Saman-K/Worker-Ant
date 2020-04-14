@@ -10,7 +10,7 @@ namespace Worker_Ant
     public class WinBehavior
     {
         //public string winName;
-        bool winIsOpen;
+        internal bool WinIsOpen;
         //-------------------------------------------------------------------------check windows to let only one to be visibel
         public void ChackWins(string winName)
         {
@@ -18,11 +18,11 @@ namespace Worker_Ant
             {
                 if (win.Name == winName)
                 {
-                    winIsOpen = true;
+                    WinIsOpen = true;
                     win.BringToFront();
                 }
             }
-            if (winIsOpen == false)
+            if (WinIsOpen == false)
             {
                 if (winName == "InfoWin")
                 {

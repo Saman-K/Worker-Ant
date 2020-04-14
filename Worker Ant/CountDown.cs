@@ -10,8 +10,8 @@ namespace Worker_Ant
 {
     class Countdown /*: FullViewWin*/
     {
-        public decimal BreakTimerCountdown;
         public decimal WorkTimerCountdown;
+        public decimal BreakTimerCountdown;
         public decimal RoundsCountdown;
 
         public void SetPresetTimeVer()
@@ -31,12 +31,12 @@ namespace Worker_Ant
 
             //settingsWin.checkBoxSafetyInfo.Checked = true;
             //settingsWin.checkBoxAudioAlert.Checked = true;
-            //settingsWin.checkBoxSimpleView.Checked = true;
+            Properties.Settings.Default.simpleView = true;
 
             //InsertSettingsData("Settings");
         }
-        //------------------------------------------------------------------------- insert data to preview/set/reset to start
-       public static (int, int ,int) InsertDataToPreview(string chosenRadioBtn)
+        //------------------------------------------------------------------------- insert data to view/set/reset to start
+        public static (int, int, int) InsertDataToView(string chosenRadioBtn)
         {
             int workTime = 0;
             int breakTime = 0;
@@ -64,13 +64,19 @@ namespace Worker_Ant
             }
 
             return (workTime, breakTime, Convert.ToInt32(Properties.Settings.Default.roundCountdown));
-            
+
+        }
+        public void SetTimeToStart(int WorkT, int BreakT, int Round)
+        {
+            WorkTimerCountdown = WorkT;
+            BreakTimerCountdown = BreakT;
+            RoundsCountdown = Round;
         }
         //------------------------------------------------------------------------- btn 
         // start timer 
-        public void StartStopTimer(string btnText)
+        public void StartStopTimer(/*string btnText*/)
         {
-
+            MessageBox.Show("work " + WorkTimerCountdown + "break " + BreakTimerCountdown + "round " + RoundsCountdown);
         }
     }
 }

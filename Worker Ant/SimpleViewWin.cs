@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Worker_Ant
 {
-    public partial class FullViewWin : Form
+    public partial class SimpleViewWin : Form
     {
         internal int MouseXAxis;
         internal int MouseYAxis;
         internal bool MouseDrag;
-        internal (int,int,int) TimeData;
-        public FullViewWin()
+        internal (int, int, int) TimeData;
+        public SimpleViewWin()
         {
             InitializeComponent();
         }
@@ -45,7 +45,6 @@ namespace Worker_Ant
         //click
         private void picBoxClose_Click(object sender, EventArgs e)
         {
-            
         }
         //double click
         private void picBoxClose_DoubleClick(object sender, EventArgs e)
@@ -97,71 +96,26 @@ namespace Worker_Ant
             winCouter.ChackWins("SettingsWin");
         }
         //------------------------------------------------------------------------- button click
-        //button set/reset click
-        private void btnSetReset_Click(object sender, EventArgs e)
-        {
-            btnSetReset.Text = "Reset";
-
-            GetTimeData();
-
-            labelWorkTimeCountdown.Text = TimeData.Item1.ToString() + " Mins";
-            labelBreakTimeCountdown.Text = TimeData.Item2.ToString() + " Mins";
-            labelRoundNumCountdown.Text = TimeData.Item3.ToString();
-            //Countdown.WorkTimerCountdown = TimeData.Item1;
-            //    TimeData.Item2,TimeData.Item3
-        }
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
         {
-
-
             if (btnStartStop.Text == "Start")
             {
                 btnStartStop.Text = "Stop";
-                btnSetReset.Enabled = false;
-                if (labelWorkTimeCountdown.Text == "Work Time in Min" /*|| labelBreakCountdown.Text == "Break Time in Min"*/)
-                {
-                    btnSetReset_Click(null, null);
-                }
-                var countDown = new Countdown();
+                GetTimeData();
 
-                countDown.SetTimeToStart(TimeData.Item1, TimeData.Item2, TimeData.Item3);
-
-                countDown.StartStopTimer();
 
             }
-            else if(btnStartStop.Text == "Stop")
+            else if (btnStartStop.Text == "Stop")
             {
                 btnStartStop.Text = "Start";
-                btnSetReset.Enabled = true;
             }
-        }
-        //------------------------------------------------------------------------- radio button
-        // manual
-        private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
-        {
-            GetTimeData();
-
-            labelWorkTimePreview.Text = TimeData.Item1.ToString() + " Mins";
-            labelBreakTimePreview.Text = TimeData.Item2.ToString() + " Mins";
-            labelRoundNumPreview.Text = TimeData.Item3.ToString() ;
-
         }
         //------------------------------------------------------------------------- get data
         // get time data frome settings
         private void GetTimeData()
         {
-            if (radioBtnManual.Checked == false)
-            {
-                groupBoxManual.Enabled = false;
-            }
-
-            if (radioBtnManual.Checked == true)
-            {
-                TimeData = Countdown.InsertDataToView("Manual");
-                groupBoxManual.Enabled = true;
-            }
-            else if (radioBtnRecovery.Checked == true)
+            if (radioBtnRecovery.Checked == true)
             {
                 TimeData = Countdown.InsertDataToView("Recovery");
             }
@@ -173,7 +127,9 @@ namespace Worker_Ant
             {
                 TimeData = Countdown.InsertDataToView("Progress");
             }
+            labelWorkTimeCountdown.Text = TimeData.Item1.ToString() + " Mins";
+            labelBreakTimeCountdown.Text = TimeData.Item2.ToString() + " Mins";
+            labelRoundNumCountdown.Text = TimeData.Item3.ToString();
         }
-
     }
 }

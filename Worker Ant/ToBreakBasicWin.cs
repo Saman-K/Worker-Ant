@@ -12,9 +12,9 @@ namespace Worker_Ant
 {
     public partial class ToBreakBasicWin : Form
     {
-        internal int _mouseXAxis;
-        internal int _mouseYAxis;
-        internal bool _mouseDrag;
+        internal int MouseXAxis;
+        internal int MouseYAxis;
+        internal bool MouseDrag;
 
         public ToBreakBasicWin()
         {
@@ -25,23 +25,23 @@ namespace Worker_Ant
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
-            _mouseDrag = true;
-            _mouseXAxis = Cursor.Position.X - this.Left;
-            _mouseYAxis = Cursor.Position.Y - this.Top;
+            MouseDrag = true;
+            MouseXAxis = Cursor.Position.X - this.Left;
+            MouseYAxis = Cursor.Position.Y - this.Top;
         }
         //form mouse move
         private void Win_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_mouseDrag)
+            if (MouseDrag)
             {
-                this.Left = Cursor.Position.X - _mouseXAxis;
-                this.Top = Cursor.Position.Y - _mouseYAxis;
+                this.Left = Cursor.Position.X - MouseXAxis;
+                this.Top = Cursor.Position.Y - MouseYAxis;
             }
         }
         //form mouse up
         private void Win_MouseUp(object sender, MouseEventArgs e)
         {
-            _mouseDrag = false;
+            MouseDrag = false;
         }
         //-------------------------------------------------------------------------pic close
         //click

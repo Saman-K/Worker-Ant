@@ -16,7 +16,15 @@ namespace Worker_Ant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FullViewWin());
+            if (Properties.Settings.Default.simpleView == true)
+            {
+                Application.Run(new SimpleViewWin());
+            }
+            else if (Properties.Settings.Default.simpleView == false)
+            {
+                Application.Run(new FullViewWin());
+            }
+
         }
     }
 }
