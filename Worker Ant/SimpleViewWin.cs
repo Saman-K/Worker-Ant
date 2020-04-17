@@ -95,6 +95,9 @@ namespace Worker_Ant
             var winCouter = new WinBehavior();
             winCouter.ChackWins("SettingsWin");
         }
+        //-------------------------------------------------------------------------
+
+
         //------------------------------------------------------------------------- button click
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)

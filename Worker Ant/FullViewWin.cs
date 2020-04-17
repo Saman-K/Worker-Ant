@@ -81,7 +81,7 @@ namespace Worker_Ant
         }
         //------------------------------------------------------------------------- pic change settings
         //settings enter
-        private void picBoxSettings_MouseEnter(object sender, EventArgs e)
+        private void PicBoxSettings_MouseEnter(object sender, EventArgs e)
         {
             picBoxSettings.Image = Worker_Ant.Properties.Resources.Settings;
         }
@@ -96,6 +96,9 @@ namespace Worker_Ant
             var winCouter = new WinBehavior();
             winCouter.ChackWins("SettingsWin");
         }
+        //-------------------------------------------------------------------------
+
+
         //------------------------------------------------------------------------- button click
         //button set/reset click
         private void btnSetReset_Click(object sender, EventArgs e)
@@ -107,27 +110,26 @@ namespace Worker_Ant
             labelWorkTimeCountdown.Text = TimeData.Item1.ToString() + " Mins";
             labelBreakTimeCountdown.Text = TimeData.Item2.ToString() + " Mins";
             labelRoundNumCountdown.Text = TimeData.Item3.ToString();
-            //Countdown.WorkTimerCountdown = TimeData.Item1;
-            //    TimeData.Item2,TimeData.Item3
+
+            Countdown.WorkTimerCountdown = TimeData.Item1;
+            Countdown.BreakTimerCountdown = TimeData.Item2;
+            Countdown.RoundsCountdown = TimeData.Item3;
         }
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
         {
-
-
             if (btnStartStop.Text == "Start")
             {
                 btnStartStop.Text = "Stop";
                 btnSetReset.Enabled = false;
-                if (labelWorkTimeCountdown.Text == "Work Time in Min" /*|| labelBreakCountdown.Text == "Break Time in Min"*/)
+                if (labelWorkTimeCountdown.Text == "Work Time in Min" || labelBreakCountdown.Text == "Break Time in Min")
                 {
                     btnSetReset_Click(null, null);
                 }
-                var countDown = new Countdown();
 
-                countDown.SetTimeToStart(TimeData.Item1, TimeData.Item2, TimeData.Item3);
+                labelWorkTimeCountdown.Text = Countdown.WorkTimerCountdown.ToString();
 
-                countDown.StartStopTimer();
+                Countdown.StartStopTimer();
 
             }
             else if(btnStartStop.Text == "Stop")
@@ -145,7 +147,6 @@ namespace Worker_Ant
             labelWorkTimePreview.Text = TimeData.Item1.ToString() + " Mins";
             labelBreakTimePreview.Text = TimeData.Item2.ToString() + " Mins";
             labelRoundNumPreview.Text = TimeData.Item3.ToString() ;
-
         }
         //------------------------------------------------------------------------- get data
         // get time data frome settings
@@ -173,6 +174,11 @@ namespace Worker_Ant
             {
                 TimeData = Countdown.InsertDataToView("Progress");
             }
+            else
+            {
+                MessageBox.Show("Radio Button not found");
+            }
+            
         }
 
     }

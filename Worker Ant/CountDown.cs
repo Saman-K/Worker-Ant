@@ -10,14 +10,41 @@ namespace Worker_Ant
 {
     class Countdown /*: FullViewWin*/
     {
-        public decimal WorkTimerCountdown;
-        public decimal BreakTimerCountdown;
-        public decimal RoundsCountdown;
-
-        public void SetPresetTimeVer()
-        {
-            //check to see which radiobtn is selcted
+        // fields
+        private static int _workTimerCountdown;
+        private static int _breakTimerCountdown;
+        private static int _roundsCountdown;
+        // properties
+        public static decimal WorkTimerCountdown 
+        { 
+            set {
+                if (value >= 0)
+                {
+                    _workTimerCountdown = Convert.ToInt32(value);
+                }
+            }
+            get { return _workTimerCountdown ;}
         }
+        public static decimal BreakTimerCountdown 
+        {
+            set {
+                if (value >= 0)
+                {
+                    _breakTimerCountdown = Convert.ToInt32(value);
+                }
+            }
+            get { return _breakTimerCountdown; }
+        }
+        public static decimal RoundsCountdown 
+        {
+            set { if (value >= 0) 
+                { 
+                _roundsCountdown = Convert.ToInt32(value);
+                } }
+            get { return _roundsCountdown; }
+        }
+
+
         //------------------------------------------------------------------------- set setting to default
         public void SetPresetTimeToDefault()
         {
@@ -38,44 +65,61 @@ namespace Worker_Ant
         //------------------------------------------------------------------------- insert data to view/set/reset to start
         public static (int, int, int) InsertDataToView(string chosenRadioBtn)
         {
-            int workTime = 0;
-            int breakTime = 0;
+            int WorkTime = 0;
+            int BreakTime = 0;
             switch (chosenRadioBtn)
             {
                 case ("Recovery"):
-                    workTime = Convert.ToInt32(Properties.Settings.Default.recoveryWorkTime);
-                    breakTime = Convert.ToInt32(Properties.Settings.Default.recoveryBreakTime);
+                    WorkTime = Convert.ToInt32(Properties.Settings.Default.recoveryWorkTime);
+                    BreakTime = Convert.ToInt32(Properties.Settings.Default.recoveryBreakTime);
                     break;
                 case ("Smart"):
-                    workTime = Convert.ToInt32(Properties.Settings.Default.smartWorkTime);
-                    breakTime = Convert.ToInt32(Properties.Settings.Default.smartBreakTime);
+                    WorkTime = Convert.ToInt32(Properties.Settings.Default.smartWorkTime);
+                    BreakTime = Convert.ToInt32(Properties.Settings.Default.smartBreakTime);
                     break;
                 case ("Progress"):
-                    workTime = Convert.ToInt32(Properties.Settings.Default.progressWorkTime);
-                    breakTime = Convert.ToInt32(Properties.Settings.Default.progressBreakTime);
+                    WorkTime = Convert.ToInt32(Properties.Settings.Default.progressWorkTime);
+                    BreakTime = Convert.ToInt32(Properties.Settings.Default.progressBreakTime);
                     break;
                 case ("Manual"):
-                    workTime = Convert.ToInt32(Properties.Settings.Default.manualWorkTime);
-                    breakTime = Convert.ToInt32(Properties.Settings.Default.manualBreakTime);
+                    WorkTime = Convert.ToInt32(Properties.Settings.Default.manualWorkTime);
+                    BreakTime = Convert.ToInt32(Properties.Settings.Default.manualBreakTime);
                     break;
                 default:
                     //MessageBox.Show("Redio button is not selected");
                     break;
             }
 
-            return (workTime, breakTime, Convert.ToInt32(Properties.Settings.Default.roundCountdown));
-
-        }
-        public void SetTimeToStart(int WorkT, int BreakT, int Round)
-        {
-            WorkTimerCountdown = WorkT;
-            BreakTimerCountdown = BreakT;
-            RoundsCountdown = Round;
+            return (WorkTime, BreakTime, Convert.ToInt32(Properties.Settings.Default.roundCountdown));
         }
         //------------------------------------------------------------------------- btn 
         // start timer 
-        public void StartStopTimer(/*string btnText*/)
+        public static void StartStopTimer(/*string btnText*/)
         {
+            while (RoundsCountdown > 0)
+            {
+                RoundsCountdown--;
+                while (WorkTimerCountdown > 0)
+                {
+                    WorkTimerCountdown--;
+                    System.Threading.Thread.Sleep(1000);
+
+
+                    // make a timer to limit the speed of the loops 
+
+                    // try to make the live time label refrash every second 
+
+                    // do the maths for and numbers for the property 
+
+                    //var timer1 = new Timer;
+                }
+                while (BreakTimerCountdown > 0)
+                {
+                    BreakTimerCountdown--;
+
+                }
+            }
+            // get date to store on propertis
             MessageBox.Show("work " + WorkTimerCountdown + "break " + BreakTimerCountdown + "round " + RoundsCountdown);
         }
     }

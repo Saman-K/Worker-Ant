@@ -345,7 +345,7 @@
             this.picBoxSettings.TabIndex = 14;
             this.picBoxSettings.TabStop = false;
             this.picBoxSettings.Click += new System.EventHandler(this.picBoxSettings_Click);
-            this.picBoxSettings.MouseEnter += new System.EventHandler(this.picBoxSettings_MouseEnter);
+            this.picBoxSettings.MouseEnter += new System.EventHandler(this.PicBoxSettings_MouseEnter);
             this.picBoxSettings.MouseLeave += new System.EventHandler(this.picBoxSettings_MouseLeave);
             // 
             // picBoxInfo
