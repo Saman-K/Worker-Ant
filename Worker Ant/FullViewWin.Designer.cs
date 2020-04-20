@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBoxManual = new System.Windows.Forms.GroupBox();
             this.labelBreakManual = new System.Windows.Forms.Label();
             this.labelWorkManual = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioBtnManual = new System.Windows.Forms.RadioButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.numUDBreakManual = new System.Windows.Forms.NumericUpDown();
             this.numUDWorkManual = new System.Windows.Forms.NumericUpDown();
             this.groupBoxManual.SuspendLayout();
@@ -416,6 +418,10 @@
             this.radioBtnManual.UseVisualStyleBackColor = false;
             this.radioBtnManual.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // numUDBreakManual
             // 
             this.numUDBreakManual.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "manualBreakTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -533,6 +539,7 @@
         public System.Windows.Forms.Label labelRoundNumPreview;
         public System.Windows.Forms.Label labelBreakTimePreview;
         public System.Windows.Forms.Label labelWorkTimePreview;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

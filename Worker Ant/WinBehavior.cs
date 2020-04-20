@@ -19,7 +19,11 @@ namespace Worker_Ant
                 if (win.Name == winName)
                 {
                     WinIsOpen = true;
-                    win.BringToFront();
+                    try
+                    {
+                        win.BringToFront();
+                    }
+                    catch {}
                 }
             }
             if (WinIsOpen == false)
@@ -33,6 +37,11 @@ namespace Worker_Ant
                 {
                     var settingsWin = new SettingsWin();
                     settingsWin.Show();
+                }
+                else if (winName == "BreakBasicWin")
+                {
+                    var breakBasicWin = new BreakBasicWin();
+                    breakBasicWin.Show();
                 }
                 else
                 {

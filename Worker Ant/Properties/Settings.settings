@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="recoveryWorkTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">30</Value>
+      <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="recoveryBreakTime" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">2</Value>

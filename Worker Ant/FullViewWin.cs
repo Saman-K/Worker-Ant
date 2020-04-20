@@ -118,25 +118,24 @@ namespace Worker_Ant
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
         {
+
             if (btnStartStop.Text == "Start")
             {
-                btnStartStop.Text = "Stop";
                 btnSetReset.Enabled = false;
+
                 if (labelWorkTimeCountdown.Text == "Work Time in Min" || labelBreakCountdown.Text == "Break Time in Min")
                 {
                     btnSetReset_Click(null, null);
-                }
-
-                labelWorkTimeCountdown.Text = Countdown.WorkTimerCountdown.ToString();
-
-                Countdown.StartStopTimer();
+                } 
+                timer1.Enabled = true;
 
             }
-            else if(btnStartStop.Text == "Stop")
+            else if (btnStartStop.Text == "Stop")
             {
-                btnStartStop.Text = "Start";
                 btnSetReset.Enabled = true;
             }
+
+            btnStartStop.Text = Countdown.StartStopTimer(btnStartStop.Text);
         }
         //------------------------------------------------------------------------- radio button
         // manual
@@ -181,5 +180,23 @@ namespace Worker_Ant
             
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelWorkTimeCountdown.Text = Countdown.WorkTimerCountdown.ToString();
+
+            if (Countdown.WorkTimerCountdown == 0)
+            {
+                var winCouter = new WinBehavior();
+                winCouter.ChackWins("BreakBasicWin");
+            }
+            labelBreakTimeCountdown.Text = Countdown.BreakTimerCountdown.ToString();
+
+            if (Countdown.BreakTimerCountdown == 0)
+            {
+                timer1.Enabled = false;
+            }
+            labelRoundNumCountdown.Text = Countdown.RoundsCountdown.ToString();
+
+        }
     }
 }
