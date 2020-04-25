@@ -12,9 +12,9 @@ namespace Worker_Ant
 {
     public partial class BreakBasicWin : Form
     {
-        internal int MouseXAxis;
-        internal int MouseYAxis;
-        internal bool MouseDrag;
+        internal static int MouseXAxis;
+        internal static int MouseYAxis;
+        internal static bool MouseDrag;
 
         public BreakBasicWin()
         {
@@ -61,14 +61,5 @@ namespace Worker_Ant
 
         }
 
-        private void BreakBasic_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOkBreakBasic_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

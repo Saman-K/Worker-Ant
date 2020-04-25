@@ -76,7 +76,7 @@ namespace Worker_Ant
         private void picBoxInfo_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
-            winCouter.ChackWins("InfoWin");
+            winCouter.ChackWins("Info");
         }
         //------------------------------------------------------------------------- pic change settings
         //settings enter
@@ -93,7 +93,7 @@ namespace Worker_Ant
         private void picBoxSettings_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
-            winCouter.ChackWins("SettingsWin");
+            winCouter.ChackWins("Settings");
         }
         //-------------------------------------------------------------------------
 

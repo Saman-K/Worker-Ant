@@ -68,6 +68,12 @@
       <DependentUpon>BreakBasicWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Countdown.cs" />
+    <Compile Include="ErrorHandlerWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorHandlerWin.Designer.cs">
+      <DependentUpon>ErrorHandlerWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FullViewWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CountDown.resx">
       <DependentUpon>Countdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorHandlerWin.resx">
+      <DependentUpon>ErrorHandlerWin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FullViewWin.resx">
       <DependentUpon>FullViewWin.cs</DependentUpon>

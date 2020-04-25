@@ -15,10 +15,15 @@ namespace Worker_Ant
         internal int MouseXAxis;
         internal int MouseYAxis;
         internal bool MouseDrag;
-        internal (int,int,int) TimeData;
+        internal (int, int, int) TimeData;
         public FullViewWin()
         {
             InitializeComponent();
+        }
+
+        private void FullViewWin_Load(object sender, EventArgs e)
+        {
+            liveRefresh.Start();
         }
         //-------------------------------------------------------------------------win move
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -77,7 +82,7 @@ namespace Worker_Ant
         private void picBoxInfo_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
-            winCouter.ChackWins("InfoWin");
+            winCouter.ChackWins("Info");
         }
         //------------------------------------------------------------------------- pic change settings
         //settings enter
@@ -94,7 +99,7 @@ namespace Worker_Ant
         private void picBoxSettings_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
-            winCouter.ChackWins("SettingsWin");
+            winCouter.ChackWins("Settings");
         }
         //-------------------------------------------------------------------------
 
@@ -103,17 +108,15 @@ namespace Worker_Ant
         //button set/reset click
         private void btnSetReset_Click(object sender, EventArgs e)
         {
-            btnSetReset.Text = "Reset";
-
             GetTimeData();
 
             labelWorkTimeCountdown.Text = TimeData.Item1.ToString() + " Mins";
             labelBreakTimeCountdown.Text = TimeData.Item2.ToString() + " Mins";
             labelRoundNumCountdown.Text = TimeData.Item3.ToString();
 
-            Countdown.WorkTimerCountdown = TimeData.Item1;
-            Countdown.BreakTimerCountdown = TimeData.Item2;
-            Countdown.RoundsCountdown = TimeData.Item3;
+            Countdown.CountdownValues = TimeData;
+
+            btnSetReset.Text = Countdown.BtnInputControl(btnSetReset.Text);
         }
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
@@ -126,19 +129,19 @@ namespace Worker_Ant
                 if (labelWorkTimeCountdown.Text == "Work Time in Min" || labelBreakCountdown.Text == "Break Time in Min")
                 {
                     btnSetReset_Click(null, null);
-                } 
-                timer1.Enabled = true;
-
+                    liveRefresh_Tick(null, null);
+                }
+                liveRefresh.Start();
             }
             else if (btnStartStop.Text == "Stop")
             {
                 btnSetReset.Enabled = true;
+                liveRefresh.Stop();
             }
 
-            btnStartStop.Text = Countdown.StartStopTimer(btnStartStop.Text);
+            btnStartStop.Text = Countdown.BtnInputControl(btnStartStop.Text);
         }
         //------------------------------------------------------------------------- radio button
-        // manual
         private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
         {
             GetTimeData();
@@ -179,24 +182,27 @@ namespace Worker_Ant
             }
             
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        //------------------------------------------------------------------------- timer
+        private void liveRefresh_Tick(object sender, EventArgs e)
         {
-            labelWorkTimeCountdown.Text = Countdown.WorkTimerCountdown.ToString();
+            labelWorkTimeCountdown.Text = Countdown.WorkTimerLive.ToString();
+            labelBreakTimeCountdown.Text = Countdown.BreakTimerLive.ToString();
+            //if (Countdown.BreakTimerLive == 0)
+            //{
 
-            if (Countdown.WorkTimerCountdown == 0)
-            {
-                var winCouter = new WinBehavior();
-                winCouter.ChackWins("BreakBasicWin");
-            }
-            labelBreakTimeCountdown.Text = Countdown.BreakTimerCountdown.ToString();
-
-            if (Countdown.BreakTimerCountdown == 0)
-            {
-                timer1.Enabled = false;
-            }
-            labelRoundNumCountdown.Text = Countdown.RoundsCountdown.ToString();
-
+            //    //liveRefresh.Enabled = false;
+            //}
+            labelRoundNumCountdown.Text = Countdown.RoundTimerLive.ToString();
+            //if (labelWorkTimeCountdown.Text == "0" && labelBreakTimeCountdown.Text == "0" && labelRoundNumCountdown.Text == "0")
+            //{
+            //    btnStartStop.Text = "Start";
+            //    btnSetReset.Enabled = true;
+            //}
+            //if (Countdown.RoundTimerLive == 0 && Countdown.BreakTimerLive == 0 && Countdown.WorkTimerLive == 0)
+            //{
+            //    btnSetReset_Click(null, null);
+            //}
+            
         }
     }
 }

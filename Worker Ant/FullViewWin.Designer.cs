@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBoxManual = new System.Windows.Forms.GroupBox();
+            this.numUDBreakManual = new System.Windows.Forms.NumericUpDown();
+            this.numUDWorkManual = new System.Windows.Forms.NumericUpDown();
             this.labelBreakManual = new System.Windows.Forms.Label();
             this.labelWorkManual = new System.Windows.Forms.Label();
             this.groupBoxCountdown = new System.Windows.Forms.GroupBox();
@@ -59,10 +61,10 @@
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioBtnManual = new System.Windows.Forms.RadioButton();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.numUDBreakManual = new System.Windows.Forms.NumericUpDown();
-            this.numUDWorkManual = new System.Windows.Forms.NumericUpDown();
+            this.liveRefresh = new System.Windows.Forms.Timer(this.components);
             this.groupBoxManual.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
             this.groupBoxCountdown.SuspendLayout();
             this.groupBoxPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxSettings)).BeginInit();
@@ -70,8 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxManual
@@ -89,6 +89,43 @@
             this.groupBoxManual.TabIndex = 0;
             this.groupBoxManual.TabStop = false;
             this.groupBoxManual.Text = "Manual";
+            // 
+            // numUDBreakManual
+            // 
+            this.numUDBreakManual.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "manualBreakTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numUDBreakManual.Location = new System.Drawing.Point(83, 40);
+            this.numUDBreakManual.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUDBreakManual.Name = "numUDBreakManual";
+            this.numUDBreakManual.Size = new System.Drawing.Size(70, 20);
+            this.numUDBreakManual.TabIndex = 2;
+            this.numUDBreakManual.TabStop = false;
+            this.numUDBreakManual.Value = global::Worker_Ant.Properties.Settings.Default.manualBreakTime;
+            this.numUDBreakManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            // 
+            // numUDWorkManual
+            // 
+            this.numUDWorkManual.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "manualWorkTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numUDWorkManual.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numUDWorkManual.Location = new System.Drawing.Point(83, 14);
+            this.numUDWorkManual.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numUDWorkManual.Name = "numUDWorkManual";
+            this.numUDWorkManual.Size = new System.Drawing.Size(71, 20);
+            this.numUDWorkManual.TabIndex = 1;
+            this.numUDWorkManual.TabStop = false;
+            this.numUDWorkManual.Value = global::Worker_Ant.Properties.Settings.Default.manualWorkTime;
+            this.numUDWorkManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
             // labelBreakManual
             // 
@@ -418,46 +455,10 @@
             this.radioBtnManual.UseVisualStyleBackColor = false;
             this.radioBtnManual.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
-            // timer1
+            // liveRefresh
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // numUDBreakManual
-            // 
-            this.numUDBreakManual.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "manualBreakTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numUDBreakManual.Location = new System.Drawing.Point(83, 40);
-            this.numUDBreakManual.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUDBreakManual.Name = "numUDBreakManual";
-            this.numUDBreakManual.Size = new System.Drawing.Size(70, 20);
-            this.numUDBreakManual.TabIndex = 2;
-            this.numUDBreakManual.TabStop = false;
-            this.numUDBreakManual.Value = global::Worker_Ant.Properties.Settings.Default.manualBreakTime;
-            this.numUDBreakManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
-            // 
-            // numUDWorkManual
-            // 
-            this.numUDWorkManual.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "manualWorkTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numUDWorkManual.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numUDWorkManual.Location = new System.Drawing.Point(83, 14);
-            this.numUDWorkManual.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numUDWorkManual.Name = "numUDWorkManual";
-            this.numUDWorkManual.Size = new System.Drawing.Size(71, 20);
-            this.numUDWorkManual.TabIndex = 1;
-            this.numUDWorkManual.TabStop = false;
-            this.numUDWorkManual.Value = global::Worker_Ant.Properties.Settings.Default.manualWorkTime;
-            this.numUDWorkManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.liveRefresh.Interval = 1000;
+            this.liveRefresh.Tick += new System.EventHandler(this.liveRefresh_Tick);
             // 
             // FullViewWin
             // 
@@ -484,11 +485,14 @@
             this.Name = "FullViewWin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Worker Ant";
+            this.Load += new System.EventHandler(this.FullViewWin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             this.groupBoxManual.ResumeLayout(false);
             this.groupBoxManual.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).EndInit();
             this.groupBoxCountdown.ResumeLayout(false);
             this.groupBoxCountdown.PerformLayout();
             this.groupBoxPreview.ResumeLayout(false);
@@ -498,8 +502,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,7 +541,7 @@
         public System.Windows.Forms.Label labelRoundNumPreview;
         public System.Windows.Forms.Label labelBreakTimePreview;
         public System.Windows.Forms.Label labelWorkTimePreview;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer liveRefresh;
     }
 }
 

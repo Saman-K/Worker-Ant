@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace Worker_Ant
 {
-    public partial class SettingsWin : Form
+    public partial class ErrorHandlerWin : Form
     {
-        internal int MouseXAxis;
-        internal int MouseYAxis;
-        internal bool MouseDrag;
-
-        public SettingsWin()
+        internal static int MouseXAxis;
+        internal static int MouseYAxis;
+        internal static bool MouseDrag;
+        public ErrorHandlerWin()
         {
             InitializeComponent();
         }
+
+
         //-------------------------------------------------------------------------win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -58,29 +59,6 @@ namespace Worker_Ant
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
 
-        }
-        //------------------------------------------------------------------------- pic info
-        //info enter
-        private void picBoxInfo_MouseEnter(object sender, EventArgs e)
-        {
-            picBoxInfo.Image = Worker_Ant.Properties.Resources.Info;
-        }
-        //info leave
-        private void picBoxInfo_MouseLeave(object sender, EventArgs e)
-        {
-            picBoxInfo.Image = Worker_Ant.Properties.Resources.Info_L;
-        }
-        //info click
-        private void picBoxInfo_Click(object sender, EventArgs e)
-        {
-            var winCouter = new WinBehavior();
-            winCouter.ChackWins("Info");
-        }
-        //------------------------------------------------------------------------- btn
-        //default btn
-        private void btnDefault_Click(object sender, EventArgs e)
-        {
-            Countdown.SetPresetTimeToDefault();
         }
     }
 }
