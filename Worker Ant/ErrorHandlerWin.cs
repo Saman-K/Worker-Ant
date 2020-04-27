@@ -20,7 +20,7 @@ namespace Worker_Ant
             InitializeComponent();
         }
 
-
+        
         //-------------------------------------------------------------------------win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -59,6 +59,31 @@ namespace Worker_Ant
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
 
+        }
+        //-------------------------------------------------------------------------Btn
+        private void btnOkBreakBasic_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        //-------------------------------------------------------------------------Btn
+        public void ErrorHandeler(string Message, string location, string errorNum, bool tF)
+        {
+            if (Message == "") { }
+            else
+            {
+                labelReportToDev.Text = Message;
+            }
+
+            labelLocationNumber.Text = (location + "/" + errorNum + " .").ToString();
+            if (tF == true)
+            {
+                labelLocationNumber.Visible = true;
+            }
+            else
+            {
+                labelLocationNumber.Visible = false;
+            }
+            
         }
     }
 }

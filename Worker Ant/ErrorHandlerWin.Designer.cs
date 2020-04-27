@@ -28,28 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelErrorLocation = new System.Windows.Forms.Label();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.btnOkBreakBasic = new System.Windows.Forms.Button();
             this.labelWinName = new System.Windows.Forms.Label();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.picBoxBackground = new System.Windows.Forms.PictureBox();
+            this.labelError = new System.Windows.Forms.Label();
+            this.labelReportToDev = new System.Windows.Forms.Label();
+            this.labelLocationNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBackground)).BeginInit();
             this.SuspendLayout();
-            // 
-            // labelErrorLocation
-            // 
-            this.labelErrorLocation.AutoSize = true;
-            this.labelErrorLocation.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelErrorLocation.Location = new System.Drawing.Point(73, 67);
-            this.labelErrorLocation.Name = "labelErrorLocation";
-            this.labelErrorLocation.Size = new System.Drawing.Size(103, 13);
-            this.labelErrorLocation.TabIndex = 15;
-            this.labelErrorLocation.Text = "The Error located in ";
             // 
             // picBoxLogo
             // 
@@ -71,6 +63,7 @@
             this.btnOkBreakBasic.TabIndex = 13;
             this.btnOkBreakBasic.Text = "Okey";
             this.btnOkBreakBasic.UseVisualStyleBackColor = true;
+            this.btnOkBreakBasic.Click += new System.EventHandler(this.btnOkBreakBasic_Click);
             // 
             // labelWinName
             // 
@@ -120,12 +113,44 @@
             this.picBoxBackground.TabIndex = 16;
             this.picBoxBackground.TabStop = false;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelError.Location = new System.Drawing.Point(73, 45);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(32, 13);
+            this.labelError.TabIndex = 17;
+            this.labelError.Text = "Error!";
+            // 
+            // labelReportToDev
+            // 
+            this.labelReportToDev.AutoSize = true;
+            this.labelReportToDev.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelReportToDev.Location = new System.Drawing.Point(94, 66);
+            this.labelReportToDev.Name = "labelReportToDev";
+            this.labelReportToDev.Size = new System.Drawing.Size(187, 13);
+            this.labelReportToDev.TabIndex = 15;
+            this.labelReportToDev.Text = "Please report to Work Ant developers.";
+            // 
+            // labelLocationNumber
+            // 
+            this.labelLocationNumber.AutoSize = true;
+            this.labelLocationNumber.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelLocationNumber.Location = new System.Drawing.Point(94, 87);
+            this.labelLocationNumber.Name = "labelLocationNumber";
+            this.labelLocationNumber.Size = new System.Drawing.Size(56, 13);
+            this.labelLocationNumber.TabIndex = 15;
+            this.labelLocationNumber.Text = "(null/ null).";
+            // 
             // ErrorHandlerWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 150);
-            this.Controls.Add(this.labelErrorLocation);
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.labelLocationNumber);
+            this.Controls.Add(this.labelReportToDev);
             this.Controls.Add(this.picBoxLogo);
             this.Controls.Add(this.btnOkBreakBasic);
             this.Controls.Add(this.labelWinName);
@@ -134,6 +159,7 @@
             this.Controls.Add(this.picBoxBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ErrorHandlerWin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ErrorHandlerWin";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
@@ -148,13 +174,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelErrorLocation;
         private System.Windows.Forms.PictureBox picBoxLogo;
         public System.Windows.Forms.Button btnOkBreakBasic;
         private System.Windows.Forms.Label labelWinName;
         private System.Windows.Forms.PictureBox picBoxIcon;
         private System.Windows.Forms.PictureBox picBoxClose;
         private System.Windows.Forms.PictureBox picBoxBackground;
+        private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.Label labelReportToDev;
+        private System.Windows.Forms.Label labelLocationNumber;
     }
 }

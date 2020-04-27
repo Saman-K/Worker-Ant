@@ -14,42 +14,38 @@ namespace Worker_Ant
         //-------------------------------------------------------------------------check windows to let only one to be visibel
         public void ChackWins(string winName)
         {
-            var winCouter = new WinBehavior();
+            var errorHandler = new ErrorHandlerWin();
+            
             if (Properties.Settings.Default.Theme == "Basic")
             {
                 if (winName == "Info")
                 {
-                    winCouter.WinOpener("InfoWin");
+                    WinOpener("InfoWin");
                 }
                 else if (winName == "Settings")
                 {
-                    winCouter.WinOpener("SettingsWin");
+                    WinOpener("SettingsWin");
                 }
                 else if (winName == "Break")
                 {
-                    winCouter.WinOpener("BreakBasicWin");
+                    WinOpener("BreakBasicWin");
                 }
                 else if (winName == "ToBreak")
                 {
-                    winCouter.WinOpener("ToBreakBasicWin");
+                    WinOpener("ToBreakBasicWin");
                 }
                 else if (winName == "SimpleView")
                 {
-                    winCouter.WinOpener("SimpleViewWin");
+                    WinOpener("SimpleViewWin");
                 }
                 else if(winName == "FullView")
                 {
-                    winCouter.WinOpener("FullViewWin");
-                }
-                else if(winName == "Box")
-                {
-                    var breakBasicWin = new BreakBasicWin();
-                    breakBasicWin.Show();
-                    MessageBox.Show("");
+                    WinOpener("FullViewWin");
                 }
                 else
                 {
-                    // error 
+                    errorHandler.ErrorHandeler("", "WB", "01", true);
+                    errorHandler.Show();
                 }
             }
             else if (Properties.Settings.Default.Theme == "")
@@ -58,13 +54,16 @@ namespace Worker_Ant
             }
             else
             {
-                //error
+                errorHandler.ErrorHandeler("", "WB", "02", true);
+                errorHandler.Show();
             }
 
         }
 
-        public void WinOpener(string winName)
+        internal void WinOpener(string winName)
         {
+            var errorHandler = new ErrorHandlerWin();
+
             foreach (Form win in Application.OpenForms)
             {
                 if (win.Name == winName)
@@ -76,7 +75,8 @@ namespace Worker_Ant
                     }
                     catch 
                     {
-                        //error
+                        errorHandler.ErrorHandeler("", "WB", "03", true);
+                        errorHandler.Show();
                     }
                 }
             }
@@ -110,7 +110,8 @@ namespace Worker_Ant
                         break;
 
                     default:
-                        //error
+                        errorHandler.ErrorHandeler("", "WB", "04", true);
+                        errorHandler.Show();
                         break;
                 }
             }

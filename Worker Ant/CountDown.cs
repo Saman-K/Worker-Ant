@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.Timers;
 
@@ -103,7 +102,6 @@ namespace Worker_Ant
         }
 
         private static System.Timers.Timer _countdownTimer = new System.Timers.Timer(1000);
-        
 
         // ------------------------------------------------------------------------- button
         // set setting to default
@@ -126,6 +124,7 @@ namespace Worker_Ant
         // insert data to view/set/reset to start
         public static (int, int, int) InsertDataToView(string chosenRadioBtn)
         {
+            var errorHandler = new ErrorHandlerWin();
             int WorkTime = 0;
             int BreakTime = 0;
             switch (chosenRadioBtn)
@@ -147,37 +146,34 @@ namespace Worker_Ant
                     BreakTime = Convert.ToInt32(Properties.Settings.Default.manualBreakTime);
                     break;
                 default:
-                    //MessageBox.Show("Redio button is not selected");
+                    errorHandler.ErrorHandeler("", "CD", "01",true );
+                    errorHandler.Show();
                     break;
             }
-
+            
             return (WorkTime, BreakTime, Convert.ToInt32(Properties.Settings.Default.roundCountdown));
         }
         // Bottun press input
         public static string BtnInputControl(string btnText)
         {
+            var errorHandler = new ErrorHandlerWin();
             if (btnText == "Start")
             {
                 SetToStartTimer("Start");
                 return "Stop";
             }
-            else if (btnText == "Stop" && WorkTimerLive != 0)
+            else if ((btnText == "Stop" && WorkTimerLive != 0) /*|| (btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive == 0 && RoundTimerLive == 0)*/)
             {
                 SetToStartTimer("Stop");
                 return "Start";
             }
-            else if (btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive != 0)
+            else if ((btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive != 0) ||
+                (btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive == 0 && RoundTimerLive !=0))
             {
-                // stop during break 
-                // error you can not stop during break
+                errorHandler.ErrorHandeler("You can NOT stop during a break.", "CD", "05", false);
+                errorHandler.Show();
+
                 return "Stop";
-            }
-            else if (btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive == 0 && RoundTimerLive !=0)
-            {
-                // stop during round elaps 
-                // not needed 
-                SetToStartTimer("Stop");
-                return "Start";
             }
             else if (btnText == "Reset" || btnText == "Set")
             {
@@ -199,10 +195,11 @@ namespace Worker_Ant
             {
                 return "";
             }
-            // error handeling there somthing round with btn input control
             else
             {
-                return "Error!";
+                errorHandler.ErrorHandeler("", "CD", "02", true);
+                errorHandler.Show();
+                return "CD/2";
             }
         }
         // ------------------------------------------------------------------------- timer
@@ -241,6 +238,7 @@ namespace Worker_Ant
         // 
         public static void SetToStartTimer(string function)
         {
+            var errorHandler = new ErrorHandlerWin();
             switch (function)
             {
                 case ("Start"):
@@ -268,7 +266,8 @@ namespace Worker_Ant
                     }
                     else
                     {
-                        // there is somthing roung with start btn 
+                        errorHandler.ErrorHandeler("", "CD", "03", true);
+                        errorHandler.Show();
                     }
                     break;
                 case ("Stop"):
@@ -311,6 +310,10 @@ namespace Worker_Ant
                     _countdownTimer.Stop();
                     _countdownTimer.Enabled = false;
                     _countdownTimer.Elapsed -= CountdownTimer_Tick;
+                    break;
+                default:
+                    errorHandler.ErrorHandeler("", "CD", "04", true);
+                    errorHandler.Show();
                     break;
             }
         }

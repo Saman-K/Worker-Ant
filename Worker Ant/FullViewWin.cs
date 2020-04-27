@@ -121,25 +121,25 @@ namespace Worker_Ant
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
         {
+            //if (btnStartStop.Text == "Start")
+            //{
+            //    btnSetReset.Enabled = false;
 
-            if (btnStartStop.Text == "Start")
-            {
-                btnSetReset.Enabled = false;
+            //    if (labelWorkTimeCountdown.Text == "Work Time in Min" || labelBreakCountdown.Text == "Break Time in Min")
+            //    {
+            //        btnSetReset_Click(null, null);
+            //        liveRefresh_Tick(null, null);
+            //    }
+            //    liveRefresh.Start();
+            //}
+            //else if (btnStartStop.Text == "Stop")
+            //{
+            //    btnSetReset.Enabled = true;
+            //    liveRefresh.Stop();
+            //}
+            Class1.starttimer("Start");
 
-                if (labelWorkTimeCountdown.Text == "Work Time in Min" || labelBreakCountdown.Text == "Break Time in Min")
-                {
-                    btnSetReset_Click(null, null);
-                    liveRefresh_Tick(null, null);
-                }
-                liveRefresh.Start();
-            }
-            else if (btnStartStop.Text == "Stop")
-            {
-                btnSetReset.Enabled = true;
-                liveRefresh.Stop();
-            }
-
-            btnStartStop.Text = Countdown.BtnInputControl(btnStartStop.Text);
+            //btnStartStop.Text = Countdown.BtnInputControl(btnStartStop.Text);
         }
         //------------------------------------------------------------------------- radio button
         private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
