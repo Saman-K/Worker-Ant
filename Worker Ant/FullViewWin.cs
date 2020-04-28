@@ -23,7 +23,17 @@ namespace Worker_Ant
 
         private void FullViewWin_Load(object sender, EventArgs e)
         {
-            liveRefresh.Start();
+            //liveRefresh.Start();
+            try
+            {
+                numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime / 60;
+                numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime / 60;
+            }
+            catch
+            {
+                MessageBox.Show("dsalikj");
+            }
+
         }
         //-------------------------------------------------------------------------win move
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -108,10 +118,18 @@ namespace Worker_Ant
         //button set/reset click
         private void btnSetReset_Click(object sender, EventArgs e)
         {
+            if (radioBtnManual.Checked == true)
+            {
+                Properties.Settings.Default.manualWorkTime = numUDWorkManual.Value * 60;
+                Properties.Settings.Default.manualBreakTime = numUDBreakManual.Value * 60;
+                Properties.Settings.Default.Save();
+                radioBtnChineged_CheckedChanged(null, null);
+            }
+
             GetTimeData();
 
-            labelWorkTimeCountdown.Text = TimeData.Item1.ToString() + " Mins";
-            labelBreakTimeCountdown.Text = TimeData.Item2.ToString() + " Mins";
+            labelWorkTimeCountdown.Text = (TimeData.Item1 / 60 + ":" + (TimeData.Item1 % 60).ToString("D2"));
+            labelBreakTimeCountdown.Text = (TimeData.Item2 / 60 + ":" + (TimeData.Item2 % 60).ToString("D2"));
             labelRoundNumCountdown.Text = TimeData.Item3.ToString();
 
             Countdown.CountdownValues = TimeData;
@@ -121,33 +139,33 @@ namespace Worker_Ant
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
         {
-            //if (btnStartStop.Text == "Start")
-            //{
-            //    btnSetReset.Enabled = false;
+            if (btnStartStop.Text == "Start")
+            {
+                btnSetReset.Enabled = false;
 
-            //    if (labelWorkTimeCountdown.Text == "Work Time in Min" || labelBreakCountdown.Text == "Break Time in Min")
-            //    {
-            //        btnSetReset_Click(null, null);
-            //        liveRefresh_Tick(null, null);
-            //    }
-            //    liveRefresh.Start();
-            //}
-            //else if (btnStartStop.Text == "Stop")
-            //{
-            //    btnSetReset.Enabled = true;
-            //    liveRefresh.Stop();
-            //}
-            Class1.starttimer("Start");
+                if (labelWorkTimeCountdown.Text == "Work Time" || labelBreakCountdown.Text == "Break Time")
+                {
+                    btnSetReset_Click(null, null);
+                    liveRefresh_Tick(null, null);
+                }
+                liveRefresh.Start();
+            }
+            else if (btnStartStop.Text == "Stop")
+            {
+                btnSetReset.Enabled = true;
+                liveRefresh.Stop();
+            }
+            //Class1.starttimer("Start");
 
-            //btnStartStop.Text = Countdown.BtnInputControl(btnStartStop.Text);
+            btnStartStop.Text = Countdown.BtnInputControl(btnStartStop.Text);
         }
         //------------------------------------------------------------------------- radio button
         private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
         {
             GetTimeData();
 
-            labelWorkTimePreview.Text = TimeData.Item1.ToString() + " Mins";
-            labelBreakTimePreview.Text = TimeData.Item2.ToString() + " Mins";
+            labelWorkTimePreview.Text = (TimeData.Item1 / 60 + ":" + (TimeData.Item1 % 60).ToString("D2"));
+            labelBreakTimePreview.Text = (TimeData.Item2 / 60 + ":" + (TimeData.Item2 % 60).ToString("D2"));
             labelRoundNumPreview.Text = TimeData.Item3.ToString() ;
         }
         //------------------------------------------------------------------------- get data
@@ -178,6 +196,10 @@ namespace Worker_Ant
             }
             else
             {
+                var errorHandler = new ErrorHandlerWin();
+                errorHandler.ErrorHandeler("", "FVW", "01", false);
+                errorHandler.Show();
+                //error
                 MessageBox.Show("Radio Button not found");
             }
             
@@ -185,13 +207,8 @@ namespace Worker_Ant
         //------------------------------------------------------------------------- timer
         private void liveRefresh_Tick(object sender, EventArgs e)
         {
-            labelWorkTimeCountdown.Text = Countdown.WorkTimerLive.ToString();
-            labelBreakTimeCountdown.Text = Countdown.BreakTimerLive.ToString();
-            //if (Countdown.BreakTimerLive == 0)
-            //{
-
-            //    //liveRefresh.Enabled = false;
-            //}
+            labelWorkTimeCountdown.Text = (Countdown.WorkTimerLive / 60 + ":" + (Countdown.WorkTimerLive % 60).ToString("D2"));
+            labelBreakTimeCountdown.Text = (Countdown.BreakTimerLive / 60 + ":" + (Countdown.BreakTimerLive % 60).ToString("D2"));
             labelRoundNumCountdown.Text = Countdown.RoundTimerLive.ToString();
             //if (labelWorkTimeCountdown.Text == "0" && labelBreakTimeCountdown.Text == "0" && labelRoundNumCountdown.Text == "0")
             //{

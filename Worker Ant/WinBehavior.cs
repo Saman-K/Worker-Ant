@@ -11,7 +11,7 @@ namespace Worker_Ant
     {
         //public string winName;
         internal bool WinIsOpen;
-        //-------------------------------------------------------------------------check windows to let only one to be visibel
+        //------------------------------------------------------------------------- check windows to let only one to be visibel
         public void ChackWins(string winName)
         {
             var errorHandler = new ErrorHandlerWin();

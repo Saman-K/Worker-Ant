@@ -82,5 +82,46 @@ namespace Worker_Ant
         {
             Countdown.SetPresetTimeToDefault();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Properties.Settings.Default.recoveryWorkTime = numUDWorkRecovery.Value * 60;
+                Properties.Settings.Default.recoveryBreakTime = numUDBreakRecovery.Value * 60;
+                Properties.Settings.Default.smartWorkTime = numUDWorkSmart.Value * 60;
+                Properties.Settings.Default.smartBreakTime = numUDBreakSmart.Value * 60;
+                Properties.Settings.Default.progressWorkTime = numUDWorkProgress.Value * 60;
+                Properties.Settings.Default.progressBreakTime = numUDBreakProgress.Value * 60;
+                Properties.Settings.Default.roundCountdown = numUDRound.Value;
+
+                Properties.Settings.Default.audioAlert = checkBoxAudioAlert.Checked;
+                Properties.Settings.Default.saftyInfo = checkBoxSafetyInfo.Checked;
+                Properties.Settings.Default.simpleView = checkBoxSimpleView.Checked;
+                Properties.Settings.Default.Save();
+            }
+            catch
+            {
+                var errorHandler = new ErrorHandlerWin();
+                errorHandler.ErrorHandeler("Could not save the new settings", "SW", "01", false);
+                errorHandler.Show();
+            }
+
+
+        }
+
+        private void SettingsWin_Load(object sender, EventArgs e)
+        {
+            numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime / 60;
+            numUDBreakRecovery.Value = Properties.Settings.Default.recoveryBreakTime / 60;
+            numUDWorkSmart.Value = Properties.Settings.Default.smartWorkTime / 60;
+            numUDBreakSmart.Value = Properties.Settings.Default.smartBreakTime / 60;
+            numUDWorkProgress.Value = Properties.Settings.Default.progressWorkTime / 60;
+            numUDBreakProgress.Value = Properties.Settings.Default.progressBreakTime / 60;
+
+            checkBoxAudioAlert.Checked = Properties.Settings.Default.audioAlert;
+            checkBoxSafetyInfo.Checked = Properties.Settings.Default.saftyInfo;
+            checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
+        }
     }
 }

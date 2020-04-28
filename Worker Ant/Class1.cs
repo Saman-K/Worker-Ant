@@ -13,7 +13,7 @@ namespace Worker_Ant
 
         internal static Timer testtimer = new Timer(1000);
         
-        public static void starttimer(string btn)
+        public void starttimer(string btn)
         {
             if (btn == "Start")
             {
@@ -22,7 +22,7 @@ namespace Worker_Ant
             }
         }
 
-        private static void Testtimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private void Testtimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             numbertest++;
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Timers;
-
+using System.Windows.Forms;
 
 namespace Worker_Ant
 {
@@ -107,12 +107,12 @@ namespace Worker_Ant
         // set setting to default
         public static void SetPresetTimeToDefault()
         {
-            Properties.Settings.Default.recoveryWorkTime = 30;
-            Properties.Settings.Default.recoveryBreakTime = 2;
-            Properties.Settings.Default.smartWorkTime = 40;
-            Properties.Settings.Default.smartBreakTime = 4;
-            Properties.Settings.Default.progressWorkTime = 55;
-            Properties.Settings.Default.progressBreakTime = 5;
+            Properties.Settings.Default.recoveryWorkTime = 1800;
+            Properties.Settings.Default.recoveryBreakTime = 120;
+            Properties.Settings.Default.smartWorkTime = 2400;
+            Properties.Settings.Default.smartBreakTime = 240;
+            Properties.Settings.Default.progressWorkTime = 3300;
+            Properties.Settings.Default.progressBreakTime = 300;
             Properties.Settings.Default.roundCountdown = 1;
 
             //settingsWin.checkBoxSafetyInfo.Checked = true;
@@ -130,20 +130,20 @@ namespace Worker_Ant
             switch (chosenRadioBtn)
             {
                 case ("Recovery"):
-                    WorkTime = Convert.ToInt32(Properties.Settings.Default.recoveryWorkTime);
-                    BreakTime = Convert.ToInt32(Properties.Settings.Default.recoveryBreakTime);
+                    WorkTime = Convert.ToInt16(Properties.Settings.Default.recoveryWorkTime);
+                    BreakTime = Convert.ToInt16(Properties.Settings.Default.recoveryBreakTime);
                     break;
                 case ("Smart"):
-                    WorkTime = Convert.ToInt32(Properties.Settings.Default.smartWorkTime);
-                    BreakTime = Convert.ToInt32(Properties.Settings.Default.smartBreakTime);
+                    WorkTime = Convert.ToInt16(Properties.Settings.Default.smartWorkTime);
+                    BreakTime = Convert.ToInt16(Properties.Settings.Default.smartBreakTime);
                     break;
                 case ("Progress"):
-                    WorkTime = Convert.ToInt32(Properties.Settings.Default.progressWorkTime);
-                    BreakTime = Convert.ToInt32(Properties.Settings.Default.progressBreakTime);
+                    WorkTime = Convert.ToInt16(Properties.Settings.Default.progressWorkTime);
+                    BreakTime = Convert.ToInt16(Properties.Settings.Default.progressBreakTime);
                     break;
                 case ("Manual"):
-                    WorkTime = Convert.ToInt32(Properties.Settings.Default.manualWorkTime);
-                    BreakTime = Convert.ToInt32(Properties.Settings.Default.manualBreakTime);
+                    WorkTime = Convert.ToInt16(Properties.Settings.Default.manualWorkTime);
+                    BreakTime = Convert.ToInt16(Properties.Settings.Default.manualBreakTime);
                     break;
                 default:
                     errorHandler.ErrorHandeler("", "CD", "01",true );
@@ -162,18 +162,24 @@ namespace Worker_Ant
                 SetToStartTimer("Start");
                 return "Stop";
             }
-            else if ((btnText == "Stop" && WorkTimerLive != 0) /*|| (btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive == 0 && RoundTimerLive == 0)*/)
+            else if (btnText == "Stop")
             {
-                SetToStartTimer("Stop");
-                return "Start";
-            }
-            else if ((btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive != 0) ||
-                (btnText == "Stop" && WorkTimerLive == 0 && BreakTimerLive == 0 && RoundTimerLive !=0))
-            {
-                errorHandler.ErrorHandeler("You can NOT stop during a break.", "CD", "05", false);
-                errorHandler.Show();
+                if (WBTimer == "Work")
+                {
+                    _countdownTimer.Stop();
+                    _countdownTimer.Enabled = false;
+                    _countdownTimer.Elapsed -= CountdownTimer_Tick;
+                    SetToStartTimer("Stop");
+                    return "Start";
+                }
+                else
+                {
+                    errorHandler.ErrorHandeler("You can NOT stop during a break.", "CD", "05", false);
+                    errorHandler.Show();
+                    SetToStartTimer("Start");
+                    return "Stop";
+                }
 
-                return "Stop";
             }
             else if (btnText == "Reset" || btnText == "Set")
             {
@@ -223,11 +229,11 @@ namespace Worker_Ant
                 BreakTimerLive--;
                 if (BreakTimerLive == 0)
                 {
-                    if (RoundTimerLive >= 0)
+                    if (RoundTimerLive > 0)
                     {
                         SetToStartTimer("Lap");
                     }
-                    else if (RoundTimerLive < 0)
+                    else if (RoundTimerLive <= 0)
                     {
                         SetToStartTimer("End");
                     }
@@ -244,25 +250,25 @@ namespace Worker_Ant
                 case ("Start"):
                     _countdownTimer.Elapsed += CountdownTimer_Tick;
                     _countdownTimer.Interval = 1000;
-                    if (WorkTimerLive == CountdownValues.Item1 && BreakTimerLive == CountdownValues.Item2 && RoundTimerLive == CountdownValues.Item3)
+                    if (WorkTimerLive == CountdownValues.Item1 || BreakTimerLive == CountdownValues.Item2 && RoundTimerLive == CountdownValues.Item3)
                     {
+                        // start frome the top
                         WBTimer = "Work";
                         RoundTimerLive--;
                         _countdownTimer.Start();
                     }
                     else if (WorkTimerLive > 0 && BreakTimerLive > 0 && RoundTimerLive >= 0)
                     {
+                        // start from work 
                         WBTimer = "Work";
                         _countdownTimer.Start();
                     }
-                    else if (BreakTimerLive != CountdownValues.Item2 || WorkTimerLive <= 0)
+                    else if (BreakTimerLive != CountdownValues.Item2 && WorkTimerLive <= 0)
                     {
+                        // start from break
+                        MessageBox.Show("break");
                         WBTimer = "Break";
                         _countdownTimer.Start();
-                    }
-                    else if (BreakTimerLive <= 0 || RoundTimerLive != 0)
-                    {
-                        SetToStartTimer("Lap");
                     }
                     else
                     {
@@ -283,10 +289,8 @@ namespace Worker_Ant
                 case ("Break"):
                     _countdownTimer.Stop();
                     WBTimer = "Break";
-
-
-                    //open break win error
-                    //_countdownTimer.Start();
+                    //open break win
+                    _countdownTimer.Start();
                     break;
                 case ("End Break"):
 

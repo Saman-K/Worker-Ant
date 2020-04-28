@@ -83,17 +83,17 @@
             this.groupBoxManual.Controls.Add(this.labelBreakManual);
             this.groupBoxManual.Controls.Add(this.labelWorkManual);
             this.groupBoxManual.Enabled = false;
-            this.groupBoxManual.Location = new System.Drawing.Point(178, 39);
+            this.groupBoxManual.Location = new System.Drawing.Point(174, 39);
             this.groupBoxManual.Name = "groupBoxManual";
-            this.groupBoxManual.Size = new System.Drawing.Size(160, 69);
+            this.groupBoxManual.Size = new System.Drawing.Size(156, 69);
             this.groupBoxManual.TabIndex = 0;
             this.groupBoxManual.TabStop = false;
             this.groupBoxManual.Text = "Manual";
             // 
             // numUDBreakManual
             // 
-            this.numUDBreakManual.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "manualBreakTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numUDBreakManual.Location = new System.Drawing.Point(83, 40);
+            this.numUDBreakManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numUDBreakManual.Location = new System.Drawing.Point(79, 40);
             this.numUDBreakManual.Minimum = new decimal(new int[] {
             1,
             0,
@@ -103,18 +103,21 @@
             this.numUDBreakManual.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakManual.TabIndex = 2;
             this.numUDBreakManual.TabStop = false;
-            this.numUDBreakManual.Value = global::Worker_Ant.Properties.Settings.Default.manualBreakTime;
-            this.numUDBreakManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.numUDBreakManual.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // numUDWorkManual
             // 
-            this.numUDWorkManual.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "manualWorkTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numUDWorkManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numUDWorkManual.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numUDWorkManual.Location = new System.Drawing.Point(83, 14);
+            this.numUDWorkManual.Location = new System.Drawing.Point(79, 14);
             this.numUDWorkManual.Minimum = new decimal(new int[] {
             10,
             0,
@@ -124,8 +127,11 @@
             this.numUDWorkManual.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkManual.TabIndex = 1;
             this.numUDWorkManual.TabStop = false;
-            this.numUDWorkManual.Value = global::Worker_Ant.Properties.Settings.Default.manualWorkTime;
-            this.numUDWorkManual.Leave += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.numUDWorkManual.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // labelBreakManual
             // 
@@ -157,37 +163,43 @@
             this.groupBoxCountdown.Controls.Add(this.labelWorkCountdown);
             this.groupBoxCountdown.Location = new System.Drawing.Point(12, 109);
             this.groupBoxCountdown.Name = "groupBoxCountdown";
-            this.groupBoxCountdown.Size = new System.Drawing.Size(160, 80);
+            this.groupBoxCountdown.Size = new System.Drawing.Size(156, 80);
             this.groupBoxCountdown.TabIndex = 1;
             this.groupBoxCountdown.TabStop = false;
             this.groupBoxCountdown.Text = "Countdown";
             // 
             // labelRoundNumCountdown
             // 
+            this.labelRoundNumCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRoundNumCountdown.AutoSize = true;
-            this.labelRoundNumCountdown.Location = new System.Drawing.Point(66, 56);
+            this.labelRoundNumCountdown.Location = new System.Drawing.Point(79, 56);
             this.labelRoundNumCountdown.Name = "labelRoundNumCountdown";
-            this.labelRoundNumCountdown.Size = new System.Drawing.Size(87, 13);
+            this.labelRoundNumCountdown.Size = new System.Drawing.Size(71, 13);
             this.labelRoundNumCountdown.TabIndex = 5;
-            this.labelRoundNumCountdown.Text = "Num of Round(s)";
+            this.labelRoundNumCountdown.Text = "Round(s) Left";
+            this.labelRoundNumCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBreakTimeCountdown
             // 
+            this.labelBreakTimeCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelBreakTimeCountdown.AutoSize = true;
-            this.labelBreakTimeCountdown.Location = new System.Drawing.Point(66, 36);
+            this.labelBreakTimeCountdown.Location = new System.Drawing.Point(79, 36);
             this.labelBreakTimeCountdown.Name = "labelBreakTimeCountdown";
-            this.labelBreakTimeCountdown.Size = new System.Drawing.Size(92, 13);
+            this.labelBreakTimeCountdown.Size = new System.Drawing.Size(61, 13);
             this.labelBreakTimeCountdown.TabIndex = 4;
-            this.labelBreakTimeCountdown.Text = "Break Time in Min";
+            this.labelBreakTimeCountdown.Text = "Break Time";
+            this.labelBreakTimeCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWorkTimeCountdown
             // 
+            this.labelWorkTimeCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelWorkTimeCountdown.AutoSize = true;
-            this.labelWorkTimeCountdown.Location = new System.Drawing.Point(66, 16);
+            this.labelWorkTimeCountdown.Location = new System.Drawing.Point(79, 16);
             this.labelWorkTimeCountdown.Name = "labelWorkTimeCountdown";
-            this.labelWorkTimeCountdown.Size = new System.Drawing.Size(90, 13);
+            this.labelWorkTimeCountdown.Size = new System.Drawing.Size(59, 13);
             this.labelWorkTimeCountdown.TabIndex = 3;
-            this.labelWorkTimeCountdown.Text = "Work Time in Min";
+            this.labelWorkTimeCountdown.Text = "Work Time";
+            this.labelWorkTimeCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelRoundCountdown
             // 
@@ -222,7 +234,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarCountdown.Location = new System.Drawing.Point(12, 195);
             this.progressBarCountdown.Name = "progressBarCountdown";
-            this.progressBarCountdown.Size = new System.Drawing.Size(164, 23);
+            this.progressBarCountdown.Size = new System.Drawing.Size(156, 23);
             this.progressBarCountdown.TabIndex = 3;
             // 
             // radioBtnSmart
@@ -272,7 +284,7 @@
             // btnSetReset
             // 
             this.btnSetReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetReset.Location = new System.Drawing.Point(182, 195);
+            this.btnSetReset.Location = new System.Drawing.Point(174, 195);
             this.btnSetReset.Name = "btnSetReset";
             this.btnSetReset.Size = new System.Drawing.Size(75, 23);
             this.btnSetReset.TabIndex = 5;
@@ -283,7 +295,7 @@
             // btnStartStop
             // 
             this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartStop.Location = new System.Drawing.Point(263, 195);
+            this.btnStartStop.Location = new System.Drawing.Point(255, 195);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
             this.btnStartStop.TabIndex = 6;
@@ -301,39 +313,45 @@
             this.groupBoxPreview.Controls.Add(this.labelRoundPreview);
             this.groupBoxPreview.Controls.Add(this.labelBreakPreview);
             this.groupBoxPreview.Controls.Add(this.labelWorkPreview);
-            this.groupBoxPreview.Location = new System.Drawing.Point(178, 109);
+            this.groupBoxPreview.Location = new System.Drawing.Point(174, 109);
             this.groupBoxPreview.Name = "groupBoxPreview";
-            this.groupBoxPreview.Size = new System.Drawing.Size(160, 80);
+            this.groupBoxPreview.Size = new System.Drawing.Size(156, 80);
             this.groupBoxPreview.TabIndex = 9;
             this.groupBoxPreview.TabStop = false;
             this.groupBoxPreview.Text = "Preview";
             // 
             // labelRoundNumPreview
             // 
+            this.labelRoundNumPreview.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelRoundNumPreview.AutoSize = true;
-            this.labelRoundNumPreview.Location = new System.Drawing.Point(66, 56);
+            this.labelRoundNumPreview.Location = new System.Drawing.Point(89, 56);
             this.labelRoundNumPreview.Name = "labelRoundNumPreview";
-            this.labelRoundNumPreview.Size = new System.Drawing.Size(87, 13);
+            this.labelRoundNumPreview.Size = new System.Drawing.Size(50, 13);
             this.labelRoundNumPreview.TabIndex = 5;
-            this.labelRoundNumPreview.Text = "Num of Round(s)";
+            this.labelRoundNumPreview.Text = "Round(s)";
+            this.labelRoundNumPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBreakTimePreview
             // 
+            this.labelBreakTimePreview.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelBreakTimePreview.AutoSize = true;
-            this.labelBreakTimePreview.Location = new System.Drawing.Point(66, 36);
+            this.labelBreakTimePreview.Location = new System.Drawing.Point(89, 36);
             this.labelBreakTimePreview.Name = "labelBreakTimePreview";
-            this.labelBreakTimePreview.Size = new System.Drawing.Size(92, 13);
+            this.labelBreakTimePreview.Size = new System.Drawing.Size(61, 13);
             this.labelBreakTimePreview.TabIndex = 4;
-            this.labelBreakTimePreview.Text = "Break Time in Min";
+            this.labelBreakTimePreview.Text = "Break Time";
+            this.labelBreakTimePreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWorkTimePreview
             // 
+            this.labelWorkTimePreview.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelWorkTimePreview.AutoSize = true;
-            this.labelWorkTimePreview.Location = new System.Drawing.Point(66, 16);
+            this.labelWorkTimePreview.Location = new System.Drawing.Point(89, 16);
             this.labelWorkTimePreview.Name = "labelWorkTimePreview";
-            this.labelWorkTimePreview.Size = new System.Drawing.Size(90, 13);
+            this.labelWorkTimePreview.Size = new System.Drawing.Size(59, 13);
             this.labelWorkTimePreview.TabIndex = 3;
-            this.labelWorkTimePreview.Text = "Work Time in Min";
+            this.labelWorkTimePreview.Text = "Work Time";
+            this.labelWorkTimePreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelRoundPreview
             // 
@@ -405,7 +423,7 @@
             this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picBoxClose.BackColor = System.Drawing.SystemColors.Control;
             this.picBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
-            this.picBoxClose.Location = new System.Drawing.Point(305, 0);
+            this.picBoxClose.Location = new System.Drawing.Point(297, 0);
             this.picBoxClose.Name = "picBoxClose";
             this.picBoxClose.Size = new System.Drawing.Size(45, 25);
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -437,7 +455,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox1.Location = new System.Drawing.Point(0, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 205);
+            this.pictureBox1.Size = new System.Drawing.Size(342, 205);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
@@ -446,7 +464,7 @@
             this.radioBtnManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioBtnManual.AutoSize = true;
             this.radioBtnManual.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioBtnManual.Location = new System.Drawing.Point(172, 35);
+            this.radioBtnManual.Location = new System.Drawing.Point(168, 35);
             this.radioBtnManual.Name = "radioBtnManual";
             this.radioBtnManual.Size = new System.Drawing.Size(60, 17);
             this.radioBtnManual.TabIndex = 4;
@@ -464,17 +482,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 230);
+            this.ClientSize = new System.Drawing.Size(342, 230);
             this.Controls.Add(this.picBoxSettings);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.picBoxIcon);
+            this.Controls.Add(this.radioBtnManual);
             this.Controls.Add(this.labelWinName);
             this.Controls.Add(this.groupBoxPreview);
             this.Controls.Add(this.btnStartStop);
             this.Controls.Add(this.btnSetReset);
             this.Controls.Add(this.radioBtnRecovery);
-            this.Controls.Add(this.radioBtnManual);
             this.Controls.Add(this.radioBtnProgress);
             this.Controls.Add(this.radioBtnSmart);
             this.Controls.Add(this.progressBarCountdown);
