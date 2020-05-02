@@ -15,7 +15,7 @@ namespace Worker_Ant
         internal int MouseXAxis;
         internal int MouseYAxis;
         internal bool MouseDrag;
-        internal (int, int, int) TimeData;
+        internal (int, int, int) TimeDataWBR;
         public FullViewWin()
         {
             InitializeComponent();
@@ -23,17 +23,8 @@ namespace Worker_Ant
 
         private void FullViewWin_Load(object sender, EventArgs e)
         {
-            //liveRefresh.Start();
-            try
-            {
-                numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime / 60;
-                numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime / 60;
-            }
-            catch
-            {
-                MessageBox.Show("dsalikj");
-            }
-
+            numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime / 60;
+            numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime / 60;
         }
         //-------------------------------------------------------------------------win move
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -123,18 +114,17 @@ namespace Worker_Ant
                 Properties.Settings.Default.manualWorkTime = numUDWorkManual.Value * 60;
                 Properties.Settings.Default.manualBreakTime = numUDBreakManual.Value * 60;
                 Properties.Settings.Default.Save();
-                radioBtnChineged_CheckedChanged(null, null);
             }
 
             GetTimeData();
 
-            labelWorkTimeCountdown.Text = (TimeData.Item1 / 60 + ":" + (TimeData.Item1 % 60).ToString("D2"));
-            labelBreakTimeCountdown.Text = (TimeData.Item2 / 60 + ":" + (TimeData.Item2 % 60).ToString("D2"));
-            labelRoundNumCountdown.Text = TimeData.Item3.ToString();
+            labelWorkTimeCountdown.Text = (TimeDataWBR.Item1 / 60 + ":" + (TimeDataWBR.Item1 % 60).ToString("D2"));
+            labelBreakTimeCountdown.Text = (TimeDataWBR.Item2 / 60 + ":" + (TimeDataWBR.Item2 % 60).ToString("D2"));
+            labelRoundNumCountdown.Text = TimeDataWBR.Item3.ToString();
 
-            Countdown.CountdownValues = TimeData;
-
-            btnSetReset.Text = Countdown.BtnInputControl(btnSetReset.Text);
+            Countdown.SavedCountdownValuesWBR = TimeDataWBR;
+            var countdown = new Countdown();
+            btnSetReset.Text = countdown.CountdownInputControl(btnSetReset.Text);
         }
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
@@ -155,23 +145,32 @@ namespace Worker_Ant
                 btnSetReset.Enabled = true;
                 liveRefresh.Stop();
             }
-            //Class1.starttimer("Start");
-
-            btnStartStop.Text = Countdown.BtnInputControl(btnStartStop.Text);
+            var countdown = new Countdown();
+            btnStartStop.Text = countdown.CountdownInputControl(btnStartStop.Text);
         }
         //------------------------------------------------------------------------- radio button
         private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
         {
             GetTimeData();
 
-            labelWorkTimePreview.Text = (TimeData.Item1 / 60 + ":" + (TimeData.Item1 % 60).ToString("D2"));
-            labelBreakTimePreview.Text = (TimeData.Item2 / 60 + ":" + (TimeData.Item2 % 60).ToString("D2"));
-            labelRoundNumPreview.Text = TimeData.Item3.ToString() ;
+            labelWorkTimePreview.Text = (TimeDataWBR.Item1 / 60 + ":" + (TimeDataWBR.Item1 % 60).ToString("D2"));
+            labelBreakTimePreview.Text = (TimeDataWBR.Item2 / 60 + ":" + (TimeDataWBR.Item2 % 60).ToString("D2"));
+            labelRoundNumPreview.Text = TimeDataWBR.Item3.ToString() ;
+        }
+        //------------------------------------------------------------------------- number up down menual 
+        private void numUDManual_ValueChanged(object sender, EventArgs e)
+        {
+            if (radioBtnManual.Checked == true)
+            {
+                Properties.Settings.Default.manualWorkTime = numUDWorkManual.Value * 60;
+                Properties.Settings.Default.manualBreakTime = numUDBreakManual.Value * 60;
+                radioBtnChineged_CheckedChanged(null, null);
+            }
         }
         //------------------------------------------------------------------------- get data
-        // get time data frome settings
         private void GetTimeData()
         {
+            var countdown = new Countdown();
             if (radioBtnManual.Checked == false)
             {
                 groupBoxManual.Enabled = false;
@@ -179,27 +178,26 @@ namespace Worker_Ant
 
             if (radioBtnManual.Checked == true)
             {
-                TimeData = Countdown.InsertDataToView("Manual");
+                TimeDataWBR = countdown.GetTimerDataForUI("Manual");
                 groupBoxManual.Enabled = true;
             }
             else if (radioBtnRecovery.Checked == true)
             {
-                TimeData = Countdown.InsertDataToView("Recovery");
+                TimeDataWBR = countdown.GetTimerDataForUI("Recovery");
             }
             else if (radioBtnSmart.Checked == true)
             {
-                TimeData = Countdown.InsertDataToView("Smart");
+                TimeDataWBR = countdown.GetTimerDataForUI("Smart");
             }
             else if (radioBtnProgress.Checked == true)
             {
-                TimeData = Countdown.InsertDataToView("Progress");
+                TimeDataWBR = countdown.GetTimerDataForUI("Progress");
             }
             else
             {
                 var errorHandler = new ErrorHandlerWin();
-                errorHandler.ErrorHandeler("", "FVW", "01", false);
-                errorHandler.Show();
-                //error
+                errorHandler.ErrorHandeler("", "FVW", "01", true); 
+
                 MessageBox.Show("Radio Button not found");
             }
             
@@ -207,19 +205,9 @@ namespace Worker_Ant
         //------------------------------------------------------------------------- timer
         private void liveRefresh_Tick(object sender, EventArgs e)
         {
-            labelWorkTimeCountdown.Text = (Countdown.WorkTimerLive / 60 + ":" + (Countdown.WorkTimerLive % 60).ToString("D2"));
-            labelBreakTimeCountdown.Text = (Countdown.BreakTimerLive / 60 + ":" + (Countdown.BreakTimerLive % 60).ToString("D2"));
-            labelRoundNumCountdown.Text = Countdown.RoundTimerLive.ToString();
-            //if (labelWorkTimeCountdown.Text == "0" && labelBreakTimeCountdown.Text == "0" && labelRoundNumCountdown.Text == "0")
-            //{
-            //    btnStartStop.Text = "Start";
-            //    btnSetReset.Enabled = true;
-            //}
-            //if (Countdown.RoundTimerLive == 0 && Countdown.BreakTimerLive == 0 && Countdown.WorkTimerLive == 0)
-            //{
-            //    btnSetReset_Click(null, null);
-            //}
-            
+            labelWorkTimeCountdown.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
+            labelBreakTimeCountdown.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+            labelRoundNumCountdown.Text = Countdown.RoundValueLive.ToString();
         }
     }
 }

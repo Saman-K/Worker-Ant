@@ -357,6 +357,7 @@
             this.buttonAdminSet.TabIndex = 17;
             this.buttonAdminSet.Text = "Admin";
             this.buttonAdminSet.UseVisualStyleBackColor = true;
+            this.buttonAdminSet.Visible = false;
             // 
             // picBoxInfo
             // 
@@ -413,8 +414,6 @@
             // checkBoxSimpleView
             // 
             this.checkBoxSimpleView.AutoSize = true;
-            this.checkBoxSimpleView.Checked = global::Worker_Ant.Properties.Settings.Default.simpleView;
-            this.checkBoxSimpleView.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "simpleView", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 176);
             this.checkBoxSimpleView.Name = "checkBoxSimpleView";
             this.checkBoxSimpleView.Size = new System.Drawing.Size(15, 14);

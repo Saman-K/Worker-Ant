@@ -15,12 +15,11 @@ namespace Worker_Ant
         internal static int MouseXAxis;
         internal static int MouseYAxis;
         internal static bool MouseDrag;
+
         public ErrorHandlerWin()
         {
             InitializeComponent();
         }
-
-        
         //-------------------------------------------------------------------------win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -83,7 +82,8 @@ namespace Worker_Ant
             {
                 labelLocationNumber.Visible = false;
             }
-            
+            //var errorHandler = new ErrorHandlerWin();
+            //errorHandler.ShowDialog();
         }
     }
 }

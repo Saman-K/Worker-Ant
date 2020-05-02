@@ -108,6 +108,7 @@
             0,
             0,
             0});
+            this.numUDBreakManual.ValueChanged += new System.EventHandler(this.numUDManual_ValueChanged);
             // 
             // numUDWorkManual
             // 
@@ -132,6 +133,7 @@
             0,
             0,
             0});
+            this.numUDWorkManual.ValueChanged += new System.EventHandler(this.numUDManual_ValueChanged);
             // 
             // labelBreakManual
             // 

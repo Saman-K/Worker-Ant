@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Worker_Ant
@@ -12,55 +12,86 @@ namespace Worker_Ant
         //public string winName;
         internal bool WinIsOpen;
         //------------------------------------------------------------------------- check windows to let only one to be visibel
+        public static void Start()
+        {
+            WinBehavior winBehavior = new WinBehavior();
+            if (Properties.Settings.Default.simpleView == true)
+            {
+                Application.Run(new SimpleViewWin());
+            }
+            else if (Properties.Settings.Default.simpleView == false)
+            {
+                Application.Run(new FullViewWin());
+            }
+        }
+
         public void ChackWins(string winName)
         {
             var errorHandler = new ErrorHandlerWin();
             
             if (Properties.Settings.Default.Theme == "Basic")
             {
-                if (winName == "Info")
+                switch (winName)
                 {
-                    WinOpener("InfoWin");
-                }
-                else if (winName == "Settings")
-                {
+                    case "Info":
+                        WinOpener("InfoWin");
+                        break;
+                    case "Settings":
                     WinOpener("SettingsWin");
-                }
-                else if (winName == "Break")
-                {
+                        break;
+                    case "Break":
                     WinOpener("BreakBasicWin");
-                }
-                else if (winName == "ToBreak")
-                {
+                        break;
+                    case "ToBreak":
                     WinOpener("ToBreakBasicWin");
-                }
-                else if (winName == "SimpleView")
-                {
-                    WinOpener("SimpleViewWin");
-                }
-                else if(winName == "FullView")
-                {
-                    WinOpener("FullViewWin");
-                }
-                else
-                {
+                        break;
+                    case "SimpleView":
+                        WinOpener("SimpleViewWin");
+                        break;
+                    case "FullView":
+                        WinOpener("FullViewWin");
+                        break;
+                    default:
+
                     errorHandler.ErrorHandeler("", "WB", "01", true);
-                    errorHandler.Show();
+                        break;
                 }
             }
             else if (Properties.Settings.Default.Theme == "")
             {
-
+                switch (winName)
+                {
+                    case "Info":
+                        WinOpener("InfoWin");
+                        break;
+                    case "Settings":
+                        WinOpener("SettingsWin");
+                        break;
+                    case "Break":
+                        WinOpener("BreakBasicWin");
+                        break;
+                    case "ToBreak":
+                        WinOpener("ToBreakBasicWin");
+                        break;
+                    case "SimpleView":
+                        WinOpener("SimpleViewWin");
+                        break;
+                    case "FullView":
+                        WinOpener("FullViewWin");
+                        break;
+                    default:
+                        errorHandler.ErrorHandeler("", "WB", "05", true);
+                        break;
+                }
             }
             else
             {
                 errorHandler.ErrorHandeler("", "WB", "02", true);
-                errorHandler.Show();
             }
 
         }
 
-        internal void WinOpener(string winName)
+        protected void WinOpener(string winName)
         {
             var errorHandler = new ErrorHandlerWin();
 
@@ -76,7 +107,6 @@ namespace Worker_Ant
                     catch 
                     {
                         errorHandler.ErrorHandeler("", "WB", "03", true);
-                        errorHandler.Show();
                     }
                 }
             }
@@ -101,14 +131,14 @@ namespace Worker_Ant
                         toBreakBasicWin.Show();
                         break;
                     case "SimpleViewWin":
-                        var simpleViewWin = new SimpleViewWin();
-                        simpleViewWin.Show();
+Application.Exit();
+                        Application.Run(new SimpleViewWin());
+                        
                         break;
                     case "FullViewWin":
-                        var fullViewWin = new FullViewWin();
-                        fullViewWin.Show();
+                        Application.Run(new FullViewWin());
+                        Application.Exit();
                         break;
-
                     default:
                         errorHandler.ErrorHandeler("", "WB", "04", true);
                         errorHandler.Show();

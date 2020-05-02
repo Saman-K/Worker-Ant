@@ -118,17 +118,18 @@ namespace Worker_Ant
         // get time data frome settings
         private void GetTimeData()
         {
+            var countdown = new Countdown();
             if (radioBtnRecovery.Checked == true)
             {
-                TimeData = Countdown.InsertDataToView("Recovery");
+                TimeData = countdown.GetTimerDataForUI("Recovery");
             }
             else if (radioBtnSmart.Checked == true)
             {
-                TimeData = Countdown.InsertDataToView("Smart");
+                TimeData = countdown.GetTimerDataForUI("Smart");
             }
             else if (radioBtnProgress.Checked == true)
             {
-                TimeData = Countdown.InsertDataToView("Progress");
+                TimeData = countdown.GetTimerDataForUI("Progress");
             }
             labelWorkTimeCountdown.Text = TimeData.Item1.ToString() + " Mins";
             labelBreakTimeCountdown.Text = TimeData.Item2.ToString() + " Mins";

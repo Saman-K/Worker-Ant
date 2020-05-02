@@ -80,11 +80,14 @@ namespace Worker_Ant
         //default btn
         private void btnDefault_Click(object sender, EventArgs e)
         {
-            Countdown.SetPresetTimeToDefault();
+            var countdown = new Countdown();
+            countdown.SetSettingsToDefault();
+            SettingsWin_Load(null, null);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             try
             {
                 Properties.Settings.Default.recoveryWorkTime = numUDWorkRecovery.Value * 60;
@@ -95,10 +98,32 @@ namespace Worker_Ant
                 Properties.Settings.Default.progressBreakTime = numUDBreakProgress.Value * 60;
                 Properties.Settings.Default.roundCountdown = numUDRound.Value;
 
+                if (checkBoxSimpleView.Checked != Properties.Settings.Default.simpleView)
+                {
+                    //MessageBox.Show("kuhf");
+                    //var winBehavior = new WinBehavior();
+                    //switch (checkBoxSimpleView.Checked)
+                    //{
+                    //    case true:
+                    //        winBehavior.ChackWins("SimpleView");
+                    //        break;
+                    //    case false:
+                    //        winBehavior.ChackWins("FullView");
+                    //        break;
+                    //}
+                }
+
                 Properties.Settings.Default.audioAlert = checkBoxAudioAlert.Checked;
                 Properties.Settings.Default.saftyInfo = checkBoxSafetyInfo.Checked;
                 Properties.Settings.Default.simpleView = checkBoxSimpleView.Checked;
+
+
                 Properties.Settings.Default.Save();
+                
+                MessageBox.Show("Settings saved.");
+
+                Close();
+                
             }
             catch
             {

@@ -67,7 +67,6 @@
     <Compile Include="BreakBasicWin.Designer.cs">
       <DependentUpon>BreakBasicWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Countdown.cs" />
     <Compile Include="ErrorHandlerWin.cs">
       <SubType>Form</SubType>

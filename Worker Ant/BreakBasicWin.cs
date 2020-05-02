@@ -20,8 +20,22 @@ namespace Worker_Ant
         {
             InitializeComponent();
         }
-
-        //-------------------------------------------------------------------------win move
+        //------------------------------------------------------------------------- win load
+        private void BreakBasicWin_Load(object sender, EventArgs e)
+        {
+            winRefresh.Start();
+            if (Countdown.RoundValueLive > 0)
+            {
+                btnYes.Text = "Yes";
+            }
+            else if (Countdown.RoundValueLive <= 0)
+            {
+                btnYes.Text = "Okay";
+                btnNo.Visible = false;
+                btnNo.Enabled = false;
+            }
+        }
+        //------------------------------------------------------------------------- win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
@@ -43,11 +57,16 @@ namespace Worker_Ant
         {
             MouseDrag = false;
         }
-        //-------------------------------------------------------------------------pic close
+        //------------------------------------------------------------------------- pic close
         //click
         private void picBoxClose_Click(object sender, EventArgs e)
         {
-            Close();
+            var countdown = new Countdown();
+            if (Countdown.TimerRoundName == "End Break")
+            {
+                countdown.CountdownInputControl("BreakWin");
+                Close();
+            }
         }
         //mouse leave
         private void picBoxClose_MouseLeave(object sender, EventArgs e)
@@ -60,6 +79,58 @@ namespace Worker_Ant
             picBoxClose.BackColor = SystemColors.ControlDark;
 
         }
+        // window load
+        //-------------------------------------------------------------------------
 
+        //------------------------------------------------------------------------- timer
+        // refresh window data (timer)
+        private void winRefresh_Tick(object sender, EventArgs e)
+        {
+            if (Countdown.TimerRoundName == "Break")
+            {
+                labelLiveBreakTime.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                btnYes.Enabled = false;
+                btnNo.Enabled = false;
+                labelAnotherRound.Visible = false;
+            }
+            else if (Countdown.TimerRoundName == "End Break")
+            {
+                labelLiveBreakTime.Text = (" - " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                if (Countdown.BreakValueLive == 0)
+                {
+                    labelLiveBreakTime.ForeColor = Color.Red;
+                    labelTheBreakWEI.Text = "Break has ended";
+                    labelTheBreakWEI.ForeColor = Color.Red;
+                    btnYes.Enabled = true;
+                    if (Countdown.RoundValueLive > 0)
+                    {
+                        btnNo.Enabled = true;
+                        labelAnotherRound.Visible = true;
+                    }
+                }
+            }
+        }
+        //------------------------------------------------------------------------- Button
+        // okey btn
+        private void btnYes_Click(object sender, EventArgs e)
+        {
+            var countdown = new Countdown();
+            if (btnYes.Text == "Yes")
+            {
+                countdown.CountdownInputControl("BreakWin");
+            }
+            else if (btnYes.Text == "Okey")
+            {
+                countdown.CountdownInputControl("Stop");
+            }
+            Close();
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            var countdown = new Countdown();
+            countdown.CountdownInputControl("Stop");
+            Close();
+        }
     }
 }
