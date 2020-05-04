@@ -21,6 +21,10 @@ namespace Worker_Ant
             InitializeComponent();
         }
 
+        private void ToBreakBasicWin_Load(object sender, EventArgs e)
+        {
+            winRefresh.Start();
+        }
         //-------------------------------------------------------------------------win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -60,15 +64,35 @@ namespace Worker_Ant
             picBoxClose.BackColor = SystemColors.ControlDark;
 
         }
-        //-------------------------------------------------------------------------button click
-        private void btnNoToBreakBasic_Click(object sender, EventArgs e)
+        //------------------------------------------------------------------------- button click
+        //button No
+        private void btnNo_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
-
-        private void btnYesToBreakBasic_Click(object sender, EventArgs e)
+        //button Yes
+        private void btnYes_Click(object sender, EventArgs e)
         {
-
+            var countdown = new Countdown();
+            countdown.CountdownInputControl("ToBreakYes");
+            Close();
+        }
+        //------------------------------------------------------------------------- timer
+        // refresh window data (timer)
+        private void winRefresh_Tick(object sender, EventArgs e)
+        {
+            if (Countdown.TimerStatus == "Tick" && Countdown.TimerRoundName == "Work")
+            {
+                labelLiveWorkTime.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
+                if (Countdown.WorkValueLive <= 295)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }

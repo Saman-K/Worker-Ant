@@ -136,14 +136,21 @@ namespace Worker_Ant
                 if (labelWorkTimeCountdown.Text == "Work Time" || labelBreakCountdown.Text == "Break Time")
                 {
                     btnSetReset_Click(null, null);
-                    liveRefresh_Tick(null, null);
+                    winRefresh_Tick(null, null);
                 }
-                liveRefresh.Start();
+                winRefresh.Start();
             }
             else if (btnStartStop.Text == "Stop")
             {
-                btnSetReset.Enabled = true;
-                liveRefresh.Stop();
+                if (Countdown.TimerRoundName == "Break")
+                {
+                    btnSetReset.Enabled = false;
+                }
+                else
+                {
+                    btnSetReset.Enabled = true;
+                    winRefresh.Stop();
+                }
             }
             var countdown = new Countdown();
             btnStartStop.Text = countdown.CountdownInputControl(btnStartStop.Text);
@@ -203,11 +210,37 @@ namespace Worker_Ant
             
         }
         //------------------------------------------------------------------------- timer
-        private void liveRefresh_Tick(object sender, EventArgs e)
+        private void winRefresh_Tick(object sender, EventArgs e)
         {
             labelWorkTimeCountdown.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
-            labelBreakTimeCountdown.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+
+            if (Countdown.TimerRoundName == "End Break")
+            {
+                labelBreakTimeCountdown.Text = ("- " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                if (Countdown.BreakValueLive == 0)
+                {
+                    labelBreakTimeCountdown.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                labelBreakTimeCountdown.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                labelBreakTimeCountdown.ForeColor = SystemColors.ControlText;
+            }
+
             labelRoundNumCountdown.Text = Countdown.RoundValueLive.ToString();
+            
+
+            if (Countdown.TimerStatus == "Tick")
+            {
+                btnStartStop.Text = "Stop";
+                btnSetReset.Enabled = false;
+            }
+            else if(Countdown.TimerStatus == "Pause")
+            {
+                btnStartStop.Text = "Start";
+                btnSetReset.Enabled = true;
+            }
         }
     }
 }

@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnYesToBreakBasic = new System.Windows.Forms.Button();
-            this.btnNoToBreakBasic = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.btnYes = new System.Windows.Forms.Button();
+            this.btnNo = new System.Windows.Forms.Button();
             this.labelWinName = new System.Windows.Forms.Label();
             this.labelLiveWorkTime = new System.Windows.Forms.Label();
             this.labelDoYouWant = new System.Windows.Forms.Label();
@@ -38,33 +39,34 @@
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.winRefresh = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnYesToBreakBasic
+            // btnYes
             // 
-            this.btnYesToBreakBasic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnYesToBreakBasic.Location = new System.Drawing.Point(182, 115);
-            this.btnYesToBreakBasic.Name = "btnYesToBreakBasic";
-            this.btnYesToBreakBasic.Size = new System.Drawing.Size(75, 23);
-            this.btnYesToBreakBasic.TabIndex = 11;
-            this.btnYesToBreakBasic.Text = "Yes";
-            this.btnYesToBreakBasic.UseVisualStyleBackColor = true;
-            this.btnYesToBreakBasic.Click += new System.EventHandler(this.btnYesToBreakBasic_Click);
+            this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnYes.Location = new System.Drawing.Point(182, 115);
+            this.btnYes.Name = "btnYes";
+            this.btnYes.Size = new System.Drawing.Size(75, 23);
+            this.btnYes.TabIndex = 11;
+            this.btnYes.Text = "Yes";
+            this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
-            // btnNoToBreakBasic
+            // btnNo
             // 
-            this.btnNoToBreakBasic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNoToBreakBasic.Location = new System.Drawing.Point(263, 115);
-            this.btnNoToBreakBasic.Name = "btnNoToBreakBasic";
-            this.btnNoToBreakBasic.Size = new System.Drawing.Size(75, 23);
-            this.btnNoToBreakBasic.TabIndex = 10;
-            this.btnNoToBreakBasic.Text = "No";
-            this.btnNoToBreakBasic.UseVisualStyleBackColor = true;
-            this.btnNoToBreakBasic.Click += new System.EventHandler(this.btnNoToBreakBasic_Click);
+            this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNo.Location = new System.Drawing.Point(263, 115);
+            this.btnNo.Name = "btnNo";
+            this.btnNo.Size = new System.Drawing.Size(75, 23);
+            this.btnNo.TabIndex = 10;
+            this.btnNo.Text = "No";
+            this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // labelWinName
             // 
@@ -156,6 +158,10 @@
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 
+            // winRefresh
+            // 
+            this.winRefresh.Tick += new System.EventHandler(this.winRefresh_Tick);
+            // 
             // ToBreakBasicWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,15 +171,17 @@
             this.Controls.Add(this.labelDoYouWant);
             this.Controls.Add(this.labelBreakWillSL);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnYesToBreakBasic);
-            this.Controls.Add(this.btnNoToBreakBasic);
+            this.Controls.Add(this.btnYes);
+            this.Controls.Add(this.btnNo);
             this.Controls.Add(this.labelWinName);
             this.Controls.Add(this.picBoxIcon);
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ToBreakBasicWin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ToBreakBasic";
+            this.Load += new System.EventHandler(this.ToBreakBasicWin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
@@ -188,8 +196,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnYesToBreakBasic;
-        private System.Windows.Forms.Button btnNoToBreakBasic;
+        private System.Windows.Forms.Button btnYes;
+        private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.Label labelWinName;
         private System.Windows.Forms.PictureBox picBoxIcon;
         private System.Windows.Forms.PictureBox picBoxClose;
@@ -198,5 +206,6 @@
         internal System.Windows.Forms.Label labelDoYouWant;
         internal System.Windows.Forms.Label labelBreakWillSL;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Timer winRefresh;
     }
 }

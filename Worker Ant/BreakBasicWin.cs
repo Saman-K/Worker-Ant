@@ -26,11 +26,11 @@ namespace Worker_Ant
             winRefresh.Start();
             if (Countdown.RoundValueLive > 0)
             {
-                btnYes.Text = "Yes";
+                btnYesOkay.Text = "Yes";
             }
             else if (Countdown.RoundValueLive <= 0)
             {
-                btnYes.Text = "Okay";
+                btnYesOkay.Text = "Okay";
                 btnNo.Visible = false;
                 btnNo.Enabled = false;
             }
@@ -64,7 +64,7 @@ namespace Worker_Ant
             var countdown = new Countdown();
             if (Countdown.TimerRoundName == "End Break")
             {
-                countdown.CountdownInputControl("BreakWin");
+                countdown.CountdownInputControl("BreakWinOkay");
                 Close();
             }
         }
@@ -86,42 +86,53 @@ namespace Worker_Ant
         // refresh window data (timer)
         private void winRefresh_Tick(object sender, EventArgs e)
         {
-            if (Countdown.TimerRoundName == "Break")
+            if (Countdown.TimerStatus == "Tick" )
             {
-                labelLiveBreakTime.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
-                btnYes.Enabled = false;
-                btnNo.Enabled = false;
-                labelAnotherRound.Visible = false;
-            }
-            else if (Countdown.TimerRoundName == "End Break")
-            {
-                labelLiveBreakTime.Text = (" - " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
-                if (Countdown.BreakValueLive == 0)
+                if (Countdown.TimerRoundName == "Break")
                 {
-                    labelLiveBreakTime.ForeColor = Color.Red;
-                    labelTheBreakWEI.Text = "Break has ended";
-                    labelTheBreakWEI.ForeColor = Color.Red;
-                    btnYes.Enabled = true;
-                    if (Countdown.RoundValueLive > 0)
+                    labelLiveBreakTime.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                    btnYesOkay.Enabled = false;
+                    btnNo.Enabled = false;
+                    labelAnotherRound.Visible = false;
+                }
+                else if (Countdown.TimerRoundName == "End Break")
+                {
+                    labelLiveBreakTime.Text = (" - " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                    if (Countdown.BreakValueLive == 0)
                     {
-                        btnNo.Enabled = true;
-                        labelAnotherRound.Visible = true;
+                        labelLiveBreakTime.ForeColor = Color.Red;
+                        labelTheBreakWEI.Text = "Break has ended";
+                        labelTheBreakWEI.ForeColor = Color.Red;
+                        btnYesOkay.Enabled = true;
+                        if (Countdown.RoundValueLive > 0)
+                        {
+                            btnNo.Enabled = true;
+                            labelAnotherRound.Visible = true;
+                        }
                     }
                 }
+                else
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
             }
         }
         //------------------------------------------------------------------------- Button
         // okey btn
-        private void btnYes_Click(object sender, EventArgs e)
+        private void btnYesOkay_Click(object sender, EventArgs e)
         {
             var countdown = new Countdown();
-            if (btnYes.Text == "Yes")
+            if (btnYesOkay.Text == "Yes")
             {
-                countdown.CountdownInputControl("BreakWin");
+                countdown.CountdownInputControl("BreakWinYes");
             }
-            else if (btnYes.Text == "Okey")
+            else if (btnYesOkay.Text == "Okay")
             {
-                countdown.CountdownInputControl("Stop");
+                countdown.CountdownInputControl("BreakWinOkay");
             }
             Close();
         }
@@ -129,7 +140,7 @@ namespace Worker_Ant
         private void btnNo_Click(object sender, EventArgs e)
         {
             var countdown = new Countdown();
-            countdown.CountdownInputControl("Stop");
+            countdown.CountdownInputControl("BreakWinNo");
             Close();
         }
     }

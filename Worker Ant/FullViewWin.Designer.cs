@@ -61,7 +61,7 @@
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioBtnManual = new System.Windows.Forms.RadioButton();
-            this.liveRefresh = new System.Windows.Forms.Timer(this.components);
+            this.winRefresh = new System.Windows.Forms.Timer(this.components);
             this.groupBoxManual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakManual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkManual)).BeginInit();
@@ -475,10 +475,9 @@
             this.radioBtnManual.UseVisualStyleBackColor = false;
             this.radioBtnManual.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
             // 
-            // liveRefresh
+            // winRefresh
             // 
-            this.liveRefresh.Interval = 1000;
-            this.liveRefresh.Tick += new System.EventHandler(this.liveRefresh_Tick);
+            this.winRefresh.Tick += new System.EventHandler(this.winRefresh_Tick);
             // 
             // FullViewWin
             // 
@@ -561,7 +560,7 @@
         public System.Windows.Forms.Label labelRoundNumPreview;
         public System.Windows.Forms.Label labelBreakTimePreview;
         public System.Windows.Forms.Label labelWorkTimePreview;
-        private System.Windows.Forms.Timer liveRefresh;
+        private System.Windows.Forms.Timer winRefresh;
     }
 }
 

@@ -489,6 +489,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingsWin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.SettingsWin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);

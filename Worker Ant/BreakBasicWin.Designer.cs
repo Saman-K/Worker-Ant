@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.labelWinName = new System.Windows.Forms.Label();
-            this.btnYes = new System.Windows.Forms.Button();
+            this.btnYesOkay = new System.Windows.Forms.Button();
             this.labelTheBreakWEI = new System.Windows.Forms.Label();
             this.labelLiveBreakTime = new System.Windows.Forms.Label();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
@@ -58,16 +58,16 @@
             this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
             this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
             // 
-            // btnYes
+            // btnYesOkay
             // 
-            this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnYes.Location = new System.Drawing.Point(263, 115);
-            this.btnYes.Name = "btnYes";
-            this.btnYes.Size = new System.Drawing.Size(75, 23);
-            this.btnYes.TabIndex = 5;
-            this.btnYes.Text = "Yes";
-            this.btnYes.UseVisualStyleBackColor = true;
-            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
+            this.btnYesOkay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnYesOkay.Location = new System.Drawing.Point(263, 115);
+            this.btnYesOkay.Name = "btnYesOkay";
+            this.btnYesOkay.Size = new System.Drawing.Size(75, 23);
+            this.btnYesOkay.TabIndex = 5;
+            this.btnYesOkay.Text = "Yes";
+            this.btnYesOkay.UseVisualStyleBackColor = true;
+            this.btnYesOkay.Click += new System.EventHandler(this.btnYesOkay_Click);
             // 
             // labelTheBreakWEI
             // 
@@ -170,13 +170,14 @@
             this.Controls.Add(this.labelLiveBreakTime);
             this.Controls.Add(this.labelTheBreakWEI);
             this.Controls.Add(this.picBoxLogo);
-            this.Controls.Add(this.btnYes);
+            this.Controls.Add(this.btnYesOkay);
             this.Controls.Add(this.labelWinName);
             this.Controls.Add(this.picBoxIcon);
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.picBoxBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BreakBasicWin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.BreakBasicWin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
@@ -202,6 +203,6 @@
         private System.Windows.Forms.Timer winRefresh;
         private System.Windows.Forms.Label labelAnotherRound;
         private System.Windows.Forms.Button btnNo;
-        private System.Windows.Forms.Button btnYes;
+        private System.Windows.Forms.Button btnYesOkay;
     }
 }
