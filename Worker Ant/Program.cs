@@ -13,7 +13,7 @@ namespace Worker_Ant
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Countdown.Start();

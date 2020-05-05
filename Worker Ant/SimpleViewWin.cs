@@ -15,7 +15,7 @@ namespace Worker_Ant
         internal int MouseXAxis;
         internal int MouseYAxis;
         internal bool MouseDrag;
-        internal (int, int, int) TimeData;
+        internal (int, int, int) TimeDataWBR;
         public SimpleViewWin()
         {
             InitializeComponent();
@@ -104,15 +104,28 @@ namespace Worker_Ant
         {
             if (btnStartStop.Text == "Start")
             {
-                btnStartStop.Text = "Stop";
-                GetTimeData();
+                RadioBtnEnabel(false);
 
-
+                if (labelWorkTimeCountdown.Text == "Work Time" || labelBreakCountdown.Text == "Break Time")
+                {
+                    GetTimeData();
+                }
+                winRefresh.Start();
             }
             else if (btnStartStop.Text == "Stop")
             {
-                btnStartStop.Text = "Start";
+                if (Countdown.TimerRoundName == "Break")
+                {
+                    RadioBtnEnabel(false);
+                }
+                else
+                {
+                    RadioBtnEnabel(true);
+                    winRefresh.Stop();
+                }
             }
+            var countdown = new Countdown();
+            btnStartStop.Text = countdown.CountdownInputControl(btnStartStop.Text);
         }
         //------------------------------------------------------------------------- get data
         // get time data frome settings
@@ -121,19 +134,71 @@ namespace Worker_Ant
             var countdown = new Countdown();
             if (radioBtnRecovery.Checked == true)
             {
-                TimeData = countdown.GetTimerDataForUI("Recovery");
+                TimeDataWBR = countdown.GetTimerDataForUI("Recovery");
             }
             else if (radioBtnSmart.Checked == true)
             {
-                TimeData = countdown.GetTimerDataForUI("Smart");
+                TimeDataWBR = countdown.GetTimerDataForUI("Smart");
             }
             else if (radioBtnProgress.Checked == true)
             {
-                TimeData = countdown.GetTimerDataForUI("Progress");
+                TimeDataWBR = countdown.GetTimerDataForUI("Progress");
             }
-            labelWorkTimeCountdown.Text = TimeData.Item1.ToString() + " Mins";
-            labelBreakTimeCountdown.Text = TimeData.Item2.ToString() + " Mins";
-            labelRoundNumCountdown.Text = TimeData.Item3.ToString();
+            else
+            {
+                var errorHandler = new ErrorHandlerWin();
+                errorHandler.ErrorHandeler("Radio Button not found", "SVW", "01", false);
+                errorHandler.ShowDialog();
+            }
+
+            labelWorkTimeCountdown.Text = (TimeDataWBR.Item1 / 60 + ":" + (TimeDataWBR.Item1 % 60).ToString("D2"));
+            labelBreakTimeCountdown.Text = (TimeDataWBR.Item2 / 60 + ":" + (TimeDataWBR.Item2 % 60).ToString("D2"));
+            labelRoundNumCountdown.Text = TimeDataWBR.Item3.ToString();
+        }
+
+        private void RadioBtnEnabel(bool trueFalse)
+        {
+            radioBtnRecovery.Enabled = trueFalse;
+            radioBtnSmart.Enabled = trueFalse;
+            radioBtnProgress.Enabled = trueFalse;
+        }
+
+        private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
+        {
+            GetTimeData();
+        }
+
+        private void winRefresh_Tick(object sender, EventArgs e)
+        {
+            labelWorkTimeCountdown.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
+
+            if (Countdown.TimerRoundName == "End Break")
+            {
+                labelBreakTimeCountdown.Text = ("- " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                if (Countdown.BreakValueLive == 0)
+                {
+                    labelBreakTimeCountdown.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                labelBreakTimeCountdown.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                labelBreakTimeCountdown.ForeColor = SystemColors.ControlText;
+            }
+
+            labelRoundNumCountdown.Text = Countdown.RoundValueLive.ToString();
+
+
+            if (Countdown.TimerStatus == "Tick")
+            {
+                btnStartStop.Text = "Stop";
+                RadioBtnEnabel(false);
+            }
+            else if (Countdown.TimerStatus == "Pause")
+            {
+                btnStartStop.Text = "Start";
+                RadioBtnEnabel(true);
+            }
         }
     }
 }

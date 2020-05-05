@@ -62,7 +62,7 @@
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
-            this.tableLayoutPanel.Location = new System.Drawing.Point(9, 36);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(9, 42);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 6;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -155,14 +155,14 @@
             this.okButton.Location = new System.Drawing.Point(339, 239);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 24;
+            this.okButton.TabIndex = 1;
             this.okButton.Text = "&OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(31, 7);
+            this.labelWinName.Location = new System.Drawing.Point(34, 8);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(92, 13);
             this.labelWinName.TabIndex = 12;
@@ -174,7 +174,7 @@
             // picBoxIcon
             // 
             this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
-            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -204,7 +204,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(438, 288);
             this.pictureBox1.TabIndex = 13;
@@ -215,7 +215,7 @@
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 313);
+            this.ClientSize = new System.Drawing.Size(438, 319);
             this.Controls.Add(this.labelWinName);
             this.Controls.Add(this.picBoxIcon);
             this.Controls.Add(this.picBoxClose);

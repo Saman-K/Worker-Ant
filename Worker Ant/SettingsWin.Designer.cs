@@ -78,7 +78,7 @@
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(31, 7);
+            this.labelWinName.Location = new System.Drawing.Point(34, 8);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(45, 13);
             this.labelWinName.TabIndex = 2;
@@ -89,12 +89,13 @@
             // 
             // groupBoxSetSmart
             // 
+            this.groupBoxSetSmart.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBoxSetSmart.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxSetSmart.Controls.Add(this.numUDBreakSmart);
             this.groupBoxSetSmart.Controls.Add(this.numUDWorkSmart);
             this.groupBoxSetSmart.Controls.Add(this.labelBreakSmart);
             this.groupBoxSetSmart.Controls.Add(this.labelWorkSmart);
-            this.groupBoxSetSmart.Location = new System.Drawing.Point(178, 31);
+            this.groupBoxSetSmart.Location = new System.Drawing.Point(178, 37);
             this.groupBoxSetSmart.Name = "groupBoxSetSmart";
             this.groupBoxSetSmart.Size = new System.Drawing.Size(160, 69);
             this.groupBoxSetSmart.TabIndex = 3;
@@ -155,12 +156,13 @@
             // 
             // groupBoxSetProgress
             // 
+            this.groupBoxSetProgress.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBoxSetProgress.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxSetProgress.Controls.Add(this.numUDBreakProgress);
             this.groupBoxSetProgress.Controls.Add(this.numUDWorkProgress);
             this.groupBoxSetProgress.Controls.Add(this.labelBreakProgress);
             this.groupBoxSetProgress.Controls.Add(this.labelWorkProgress);
-            this.groupBoxSetProgress.Location = new System.Drawing.Point(12, 106);
+            this.groupBoxSetProgress.Location = new System.Drawing.Point(12, 112);
             this.groupBoxSetProgress.Name = "groupBoxSetProgress";
             this.groupBoxSetProgress.Size = new System.Drawing.Size(160, 69);
             this.groupBoxSetProgress.TabIndex = 2;
@@ -221,12 +223,13 @@
             // 
             // groupBoxSetRecovery
             // 
+            this.groupBoxSetRecovery.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBoxSetRecovery.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxSetRecovery.Controls.Add(this.numUDBreakRecovery);
             this.groupBoxSetRecovery.Controls.Add(this.numUDWorkRecovery);
             this.groupBoxSetRecovery.Controls.Add(this.labelBreakRecovery);
             this.groupBoxSetRecovery.Controls.Add(this.labelWorkRecovery);
-            this.groupBoxSetRecovery.Location = new System.Drawing.Point(12, 31);
+            this.groupBoxSetRecovery.Location = new System.Drawing.Point(12, 37);
             this.groupBoxSetRecovery.Name = "groupBoxSetRecovery";
             this.groupBoxSetRecovery.Size = new System.Drawing.Size(160, 69);
             this.groupBoxSetRecovery.TabIndex = 1;
@@ -287,9 +290,10 @@
             // 
             // labelRoundSet
             // 
+            this.labelRoundSet.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelRoundSet.AutoSize = true;
             this.labelRoundSet.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelRoundSet.Location = new System.Drawing.Point(184, 111);
+            this.labelRoundSet.Location = new System.Drawing.Point(184, 117);
             this.labelRoundSet.Name = "labelRoundSet";
             this.labelRoundSet.Size = new System.Drawing.Size(50, 13);
             this.labelRoundSet.TabIndex = 7;
@@ -297,8 +301,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(263, 200);
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSave.Location = new System.Drawing.Point(263, 196);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 12;
@@ -308,8 +312,8 @@
             // 
             // btnDefault
             // 
-            this.btnDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDefault.Location = new System.Drawing.Point(182, 200);
+            this.btnDefault.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDefault.Location = new System.Drawing.Point(182, 196);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(75, 23);
             this.btnDefault.TabIndex = 11;
@@ -319,19 +323,22 @@
             // 
             // labelSafetyInfo
             // 
+            this.labelSafetyInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelSafetyInfo.AutoSize = true;
             this.labelSafetyInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelSafetyInfo.Location = new System.Drawing.Point(184, 136);
+            this.labelSafetyInfo.Location = new System.Drawing.Point(12, 184);
             this.labelSafetyInfo.Name = "labelSafetyInfo";
             this.labelSafetyInfo.Size = new System.Drawing.Size(57, 13);
             this.labelSafetyInfo.TabIndex = 11;
             this.labelSafetyInfo.Text = "Safety info";
+            this.labelSafetyInfo.Visible = false;
             // 
             // labelAudioAlert
             // 
+            this.labelAudioAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelAudioAlert.AutoSize = true;
             this.labelAudioAlert.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelAudioAlert.Location = new System.Drawing.Point(184, 156);
+            this.labelAudioAlert.Location = new System.Drawing.Point(184, 152);
             this.labelAudioAlert.Name = "labelAudioAlert";
             this.labelAudioAlert.Size = new System.Drawing.Size(57, 13);
             this.labelAudioAlert.TabIndex = 13;
@@ -339,9 +346,10 @@
             // 
             // labelSimpleView
             // 
+            this.labelSimpleView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelSimpleView.AutoSize = true;
             this.labelSimpleView.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelSimpleView.Location = new System.Drawing.Point(184, 176);
+            this.labelSimpleView.Location = new System.Drawing.Point(184, 172);
             this.labelSimpleView.Name = "labelSimpleView";
             this.labelSimpleView.Size = new System.Drawing.Size(63, 13);
             this.labelSimpleView.TabIndex = 16;
@@ -349,9 +357,9 @@
             // 
             // buttonAdminSet
             // 
-            this.buttonAdminSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAdminSet.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonAdminSet.Enabled = false;
-            this.buttonAdminSet.Location = new System.Drawing.Point(12, 200);
+            this.buttonAdminSet.Location = new System.Drawing.Point(12, 206);
             this.buttonAdminSet.Name = "buttonAdminSet";
             this.buttonAdminSet.Size = new System.Drawing.Size(75, 23);
             this.buttonAdminSet.TabIndex = 17;
@@ -375,7 +383,7 @@
             // picBoxIcon
             // 
             this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
-            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -405,16 +413,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 210);
+            this.pictureBox1.Size = new System.Drawing.Size(350, 200);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
             // checkBoxSimpleView
             // 
+            this.checkBoxSimpleView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.checkBoxSimpleView.AutoSize = true;
-            this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 176);
+            this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 172);
             this.checkBoxSimpleView.Name = "checkBoxSimpleView";
             this.checkBoxSimpleView.Size = new System.Drawing.Size(15, 14);
             this.checkBoxSimpleView.TabIndex = 10;
@@ -422,11 +431,12 @@
             // 
             // checkBoxAudioAlert
             // 
+            this.checkBoxAudioAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.checkBoxAudioAlert.AutoSize = true;
             this.checkBoxAudioAlert.Checked = global::Worker_Ant.Properties.Settings.Default.audioAlert;
             this.checkBoxAudioAlert.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "audioAlert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxAudioAlert.Enabled = false;
-            this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 156);
+            this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 151);
             this.checkBoxAudioAlert.Name = "checkBoxAudioAlert";
             this.checkBoxAudioAlert.Size = new System.Drawing.Size(15, 14);
             this.checkBoxAudioAlert.TabIndex = 9;
@@ -434,20 +444,23 @@
             // 
             // checkBoxSafetyInfo
             // 
+            this.checkBoxSafetyInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.checkBoxSafetyInfo.AutoSize = true;
             this.checkBoxSafetyInfo.Checked = global::Worker_Ant.Properties.Settings.Default.saftyInfo;
             this.checkBoxSafetyInfo.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "saftyInfo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxSafetyInfo.Enabled = false;
-            this.checkBoxSafetyInfo.Location = new System.Drawing.Point(317, 136);
+            this.checkBoxSafetyInfo.Location = new System.Drawing.Point(145, 184);
             this.checkBoxSafetyInfo.Name = "checkBoxSafetyInfo";
             this.checkBoxSafetyInfo.Size = new System.Drawing.Size(15, 14);
             this.checkBoxSafetyInfo.TabIndex = 8;
             this.checkBoxSafetyInfo.UseVisualStyleBackColor = true;
+            this.checkBoxSafetyInfo.Visible = false;
             // 
             // numUDRound
             // 
+            this.numUDRound.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.numUDRound.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "roundCountdown", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numUDRound.Location = new System.Drawing.Point(261, 109);
+            this.numUDRound.Location = new System.Drawing.Point(261, 115);
             this.numUDRound.Maximum = new decimal(new int[] {
             10,
             0,
@@ -467,7 +480,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 235);
+            this.ClientSize = new System.Drawing.Size(350, 231);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.buttonAdminSet);

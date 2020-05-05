@@ -83,7 +83,7 @@
             this.groupBoxManual.Controls.Add(this.labelBreakManual);
             this.groupBoxManual.Controls.Add(this.labelWorkManual);
             this.groupBoxManual.Enabled = false;
-            this.groupBoxManual.Location = new System.Drawing.Point(174, 39);
+            this.groupBoxManual.Location = new System.Drawing.Point(174, 45);
             this.groupBoxManual.Name = "groupBoxManual";
             this.groupBoxManual.Size = new System.Drawing.Size(156, 69);
             this.groupBoxManual.TabIndex = 0;
@@ -102,7 +102,6 @@
             this.numUDBreakManual.Name = "numUDBreakManual";
             this.numUDBreakManual.Size = new System.Drawing.Size(70, 20);
             this.numUDBreakManual.TabIndex = 2;
-            this.numUDBreakManual.TabStop = false;
             this.numUDBreakManual.Value = new decimal(new int[] {
             100,
             0,
@@ -127,7 +126,6 @@
             this.numUDWorkManual.Name = "numUDWorkManual";
             this.numUDWorkManual.Size = new System.Drawing.Size(71, 20);
             this.numUDWorkManual.TabIndex = 1;
-            this.numUDWorkManual.TabStop = false;
             this.numUDWorkManual.Value = new decimal(new int[] {
             100,
             0,
@@ -163,7 +161,7 @@
             this.groupBoxCountdown.Controls.Add(this.labelRoundCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelBreakCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkCountdown);
-            this.groupBoxCountdown.Location = new System.Drawing.Point(12, 109);
+            this.groupBoxCountdown.Location = new System.Drawing.Point(12, 115);
             this.groupBoxCountdown.Name = "groupBoxCountdown";
             this.groupBoxCountdown.Size = new System.Drawing.Size(156, 80);
             this.groupBoxCountdown.TabIndex = 1;
@@ -234,9 +232,11 @@
             // 
             this.progressBarCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarCountdown.Location = new System.Drawing.Point(12, 195);
+            this.progressBarCountdown.Location = new System.Drawing.Point(12, 201);
             this.progressBarCountdown.Name = "progressBarCountdown";
+            this.progressBarCountdown.RightToLeftLayout = true;
             this.progressBarCountdown.Size = new System.Drawing.Size(156, 23);
+            this.progressBarCountdown.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBarCountdown.TabIndex = 3;
             // 
             // radioBtnSmart
@@ -245,12 +245,11 @@
             this.radioBtnSmart.AutoSize = true;
             this.radioBtnSmart.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radioBtnSmart.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioBtnSmart.Location = new System.Drawing.Point(12, 62);
+            this.radioBtnSmart.Location = new System.Drawing.Point(12, 68);
             this.radioBtnSmart.Name = "radioBtnSmart";
             this.radioBtnSmart.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radioBtnSmart.Size = new System.Drawing.Size(52, 17);
-            this.radioBtnSmart.TabIndex = 2;
-            this.radioBtnSmart.TabStop = true;
+            this.radioBtnSmart.TabIndex = 0;
             this.radioBtnSmart.Text = "Smart";
             this.radioBtnSmart.UseVisualStyleBackColor = false;
             this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
@@ -260,11 +259,10 @@
             this.radioBtnProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioBtnProgress.AutoSize = true;
             this.radioBtnProgress.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioBtnProgress.Location = new System.Drawing.Point(12, 85);
+            this.radioBtnProgress.Location = new System.Drawing.Point(12, 91);
             this.radioBtnProgress.Name = "radioBtnProgress";
             this.radioBtnProgress.Size = new System.Drawing.Size(66, 17);
-            this.radioBtnProgress.TabIndex = 3;
-            this.radioBtnProgress.TabStop = true;
+            this.radioBtnProgress.TabIndex = 0;
             this.radioBtnProgress.Text = "Progress";
             this.radioBtnProgress.UseVisualStyleBackColor = false;
             this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
@@ -274,11 +272,10 @@
             this.radioBtnRecovery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioBtnRecovery.AutoSize = true;
             this.radioBtnRecovery.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioBtnRecovery.Location = new System.Drawing.Point(12, 39);
+            this.radioBtnRecovery.Location = new System.Drawing.Point(12, 45);
             this.radioBtnRecovery.Name = "radioBtnRecovery";
             this.radioBtnRecovery.Size = new System.Drawing.Size(71, 17);
-            this.radioBtnRecovery.TabIndex = 1;
-            this.radioBtnRecovery.TabStop = true;
+            this.radioBtnRecovery.TabIndex = 0;
             this.radioBtnRecovery.Text = "Recovery";
             this.radioBtnRecovery.UseVisualStyleBackColor = false;
             this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
@@ -286,10 +283,10 @@
             // btnSetReset
             // 
             this.btnSetReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSetReset.Location = new System.Drawing.Point(174, 195);
+            this.btnSetReset.Location = new System.Drawing.Point(174, 201);
             this.btnSetReset.Name = "btnSetReset";
             this.btnSetReset.Size = new System.Drawing.Size(75, 23);
-            this.btnSetReset.TabIndex = 5;
+            this.btnSetReset.TabIndex = 2;
             this.btnSetReset.Text = "Set";
             this.btnSetReset.UseVisualStyleBackColor = true;
             this.btnSetReset.Click += new System.EventHandler(this.btnSetReset_Click);
@@ -297,10 +294,10 @@
             // btnStartStop
             // 
             this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartStop.Location = new System.Drawing.Point(255, 195);
+            this.btnStartStop.Location = new System.Drawing.Point(255, 201);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
-            this.btnStartStop.TabIndex = 6;
+            this.btnStartStop.TabIndex = 1;
             this.btnStartStop.Text = "Start";
             this.btnStartStop.UseVisualStyleBackColor = true;
             this.btnStartStop.Click += new System.EventHandler(this.btnStartStop_Click);
@@ -315,7 +312,7 @@
             this.groupBoxPreview.Controls.Add(this.labelRoundPreview);
             this.groupBoxPreview.Controls.Add(this.labelBreakPreview);
             this.groupBoxPreview.Controls.Add(this.labelWorkPreview);
-            this.groupBoxPreview.Location = new System.Drawing.Point(174, 109);
+            this.groupBoxPreview.Location = new System.Drawing.Point(174, 115);
             this.groupBoxPreview.Name = "groupBoxPreview";
             this.groupBoxPreview.Size = new System.Drawing.Size(156, 80);
             this.groupBoxPreview.TabIndex = 9;
@@ -385,7 +382,7 @@
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(31, 7);
+            this.labelWinName.Location = new System.Drawing.Point(34, 8);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(61, 13);
             this.labelWinName.TabIndex = 10;
@@ -439,7 +436,7 @@
             // picBoxIcon
             // 
             this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
-            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -455,7 +452,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(342, 205);
             this.pictureBox1.TabIndex = 15;
@@ -466,11 +463,10 @@
             this.radioBtnManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.radioBtnManual.AutoSize = true;
             this.radioBtnManual.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioBtnManual.Location = new System.Drawing.Point(168, 35);
+            this.radioBtnManual.Location = new System.Drawing.Point(168, 41);
             this.radioBtnManual.Name = "radioBtnManual";
             this.radioBtnManual.Size = new System.Drawing.Size(60, 17);
-            this.radioBtnManual.TabIndex = 4;
-            this.radioBtnManual.TabStop = true;
+            this.radioBtnManual.TabIndex = 0;
             this.radioBtnManual.Text = "Manual";
             this.radioBtnManual.UseVisualStyleBackColor = false;
             this.radioBtnManual.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
@@ -483,7 +479,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 230);
+            this.ClientSize = new System.Drawing.Size(342, 236);
             this.Controls.Add(this.picBoxSettings);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.picBoxClose);

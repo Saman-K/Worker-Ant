@@ -49,7 +49,7 @@
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(31, 7);
+            this.labelWinName.Location = new System.Drawing.Point(34, 8);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(61, 13);
             this.labelWinName.TabIndex = 4;
@@ -64,7 +64,7 @@
             this.btnYesOkay.Location = new System.Drawing.Point(263, 115);
             this.btnYesOkay.Name = "btnYesOkay";
             this.btnYesOkay.Size = new System.Drawing.Size(75, 23);
-            this.btnYesOkay.TabIndex = 5;
+            this.btnYesOkay.TabIndex = 1;
             this.btnYesOkay.Text = "Yes";
             this.btnYesOkay.UseVisualStyleBackColor = true;
             this.btnYesOkay.Click += new System.EventHandler(this.btnYesOkay_Click);
@@ -103,7 +103,7 @@
             // picBoxIcon
             // 
             this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
-            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -130,9 +130,9 @@
             // picBoxBackground
             // 
             this.picBoxBackground.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picBoxBackground.Location = new System.Drawing.Point(0, 25);
+            this.picBoxBackground.Location = new System.Drawing.Point(0, 31);
             this.picBoxBackground.Name = "picBoxBackground";
-            this.picBoxBackground.Size = new System.Drawing.Size(350, 125);
+            this.picBoxBackground.Size = new System.Drawing.Size(350, 119);
             this.picBoxBackground.TabIndex = 9;
             this.picBoxBackground.TabStop = false;
             // 
@@ -155,7 +155,7 @@
             this.btnNo.Location = new System.Drawing.Point(182, 115);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(75, 23);
-            this.btnNo.TabIndex = 11;
+            this.btnNo.TabIndex = 2;
             this.btnNo.Text = "No";
             this.btnNo.UseVisualStyleBackColor = true;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);

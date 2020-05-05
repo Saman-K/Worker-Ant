@@ -60,7 +60,7 @@
             this.btnOkBreakBasic.Location = new System.Drawing.Point(263, 115);
             this.btnOkBreakBasic.Name = "btnOkBreakBasic";
             this.btnOkBreakBasic.Size = new System.Drawing.Size(75, 23);
-            this.btnOkBreakBasic.TabIndex = 13;
+            this.btnOkBreakBasic.TabIndex = 1;
             this.btnOkBreakBasic.Text = "Okey";
             this.btnOkBreakBasic.UseVisualStyleBackColor = true;
             this.btnOkBreakBasic.Click += new System.EventHandler(this.btnOkBreakBasic_Click);
@@ -68,7 +68,7 @@
             // labelWinName
             // 
             this.labelWinName.AutoSize = true;
-            this.labelWinName.Location = new System.Drawing.Point(31, 7);
+            this.labelWinName.Location = new System.Drawing.Point(34, 8);
             this.labelWinName.Name = "labelWinName";
             this.labelWinName.Size = new System.Drawing.Size(61, 13);
             this.labelWinName.TabIndex = 12;
@@ -80,7 +80,7 @@
             // picBoxIcon
             // 
             this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
-            this.picBoxIcon.Location = new System.Drawing.Point(0, 0);
+            this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -107,9 +107,9 @@
             // picBoxBackground
             // 
             this.picBoxBackground.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picBoxBackground.Location = new System.Drawing.Point(0, 25);
+            this.picBoxBackground.Location = new System.Drawing.Point(0, 31);
             this.picBoxBackground.Name = "picBoxBackground";
-            this.picBoxBackground.Size = new System.Drawing.Size(350, 125);
+            this.picBoxBackground.Size = new System.Drawing.Size(350, 119);
             this.picBoxBackground.TabIndex = 16;
             this.picBoxBackground.TabStop = false;
             // 

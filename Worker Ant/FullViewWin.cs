@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Worker_Ant
 {
     public partial class FullViewWin : Form
@@ -25,6 +26,26 @@ namespace Worker_Ant
         {
             numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime / 60;
             numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime / 60;
+            if (Properties.Settings.Default.radioBtnChecked == "Manual")
+            {
+                radioBtnManual.Checked = true;
+            }
+            else if (Properties.Settings.Default.radioBtnChecked == "Recovery") 
+            {
+                radioBtnRecovery.Checked = true;
+            }
+            else if (Properties.Settings.Default.radioBtnChecked == "Smart") 
+            {
+                radioBtnSmart.Checked = true;
+            }
+            else if (Properties.Settings.Default.radioBtnChecked == "Progress") 
+            { 
+                radioBtnProgress.Checked = true; 
+            }
+            else
+            {
+
+            }
         }
         //-------------------------------------------------------------------------win move
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -122,9 +143,14 @@ namespace Worker_Ant
             labelBreakTimeCountdown.Text = (TimeDataWBR.Item2 / 60 + ":" + (TimeDataWBR.Item2 % 60).ToString("D2"));
             labelRoundNumCountdown.Text = TimeDataWBR.Item3.ToString();
 
+            progressBarCountdown.Maximum = 1;
+            progressBarCountdown.Value = 0;
+
             Countdown.SavedCountdownValuesWBR = TimeDataWBR;
             var countdown = new Countdown();
             btnSetReset.Text = countdown.CountdownInputControl(btnSetReset.Text);
+
+            SaveRadioBtnUsed();
         }
         //start button clicked
         private void btnStartStop_Click(object sender, EventArgs e)
@@ -136,7 +162,6 @@ namespace Worker_Ant
                 if (labelWorkTimeCountdown.Text == "Work Time" || labelBreakCountdown.Text == "Break Time")
                 {
                     btnSetReset_Click(null, null);
-                    winRefresh_Tick(null, null);
                 }
                 winRefresh.Start();
             }
@@ -174,6 +199,59 @@ namespace Worker_Ant
                 radioBtnChineged_CheckedChanged(null, null);
             }
         }
+        //------------------------------------------------------------------------- timer
+        private void winRefresh_Tick(object sender, EventArgs e)
+        {
+            labelWorkTimeCountdown.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
+
+            if (Countdown.TimerRoundName == "End Break")
+            {
+                labelBreakTimeCountdown.Text = ("- " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                if (Countdown.BreakValueLive == 0)
+                {
+                    labelBreakTimeCountdown.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                labelBreakTimeCountdown.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                labelBreakTimeCountdown.ForeColor = SystemColors.ControlText;
+            }
+
+            labelRoundNumCountdown.Text = Countdown.RoundValueLive.ToString();
+
+            if (Countdown.TimerStatus == "Tick")
+            {
+                btnStartStop.Text = "Stop";
+                btnSetReset.Enabled = false;
+            }
+            else if (Countdown.TimerStatus == "Pause")
+            {
+                btnStartStop.Text = "Start";
+                btnSetReset.Enabled = true;
+            }
+
+            if (Countdown.TimerRoundName == "Work")
+            {
+                ModifyProgressBarColor.SetState(progressBarCountdown, 1);
+                progressBarCountdown.Maximum = Countdown.SavedCountdownValuesWBR.Item1;
+                progressBarCountdown.Value = Countdown.SavedCountdownValuesWBR.Item1 - Countdown.WorkValueLive;
+                progressBarCountdown.Style = ProgressBarStyle.Continuous;
+            }
+            else if (Countdown.TimerRoundName == "Break")
+            {
+                ModifyProgressBarColor.SetState(progressBarCountdown, 3);
+                progressBarCountdown.Maximum = Countdown.SavedCountdownValuesWBR.Item2;
+                progressBarCountdown.Value = Countdown.BreakValueLive;
+                progressBarCountdown.Style = ProgressBarStyle.Continuous;
+            }
+            else if (Countdown.TimerRoundName == "End Break")
+            {
+                ModifyProgressBarColor.SetState(progressBarCountdown, 2);
+                progressBarCountdown.Maximum = 1;
+                progressBarCountdown.Value = 1;
+            }
+        }
         //------------------------------------------------------------------------- get data
         private void GetTimeData()
         {
@@ -203,44 +281,42 @@ namespace Worker_Ant
             else
             {
                 var errorHandler = new ErrorHandlerWin();
-                errorHandler.ErrorHandeler("", "FVW", "01", true); 
-
-                MessageBox.Show("Radio Button not found");
+                errorHandler.ErrorHandeler("Radio Button not found", "FVW", "01", false);
+                errorHandler.ShowDialog();
+                Application.Exit();
             }
             
         }
-        //------------------------------------------------------------------------- timer
-        private void winRefresh_Tick(object sender, EventArgs e)
+        // save RadioBtn 
+        private void SaveRadioBtnUsed()
         {
-            labelWorkTimeCountdown.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
-
-            if (Countdown.TimerRoundName == "End Break")
+            if (radioBtnManual.Checked == true)
             {
-                labelBreakTimeCountdown.Text = ("- " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
-                if (Countdown.BreakValueLive == 0)
-                {
-                    labelBreakTimeCountdown.ForeColor = Color.Red;
-                }
+                Properties.Settings.Default.radioBtnChecked = "Manual";
+                Properties.Settings.Default.Save();
+            }
+            else if (radioBtnRecovery.Checked == true)
+            {
+                Properties.Settings.Default.radioBtnChecked = "Recovery";
+                Properties.Settings.Default.Save();
+            }
+            else if (radioBtnSmart.Checked == true)
+            {
+                Properties.Settings.Default.radioBtnChecked = "Smart";
+                Properties.Settings.Default.Save();
+            }
+            else if (radioBtnProgress.Checked == true)
+            {
+                Properties.Settings.Default.radioBtnChecked = "Progress";
+                Properties.Settings.Default.Save();
             }
             else
             {
-                labelBreakTimeCountdown.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
-                labelBreakTimeCountdown.ForeColor = SystemColors.ControlText;
+                var errorHandler = new ErrorHandlerWin();
+                errorHandler.ErrorHandeler("", "FVW", "02", true);
+                errorHandler.ShowDialog();
             }
-
-            labelRoundNumCountdown.Text = Countdown.RoundValueLive.ToString();
             
-
-            if (Countdown.TimerStatus == "Tick")
-            {
-                btnStartStop.Text = "Stop";
-                btnSetReset.Enabled = false;
-            }
-            else if(Countdown.TimerStatus == "Pause")
-            {
-                btnStartStop.Text = "Start";
-                btnSetReset.Enabled = true;
-            }
         }
     }
 }

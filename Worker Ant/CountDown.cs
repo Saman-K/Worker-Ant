@@ -262,7 +262,7 @@ namespace Worker_Ant
         // timer tike  
         private static void CountdownTimer_Tick(object sender, EventArgs e)
         {
-            _countdownTimer.Interval = 1000;
+            _countdownTimer.Interval = 100;
             if (TimerRoundName == "Work")
             {
                 if (WorkValueLive > 0)
