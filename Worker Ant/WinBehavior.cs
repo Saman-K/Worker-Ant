@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
+
 namespace Worker_Ant
 {
     public class WinBehavior
     {
         //public string winName;
         internal bool WinIsOpen;
+
+        //private System.Windows.Forms.NotifyIcon notifyIconMine;
         //------------------------------------------------------------------------- check windows to let only one to be visibel
         public static void Start()
         {
@@ -24,6 +27,25 @@ namespace Worker_Ant
                 Application.Run(new FullViewWin());
             }
         }
+
+        //public void InitializeComponent()
+        //{
+        //    System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FullViewWin));
+        //    this.notifyIconMine = new System.Windows.Forms.NotifyIcon();
+        //    // 
+        //    // notifyIconMine
+        //    // 
+        //    this.notifyIconMine.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+        //    this.notifyIconMine.Visible = true;
+        //}
+        //public void Notify(string titel, string message)
+        //{
+        //    notifyIconMine.BalloonTipText = "boop";
+        //    notifyIconMine.BalloonTipTitle = "beep";
+        //    notifyIconMine.Text = "notifyIcon1";
+        //    notifyIconMine.BalloonTipText = "kfhythmfgjhfjhg";
+        //    notifyIconMine.ShowBalloonTip(3000);
+        //}
 
         public void ChackWins(string winName)
         {
@@ -45,11 +67,15 @@ namespace Worker_Ant
                     case "ToBreak":
                     WinOpener("ToBreakBasicWin");
                         break;
-                    case "SimpleView":
-                        WinOpener("SimpleViewWin");
-                        break;
-                    case "FullView":
-                        WinOpener("FullViewWin");
+                    case "Main":
+                        if (Properties.Settings.Default.simpleView == true)
+                        { 
+                            WinOpener("SimpleViewWin");
+                        }
+                        else if (Properties.Settings.Default.simpleView == false)
+                        {
+                            WinOpener("FullViewWin");
+                        }
                         break;
                     default:
 
@@ -131,13 +157,13 @@ namespace Worker_Ant
                         toBreakBasicWin.Show();
                         break;
                     case "SimpleViewWin":
-Application.Exit();
-                        Application.Run(new SimpleViewWin());
-                        
+                        var simpleViewWin = new SimpleViewWin();
+                        simpleViewWin.Show();
                         break;
                     case "FullViewWin":
-                        Application.Run(new FullViewWin());
-                        Application.Exit();
+                        //var fullViewWin = new FullViewWin();
+                        //fullViewWin.Show();
+                        
                         break;
                     default:
                         errorHandler.ErrorHandeler("", "WB", "04", true);

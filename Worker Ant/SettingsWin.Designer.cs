@@ -56,6 +56,8 @@
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkBoxSimpleView = new System.Windows.Forms.CheckBox();
+            this.labelAutoStart = new System.Windows.Forms.Label();
+            this.checkBoxAutoStart = new System.Windows.Forms.CheckBox();
             this.checkBoxAudioAlert = new System.Windows.Forms.CheckBox();
             this.checkBoxSafetyInfo = new System.Windows.Forms.CheckBox();
             this.numUDRound = new System.Windows.Forms.NumericUpDown();
@@ -301,8 +303,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSave.Location = new System.Drawing.Point(263, 196);
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.Location = new System.Drawing.Point(263, 217);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 12;
@@ -312,8 +314,8 @@
             // 
             // btnDefault
             // 
-            this.btnDefault.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDefault.Location = new System.Drawing.Point(182, 196);
+            this.btnDefault.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDefault.Location = new System.Drawing.Point(182, 217);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(75, 23);
             this.btnDefault.TabIndex = 11;
@@ -338,7 +340,7 @@
             this.labelAudioAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelAudioAlert.AutoSize = true;
             this.labelAudioAlert.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelAudioAlert.Location = new System.Drawing.Point(184, 152);
+            this.labelAudioAlert.Location = new System.Drawing.Point(184, 142);
             this.labelAudioAlert.Name = "labelAudioAlert";
             this.labelAudioAlert.Size = new System.Drawing.Size(57, 13);
             this.labelAudioAlert.TabIndex = 13;
@@ -349,7 +351,7 @@
             this.labelSimpleView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelSimpleView.AutoSize = true;
             this.labelSimpleView.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelSimpleView.Location = new System.Drawing.Point(184, 172);
+            this.labelSimpleView.Location = new System.Drawing.Point(184, 162);
             this.labelSimpleView.Name = "labelSimpleView";
             this.labelSimpleView.Size = new System.Drawing.Size(63, 13);
             this.labelSimpleView.TabIndex = 16;
@@ -359,7 +361,7 @@
             // 
             this.buttonAdminSet.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonAdminSet.Enabled = false;
-            this.buttonAdminSet.Location = new System.Drawing.Point(12, 206);
+            this.buttonAdminSet.Location = new System.Drawing.Point(64, 198);
             this.buttonAdminSet.Name = "buttonAdminSet";
             this.buttonAdminSet.Size = new System.Drawing.Size(75, 23);
             this.buttonAdminSet.TabIndex = 17;
@@ -415,7 +417,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox1.Location = new System.Drawing.Point(0, 31);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 200);
+            this.pictureBox1.Size = new System.Drawing.Size(350, 221);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
@@ -423,11 +425,30 @@
             // 
             this.checkBoxSimpleView.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.checkBoxSimpleView.AutoSize = true;
-            this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 172);
+            this.checkBoxSimpleView.Location = new System.Drawing.Point(317, 162);
             this.checkBoxSimpleView.Name = "checkBoxSimpleView";
             this.checkBoxSimpleView.Size = new System.Drawing.Size(15, 14);
             this.checkBoxSimpleView.TabIndex = 10;
             this.checkBoxSimpleView.UseVisualStyleBackColor = true;
+            // 
+            // labelAutoStart
+            // 
+            this.labelAutoStart.AutoSize = true;
+            this.labelAutoStart.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelAutoStart.Location = new System.Drawing.Point(184, 182);
+            this.labelAutoStart.Name = "labelAutoStart";
+            this.labelAutoStart.Size = new System.Drawing.Size(54, 13);
+            this.labelAutoStart.TabIndex = 20;
+            this.labelAutoStart.Text = "Auto-Start";
+            // 
+            // checkBoxAutoStart
+            // 
+            this.checkBoxAutoStart.AutoSize = true;
+            this.checkBoxAutoStart.Location = new System.Drawing.Point(317, 182);
+            this.checkBoxAutoStart.Name = "checkBoxAutoStart";
+            this.checkBoxAutoStart.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAutoStart.TabIndex = 21;
+            this.checkBoxAutoStart.UseVisualStyleBackColor = true;
             // 
             // checkBoxAudioAlert
             // 
@@ -435,8 +456,7 @@
             this.checkBoxAudioAlert.AutoSize = true;
             this.checkBoxAudioAlert.Checked = global::Worker_Ant.Properties.Settings.Default.audioAlert;
             this.checkBoxAudioAlert.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "audioAlert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxAudioAlert.Enabled = false;
-            this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 151);
+            this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 141);
             this.checkBoxAudioAlert.Name = "checkBoxAudioAlert";
             this.checkBoxAudioAlert.Size = new System.Drawing.Size(15, 14);
             this.checkBoxAudioAlert.TabIndex = 9;
@@ -480,7 +500,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 231);
+            this.ClientSize = new System.Drawing.Size(350, 252);
+            this.Controls.Add(this.checkBoxAutoStart);
+            this.Controls.Add(this.labelAutoStart);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.buttonAdminSet);
@@ -563,5 +585,7 @@
         public System.Windows.Forms.CheckBox checkBoxSafetyInfo;
         public System.Windows.Forms.CheckBox checkBoxAudioAlert;
         public System.Windows.Forms.CheckBox checkBoxSimpleView;
+        private System.Windows.Forms.Label labelAutoStart;
+        private System.Windows.Forms.CheckBox checkBoxAutoStart;
     }
 }

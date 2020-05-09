@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Timers;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Worker_Ant
 {
@@ -50,12 +51,12 @@ namespace Worker_Ant
                     errorHandler.ShowDialog();
                 }
             }
-            get 
+            get
             {
-                return _workValueLive; 
+                return _workValueLive;
             }
         }
-        public static int BreakValueLive 
+        public static int BreakValueLive
         {
             set
             {
@@ -66,13 +67,13 @@ namespace Worker_Ant
                 return _breakValueLive;
             }
         }
-        public static int RoundValueLive 
+        public static int RoundValueLive
         {
-            set 
+            set
             {
                 if (value >= 0)
                 {
-                    _roundsValueLive = value; 
+                    _roundsValueLive = value;
                 }
                 else
                 {
@@ -80,11 +81,11 @@ namespace Worker_Ant
                     errorHandler.ErrorHandeler("", "CD", "07", true);
                     errorHandler.ShowDialog();
                 }
-                
+
             }
-            get 
+            get
             {
-                return _roundsValueLive; 
+                return _roundsValueLive;
             }
         }
 
@@ -114,7 +115,7 @@ namespace Worker_Ant
             {
                 if (value == "Tick" || value == "Pause")
                 {
-                    _timerStatus = value ;
+                    _timerStatus = value;
                 }
                 else
                 {
@@ -135,6 +136,7 @@ namespace Worker_Ant
         public static void Start()
         {
             _countdownTimer.Tick += CountdownTimer_Tick;
+
         }
 
         // ------------------------------------------------------------------------- button
@@ -150,7 +152,7 @@ namespace Worker_Ant
             Properties.Settings.Default.roundCountdown = 1;
 
             //settingsWin.checkBoxSafetyInfo.Checked = true;
-            //settingsWin.checkBoxAudioAlert.Checked = true;
+            Properties.Settings.Default.audioAlert = true;
             Properties.Settings.Default.simpleView = false;
 
             //InsertSettingsData("Settings");
@@ -180,7 +182,7 @@ namespace Worker_Ant
                     BreakTime = Convert.ToInt16(Properties.Settings.Default.manualBreakTime);
                     break;
                 default:
-                    errorHandler.ErrorHandeler("", "CD", "01",true );
+                    errorHandler.ErrorHandeler("", "CD", "01", true);
                     errorHandler.ShowDialog();
                     break;
             }
@@ -268,7 +270,7 @@ namespace Worker_Ant
                 if (WorkValueLive > 0)
                 {
                     WorkValueLive--;
-                    if (WorkValueLive == 300)
+                    if (WorkValueLive == 30)
                     {
                         TimerControler("ToBreakPopup");
                     }
@@ -277,6 +279,7 @@ namespace Worker_Ant
                 {
                     TimerControler("Break");
                 }
+
             }
             else if (TimerRoundName == "Break")
             {
@@ -289,6 +292,10 @@ namespace Worker_Ant
             else if (TimerRoundName == "End Break")
             {
                 BreakValueLive++;
+                if (Properties.Settings.Default.audioAlert == true)
+                {
+                    Console.Beep(800, 100);
+                }
             }
         }
         // ------------------------------------------------------------------------- function
@@ -302,7 +309,7 @@ namespace Worker_Ant
                     if (WorkValueLive == SavedCountdownValuesWBR.Item1 || BreakValueLive == SavedCountdownValuesWBR.Item2 && RoundValueLive == SavedCountdownValuesWBR.Item3)
                     {
                         // start from the top
-                        
+
                         RoundValueLive--;
                         TimerRoundName = "Work";
                         _countdownTimer.Start();
@@ -341,24 +348,36 @@ namespace Worker_Ant
                 //------------------------------------ 
                 case "ToBreakPopup":
                     winBehavior.ChackWins("ToBreak");
+                    if (Properties.Settings.Default.audioAlert == true)
+                    {
+                        Console.Beep(1000, 500);
+                    }
+
                     break;
                 case "ToBreak":
                     WorkValueLive = 0;
                     TimerControler("Break");
                     break;
+                //case "ToBreak 5":
+                //    winBehavior.Notify("5 Seconds", "Your break will start in 5 Seconds");
+                //    break;
                 //-------------------------------------
                 case "LapPause":
                     TimerRoundName = "Work";
                     _countdownTimer.Stop();
                     TimerStatus = "Pause";
-                    
+
                     WorkValueLive = SavedCountdownValuesWBR.Item1;
                     BreakValueLive = SavedCountdownValuesWBR.Item2;
                     break;
                 //-------------------------------------
                 case "Break":
                     _countdownTimer.Stop();
-                    
+                    if (Properties.Settings.Default.audioAlert == true)
+                    {
+                        Console.Beep(1000, 500);
+                    }
+
                     winBehavior.ChackWins("Break");
                     TimerRoundName = "Break";
                     _countdownTimer.Start();
@@ -366,6 +385,11 @@ namespace Worker_Ant
                     break;
                 case "End Break":
                     TimerRoundName = "End Break";
+                    winBehavior.ChackWins("Main");
+                    if (Properties.Settings.Default.audioAlert == true)
+                    {
+                        Console.Beep(1000, 500);
+                    }
                     break;
                 case "Lap":
                     _countdownTimer.Stop();

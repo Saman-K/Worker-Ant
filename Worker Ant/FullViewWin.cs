@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Worker_Ant
 {
     public partial class FullViewWin : Form
@@ -20,6 +19,7 @@ namespace Worker_Ant
         public FullViewWin()
         {
             InitializeComponent();
+
         }
 
         private void FullViewWin_Load(object sender, EventArgs e)
@@ -44,8 +44,11 @@ namespace Worker_Ant
             }
             else
             {
-
+                var errorHandler = new ErrorHandlerWin();
+                errorHandler.ErrorHandeler("Radio Button not found", "FVW", "02", true);
+                errorHandler.ShowDialog();
             }
+
         }
         //-------------------------------------------------------------------------win move
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -72,12 +75,13 @@ namespace Worker_Ant
         //click
         private void picBoxClose_Click(object sender, EventArgs e)
         {
-            
+            Visible = false;
+            // notifiy icon message
         }
         //double click
         private void picBoxClose_DoubleClick(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
         //mouse leave
         private void picBoxClose_MouseLeave(object sender, EventArgs e)
@@ -157,28 +161,19 @@ namespace Worker_Ant
         {
             if (btnStartStop.Text == "Start")
             {
-                btnSetReset.Enabled = false;
-
                 if (labelWorkTimeCountdown.Text == "Work Time" || labelBreakCountdown.Text == "Break Time")
                 {
                     btnSetReset_Click(null, null);
                 }
                 winRefresh.Start();
             }
-            else if (btnStartStop.Text == "Stop")
+            else if (btnStartStop.Text == "Stop" && Countdown.TimerRoundName == "Break")
             {
-                if (Countdown.TimerRoundName == "Break")
-                {
-                    btnSetReset.Enabled = false;
-                }
-                else
-                {
-                    btnSetReset.Enabled = true;
-                    winRefresh.Stop();
-                }
+                winRefresh.Stop();
             }
             var countdown = new Countdown();
             btnStartStop.Text = countdown.CountdownInputControl(btnStartStop.Text);
+
         }
         //------------------------------------------------------------------------- radio button
         private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
@@ -237,6 +232,8 @@ namespace Worker_Ant
                 progressBarCountdown.Maximum = Countdown.SavedCountdownValuesWBR.Item1;
                 progressBarCountdown.Value = Countdown.SavedCountdownValuesWBR.Item1 - Countdown.WorkValueLive;
                 progressBarCountdown.Style = ProgressBarStyle.Continuous;
+
+                //notiy message
             }
             else if (Countdown.TimerRoundName == "Break")
             {
@@ -250,6 +247,7 @@ namespace Worker_Ant
                 ModifyProgressBarColor.SetState(progressBarCountdown, 2);
                 progressBarCountdown.Maximum = 1;
                 progressBarCountdown.Value = 1;
+                notifyIconFVW_Click(null, null);
             }
         }
         //------------------------------------------------------------------------- get data
@@ -281,7 +279,7 @@ namespace Worker_Ant
             else
             {
                 var errorHandler = new ErrorHandlerWin();
-                errorHandler.ErrorHandeler("Radio Button not found", "FVW", "01", false);
+                errorHandler.ErrorHandeler("Radio Button not found", "FVW", "01", true);
                 errorHandler.ShowDialog();
                 Application.Exit();
             }
@@ -317,6 +315,15 @@ namespace Worker_Ant
                 errorHandler.ShowDialog();
             }
             
+        }
+        // open win
+        private void notifyIconFVW_Click(object sender, EventArgs e)
+        {
+            if (Visible == false)
+            {
+                Visible = true;
+            }
+
         }
     }
 }

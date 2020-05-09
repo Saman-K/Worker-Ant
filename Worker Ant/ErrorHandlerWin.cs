@@ -67,8 +67,7 @@ namespace Worker_Ant
         //-------------------------------------------------------------------------Btn
         public void ErrorHandeler(string Message, string location, string errorNum, bool tF)
         {
-            if (Message == "") { }
-            else
+            if (Message != "")
             {
                 labelReportToDev.Text = Message;
             }
@@ -76,14 +75,14 @@ namespace Worker_Ant
             labelLocationNumber.Text = (location + "/" + errorNum + " .").ToString();
             if (tF == true)
             {
+                labelError.Visible = true;
                 labelLocationNumber.Visible = true;
             }
             else
             {
+                labelError.Visible = false;
                 labelLocationNumber.Visible = false;
             }
-            //var errorHandler = new ErrorHandlerWin();
-            //errorHandler.ShowDialog();
         }
     }
 }

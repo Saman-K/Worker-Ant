@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace Worker_Ant
 {
@@ -19,6 +20,22 @@ namespace Worker_Ant
         public SettingsWin()
         {
             InitializeComponent();
+        }
+
+
+        private void SettingsWin_Load(object sender, EventArgs e)
+        {
+            numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime / 60;
+            numUDBreakRecovery.Value = Properties.Settings.Default.recoveryBreakTime / 60;
+            numUDWorkSmart.Value = Properties.Settings.Default.smartWorkTime / 60;
+            numUDBreakSmart.Value = Properties.Settings.Default.smartBreakTime / 60;
+            numUDWorkProgress.Value = Properties.Settings.Default.progressWorkTime / 60;
+            numUDBreakProgress.Value = Properties.Settings.Default.progressBreakTime / 60;
+
+            checkBoxAudioAlert.Checked = Properties.Settings.Default.audioAlert;
+            checkBoxSafetyInfo.Checked = Properties.Settings.Default.saftyInfo;
+            checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
+            checkBoxAutoStart.Checked = Properties.Settings.Default.autoStart;
         }
         //-------------------------------------------------------------------------win move
         //form mouse down
@@ -84,10 +101,9 @@ namespace Worker_Ant
             countdown.SetSettingsToDefault();
             SettingsWin_Load(null, null);
         }
-
+        //save btn
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             try
             {
                 Properties.Settings.Default.recoveryWorkTime = numUDWorkRecovery.Value * 60;
@@ -98,55 +114,57 @@ namespace Worker_Ant
                 Properties.Settings.Default.progressBreakTime = numUDBreakProgress.Value * 60;
                 Properties.Settings.Default.roundCountdown = numUDRound.Value;
 
-                if (checkBoxSimpleView.Checked != Properties.Settings.Default.simpleView)
-                {
-                    //MessageBox.Show("kuhf");
-                    //var winBehavior = new WinBehavior();
-                    //switch (checkBoxSimpleView.Checked)
-                    //{
-                    //    case true:
-                    //        winBehavior.ChackWins("SimpleView");
-                    //        break;
-                    //    case false:
-                    //        winBehavior.ChackWins("FullView");
-                    //        break;
-                    //}
-                }
-
                 Properties.Settings.Default.audioAlert = checkBoxAudioAlert.Checked;
                 Properties.Settings.Default.saftyInfo = checkBoxSafetyInfo.Checked;
-                Properties.Settings.Default.simpleView = checkBoxSimpleView.Checked;
 
+                if (Properties.Settings.Default.simpleView != checkBoxSimpleView.Checked)
+                {
+                    Properties.Settings.Default.simpleView = checkBoxSimpleView.Checked;
+                    var errorHandler1 = new ErrorHandlerWin();
+                    errorHandler1.ErrorHandeler("Relunch the page to see the change", "SW", "03", false);
+                    errorHandler1.Show();
+                    //notify balloon can be used
+                }
+                if (Properties.Settings.Default.autoStart != checkBoxAutoStart.Checked)
+                {
+                    Properties.Settings.Default.autoStart = checkBoxAutoStart.Checked;
+                    try
+                    {
+                        RegistryKey Apps = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                        if (checkBoxAutoStart.Checked == true)
+                        {
+                            Apps.SetValue("Worker_Ant", Application.ExecutablePath.ToString());
+                        }
+                        else if (checkBoxAutoStart.Checked == false)
+                        {
+                            Apps.DeleteValue("Worker_Ant");
+                        }
+                    }
+                    catch
+                    {
+                        var errorHandler2 = new ErrorHandlerWin();
+                        errorHandler2.ErrorHandeler("Auto-Start settings coud not be seved!", "SW", "01", true);
+                        errorHandler2.ShowDialog();
+                    }
+
+                }
 
                 Properties.Settings.Default.Save();
-                
-                MessageBox.Show("Settings saved.");
+                var errorHandler = new ErrorHandlerWin();
+                errorHandler.ErrorHandeler("Sattings has been saved!", "SW", "02", false);
+                errorHandler.Show();
 
                 Close();
-                
+
             }
             catch
             {
                 var errorHandler = new ErrorHandlerWin();
-                errorHandler.ErrorHandeler("Could not save the new settings", "SW", "01", false);
-                errorHandler.Show();
+                errorHandler.ErrorHandeler("Could not save the new settings", "SW", "01", true);
+                errorHandler.ShowDialog();
             }
 
 
-        }
-
-        private void SettingsWin_Load(object sender, EventArgs e)
-        {
-            numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime / 60;
-            numUDBreakRecovery.Value = Properties.Settings.Default.recoveryBreakTime / 60;
-            numUDWorkSmart.Value = Properties.Settings.Default.smartWorkTime / 60;
-            numUDBreakSmart.Value = Properties.Settings.Default.smartBreakTime / 60;
-            numUDWorkProgress.Value = Properties.Settings.Default.progressWorkTime / 60;
-            numUDBreakProgress.Value = Properties.Settings.Default.progressBreakTime / 60;
-
-            checkBoxAudioAlert.Checked = Properties.Settings.Default.audioAlert;
-            checkBoxSafetyInfo.Checked = Properties.Settings.Default.saftyInfo;
-            checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
         }
     }
 }

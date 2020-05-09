@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleViewWin));
             this.picBoxSettings = new System.Windows.Forms.PictureBox();
             this.picBoxInfo = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,8 @@
             this.radioBtnProgress = new System.Windows.Forms.RadioButton();
             this.radioBtnSmart = new System.Windows.Forms.RadioButton();
             this.progressBarCountdown = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.winRefresh = new System.Windows.Forms.Timer(this.components);
             this.groupBoxCountdown = new System.Windows.Forms.GroupBox();
             this.labelRoundNumCountdown = new System.Windows.Forms.Label();
             this.labelBreakTimeCountdown = new System.Windows.Forms.Label();
@@ -46,14 +49,25 @@
             this.labelRoundCountdown = new System.Windows.Forms.Label();
             this.labelBreakCountdown = new System.Windows.Forms.Label();
             this.labelWorkCountdown = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.winRefresh = new System.Windows.Forms.Timer(this.components);
+            this.rightClickMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIconSVW = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStripNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
-            this.groupBoxCountdown.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBoxCountdown.SuspendLayout();
+            this.rightClickMenuStrip.SuspendLayout();
+            this.contextMenuStripNotifyIcon.SuspendLayout();
             this.SuspendLayout();
             // 
             // picBoxSettings
@@ -128,7 +142,7 @@
             // btnStartStop
             // 
             this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStartStop.Location = new System.Drawing.Point(218, 124);
+            this.btnStartStop.Location = new System.Drawing.Point(218, 123);
             this.btnStartStop.Name = "btnStartStop";
             this.btnStartStop.Size = new System.Drawing.Size(75, 23);
             this.btnStartStop.TabIndex = 1;
@@ -147,7 +161,7 @@
             this.radioBtnRecovery.TabIndex = 0;
             this.radioBtnRecovery.Text = "Recovery";
             this.radioBtnRecovery.UseVisualStyleBackColor = false;
-            this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.radioBtn_CheckedChanged);
             // 
             // radioBtnProgress
             // 
@@ -160,7 +174,7 @@
             this.radioBtnProgress.TabIndex = 0;
             this.radioBtnProgress.Text = "Progress";
             this.radioBtnProgress.UseVisualStyleBackColor = false;
-            this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.radioBtn_CheckedChanged);
             // 
             // radioBtnSmart
             // 
@@ -175,7 +189,7 @@
             this.radioBtnSmart.TabIndex = 0;
             this.radioBtnSmart.Text = "Smart";
             this.radioBtnSmart.UseVisualStyleBackColor = false;
-            this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.radioBtn_CheckedChanged);
             // 
             // progressBarCountdown
             // 
@@ -183,12 +197,28 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarCountdown.Location = new System.Drawing.Point(12, 123);
             this.progressBarCountdown.Name = "progressBarCountdown";
-            this.progressBarCountdown.Size = new System.Drawing.Size(200, 23);
+            this.progressBarCountdown.Size = new System.Drawing.Size(200, 22);
             this.progressBarCountdown.TabIndex = 20;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(305, 128);
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            // 
+            // winRefresh
+            // 
+            this.winRefresh.Tick += new System.EventHandler(this.winRefresh_Tick);
             // 
             // groupBoxCountdown
             // 
-            this.groupBoxCountdown.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.groupBoxCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxCountdown.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBoxCountdown.Controls.Add(this.labelRoundNumCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelBreakTimeCountdown);
@@ -196,39 +226,45 @@
             this.groupBoxCountdown.Controls.Add(this.labelRoundCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelBreakCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkCountdown);
-            this.groupBoxCountdown.Location = new System.Drawing.Point(133, 36);
+            this.groupBoxCountdown.Location = new System.Drawing.Point(137, 36);
             this.groupBoxCountdown.Name = "groupBoxCountdown";
-            this.groupBoxCountdown.Size = new System.Drawing.Size(160, 80);
-            this.groupBoxCountdown.TabIndex = 17;
+            this.groupBoxCountdown.Size = new System.Drawing.Size(156, 80);
+            this.groupBoxCountdown.TabIndex = 29;
             this.groupBoxCountdown.TabStop = false;
             this.groupBoxCountdown.Text = "Countdown";
             // 
             // labelRoundNumCountdown
             // 
+            this.labelRoundNumCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRoundNumCountdown.AutoSize = true;
-            this.labelRoundNumCountdown.Location = new System.Drawing.Point(66, 56);
+            this.labelRoundNumCountdown.Location = new System.Drawing.Point(79, 56);
             this.labelRoundNumCountdown.Name = "labelRoundNumCountdown";
-            this.labelRoundNumCountdown.Size = new System.Drawing.Size(87, 13);
+            this.labelRoundNumCountdown.Size = new System.Drawing.Size(71, 13);
             this.labelRoundNumCountdown.TabIndex = 5;
-            this.labelRoundNumCountdown.Text = "Num of Round(s)";
+            this.labelRoundNumCountdown.Text = "Round(s) Left";
+            this.labelRoundNumCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBreakTimeCountdown
             // 
+            this.labelBreakTimeCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelBreakTimeCountdown.AutoSize = true;
-            this.labelBreakTimeCountdown.Location = new System.Drawing.Point(66, 36);
+            this.labelBreakTimeCountdown.Location = new System.Drawing.Point(79, 36);
             this.labelBreakTimeCountdown.Name = "labelBreakTimeCountdown";
-            this.labelBreakTimeCountdown.Size = new System.Drawing.Size(92, 13);
+            this.labelBreakTimeCountdown.Size = new System.Drawing.Size(61, 13);
             this.labelBreakTimeCountdown.TabIndex = 4;
-            this.labelBreakTimeCountdown.Text = "Break Time in Min";
+            this.labelBreakTimeCountdown.Text = "Break Time";
+            this.labelBreakTimeCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWorkTimeCountdown
             // 
+            this.labelWorkTimeCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelWorkTimeCountdown.AutoSize = true;
-            this.labelWorkTimeCountdown.Location = new System.Drawing.Point(66, 16);
+            this.labelWorkTimeCountdown.Location = new System.Drawing.Point(79, 16);
             this.labelWorkTimeCountdown.Name = "labelWorkTimeCountdown";
-            this.labelWorkTimeCountdown.Size = new System.Drawing.Size(90, 13);
+            this.labelWorkTimeCountdown.Size = new System.Drawing.Size(59, 13);
             this.labelWorkTimeCountdown.TabIndex = 3;
-            this.labelWorkTimeCountdown.Text = "Work Time in Min";
+            this.labelWorkTimeCountdown.Text = "Work Time";
+            this.labelWorkTimeCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelRoundCountdown
             // 
@@ -257,27 +293,92 @@
             this.labelWorkCountdown.TabIndex = 0;
             this.labelWorkCountdown.Text = "Work";
             // 
-            // pictureBox1
+            // rightClickMenuStrip
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 30);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(305, 128);
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
+            this.rightClickMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
+            this.aboutToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.rightClickMenuStrip.Name = "rightClickMenuStrip";
+            this.rightClickMenuStrip.Size = new System.Drawing.Size(117, 76);
             // 
-            // winRefresh
+            // settingsToolStripMenuItem
             // 
-            this.winRefresh.Tick += new System.EventHandler(this.winRefresh_Tick);
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.picBoxSettings_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.picBoxInfo_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.picBoxClose_DoubleClick);
+            // 
+            // notifyIconSVW
+            // 
+            this.notifyIconSVW.ContextMenuStrip = this.contextMenuStripNotifyIcon;
+            this.notifyIconSVW.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconSVW.Icon")));
+            this.notifyIconSVW.Text = "notifyIcon1";
+            this.notifyIconSVW.Visible = true;
+            this.notifyIconSVW.Click += new System.EventHandler(this.notifyIconSVW_Click);
+            // 
+            // contextMenuStripNotifyIcon
+            // 
+            this.contextMenuStripNotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.aboutToolStripMenuItem1,
+            this.toolStripSeparator2,
+            this.exitToolStripMenuItem1});
+            this.contextMenuStripNotifyIcon.Name = "contextMenuStripNotifyIcon";
+            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(108, 76);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.notifyIconSVW_Click);
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem1.Text = "About";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.picBoxInfo_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.picBoxClose_DoubleClick);
             // 
             // SimpleViewWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 158);
+            this.Controls.Add(this.groupBoxCountdown);
             this.Controls.Add(this.picBoxSettings);
             this.Controls.Add(this.picBoxInfo);
             this.Controls.Add(this.picBoxClose);
@@ -288,12 +389,12 @@
             this.Controls.Add(this.radioBtnRecovery);
             this.Controls.Add(this.radioBtnProgress);
             this.Controls.Add(this.radioBtnSmart);
-            this.Controls.Add(this.groupBoxCountdown);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SimpleViewWin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Worker Ant";
+            this.Load += new System.EventHandler(this.SimpleViewWin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
@@ -301,9 +402,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxCountdown.ResumeLayout(false);
             this.groupBoxCountdown.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.rightClickMenuStrip.ResumeLayout(false);
+            this.contextMenuStripNotifyIcon.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,6 +424,8 @@
         public System.Windows.Forms.RadioButton radioBtnProgress;
         public System.Windows.Forms.RadioButton radioBtnSmart;
         private System.Windows.Forms.ProgressBar progressBarCountdown;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer winRefresh;
         private System.Windows.Forms.GroupBox groupBoxCountdown;
         public System.Windows.Forms.Label labelRoundNumCountdown;
         public System.Windows.Forms.Label labelBreakTimeCountdown;
@@ -328,7 +433,16 @@
         private System.Windows.Forms.Label labelRoundCountdown;
         private System.Windows.Forms.Label labelBreakCountdown;
         private System.Windows.Forms.Label labelWorkCountdown;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer winRefresh;
+        private System.Windows.Forms.ContextMenuStrip rightClickMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIconSVW;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripNotifyIcon;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
     }
 }
