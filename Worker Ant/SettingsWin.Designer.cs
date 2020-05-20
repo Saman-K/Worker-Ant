@@ -304,24 +304,24 @@
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(263, 217);
+            this.btnSave.Location = new System.Drawing.Point(263, 205);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnDefault
             // 
             this.btnDefault.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDefault.Location = new System.Drawing.Point(182, 217);
+            this.btnDefault.Location = new System.Drawing.Point(182, 205);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(75, 23);
             this.btnDefault.TabIndex = 11;
             this.btnDefault.Text = "Default";
             this.btnDefault.UseVisualStyleBackColor = true;
-            this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
+            this.btnDefault.Click += new System.EventHandler(this.BtnDefault_Click);
             // 
             // labelSafetyInfo
             // 
@@ -361,7 +361,7 @@
             // 
             this.buttonAdminSet.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonAdminSet.Enabled = false;
-            this.buttonAdminSet.Location = new System.Drawing.Point(64, 198);
+            this.buttonAdminSet.Location = new System.Drawing.Point(12, 205);
             this.buttonAdminSet.Name = "buttonAdminSet";
             this.buttonAdminSet.Size = new System.Drawing.Size(75, 23);
             this.buttonAdminSet.TabIndex = 17;
@@ -378,9 +378,9 @@
             this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxInfo.TabIndex = 18;
             this.picBoxInfo.TabStop = false;
-            this.picBoxInfo.Click += new System.EventHandler(this.picBoxInfo_Click);
-            this.picBoxInfo.MouseEnter += new System.EventHandler(this.picBoxInfo_MouseEnter);
-            this.picBoxInfo.MouseLeave += new System.EventHandler(this.picBoxInfo_MouseLeave);
+            this.picBoxInfo.Click += new System.EventHandler(this.PicBoxInfo_Click);
+            this.picBoxInfo.MouseEnter += new System.EventHandler(this.PicBoxInfo_MouseEnter);
+            this.picBoxInfo.MouseLeave += new System.EventHandler(this.PicBoxInfo_MouseLeave);
             // 
             // picBoxIcon
             // 
@@ -405,9 +405,9 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 0;
             this.picBoxClose.TabStop = false;
-            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
-            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
-            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
+            this.picBoxClose.Click += new System.EventHandler(this.PicBoxClose_Click);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.PicBoxClose_MouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.PicBoxClose_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -417,7 +417,7 @@
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox1.Location = new System.Drawing.Point(0, 31);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 221);
+            this.pictureBox1.Size = new System.Drawing.Size(350, 209);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
@@ -500,7 +500,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 252);
+            this.ClientSize = new System.Drawing.Size(350, 240);
             this.Controls.Add(this.checkBoxAutoStart);
             this.Controls.Add(this.labelAutoStart);
             this.Controls.Add(this.btnSave);

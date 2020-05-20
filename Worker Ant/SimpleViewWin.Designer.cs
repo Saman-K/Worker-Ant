@@ -80,9 +80,9 @@
             this.picBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxSettings.TabIndex = 26;
             this.picBoxSettings.TabStop = false;
-            this.picBoxSettings.Click += new System.EventHandler(this.picBoxSettings_Click);
-            this.picBoxSettings.MouseEnter += new System.EventHandler(this.picBoxSettings_MouseEnter);
-            this.picBoxSettings.MouseLeave += new System.EventHandler(this.picBoxSettings_MouseLeave);
+            this.picBoxSettings.Click += new System.EventHandler(this.PicBoxSettings_Click);
+            this.picBoxSettings.MouseEnter += new System.EventHandler(this.PicBoxSettings_MouseEnter);
+            this.picBoxSettings.MouseLeave += new System.EventHandler(this.PicBoxSettings_MouseLeave);
             // 
             // picBoxInfo
             // 
@@ -94,9 +94,9 @@
             this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxInfo.TabIndex = 25;
             this.picBoxInfo.TabStop = false;
-            this.picBoxInfo.Click += new System.EventHandler(this.picBoxInfo_Click);
-            this.picBoxInfo.MouseEnter += new System.EventHandler(this.picBoxInfo_MouseEnter);
-            this.picBoxInfo.MouseLeave += new System.EventHandler(this.picBoxInfo_MouseLeave);
+            this.picBoxInfo.Click += new System.EventHandler(this.PicBoxInfo_Click);
+            this.picBoxInfo.MouseEnter += new System.EventHandler(this.PicBoxInfo_MouseEnter);
+            this.picBoxInfo.MouseLeave += new System.EventHandler(this.PicBoxInfo_MouseLeave);
             // 
             // picBoxClose
             // 
@@ -109,10 +109,10 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 24;
             this.picBoxClose.TabStop = false;
-            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
-            this.picBoxClose.DoubleClick += new System.EventHandler(this.picBoxClose_DoubleClick);
-            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
-            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
+            this.picBoxClose.Click += new System.EventHandler(this.PicBoxClose_Click);
+            this.picBoxClose.DoubleClick += new System.EventHandler(this.PicBoxClose_DoubleClick);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.PicBoxClose_MouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.PicBoxClose_MouseLeave);
             // 
             // picBoxIcon
             // 
@@ -148,7 +148,7 @@
             this.btnStartStop.TabIndex = 1;
             this.btnStartStop.Text = "Start";
             this.btnStartStop.UseVisualStyleBackColor = true;
-            this.btnStartStop.Click += new System.EventHandler(this.btnStartStop_Click);
+            this.btnStartStop.Click += new System.EventHandler(this.BtnStartStop_Click);
             // 
             // radioBtnRecovery
             // 
@@ -161,7 +161,7 @@
             this.radioBtnRecovery.TabIndex = 0;
             this.radioBtnRecovery.Text = "Recovery";
             this.radioBtnRecovery.UseVisualStyleBackColor = false;
-            this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.radioBtn_CheckedChanged);
+            this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // radioBtnProgress
             // 
@@ -174,7 +174,7 @@
             this.radioBtnProgress.TabIndex = 0;
             this.radioBtnProgress.Text = "Progress";
             this.radioBtnProgress.UseVisualStyleBackColor = false;
-            this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.radioBtn_CheckedChanged);
+            this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // radioBtnSmart
             // 
@@ -189,7 +189,7 @@
             this.radioBtnSmart.TabIndex = 0;
             this.radioBtnSmart.Text = "Smart";
             this.radioBtnSmart.UseVisualStyleBackColor = false;
-            this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.radioBtn_CheckedChanged);
+            this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.RadioBtn_CheckedChanged);
             // 
             // progressBarCountdown
             // 
@@ -214,7 +214,7 @@
             // 
             // winRefresh
             // 
-            this.winRefresh.Tick += new System.EventHandler(this.winRefresh_Tick);
+            this.winRefresh.Tick += new System.EventHandler(this.WinRefresh_Tick);
             // 
             // groupBoxCountdown
             // 
@@ -308,14 +308,14 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.picBoxSettings_Click);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.PicBoxSettings_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.picBoxInfo_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.PicBoxInfo_Click);
             // 
             // toolStripSeparator1
             // 
@@ -327,7 +327,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.picBoxClose_DoubleClick);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.PicBoxClose_DoubleClick);
             // 
             // notifyIconSVW
             // 
@@ -335,7 +335,7 @@
             this.notifyIconSVW.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconSVW.Icon")));
             this.notifyIconSVW.Text = "notifyIcon1";
             this.notifyIconSVW.Visible = true;
-            this.notifyIconSVW.Click += new System.EventHandler(this.notifyIconSVW_Click);
+            this.notifyIconSVW.Click += new System.EventHandler(this.NotifyIconSVW_Click);
             // 
             // contextMenuStripNotifyIcon
             // 
@@ -352,14 +352,14 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.notifyIconSVW_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconSVW_Click);
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.picBoxInfo_Click);
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.PicBoxInfo_Click);
             // 
             // toolStripSeparator2
             // 
@@ -371,7 +371,7 @@
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.picBoxClose_DoubleClick);
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.PicBoxClose_DoubleClick);
             // 
             // SimpleViewWin
             // 

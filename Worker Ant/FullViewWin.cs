@@ -12,16 +12,18 @@ namespace Worker_Ant
 {
     public partial class FullViewWin : Form
     {
+        #region Fields
         internal int MouseXAxis;
         internal int MouseYAxis;
         internal bool MouseDrag;
         internal (int, int, int) TimeDataWBR;
+        #endregion
+
+        #region Initialization
         public FullViewWin()
         {
             InitializeComponent();
-
         }
-
         private void FullViewWin_Load(object sender, EventArgs e)
         {
             numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime / 60;
@@ -50,7 +52,11 @@ namespace Worker_Ant
             }
 
         }
-        //-------------------------------------------------------------------------win move
+        #endregion
+
+        #region FormBorderStyle
+        //------------------------------------------------------------------------- win move
+        //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
             MouseDrag = true;
@@ -71,68 +77,69 @@ namespace Worker_Ant
         {
             MouseDrag = false;
         }
-        //-------------------------------------------------------------------------pic close
+
+        //------------------------------------------------------------------------- pic close
         //click
-        private void picBoxClose_Click(object sender, EventArgs e)
+        private void PicBoxClose_Click(object sender, EventArgs e)
         {
             Visible = false;
-            // notifiy icon message
+            Notify("Worker Ant", "Worker Ant is Minimized");
         }
         //double click
-        private void picBoxClose_DoubleClick(object sender, EventArgs e)
+        private void PicBoxClose_DoubleClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
         //mouse leave
-        private void picBoxClose_MouseLeave(object sender, EventArgs e)
+        private void PicBoxClose_MouseLeave(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.Control;
         }
         //mouse enter
-        private void picBoxClose_MouseEnter(object sender, EventArgs e)
+        private void PicBoxClose_MouseEnter(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
         }
-        //------------------------------------------------------------------------- pic change info
+        
+        //------------------------------------------------------------------------- pic info
         //info enter
-        private void picBoxInfo_MouseEnter(object sender, EventArgs e)
+        private void PicBoxInfo_MouseEnter(object sender, EventArgs e)
         {
             picBoxInfo.Image = Worker_Ant.Properties.Resources.Info;
         }
         //info leave
-        private void picBoxInfo_MouseLeave(object sender, EventArgs e)
+        private void PicBoxInfo_MouseLeave(object sender, EventArgs e)
         {
             picBoxInfo.Image = Worker_Ant.Properties.Resources.Info_L;
         }
         //info click
-        private void picBoxInfo_Click(object sender, EventArgs e)
+        private void PicBoxInfo_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
             winCouter.ChackWins("Info");
         }
-        //------------------------------------------------------------------------- pic change settings
+        //------------------------------------------------------------------------- pic settings
         //settings enter
         private void PicBoxSettings_MouseEnter(object sender, EventArgs e)
         {
             picBoxSettings.Image = Worker_Ant.Properties.Resources.Settings;
         }
         //settings leave
-        private void picBoxSettings_MouseLeave(object sender, EventArgs e)
+        private void PicBoxSettings_MouseLeave(object sender, EventArgs e)
         {
             picBoxSettings.Image = Worker_Ant.Properties.Resources.Settings_L;
         }
         //settings click
-        private void picBoxSettings_Click(object sender, EventArgs e)
+        private void PicBoxSettings_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
             winCouter.ChackWins("Settings");
         }
-        //-------------------------------------------------------------------------
+        #endregion
 
-
-        //------------------------------------------------------------------------- button click
-        //button set/reset click
-        private void btnSetReset_Click(object sender, EventArgs e)
+        #region Methods
+        // button set/reset click
+        private void BtnSetReset_Click(object sender, EventArgs e)
         {
             if (radioBtnManual.Checked == true)
             {
@@ -156,27 +163,27 @@ namespace Worker_Ant
 
             SaveRadioBtnUsed();
         }
-        //start button clicked
-        private void btnStartStop_Click(object sender, EventArgs e)
+        // start button clicked
+        private void BtnStartStop_Click(object sender, EventArgs e)
         {
             if (btnStartStop.Text == "Start")
             {
                 if (labelWorkTimeCountdown.Text == "Work Time" || labelBreakCountdown.Text == "Break Time")
                 {
-                    btnSetReset_Click(null, null);
+                    BtnSetReset_Click(null, null);
                 }
                 winRefresh.Start();
             }
             else if (btnStartStop.Text == "Stop" && Countdown.TimerRoundName == "Break")
             {
-                winRefresh.Stop();
+                //winRefresh.Stop();
             }
             var countdown = new Countdown();
             btnStartStop.Text = countdown.CountdownInputControl(btnStartStop.Text);
 
         }
-        //------------------------------------------------------------------------- radio button
-        private void radioBtnChineged_CheckedChanged(object sender, EventArgs e)
+        // radio button chainged
+        private void RadioBtnChineged_CheckedChanged(object sender, EventArgs e)
         {
             GetTimeData();
 
@@ -184,18 +191,18 @@ namespace Worker_Ant
             labelBreakTimePreview.Text = (TimeDataWBR.Item2 / 60 + ":" + (TimeDataWBR.Item2 % 60).ToString("D2"));
             labelRoundNumPreview.Text = TimeDataWBR.Item3.ToString() ;
         }
-        //------------------------------------------------------------------------- number up down menual 
-        private void numUDManual_ValueChanged(object sender, EventArgs e)
+        // number up down menual 
+        private void NumUDManual_ValueChanged(object sender, EventArgs e)
         {
             if (radioBtnManual.Checked == true)
             {
                 Properties.Settings.Default.manualWorkTime = numUDWorkManual.Value * 60;
                 Properties.Settings.Default.manualBreakTime = numUDBreakManual.Value * 60;
-                radioBtnChineged_CheckedChanged(null, null);
+                RadioBtnChineged_CheckedChanged(null, null);
             }
         }
-        //------------------------------------------------------------------------- timer
-        private void winRefresh_Tick(object sender, EventArgs e)
+        // refresh window data (timer)
+        private void WinRefresh_Tick(object sender, EventArgs e)
         {
             labelWorkTimeCountdown.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
 
@@ -228,7 +235,7 @@ namespace Worker_Ant
 
             if (Countdown.TimerRoundName == "Work")
             {
-                ModifyProgressBarColor.SetState(progressBarCountdown, 1);
+                ProgressBarColor.SetState(progressBarCountdown, 1);
                 progressBarCountdown.Maximum = Countdown.SavedCountdownValuesWBR.Item1;
                 progressBarCountdown.Value = Countdown.SavedCountdownValuesWBR.Item1 - Countdown.WorkValueLive;
                 progressBarCountdown.Style = ProgressBarStyle.Continuous;
@@ -237,20 +244,20 @@ namespace Worker_Ant
             }
             else if (Countdown.TimerRoundName == "Break")
             {
-                ModifyProgressBarColor.SetState(progressBarCountdown, 3);
+                ProgressBarColor.SetState(progressBarCountdown, 3);
                 progressBarCountdown.Maximum = Countdown.SavedCountdownValuesWBR.Item2;
                 progressBarCountdown.Value = Countdown.BreakValueLive;
                 progressBarCountdown.Style = ProgressBarStyle.Continuous;
             }
             else if (Countdown.TimerRoundName == "End Break")
             {
-                ModifyProgressBarColor.SetState(progressBarCountdown, 2);
+                ProgressBarColor.SetState(progressBarCountdown, 2);
                 progressBarCountdown.Maximum = 1;
                 progressBarCountdown.Value = 1;
-                notifyIconFVW_Click(null, null);
+                NotifyIconFVW_Click(null, null);
             }
         }
-        //------------------------------------------------------------------------- get data
+        // get data
         private void GetTimeData()
         {
             var countdown = new Countdown();
@@ -316,14 +323,22 @@ namespace Worker_Ant
             }
             
         }
-        // open win
-        private void notifyIconFVW_Click(object sender, EventArgs e)
+        // notify icon click
+        private void NotifyIconFVW_Click(object sender, EventArgs e)
         {
             if (Visible == false)
             {
                 Visible = true;
             }
-
         }
+        // notify icon notifing
+        public void Notify(string titel, string message)
+        {
+            notifyIconFVW.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconFVW.BalloonTipTitle = titel;
+            notifyIconFVW.BalloonTipText = message;
+            notifyIconFVW.ShowBalloonTip(1000);
+        }
+        #endregion
     }
 }

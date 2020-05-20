@@ -12,15 +12,18 @@ namespace Worker_Ant
 {
     public partial class BreakBasicWin : Form
     {
+        #region Fields
         internal static int MouseXAxis;
         internal static int MouseYAxis;
         internal static bool MouseDrag;
+        #endregion
 
+        #region Initialization
         public BreakBasicWin()
         {
             InitializeComponent();
         }
-        //------------------------------------------------------------------------- win load
+        // win load
         private void BreakBasicWin_Load(object sender, EventArgs e)
         {
             winRefresh.Start();
@@ -35,6 +38,9 @@ namespace Worker_Ant
                 btnNo.Enabled = false;
             }
         }
+        #endregion
+
+        #region FormBorderStyle
         //------------------------------------------------------------------------- win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -57,6 +63,7 @@ namespace Worker_Ant
         {
             MouseDrag = false;
         }
+
         //------------------------------------------------------------------------- pic close
         //click
         private void picBoxClose_Click(object sender, EventArgs e)
@@ -79,10 +86,9 @@ namespace Worker_Ant
             picBoxClose.BackColor = SystemColors.ControlDark;
 
         }
-        // window load
-        //-------------------------------------------------------------------------
+        #endregion
 
-        //------------------------------------------------------------------------- timer
+        #region Methods
         // refresh window data (timer)
         private void winRefresh_Tick(object sender, EventArgs e)
         {
@@ -121,7 +127,6 @@ namespace Worker_Ant
                 Close();
             }
         }
-        //------------------------------------------------------------------------- Button
         // okey btn
         private void btnYesOkay_Click(object sender, EventArgs e)
         {
@@ -136,12 +141,13 @@ namespace Worker_Ant
             }
             Close();
         }
-
+        // no btn
         private void btnNo_Click(object sender, EventArgs e)
         {
             var countdown = new Countdown();
             countdown.CountdownInputControl("BreakWinNo");
             Close();
         }
+        #endregion
     }
 }

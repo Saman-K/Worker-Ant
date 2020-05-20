@@ -12,17 +12,23 @@ namespace Worker_Ant
 {
     class Countdown
     {
-        // fields
+        #region Fields
+        // Item1 == Work timer , Item2 == Break timer , Item3 == Round counter
         private static (int, int, int) _savedCountdownValuesWBR;
 
+        // live timer data 
         internal static int _workValueLive = 0;
         internal static int _breakValueLive = 0;
         internal static int _roundsValueLive = 0;
 
         internal static string _timerRoundName;
-
         internal static string _timerStatus;
 
+        internal static System.Windows.Forms.Timer _countdownTimer = new System.Windows.Forms.Timer();
+        #endregion
+
+        #region Properties
+        // last used timer data 
         // Item1 == Work timer , Item2 == Break timer , Item3 == Round counter
         public static (int, int, int) SavedCountdownValuesWBR
         {
@@ -36,6 +42,7 @@ namespace Worker_Ant
             }
         }
 
+        // live timer data 
         public static int WorkValueLive
         {
             set
@@ -89,6 +96,7 @@ namespace Worker_Ant
             }
         }
 
+        // round Name 
         public static string TimerRoundName
         {
             set
@@ -130,18 +138,18 @@ namespace Worker_Ant
             }
 
         }
+        #endregion
 
-        internal static System.Windows.Forms.Timer _countdownTimer = new System.Windows.Forms.Timer();
-
+        #region Initialization
         public static void Start()
         {
             _countdownTimer.Tick += CountdownTimer_Tick;
-
         }
+        #endregion
 
-        // ------------------------------------------------------------------------- button
+        #region Methed
         // set setting to default
-        public void SetSettingsToDefault()
+        private void SetSettingsToDefault()
         {
             Properties.Settings.Default.recoveryWorkTime = 1800;
             Properties.Settings.Default.recoveryBreakTime = 120;
@@ -193,17 +201,20 @@ namespace Worker_Ant
         public string CountdownInputControl(string btnText)
         {
             var errorHandler = new ErrorHandlerWin();
+            // start timer 
             if (btnText == "Start")
             {
                 TimerControler("Start");
                 return "Stop";
             }
+            // stop timer 
             else if (btnText == "Stop")
             {
                 if (TimerRoundName == "Break")
                 {
                     errorHandler.ErrorHandeler("You can NOT stop during a break.", "CD", "05", false);
-                    errorHandler.ShowDialog();
+                    errorHandler.Show();
+                    errorHandler.TopMost = true;
                     return "Stop";
                 }
                 else if (TimerRoundName == "End Break")
@@ -226,18 +237,18 @@ namespace Worker_Ant
                 }
 
             }
+            // reset timer 
             else if (btnText == "Reset" || btnText == "Set")
             {
                 TimerControler("Set");
                 return "Reset";
             }
-            // break button
+            // break popup input
             else if (btnText == "BreakWinYes")
             {
                 TimerControler("Lap");
                 return "";
             }
-            // to break
             else if (btnText == "BreakWinOkay")
             {
                 TimerControler("End");
@@ -248,9 +259,16 @@ namespace Worker_Ant
                 TimerControler("LapPause");
                 return "";
             }
+            // to break popup input 
             else if (btnText == "ToBreakYes")
             {
                 TimerControler("ToBreak");
+                return "";
+            }
+            // setting win input 
+            else if (btnText == "Default")
+            {
+                SetSettingsToDefault();
                 return "";
             }
             else
@@ -260,17 +278,16 @@ namespace Worker_Ant
                 return "CD/2";
             }
         }
-        // ------------------------------------------------------------------------- timer
         // timer tike  
         private static void CountdownTimer_Tick(object sender, EventArgs e)
         {
-            _countdownTimer.Interval = 100;
+            _countdownTimer.Interval = 1000;
             if (TimerRoundName == "Work")
             {
                 if (WorkValueLive > 0)
                 {
                     WorkValueLive--;
-                    if (WorkValueLive == 30)
+                    if (WorkValueLive == 300)
                     {
                         TimerControler("ToBreakPopup");
                     }
@@ -298,8 +315,8 @@ namespace Worker_Ant
                 }
             }
         }
-        // ------------------------------------------------------------------------- function
-        public static void TimerControler(string function)
+        // timer controler
+        private static void TimerControler(string function)
         {
             var errorHandler = new ErrorHandlerWin();
             var winBehavior = new WinBehavior();
@@ -352,15 +369,11 @@ namespace Worker_Ant
                     {
                         Console.Beep(1000, 500);
                     }
-
                     break;
                 case "ToBreak":
                     WorkValueLive = 0;
                     TimerControler("Break");
                     break;
-                //case "ToBreak 5":
-                //    winBehavior.Notify("5 Seconds", "Your break will start in 5 Seconds");
-                //    break;
                 //-------------------------------------
                 case "LapPause":
                     TimerRoundName = "Work";
@@ -417,5 +430,6 @@ namespace Worker_Ant
                     break;
             }
         }
+        #endregion
     }
 }

@@ -121,7 +121,7 @@
             0,
             0,
             0});
-            this.numUDBreakManual.ValueChanged += new System.EventHandler(this.numUDManual_ValueChanged);
+            this.numUDBreakManual.ValueChanged += new System.EventHandler(this.NumUDManual_ValueChanged);
             // 
             // numUDWorkManual
             // 
@@ -145,7 +145,7 @@
             0,
             0,
             0});
-            this.numUDWorkManual.ValueChanged += new System.EventHandler(this.numUDManual_ValueChanged);
+            this.numUDWorkManual.ValueChanged += new System.EventHandler(this.NumUDManual_ValueChanged);
             // 
             // labelBreakManual
             // 
@@ -266,7 +266,7 @@
             this.radioBtnSmart.TabIndex = 0;
             this.radioBtnSmart.Text = "Smart";
             this.radioBtnSmart.UseVisualStyleBackColor = false;
-            this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.radioBtnSmart.CheckedChanged += new System.EventHandler(this.RadioBtnChineged_CheckedChanged);
             // 
             // radioBtnProgress
             // 
@@ -279,7 +279,7 @@
             this.radioBtnProgress.TabIndex = 0;
             this.radioBtnProgress.Text = "Progress";
             this.radioBtnProgress.UseVisualStyleBackColor = false;
-            this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.radioBtnProgress.CheckedChanged += new System.EventHandler(this.RadioBtnChineged_CheckedChanged);
             // 
             // radioBtnRecovery
             // 
@@ -292,7 +292,7 @@
             this.radioBtnRecovery.TabIndex = 0;
             this.radioBtnRecovery.Text = "Recovery";
             this.radioBtnRecovery.UseVisualStyleBackColor = false;
-            this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.radioBtnRecovery.CheckedChanged += new System.EventHandler(this.RadioBtnChineged_CheckedChanged);
             // 
             // btnSetReset
             // 
@@ -303,7 +303,7 @@
             this.btnSetReset.TabIndex = 2;
             this.btnSetReset.Text = "Set";
             this.btnSetReset.UseVisualStyleBackColor = true;
-            this.btnSetReset.Click += new System.EventHandler(this.btnSetReset_Click);
+            this.btnSetReset.Click += new System.EventHandler(this.BtnSetReset_Click);
             // 
             // btnStartStop
             // 
@@ -314,7 +314,7 @@
             this.btnStartStop.TabIndex = 1;
             this.btnStartStop.Text = "Start";
             this.btnStartStop.UseVisualStyleBackColor = true;
-            this.btnStartStop.Click += new System.EventHandler(this.btnStartStop_Click);
+            this.btnStartStop.Click += new System.EventHandler(this.BtnStartStop_Click);
             // 
             // groupBoxPreview
             // 
@@ -422,7 +422,7 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.picBoxSettings_Click);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.PicBoxSettings_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -430,7 +430,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.picBoxInfo_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.PicBoxInfo_Click);
             // 
             // toolStripSeparator1
             // 
@@ -443,7 +443,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.picBoxClose_DoubleClick);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.PicBoxClose_DoubleClick);
             // 
             // picBoxSettings
             // 
@@ -454,9 +454,9 @@
             this.picBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxSettings.TabIndex = 14;
             this.picBoxSettings.TabStop = false;
-            this.picBoxSettings.Click += new System.EventHandler(this.picBoxSettings_Click);
+            this.picBoxSettings.Click += new System.EventHandler(this.PicBoxSettings_Click);
             this.picBoxSettings.MouseEnter += new System.EventHandler(this.PicBoxSettings_MouseEnter);
-            this.picBoxSettings.MouseLeave += new System.EventHandler(this.picBoxSettings_MouseLeave);
+            this.picBoxSettings.MouseLeave += new System.EventHandler(this.PicBoxSettings_MouseLeave);
             // 
             // picBoxInfo
             // 
@@ -467,9 +467,9 @@
             this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxInfo.TabIndex = 13;
             this.picBoxInfo.TabStop = false;
-            this.picBoxInfo.Click += new System.EventHandler(this.picBoxInfo_Click);
-            this.picBoxInfo.MouseEnter += new System.EventHandler(this.picBoxInfo_MouseEnter);
-            this.picBoxInfo.MouseLeave += new System.EventHandler(this.picBoxInfo_MouseLeave);
+            this.picBoxInfo.Click += new System.EventHandler(this.PicBoxInfo_Click);
+            this.picBoxInfo.MouseEnter += new System.EventHandler(this.PicBoxInfo_MouseEnter);
+            this.picBoxInfo.MouseLeave += new System.EventHandler(this.PicBoxInfo_MouseLeave);
             // 
             // picBoxClose
             // 
@@ -483,10 +483,10 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 12;
             this.picBoxClose.TabStop = false;
-            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
-            this.picBoxClose.DoubleClick += new System.EventHandler(this.picBoxClose_DoubleClick);
-            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
-            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
+            this.picBoxClose.Click += new System.EventHandler(this.PicBoxClose_Click);
+            this.picBoxClose.DoubleClick += new System.EventHandler(this.PicBoxClose_DoubleClick);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.PicBoxClose_MouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.PicBoxClose_MouseLeave);
             // 
             // picBoxIcon
             // 
@@ -525,19 +525,19 @@
             this.radioBtnManual.TabIndex = 0;
             this.radioBtnManual.Text = "Manual";
             this.radioBtnManual.UseVisualStyleBackColor = false;
-            this.radioBtnManual.CheckedChanged += new System.EventHandler(this.radioBtnChineged_CheckedChanged);
+            this.radioBtnManual.CheckedChanged += new System.EventHandler(this.RadioBtnChineged_CheckedChanged);
             // 
             // winRefresh
             // 
-            this.winRefresh.Tick += new System.EventHandler(this.winRefresh_Tick);
+            this.winRefresh.Tick += new System.EventHandler(this.WinRefresh_Tick);
             // 
             // notifyIconFVW
             // 
             this.notifyIconFVW.ContextMenuStrip = this.contextMenuStripNotifyIcon;
             this.notifyIconFVW.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconFVW.Icon")));
-            this.notifyIconFVW.Text = "notifyIcon1";
+            this.notifyIconFVW.Text = "Worker Ant";
             this.notifyIconFVW.Visible = true;
-            this.notifyIconFVW.Click += new System.EventHandler(this.notifyIconFVW_Click);
+            this.notifyIconFVW.Click += new System.EventHandler(this.NotifyIconFVW_Click);
             // 
             // contextMenuStripNotifyIcon
             // 
@@ -547,33 +547,33 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem1});
             this.contextMenuStripNotifyIcon.Name = "contextMenuStripNotifyIcon";
-            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(181, 98);
+            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(108, 76);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.notifyIconFVW_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconFVW_Click);
             // 
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.picBoxInfo_Click);
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.PicBoxInfo_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.picBoxClose_DoubleClick);
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.PicBoxClose_DoubleClick);
             // 
             // FullViewWin
             // 
@@ -665,12 +665,12 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.NotifyIcon notifyIconFVW;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripNotifyIcon;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        public System.Windows.Forms.ContextMenuStrip contextMenuStripNotifyIcon;
+        public System.Windows.Forms.NotifyIcon notifyIconFVW;
     }
 }
 

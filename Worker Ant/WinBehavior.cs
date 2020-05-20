@@ -10,14 +10,19 @@ namespace Worker_Ant
 {
     public class WinBehavior
     {
-        //public string winName;
         internal bool WinIsOpen;
 
-        //private System.Windows.Forms.NotifyIcon notifyIconMine;
-        //------------------------------------------------------------------------- check windows to let only one to be visibel
-        public static void Start()
+        #region Initialization
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            WinBehavior winBehavior = new WinBehavior();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Countdown.Start();
+
             if (Properties.Settings.Default.simpleView == true)
             {
                 Application.Run(new SimpleViewWin());
@@ -27,31 +32,18 @@ namespace Worker_Ant
                 Application.Run(new FullViewWin());
             }
         }
+        #endregion
 
-        //public void InitializeComponent()
-        //{
-        //    System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FullViewWin));
-        //    this.notifyIconMine = new System.Windows.Forms.NotifyIcon();
-        //    // 
-        //    // notifyIconMine
-        //    // 
-        //    this.notifyIconMine.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-        //    this.notifyIconMine.Visible = true;
-        //}
-        //public void Notify(string titel, string message)
-        //{
-        //    notifyIconMine.BalloonTipText = "boop";
-        //    notifyIconMine.BalloonTipTitle = "beep";
-        //    notifyIconMine.Text = "notifyIcon1";
-        //    notifyIconMine.BalloonTipText = "kfhythmfgjhfjhg";
-        //    notifyIconMine.ShowBalloonTip(3000);
-        //}
-
+        #region Methods
+        /// <summary>
+        /// get the name of the win acarning to the thame and ask to open 
+        /// </summary>
+        /// <param name="winName">win name</param>
         public void ChackWins(string winName)
         {
             var errorHandler = new ErrorHandlerWin();
             
-            if (Properties.Settings.Default.Theme == "Basic")
+            if (Properties.Settings.Default.winTheme == "Basic")
             {
                 switch (winName)
                 {
@@ -83,7 +75,7 @@ namespace Worker_Ant
                         break;
                 }
             }
-            else if (Properties.Settings.Default.Theme == "")
+            else if (Properties.Settings.Default.winTheme == "")
             {
                 switch (winName)
                 {
@@ -116,7 +108,10 @@ namespace Worker_Ant
             }
 
         }
-
+        /// <summary>
+        /// open win
+        /// </summary>
+        /// <param name="winName">win of name to open</param>
         protected void WinOpener(string winName)
         {
             var errorHandler = new ErrorHandlerWin();
@@ -172,5 +167,6 @@ namespace Worker_Ant
                 }
             }
         }
+        #endregion
     }
 }

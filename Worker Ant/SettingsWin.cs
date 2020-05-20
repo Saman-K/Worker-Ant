@@ -13,16 +13,18 @@ namespace Worker_Ant
 {
     public partial class SettingsWin : Form
     {
+        #region Fields
         internal int MouseXAxis;
         internal int MouseYAxis;
         internal bool MouseDrag;
+        #endregion
 
+        #region Initialization
         public SettingsWin()
         {
             InitializeComponent();
         }
-
-
+        // sethings win load
         private void SettingsWin_Load(object sender, EventArgs e)
         {
             numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime / 60;
@@ -37,6 +39,9 @@ namespace Worker_Ant
             checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
             checkBoxAutoStart.Checked = Properties.Settings.Default.autoStart;
         }
+        #endregion
+
+        #region FormBorderStyle
         //-------------------------------------------------------------------------win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -59,50 +64,59 @@ namespace Worker_Ant
         {
             MouseDrag = false;
         }
+
         //-------------------------------------------------------------------------pic close
         //click
-        private void picBoxClose_Click(object sender, EventArgs e)
+        private void PicBoxClose_Click(object sender, EventArgs e)
         {
-            Close();
+            Visible = false;
+        }
+        //double click
+        private void PicBoxClose_DoubleClick(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
         //mouse leave
-        private void picBoxClose_MouseLeave(object sender, EventArgs e)
+        private void PicBoxClose_MouseLeave(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.Control;
         }
         //mouse enter
-        private void picBoxClose_MouseEnter(object sender, EventArgs e)
+        private void PicBoxClose_MouseEnter(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
-
         }
+
         //------------------------------------------------------------------------- pic info
         //info enter
-        private void picBoxInfo_MouseEnter(object sender, EventArgs e)
+        private void PicBoxInfo_MouseEnter(object sender, EventArgs e)
         {
             picBoxInfo.Image = Worker_Ant.Properties.Resources.Info;
         }
         //info leave
-        private void picBoxInfo_MouseLeave(object sender, EventArgs e)
+        private void PicBoxInfo_MouseLeave(object sender, EventArgs e)
         {
             picBoxInfo.Image = Worker_Ant.Properties.Resources.Info_L;
         }
         //info click
-        private void picBoxInfo_Click(object sender, EventArgs e)
+        private void PicBoxInfo_Click(object sender, EventArgs e)
         {
             var winCouter = new WinBehavior();
             winCouter.ChackWins("Info");
         }
+        #endregion
+
+        #region Methods
         //------------------------------------------------------------------------- btn
         //default btn
-        private void btnDefault_Click(object sender, EventArgs e)
+        private void BtnDefault_Click(object sender, EventArgs e)
         {
             var countdown = new Countdown();
-            countdown.SetSettingsToDefault();
+            countdown.CountdownInputControl("");
             SettingsWin_Load(null, null);
         }
         //save btn
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
             try
             {
@@ -166,5 +180,6 @@ namespace Worker_Ant
 
 
         }
+        #endregion
     }
 }

@@ -12,15 +12,21 @@ namespace Worker_Ant
 {
     public partial class ErrorHandlerWin : Form
     {
+        #region Fields
         internal static int MouseXAxis;
         internal static int MouseYAxis;
         internal static bool MouseDrag;
+        #endregion
 
+        #region Initialization
         public ErrorHandlerWin()
         {
             InitializeComponent();
         }
-        //-------------------------------------------------------------------------win move
+        #endregion
+
+        #region FormBorderStyle
+        //------------------------------------------------------------------------- win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
@@ -42,29 +48,33 @@ namespace Worker_Ant
         {
             MouseDrag = false;
         }
-        //-------------------------------------------------------------------------pic close
-        //click
-        private void picBoxClose_Click(object sender, EventArgs e)
+
+        //------------------------------------------------------------------------- pic close
+        // click
+        private void PicBoxClose_Click(object sender, EventArgs e)
         {
             Close();
         }
-        //mouse leave
-        private void picBoxClose_MouseLeave(object sender, EventArgs e)
+        // mouse leave
+        private void PicBoxClose_MouseLeave(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.Control;
         }
-        //mouse enter
-        private void picBoxClose_MouseEnter(object sender, EventArgs e)
+        // mouse enter
+        private void PicBoxClose_MouseEnter(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
 
         }
-        //-------------------------------------------------------------------------Btn
-        private void btnOkBreakBasic_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Methods
+        // okey btn
+        private void BtnOkBreakBasic_Click(object sender, EventArgs e)
         {
             Close();
         }
-        //-------------------------------------------------------------------------Btn
+        // error handling method
         public void ErrorHandeler(string Message, string location, string errorNum, bool tF)
         {
             if (Message != "")
@@ -84,5 +94,6 @@ namespace Worker_Ant
                 labelLocationNumber.Visible = false;
             }
         }
+        #endregion
     }
 }

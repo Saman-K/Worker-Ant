@@ -33,7 +33,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="audioAlert" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="simpleView" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -41,11 +41,11 @@
     <Setting Name="radioBtnChecked" Type="System.String" Scope="User">
       <Value Profile="(Default)">Manual</Value>
     </Setting>
-    <Setting Name="Theme" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Basic</Value>
-    </Setting>
     <Setting Name="autoStart" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="winTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Basic</Value>
     </Setting>
   </Settings>
 </SettingsFile>

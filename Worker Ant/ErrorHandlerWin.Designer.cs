@@ -63,7 +63,7 @@
             this.btnOkBreakBasic.TabIndex = 1;
             this.btnOkBreakBasic.Text = "Okey";
             this.btnOkBreakBasic.UseVisualStyleBackColor = true;
-            this.btnOkBreakBasic.Click += new System.EventHandler(this.btnOkBreakBasic_Click);
+            this.btnOkBreakBasic.Click += new System.EventHandler(this.BtnOkBreakBasic_Click);
             // 
             // labelWinName
             // 
@@ -100,9 +100,9 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 10;
             this.picBoxClose.TabStop = false;
-            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
-            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
-            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseEnter);
+            this.picBoxClose.Click += new System.EventHandler(this.PicBoxClose_Click);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.PicBoxClose_MouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.PicBoxClose_MouseEnter);
             // 
             // picBoxBackground
             // 

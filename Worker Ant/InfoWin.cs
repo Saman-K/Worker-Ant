@@ -11,10 +11,13 @@ namespace Worker_Ant
 {
     partial class InfoWin : Form
     {
+        #region Fields
         internal int _mouseXAxis;
         internal int _mouseYAxis;
         internal bool _mouseDrag;
+        #endregion
 
+        #region Initialization
         public InfoWin()
         {
             InitializeComponent();
@@ -25,9 +28,9 @@ namespace Worker_Ant
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
         }
+        #endregion
 
         #region Assembly Attribute Accessors
-
         public string AssemblyTitle
         {
             get
@@ -106,7 +109,7 @@ namespace Worker_Ant
         }
         #endregion
 
-        //-------------------------------------------------------------------------win move
+        #region FormBorderStyle
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
@@ -128,7 +131,7 @@ namespace Worker_Ant
         {
             _mouseDrag = false;
         }
-        //-------------------------------------------------------------------------pic close
+
         //click
         private void picBoxClose_Click(object sender, EventArgs e)
         {
@@ -145,10 +148,13 @@ namespace Worker_Ant
             picBoxClose.BackColor = SystemColors.ControlDark;
 
         }
+        #endregion
 
+        #region Method
         private void okButton_Click(object sender, EventArgs e)
         {
             Close();
         }
+        #endregion
     }
 }

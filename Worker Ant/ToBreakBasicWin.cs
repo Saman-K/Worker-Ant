@@ -12,20 +12,25 @@ namespace Worker_Ant
 {
     public partial class ToBreakBasicWin : Form
     {
+        #region Fields
         internal int MouseXAxis;
         internal int MouseYAxis;
         internal bool MouseDrag;
+        #endregion
 
+        #region Initialization
         public ToBreakBasicWin()
         {
             InitializeComponent();
         }
-
         private void ToBreakBasicWin_Load(object sender, EventArgs e)
         {
             winRefresh.Start();
         }
-        //-------------------------------------------------------------------------win move
+        #endregion
+
+        #region FormBorderStyle
+        //------------------------------------------------------------------------- win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {
@@ -47,7 +52,8 @@ namespace Worker_Ant
         {
             MouseDrag = false;
         }
-        //-------------------------------------------------------------------------pic close
+
+        //------------------------------------------------------------------------- pic close
         //click
         private void picBoxClose_Click(object sender, EventArgs e)
         {
@@ -64,7 +70,9 @@ namespace Worker_Ant
             picBoxClose.BackColor = SystemColors.ControlDark;
 
         }
-        //------------------------------------------------------------------------- button click
+        #endregion
+
+        #region Methods
         //button No
         private void btnNo_Click(object sender, EventArgs e)
         {
@@ -77,7 +85,6 @@ namespace Worker_Ant
             countdown.CountdownInputControl("ToBreakYes");
             Close();
         }
-        //------------------------------------------------------------------------- timer
         // refresh window data (timer)
         private void winRefresh_Tick(object sender, EventArgs e)
         {
@@ -94,5 +101,6 @@ namespace Worker_Ant
                 Close();
             }
         }
+        #endregion
     }
 }
