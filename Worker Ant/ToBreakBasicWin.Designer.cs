@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToBreakBasicWin));
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.labelWinName = new System.Windows.Forms.Label();
@@ -114,7 +115,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBWH128;
+            this.pictureBox1.Image = global::Worker_Ant.Properties.Resources.Worker_AntBWH128;
             this.pictureBox1.Location = new System.Drawing.Point(12, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(55, 55);
@@ -124,7 +125,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
+            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Worker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -178,7 +179,9 @@
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ToBreakBasicWin";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ToBreakBasic";
             this.Load += new System.EventHandler(this.ToBreakBasicWin_Load);

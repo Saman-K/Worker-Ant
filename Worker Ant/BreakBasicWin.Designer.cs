@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BreakBasicWin));
             this.labelWinName = new System.Windows.Forms.Label();
             this.btnYesOkay = new System.Windows.Forms.Button();
             this.labelTheBreakWEI = new System.Windows.Forms.Label();
@@ -92,7 +93,7 @@
             // picBoxLogo
             // 
             this.picBoxLogo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picBoxLogo.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBWH128;
+            this.picBoxLogo.Image = global::Worker_Ant.Properties.Resources.Worker_AntBWH128;
             this.picBoxLogo.Location = new System.Drawing.Point(12, 45);
             this.picBoxLogo.Name = "picBoxLogo";
             this.picBoxLogo.Size = new System.Drawing.Size(55, 55);
@@ -102,7 +103,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
+            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Worker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -176,6 +177,7 @@
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.picBoxBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BreakBasicWin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
