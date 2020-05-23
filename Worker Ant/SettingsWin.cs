@@ -27,6 +27,7 @@ namespace Worker_Ant
         // sethings win load
         private void SettingsWin_Load(object sender, EventArgs e)
         {
+            // loading data for the UI
             numUDWorkRecovery.Value = Properties.Settings.Default.recoveryWorkTime / 60;
             numUDBreakRecovery.Value = Properties.Settings.Default.recoveryBreakTime / 60;
             numUDWorkSmart.Value = Properties.Settings.Default.smartWorkTime / 60;
@@ -37,7 +38,25 @@ namespace Worker_Ant
             checkBoxAudioAlert.Checked = Properties.Settings.Default.audioAlert;
             checkBoxSafetyInfo.Checked = Properties.Settings.Default.saftyInfo;
             checkBoxSimpleView.Checked = Properties.Settings.Default.simpleView;
-            checkBoxAutoStart.Checked = Properties.Settings.Default.autoStart;
+
+            // using registry 
+            RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            // run once to set Worker Ant to autostart 
+            if (Properties.Settings.Default.autoStartRunOnce == false)
+            {
+                registry.SetValue("Worker Ant", Application.ExecutablePath.ToString());
+                Properties.Settings.Default.autoStartRunOnce = true;
+                Properties.Settings.Default.Save();
+            }
+            // loading registry data for auto start
+            if (registry.GetValue("Worker Ant") == null)
+            { 
+                checkBoxAutoStart.Checked = false;
+            }
+            else
+            {
+                checkBoxAutoStart.Checked = true;
+            }
         }
         #endregion
 
@@ -112,8 +131,9 @@ namespace Worker_Ant
         private void BtnDefault_Click(object sender, EventArgs e)
         {
             var countdown = new Countdown();
-            countdown.CountdownInputControl("");
+            countdown.CountdownInputControl("Default");
             SettingsWin_Load(null, null);
+            checkBoxAutoStart.Checked = true;
         }
         //save btn
         private void BtnSave_Click(object sender, EventArgs e)
@@ -139,28 +159,16 @@ namespace Worker_Ant
                     errorHandler1.Show();
                     //notify balloon can be used
                 }
-                if (Properties.Settings.Default.autoStart != checkBoxAutoStart.Checked)
-                {
-                    Properties.Settings.Default.autoStart = checkBoxAutoStart.Checked;
-                    try
-                    {
-                        RegistryKey Apps = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                        if (checkBoxAutoStart.Checked == true)
-                        {
-                            Apps.SetValue("Worker_Ant", Application.ExecutablePath.ToString());
-                        }
-                        else if (checkBoxAutoStart.Checked == false)
-                        {
-                            Apps.DeleteValue("Worker_Ant");
-                        }
-                    }
-                    catch
-                    {
-                        var errorHandler2 = new ErrorHandlerWin();
-                        errorHandler2.ErrorHandeler("Auto-Start settings coud not be seved!", "SW", "01", true);
-                        errorHandler2.ShowDialog();
-                    }
+                // save autostart in registry 
 
+                RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (checkBoxAutoStart.Checked == true && registry.GetValue("Worker Ant") == null)
+                {
+                    registry.SetValue("Worker Ant", Application.ExecutablePath.ToString());
+                }
+                else if (checkBoxAutoStart.Checked == false && registry.GetValue("Worker Ant") != null)
+                {
+                    registry.DeleteValue("Worker Ant");
                 }
 
                 Properties.Settings.Default.Save();
@@ -169,7 +177,6 @@ namespace Worker_Ant
                 errorHandler.Show();
 
                 Close();
-
             }
             catch
             {
@@ -177,8 +184,6 @@ namespace Worker_Ant
                 errorHandler.ErrorHandeler("Could not save the new settings", "SW", "01", true);
                 errorHandler.ShowDialog();
             }
-
-
         }
         #endregion
     }

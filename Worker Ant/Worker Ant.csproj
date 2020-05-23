@@ -13,6 +13,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,8 +29,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,6 +40,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +52,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Worker_AntBWH128.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Worker_Ant.WinBehavior</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -177,10 +185,7 @@
     <None Include="Resources\X_Close_D.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Whorker_AntBW25.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Whorker_AntBWH128.png" />
+    <None Include="Resources\Worker_AntBWH128.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -195,8 +200,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Whorker_AntBWH128.ico" />
-    <None Include="Resources\Whorker_Ant_About_FC2.png" />
+    <None Include="Worker_AntBWH128.ico" />
+    <None Include="Resources\Worker_Ant_About_FC.png" />
+    <Content Include="update.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RedCell.Diagnostics.Update\RedCell.Diagnostics.Update.csproj">
+      <Project>{67d2cca7-489c-42dc-80fc-4b264c0323ee}</Project>
+      <Name>RedCell.Diagnostics.Update</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RedCell.Net\RedCell.Net.csproj">
+      <Project>{98145560-729a-41a2-9b41-4b3de1114471}</Project>
+      <Name>RedCell.Net</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
