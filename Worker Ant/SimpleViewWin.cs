@@ -80,7 +80,7 @@ namespace Worker_Ant
         private void PicBoxClose_Click(object sender, EventArgs e)
         {
             Visible = false;
-            //Notify("Worker Ant", "Worker Ant is Minimized");
+            Notify("Worker Ant", "Worker Ant is Minimized");
         }
         // double click
         private void PicBoxClose_DoubleClick(object sender, EventArgs e)
@@ -228,7 +228,7 @@ namespace Worker_Ant
                 progressBarCountdown.Value = Countdown.SavedCountdownValuesWBR.Item1 - Countdown.WorkValueLive;
                 progressBarCountdown.Style = ProgressBarStyle.Continuous;
 
-                //notify message
+                //notiy message
             }
             else if (Countdown.TimerRoundName == "Break")
             {
@@ -256,7 +256,7 @@ namespace Worker_Ant
         // notify icon notifing
         public void Notify(string titel, string message)
         {
-            //notifyIconSVW.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconSVW.BalloonTipIcon = ToolTipIcon.Info;
             notifyIconSVW.BalloonTipTitle = titel;
             notifyIconSVW.BalloonTipText = message;
             notifyIconSVW.ShowBalloonTip(1000);

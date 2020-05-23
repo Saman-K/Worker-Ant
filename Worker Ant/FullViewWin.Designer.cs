@@ -491,7 +491,7 @@
             // picBoxIcon
             // 
             this.picBoxIcon.ContextMenuStrip = this.rightClickMenuStrip;
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Worker_AntBW25;
+            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -537,7 +537,7 @@
             this.notifyIconFVW.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconFVW.Icon")));
             this.notifyIconFVW.Text = "Worker Ant";
             this.notifyIconFVW.Visible = true;
-            this.notifyIconFVW.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIconFVW_MouseDoubleClick);
+            this.notifyIconFVW.Click += new System.EventHandler(this.NotifyIconFVW_Click);
             // 
             // contextMenuStripNotifyIcon
             // 
@@ -547,33 +547,31 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem1});
             this.contextMenuStripNotifyIcon.Name = "contextMenuStripNotifyIcon";
-            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(181, 98);
+            this.contextMenuStripNotifyIcon.Size = new System.Drawing.Size(108, 76);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIco);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconFVW_Click);
             // 
             // aboutToolStripMenuItem1
             // 
-            this.aboutToolStripMenuItem1.Image = global::Worker_Ant.Properties.Resources.Info_L;
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.PicBoxInfo_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
             // 
             // exitToolStripMenuItem1
             // 
-            this.exitToolStripMenuItem1.Image = global::Worker_Ant.Properties.Resources.X_Close;
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.PicBoxClose_DoubleClick);
             // 
@@ -600,7 +598,6 @@
             this.Controls.Add(this.groupBoxManual);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FullViewWin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Worker Ant";

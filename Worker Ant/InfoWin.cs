@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace Worker_Ant
 {
@@ -154,7 +153,6 @@ namespace Worker_Ant
         #region Method
         private void okButton_Click(object sender, EventArgs e)
         {
-            Process.Start("https://samank.me");
             Close();
         }
         #endregion

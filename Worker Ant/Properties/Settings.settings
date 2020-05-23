@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="recoveryWorkTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">1800</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="recoveryBreakTime" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">120</Value>
+      <Value Profile="(Default)">2</Value>
     </Setting>
     <Setting Name="smartWorkTime" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">2400</Value>
@@ -41,11 +41,11 @@
     <Setting Name="radioBtnChecked" Type="System.String" Scope="User">
       <Value Profile="(Default)">Manual</Value>
     </Setting>
+    <Setting Name="autoStart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
     <Setting Name="winTheme" Type="System.String" Scope="User">
       <Value Profile="(Default)">Basic</Value>
-    </Setting>
-    <Setting Name="autoStartRunOnce" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

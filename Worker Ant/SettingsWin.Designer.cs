@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsWin));
             this.labelWinName = new System.Windows.Forms.Label();
             this.groupBoxSetSmart = new System.Windows.Forms.GroupBox();
             this.numUDBreakSmart = new System.Windows.Forms.NumericUpDown();
@@ -385,7 +384,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Worker_AntBW25;
+            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Whorker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -456,7 +455,6 @@
             this.checkBoxAudioAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.checkBoxAudioAlert.AutoSize = true;
             this.checkBoxAudioAlert.Checked = global::Worker_Ant.Properties.Settings.Default.audioAlert;
-            this.checkBoxAudioAlert.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxAudioAlert.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "audioAlert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 141);
             this.checkBoxAudioAlert.Name = "checkBoxAudioAlert";
@@ -525,7 +523,6 @@
             this.Controls.Add(this.picBoxClose);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsWin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";

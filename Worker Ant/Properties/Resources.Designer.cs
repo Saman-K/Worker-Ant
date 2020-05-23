@@ -103,9 +103,9 @@ namespace Worker_Ant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Worker_Ant_About_FC {
+        internal static System.Drawing.Bitmap Whorker_Ant_About_FC2 {
             get {
-                object obj = ResourceManager.GetObject("Worker_Ant_About_FC", resourceCulture);
+                object obj = ResourceManager.GetObject("Whorker_Ant_About_FC2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Worker_Ant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Worker_AntBW25 {
+        internal static System.Drawing.Bitmap Whorker_AntBW25 {
             get {
-                object obj = ResourceManager.GetObject("Worker_AntBW25", resourceCulture);
+                object obj = ResourceManager.GetObject("Whorker_AntBW25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Worker_Ant.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Worker_AntBWH128 {
+        internal static System.Drawing.Bitmap Whorker_AntBWH128 {
             get {
-                object obj = ResourceManager.GetObject("Worker_AntBWH128", resourceCulture);
+                object obj = ResourceManager.GetObject("Whorker_AntBWH128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

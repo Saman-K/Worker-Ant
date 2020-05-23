@@ -83,7 +83,7 @@ namespace Worker_Ant
         private void PicBoxClose_Click(object sender, EventArgs e)
         {
             Visible = false;
-            //Notify("Worker Ant", "Worker Ant is Minimized");
+            Notify("Worker Ant", "Worker Ant is Minimized");
         }
         //double click
         private void PicBoxClose_DoubleClick(object sender, EventArgs e)
@@ -254,7 +254,7 @@ namespace Worker_Ant
                 ProgressBarColor.SetState(progressBarCountdown, 2);
                 progressBarCountdown.Maximum = 1;
                 progressBarCountdown.Value = 1;
-                NotifyIconFVW_MouseDoubleClick(null, null);
+                NotifyIconFVW_Click(null, null);
             }
         }
         // get data
@@ -323,16 +323,8 @@ namespace Worker_Ant
             }
             
         }
-        //  icon double click
-        private void NotifyIconFVW_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (Visible == false)
-            {
-                Visible = true;
-            }
-        }
-        // notify Strip Menu open btn
-        private void NotifyIco(object sender, EventArgs e)
+        // notify icon click
+        private void NotifyIconFVW_Click(object sender, EventArgs e)
         {
             if (Visible == false)
             {
@@ -342,7 +334,7 @@ namespace Worker_Ant
         // notify icon notifing
         public void Notify(string titel, string message)
         {
-            //notifyIconFVW.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIconFVW.BalloonTipIcon = ToolTipIcon.Info;
             notifyIconFVW.BalloonTipTitle = titel;
             notifyIconFVW.BalloonTipText = message;
             notifyIconFVW.ShowBalloonTip(1000);

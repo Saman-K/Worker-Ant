@@ -25,7 +25,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1800")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public decimal recoveryWorkTime {
             get {
                 return ((decimal)(this["recoveryWorkTime"]));
@@ -37,7 +37,7 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("120")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
         public decimal recoveryBreakTime {
             get {
                 return ((decimal)(this["recoveryBreakTime"]));
@@ -181,6 +181,18 @@ namespace Worker_Ant.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool autoStart {
+            get {
+                return ((bool)(this["autoStart"]));
+            }
+            set {
+                this["autoStart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Basic")]
         public string winTheme {
             get {
@@ -188,18 +200,6 @@ namespace Worker_Ant.Properties {
             }
             set {
                 this["winTheme"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool autoStartRunOnce {
-            get {
-                return ((bool)(this["autoStartRunOnce"]));
-            }
-            set {
-                this["autoStartRunOnce"] = value;
             }
         }
     }

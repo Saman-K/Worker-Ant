@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Worker Ant")]
-[assembly: AssemblyDescription("Worker Ant was made to help manage stretch break from your desk, which helps decreases your chances of any RSI injuries. Worker Ant was designed and programmed by Saman.K.")]
+[assembly: AssemblyDescription("Worker Ant was made as an easier way to manage stretch break from your desk, which will decrease your chances of any RSI injuries. Worker Ant was designed and programmed by Saman.K.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Saman.K")]
 [assembly: AssemblyProduct("Worker Ant")]

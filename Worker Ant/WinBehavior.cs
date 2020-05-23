@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using RedCell.Diagnostics.Update;
 
 
 namespace Worker_Ant
@@ -23,9 +22,6 @@ namespace Worker_Ant
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Countdown.Start();
-
-            var updater = new RedCell.Diagnostics.Update.Updater();
-            updater.StartMonitoring();
 
             if (Properties.Settings.Default.simpleView == true)
             {
