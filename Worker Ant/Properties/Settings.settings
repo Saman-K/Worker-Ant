@@ -26,26 +26,17 @@
     <Setting Name="manualBreakTime" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">240</Value>
     </Setting>
-    <Setting Name="roundCountdown" Type="System.Decimal" Scope="User">
+    <Setting Name="lapCounter" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">4</Value>
-    </Setting>
-    <Setting Name="saftyInfo" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="audioAlert" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="simpleView" Type="System.Boolean" Scope="User">
+    <Setting Name="simpleUI" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="radioBtnChecked" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Manual</Value>
-    </Setting>
-    <Setting Name="winTheme" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Basic</Value>
-    </Setting>
-    <Setting Name="autoStartRunOnce" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="lastUsedLapPackage" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

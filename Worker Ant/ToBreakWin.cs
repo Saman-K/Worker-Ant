@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Worker_Ant
 {
-    public partial class ToBreakBasicWin : Form
+    public partial class ToBreakWin : Form
     {
         #region Fields
         internal int MouseXAxis;
@@ -19,7 +19,7 @@ namespace Worker_Ant
         #endregion
 
         #region Initialization
-        public ToBreakBasicWin()
+        public ToBreakWin()
         {
             InitializeComponent();
         }

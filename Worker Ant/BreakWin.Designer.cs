@@ -1,6 +1,6 @@
 ﻿namespace Worker_Ant
 {
-    partial class BreakBasicWin
+    partial class BreakWin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BreakBasicWin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BreakWin));
             this.labelWinName = new System.Windows.Forms.Label();
             this.btnYesOkay = new System.Windows.Forms.Button();
             this.labelTheBreakWEI = new System.Windows.Forms.Label();

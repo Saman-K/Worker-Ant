@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Worker_Ant
 {
-    public partial class SimpleViewWin : Form
+    public partial class SimpleUIWin : Form
     {
         #region Fields
         // for Moving the form
@@ -23,22 +23,22 @@ namespace Worker_Ant
 
         #region Initialization
         // Initialization
-        public SimpleViewWin()
+        public SimpleUIWin()
         {
             InitializeComponent();
         }
         // form Opens
         private void SimpleViewWin_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.radioBtnChecked == "Recovery")
+            if (Properties.Settings.Default.lastUsedLapPackage == (int)LapPackageNames.Recovery)
             {
                 radioBtnRecovery.Checked = true;
             }
-            else if (Properties.Settings.Default.radioBtnChecked == "Smart" || Properties.Settings.Default.radioBtnChecked == "Manual")
+            else if (Properties.Settings.Default.lastUsedLapPackage == (int)LapPackageNames.Smart || Properties.Settings.Default.lastUsedLapPackage == (int)LapPackageNames.Manual)
             {
                 radioBtnSmart.Checked = true;
             }
-            else if (Properties.Settings.Default.radioBtnChecked == "Progress")
+            else if (Properties.Settings.Default.lastUsedLapPackage == (int)LapPackageNames.Progress)
             {
                 radioBtnProgress.Checked = true;
             }
@@ -111,8 +111,8 @@ namespace Worker_Ant
         // info click
         private void PicBoxInfo_Click(object sender, EventArgs e)
         {
-            var winCouter = new WinBehavior();
-            winCouter.ChackWins("Info");
+            var winCouter = new WindowBehavior();
+            winCouter.WindowsOpenCheck(WindowNames.Info);
         }
         //------------------------------------------------------------------------- pic change settings
         // settings enter
@@ -128,41 +128,40 @@ namespace Worker_Ant
         // settings click
         private void PicBoxSettings_Click(object sender, EventArgs e)
         {
-            var winCouter = new WinBehavior();
-            winCouter.ChackWins("Settings");
+            var winCouter = new WindowBehavior();
+            winCouter.WindowsOpenCheck(WindowNames.Settings);
         }
         #endregion
 
         #region Methods
-        // start button clicked
+        // Start/Stop button clicked
         private void BtnStartStop_Click(object sender, EventArgs e)
         {
             if (btnStartStop.Text == "Start")
             {
                 winRefresh.Start();
             }
-            else if (btnStartStop.Text == "Stop" && Countdown.TimerRoundName == "Break")
+            else if (btnStartStop.Text == "Stop" && Countdown.TimeTickSegment == SegmentNames.Break)
             {
                 winRefresh.Stop();
             }
-            var countdown = new Countdown();
-            btnStartStop.Text = countdown.CountdownInputControl(btnStartStop.Text);
+            btnStartStop.Text = btnStartStop.Text.StartStop();
+
         }
         // radio button Change
         private void RadioBtn_CheckedChanged(object sender, EventArgs e)
         {
-            var countdown = new Countdown();
             if (radioBtnRecovery.Checked == true)
             {
-                TimeDataWBR = countdown.GetTimerDataForUI("Recovery");
+                TimeDataWBR = LapPackageNames.Recovery.GetLapPackageValue();
             }
             else if (radioBtnSmart.Checked == true)
             {
-                TimeDataWBR = countdown.GetTimerDataForUI("Smart");
+                TimeDataWBR = LapPackageNames.Smart.GetLapPackageValue();
             }
             else if (radioBtnProgress.Checked == true)
             {
-                TimeDataWBR = countdown.GetTimerDataForUI("Progress");
+                TimeDataWBR = LapPackageNames.Progress.GetLapPackageValue();
             }
             else
             {
@@ -178,11 +177,11 @@ namespace Worker_Ant
             progressBarCountdown.Maximum = 1;
             progressBarCountdown.Value = 0;
 
-            Countdown.SavedCountdownValuesWBR = TimeDataWBR;
+            Countdown.LastUserInput = TimeDataWBR;
 
-            countdown.CountdownInputControl("Set");
+            Countdown.Set();
         }
-        // radio button Enabel
+        // radio button Enable
         private void RadioBtnEnabel(bool trueFalse)
         {
             radioBtnRecovery.Enabled = trueFalse;
@@ -192,57 +191,47 @@ namespace Worker_Ant
         // refresh window data (timer)
         private void WinRefresh_Tick(object sender, EventArgs e)
         {
-            labelWorkTimeCountdown.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
+            labelWorkTimeCountdown.Text = Countdown.WorkTimerFormatedLive;
 
-            if (Countdown.TimerRoundName == "End Break")
+            if (Countdown.TimeTickSegment == SegmentNames.EndBreak)
             {
-                labelBreakTimeCountdown.Text = ("- " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
-                if (Countdown.BreakValueLive == 0)
-                {
-                    labelBreakTimeCountdown.ForeColor = Color.Red;
-                }
+                labelBreakTimeCountdown.Text = Countdown.BreakTimerFormattedLive;
+                labelBreakTimeCountdown.ForeColor = Color.Red;
+
             }
             else
             {
-                labelBreakTimeCountdown.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
+                labelBreakTimeCountdown.Text = Countdown.BreakTimerFormattedLive;
                 labelBreakTimeCountdown.ForeColor = SystemColors.ControlText;
             }
 
-            labelRoundNumCountdown.Text = Countdown.RoundValueLive.ToString();
+            labelRoundNumCountdown.Text = Countdown.LapCounterLive.ToString();
 
-            if (Countdown.TimerStatus == "Tick")
+            if (Countdown.TimerTick == true)
             {
                 btnStartStop.Text = "Stop";
-                RadioBtnEnabel(false);
             }
-            else if (Countdown.TimerStatus == "Pause")
+            else if (Countdown.TimerTick == false)
             {
                 btnStartStop.Text = "Start";
-                RadioBtnEnabel(true);
             }
 
-            if (Countdown.TimerRoundName == "Work")
+            if (Countdown.TimeTickSegment == SegmentNames.Work)
             {
-                ProgressBarColor.SetState(progressBarCountdown, 1);
-                progressBarCountdown.Maximum = Countdown.SavedCountdownValuesWBR.Item1;
-                progressBarCountdown.Value = Countdown.SavedCountdownValuesWBR.Item1 - Countdown.WorkValueLive;
-                progressBarCountdown.Style = ProgressBarStyle.Continuous;
-
-                //notify message
-            }
-            else if (Countdown.TimerRoundName == "Break")
-            {
-                ProgressBarColor.SetState(progressBarCountdown, 3);
-                progressBarCountdown.Maximum = Countdown.SavedCountdownValuesWBR.Item2;
-                progressBarCountdown.Value = Countdown.BreakValueLive;
+                progressBarCountdown.SetState(1);
+                progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.Work);
                 progressBarCountdown.Style = ProgressBarStyle.Continuous;
             }
-            else if (Countdown.TimerRoundName == "End Break")
+            else if (Countdown.TimeTickSegment == SegmentNames.Break)
             {
-                ProgressBarColor.SetState(progressBarCountdown, 2);
-                progressBarCountdown.Maximum = 1;
-                progressBarCountdown.Value = 1;
-                NotifyIconSVW_Click(null, null);
+                progressBarCountdown.SetState(3);
+                progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.Break);
+                progressBarCountdown.Style = ProgressBarStyle.Continuous;
+            }
+            else if (Countdown.TimeTickSegment == SegmentNames.EndBreak)
+            {
+                progressBarCountdown.SetState(2);
+                progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.EndBreak);
             }
         }
         // notify icon click

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Worker Ant")]
-[assembly: AssemblyDescription("Worker Ant was made to help manage stretch break from your desk, which helps decreases your chances of any RSI injuries. Worker Ant was designed and programmed by Saman.K.")]
+[assembly: AssemblyTitle("test")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Saman.K")]
-[assembly: AssemblyProduct("Worker Ant")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("test")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f45c6111-66ac-446c-90d6-fc5514382bc4")]
+[assembly: Guid("ba5eb674-e9d6-47ca-ac29-695777b4fd8d")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.2.0")]
-[assembly: AssemblyFileVersion("1.0.2.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

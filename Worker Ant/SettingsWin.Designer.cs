@@ -48,10 +48,8 @@
             this.labelRoundSet = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDefault = new System.Windows.Forms.Button();
-            this.labelSafetyInfo = new System.Windows.Forms.Label();
             this.labelAudioAlert = new System.Windows.Forms.Label();
             this.labelSimpleView = new System.Windows.Forms.Label();
-            this.buttonAdminSet = new System.Windows.Forms.Button();
             this.picBoxInfo = new System.Windows.Forms.PictureBox();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
@@ -60,7 +58,6 @@
             this.labelAutoStart = new System.Windows.Forms.Label();
             this.checkBoxAutoStart = new System.Windows.Forms.CheckBox();
             this.checkBoxAudioAlert = new System.Windows.Forms.CheckBox();
-            this.checkBoxSafetyInfo = new System.Windows.Forms.CheckBox();
             this.numUDRound = new System.Windows.Forms.NumericUpDown();
             this.groupBoxSetSmart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakSmart)).BeginInit();
@@ -324,18 +321,6 @@
             this.btnDefault.UseVisualStyleBackColor = true;
             this.btnDefault.Click += new System.EventHandler(this.BtnDefault_Click);
             // 
-            // labelSafetyInfo
-            // 
-            this.labelSafetyInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelSafetyInfo.AutoSize = true;
-            this.labelSafetyInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelSafetyInfo.Location = new System.Drawing.Point(12, 184);
-            this.labelSafetyInfo.Name = "labelSafetyInfo";
-            this.labelSafetyInfo.Size = new System.Drawing.Size(57, 13);
-            this.labelSafetyInfo.TabIndex = 11;
-            this.labelSafetyInfo.Text = "Safety info";
-            this.labelSafetyInfo.Visible = false;
-            // 
             // labelAudioAlert
             // 
             this.labelAudioAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -357,18 +342,6 @@
             this.labelSimpleView.Size = new System.Drawing.Size(63, 13);
             this.labelSimpleView.TabIndex = 16;
             this.labelSimpleView.Text = "Simple view";
-            // 
-            // buttonAdminSet
-            // 
-            this.buttonAdminSet.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonAdminSet.Enabled = false;
-            this.buttonAdminSet.Location = new System.Drawing.Point(12, 205);
-            this.buttonAdminSet.Name = "buttonAdminSet";
-            this.buttonAdminSet.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdminSet.TabIndex = 17;
-            this.buttonAdminSet.Text = "Admin";
-            this.buttonAdminSet.UseVisualStyleBackColor = true;
-            this.buttonAdminSet.Visible = false;
             // 
             // picBoxInfo
             // 
@@ -464,20 +437,6 @@
             this.checkBoxAudioAlert.TabIndex = 9;
             this.checkBoxAudioAlert.UseVisualStyleBackColor = true;
             // 
-            // checkBoxSafetyInfo
-            // 
-            this.checkBoxSafetyInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.checkBoxSafetyInfo.AutoSize = true;
-            this.checkBoxSafetyInfo.Checked = global::Worker_Ant.Properties.Settings.Default.saftyInfo;
-            this.checkBoxSafetyInfo.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "saftyInfo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxSafetyInfo.Enabled = false;
-            this.checkBoxSafetyInfo.Location = new System.Drawing.Point(145, 184);
-            this.checkBoxSafetyInfo.Name = "checkBoxSafetyInfo";
-            this.checkBoxSafetyInfo.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxSafetyInfo.TabIndex = 8;
-            this.checkBoxSafetyInfo.UseVisualStyleBackColor = true;
-            this.checkBoxSafetyInfo.Visible = false;
-            // 
             // numUDRound
             // 
             this.numUDRound.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -496,7 +455,7 @@
             this.numUDRound.Name = "numUDRound";
             this.numUDRound.Size = new System.Drawing.Size(71, 20);
             this.numUDRound.TabIndex = 7;
-            this.numUDRound.Value = global::Worker_Ant.Properties.Settings.Default.roundCountdown;
+            this.numUDRound.Value = global::Worker_Ant.Properties.Settings.Default.lapCounter;
             // 
             // SettingsWin
             // 
@@ -507,13 +466,10 @@
             this.Controls.Add(this.labelAutoStart);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.picBoxInfo);
-            this.Controls.Add(this.buttonAdminSet);
             this.Controls.Add(this.labelSimpleView);
             this.Controls.Add(this.checkBoxSimpleView);
             this.Controls.Add(this.checkBoxAudioAlert);
             this.Controls.Add(this.labelAudioAlert);
-            this.Controls.Add(this.checkBoxSafetyInfo);
-            this.Controls.Add(this.labelSafetyInfo);
             this.Controls.Add(this.btnDefault);
             this.Controls.Add(this.numUDRound);
             this.Controls.Add(this.labelRoundSet);
@@ -571,10 +527,8 @@
         private System.Windows.Forms.Label labelWorkRecovery;
         private System.Windows.Forms.Label labelRoundSet;
         private System.Windows.Forms.Button btnDefault;
-        private System.Windows.Forms.Label labelSafetyInfo;
         private System.Windows.Forms.Label labelAudioAlert;
         private System.Windows.Forms.Label labelSimpleView;
-        private System.Windows.Forms.Button buttonAdminSet;
         private System.Windows.Forms.PictureBox picBoxInfo;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Button btnSave;
@@ -585,7 +539,6 @@
         public System.Windows.Forms.NumericUpDown numUDBreakRecovery;
         public System.Windows.Forms.NumericUpDown numUDWorkRecovery;
         public System.Windows.Forms.NumericUpDown numUDRound;
-        public System.Windows.Forms.CheckBox checkBoxSafetyInfo;
         public System.Windows.Forms.CheckBox checkBoxAudioAlert;
         public System.Windows.Forms.CheckBox checkBoxSimpleView;
         private System.Windows.Forms.Label labelAutoStart;

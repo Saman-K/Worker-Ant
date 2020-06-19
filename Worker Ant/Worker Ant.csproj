@@ -57,7 +57,7 @@
     <ApplicationIcon>Worker_AntBWH128.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Worker_Ant.WinBehavior</StartupObject>
+    <StartupObject>Worker_Ant.WindowBehavior</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -73,25 +73,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BreakBasicWin.cs">
+    <Compile Include="BreakWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BreakBasicWin.Designer.cs">
-      <DependentUpon>BreakBasicWin.cs</DependentUpon>
+    <Compile Include="BreakWin.Designer.cs">
+      <DependentUpon>BreakWin.cs</DependentUpon>
     </Compile>
     <Compile Include="Countdown.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="ErrorHandlerWin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ErrorHandlerWin.Designer.cs">
       <DependentUpon>ErrorHandlerWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FullViewWin.cs">
+    <Compile Include="CompleteUIWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FullViewWin.Designer.cs">
-      <DependentUpon>FullViewWin.cs</DependentUpon>
+    <Compile Include="CompleteUIWin.Designer.cs">
+      <DependentUpon>CompleteUIWin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetSetSettingsData.cs" />
     <Compile Include="InfoWin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,30 +113,30 @@
     <Compile Include="SettingsWin.Designer.cs">
       <DependentUpon>SettingsWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="SimpleViewWin.cs">
+    <Compile Include="SimpleUIWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SimpleViewWin.Designer.cs">
-      <DependentUpon>SimpleViewWin.cs</DependentUpon>
+    <Compile Include="SimpleUIWin.Designer.cs">
+      <DependentUpon>SimpleUIWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToBreakBasicWin.cs">
+    <Compile Include="ToBreakWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToBreakBasicWin.Designer.cs">
-      <DependentUpon>ToBreakBasicWin.cs</DependentUpon>
+    <Compile Include="ToBreakWin.Designer.cs">
+      <DependentUpon>ToBreakWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinBehavior.cs" />
-    <EmbeddedResource Include="BreakBasicWin.resx">
-      <DependentUpon>BreakBasicWin.cs</DependentUpon>
+    <Compile Include="WindowBehavior.cs" />
+    <EmbeddedResource Include="BreakWin.resx">
+      <DependentUpon>BreakWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CountDown.resx">
+    <EmbeddedResource Include="Countdown.resx">
       <DependentUpon>Countdown.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorHandlerWin.resx">
       <DependentUpon>ErrorHandlerWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FullViewWin.resx">
-      <DependentUpon>FullViewWin.cs</DependentUpon>
+    <EmbeddedResource Include="CompleteUIWin.resx">
+      <DependentUpon>CompleteUIWin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoWin.resx">
       <DependentUpon>InfoWin.cs</DependentUpon>
@@ -147,11 +149,11 @@
     <EmbeddedResource Include="SettingsWin.resx">
       <DependentUpon>SettingsWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleViewWin.resx">
-      <DependentUpon>SimpleViewWin.cs</DependentUpon>
+    <EmbeddedResource Include="SimpleUIWin.resx">
+      <DependentUpon>SimpleUIWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToBreakBasicWin.resx">
-      <DependentUpon>ToBreakBasicWin.cs</DependentUpon>
+    <EmbeddedResource Include="ToBreakWin.resx">
+      <DependentUpon>ToBreakWin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

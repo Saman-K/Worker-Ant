@@ -1,6 +1,6 @@
 ﻿namespace Worker_Ant
 {
-    partial class SimpleViewWin
+    partial class SimpleUIWin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleViewWin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleUIWin));
             this.labelWinName = new System.Windows.Forms.Label();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.radioBtnRecovery = new System.Windows.Forms.RadioButton();

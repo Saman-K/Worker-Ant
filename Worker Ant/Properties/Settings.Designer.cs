@@ -12,7 +12,7 @@ namespace Worker_Ant.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -122,24 +122,12 @@ namespace Worker_Ant.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("4")]
-        public decimal roundCountdown {
+        public decimal lapCounter {
             get {
-                return ((decimal)(this["roundCountdown"]));
+                return ((decimal)(this["lapCounter"]));
             }
             set {
-                this["roundCountdown"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool saftyInfo {
-            get {
-                return ((bool)(this["saftyInfo"]));
-            }
-            set {
-                this["saftyInfo"] = value;
+                this["lapCounter"] = value;
             }
         }
         
@@ -158,48 +146,24 @@ namespace Worker_Ant.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool simpleView {
+        public bool simpleUI {
             get {
-                return ((bool)(this["simpleView"]));
+                return ((bool)(this["simpleUI"]));
             }
             set {
-                this["simpleView"] = value;
+                this["simpleUI"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Manual")]
-        public string radioBtnChecked {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int lastUsedLapPackage {
             get {
-                return ((string)(this["radioBtnChecked"]));
+                return ((int)(this["lastUsedLapPackage"]));
             }
             set {
-                this["radioBtnChecked"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Basic")]
-        public string winTheme {
-            get {
-                return ((string)(this["winTheme"]));
-            }
-            set {
-                this["winTheme"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool autoStartRunOnce {
-            get {
-                return ((bool)(this["autoStartRunOnce"]));
-            }
-            set {
-                this["autoStartRunOnce"] = value;
+                this["lastUsedLapPackage"] = value;
             }
         }
     }

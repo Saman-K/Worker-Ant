@@ -10,266 +10,306 @@ using System.Media;
 
 namespace Worker_Ant
 {
-    class Countdown
+    public static class Countdown
     {
+
         #region Fields
-        // Item1 == Work timer , Item2 == Break timer , Item3 == Round counter
-        private static (int, int, int) _savedCountdownValuesWBR;
+        /// <summary>
+        /// live work timer data
+        /// </summary>
+        private static int _workTimerLive = 0;
+        /// <summary>
+        /// live lap Counter data
+        /// </summary>
+        private static int _lapCounterLive = 0;
 
-        // live timer data 
-        internal static int _workValueLive = 0;
-        internal static int _breakValueLive = 0;
-        internal static int _roundsValueLive = 0;
+        private static System.Windows.Forms.Timer _countdownTimer = new System.Windows.Forms.Timer();
 
-        internal static string _timerRoundName;
-        internal static string _timerStatus;
-
-        internal static System.Windows.Forms.Timer _countdownTimer = new System.Windows.Forms.Timer();
         #endregion
 
         #region Properties
-        // last used timer data 
-        // Item1 == Work timer , Item2 == Break timer , Item3 == Round counter
-        public static (int, int, int) SavedCountdownValuesWBR
+        /// <summary>
+        /// last user inputed data
+        /// Item1 == Work timer , Item2 == Break timer , Item3 == Lap counter
+        /// </summary>
+        public static (int, int, int) LastUserInput { get; set; }
+
+        #region Private live timer data 
+        private static int WorkTimerLive
         {
-            set
-            {
-                _savedCountdownValuesWBR = value;
-            }
             get
             {
-                return _savedCountdownValuesWBR;
+                return _workTimerLive;
             }
-        }
 
-        // live timer data 
-        public static int WorkValueLive
-        {
             set
             {
                 if (value >= 0)
                 {
-                    _workValueLive = value;
+                    _workTimerLive = value;
                 }
                 else
                 {
-                    var errorHandler = new ErrorHandlerWin();
-                    errorHandler.ErrorHandeler("", "CD", "06", true);
-                    errorHandler.ShowDialog();
+                    _workTimerLive = 0;
                 }
-            }
-            get
-            {
-                return _workValueLive;
-            }
-        }
-        public static int BreakValueLive
-        {
-            set
-            {
-                _breakValueLive = value;
-            }
-            get
-            {
-                return _breakValueLive;
-            }
-        }
-        public static int RoundValueLive
-        {
-            set
-            {
-                if (value >= 0)
-                {
-                    _roundsValueLive = value;
-                }
-                else
-                {
-                    var errorHandler = new ErrorHandlerWin();
-                    errorHandler.ErrorHandeler("", "CD", "07", true);
-                    errorHandler.ShowDialog();
-                }
-
-            }
-            get
-            {
-                return _roundsValueLive;
-            }
-        }
-
-        // round Name 
-        public static string TimerRoundName
-        {
-            set
-            {
-                if (value == "Work" || value == "Break" || value == "End Break")
-                {
-                    _timerRoundName = value;
-                }
-                else
-                {
-                    var errorHandler = new ErrorHandlerWin();
-                    errorHandler.ErrorHandeler("", "CD", "08", true);
-                    errorHandler.ShowDialog();
-                }
-            }
-            get
-            {
-                return _timerRoundName;
-            }
-        }
-        public static string TimerStatus
-        {
-            set
-            {
-                if (value == "Tick" || value == "Pause")
-                {
-                    _timerStatus = value;
-                }
-                else
-                {
-                    var errorHandler = new ErrorHandlerWin();
-                    errorHandler.ErrorHandeler("", "CD", "09", true);
-                    errorHandler.ShowDialog();
-                }
-            }
-            get
-            {
-                return _timerStatus;
             }
 
         }
+        private static int BreakTimerLive { get; set; } = 0;
+        #endregion
+
+        #region Publicly available formated live timers
+        /// <summary>
+        /// Live updating work timer with format of "00:00".
+        /// </summary>
+        public static string WorkTimerFormatedLive => (_workTimerLive / 60 + ":" + (_workTimerLive % 60).ToString("D2"));
+        /// <summary>
+        /// Live updating break timer with format of "00:00".
+        /// </summary>
+        public static string BreakTimerFormattedLive
+        {
+            get
+            {
+                if (BreakTimerLive < 0 || TimeTickSegment == SegmentNames.EndBreak)
+                {
+                    return ("- " + BreakTimerLive / 60 + ":" + (BreakTimerLive % 60).ToString("D2"));
+                }
+                else
+                {
+                    return (BreakTimerLive / 60 + ":" + (BreakTimerLive % 60).ToString("D2"));
+                }
+            }
+        }
+        /// <summary>
+        /// Number of lap left (private setter)
+        /// </summary>
+        public static int LapCounterLive
+        {
+            get
+            {
+                return _lapCounterLive;
+            }
+            private set
+            {
+                if (value > 0)
+                {
+                    _lapCounterLive = value;
+                }
+                else
+                {
+                    _lapCounterLive = 0;
+                }
+            }
+        }
+
+        #endregion
+        /// <summary>
+        /// Count up to 100 for Work segment.
+        /// Count down to 0 for Break segment.
+        /// Shows only 100 for End Break segment.
+        /// 0 for anything else.
+        /// (100 = 100%, 63 = 63%)
+        /// </summary>
+        public static int GetProgressInPercentage(SegmentNames segment)
+        {
+            if (segment == SegmentNames.Work)
+            {
+                return 100 - (WorkTimerLive * 100) / LastUserInput.Item1;
+            }
+            else if (segment == SegmentNames.Break)
+            {
+                return (BreakTimerLive * 100) / LastUserInput.Item2;
+            }
+            else if (segment == SegmentNames.EndBreak)
+            {
+                return 100;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Get statistic of the lap 
+        /// </summary>
+        public static SegmentNames TimeTickSegment { get; private set; }
+        /// <summary>
+        /// Get if the timer is ticking.
+        /// </summary>
+        public static bool TimerTick { get; private set; }
+
         #endregion
 
         #region Initialization
+
+        // error
         public static void Start()
         {
             _countdownTimer.Tick += CountdownTimer_Tick;
         }
         #endregion
 
-        #region Methed
-        // set setting to default
-        private void SetSettingsToDefault()
+        #region Method
+        
+        /// <summary>
+        /// Timer 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void CountdownTimer_Tick(object sender, EventArgs e)
         {
-            Properties.Settings.Default.recoveryWorkTime = 1800;
-            Properties.Settings.Default.recoveryBreakTime = 120;
-            Properties.Settings.Default.smartWorkTime = 2400;
-            Properties.Settings.Default.smartBreakTime = 240;
-            Properties.Settings.Default.progressWorkTime = 3300;
-            Properties.Settings.Default.progressBreakTime = 300;
-            Properties.Settings.Default.roundCountdown = 1;
+            _countdownTimer.Interval = 1000;
+            if (TimeTickSegment == SegmentNames.Work)
+            {
+                if (WorkTimerLive > 0)
+                {
+                    WorkTimerLive--;
+                    if (WorkTimerLive == 300)
+                    {
+                        TimerController("ToBreakPopup");
+                    }
+                }
+                else if (WorkTimerLive <= 0)
+                {
+                    TimerController("Break");
+                }
 
-            //settingsWin.checkBoxSafetyInfo.Checked = true;
-            Properties.Settings.Default.audioAlert = true;
-            Properties.Settings.Default.simpleView = false;
-
-            //InsertSettingsData("Settings");
+            }
+            else if (TimeTickSegment == SegmentNames.Break)
+            {
+                BreakTimerLive--;
+                if (BreakTimerLive == 0)
+                {
+                    TimerController("End Break");
+                }
+            }
+            else if (TimeTickSegment == SegmentNames.EndBreak)
+            {
+                BreakTimerLive++;
+                if (Properties.Settings.Default.audioAlert == true)
+                {
+                    Console.Beep(800, 100);
+                }
+            }
         }
-        // insert data to view/set/reset to start
-        public (int, int, int) GetTimerDataForUI(string chosenRadioBtn)
+        /// <summary>
+        /// This will control the CountdownTimer() 
+        /// </summary>
+        /// <param name="function">Function that the controller has to complete </param>
+        private static void TimerController(string function)
         {
             var errorHandler = new ErrorHandlerWin();
-            int WorkTime = 0;
-            int BreakTime = 0;
-            switch (chosenRadioBtn)
+            var winBehavior = new WindowBehavior();
+            switch (function)
             {
-                case ("Recovery"):
-                    WorkTime = Convert.ToInt16(Properties.Settings.Default.recoveryWorkTime);
-                    BreakTime = Convert.ToInt16(Properties.Settings.Default.recoveryBreakTime);
+                case "ToBreakPopup":
+                    winBehavior.WindowsOpenCheck(WindowNames.ToBreak);
+                    if (Properties.Settings.Default.audioAlert == true)
+                    {
+                        Console.Beep(1000, 500);
+                    }
                     break;
-                case ("Smart"):
-                    WorkTime = Convert.ToInt16(Properties.Settings.Default.smartWorkTime);
-                    BreakTime = Convert.ToInt16(Properties.Settings.Default.smartBreakTime);
+                //-------------------------------------
+                case "Break":
+                    _countdownTimer.Stop();
+                    TimerTick = false;
+                    if (Properties.Settings.Default.audioAlert == true)
+                    {
+                        Console.Beep(1000, 500);
+                    }
+
+                    winBehavior.WindowsOpenCheck(WindowNames.Break);
+                    TimeTickSegment = SegmentNames.Break;
+                    _countdownTimer.Start();
+                    TimerTick = true;
                     break;
-                case ("Progress"):
-                    WorkTime = Convert.ToInt16(Properties.Settings.Default.progressWorkTime);
-                    BreakTime = Convert.ToInt16(Properties.Settings.Default.progressBreakTime);
-                    break;
-                case ("Manual"):
-                    WorkTime = Convert.ToInt16(Properties.Settings.Default.manualWorkTime);
-                    BreakTime = Convert.ToInt16(Properties.Settings.Default.manualBreakTime);
+                case "End Break":
+                    TimeTickSegment = SegmentNames.EndBreak;
+                    winBehavior.WindowsOpenCheck(WindowNames.Main);
+                    if (Properties.Settings.Default.audioAlert == true)
+                    {
+                        Console.Beep(1000, 500);
+                    }
                     break;
                 default:
-                    errorHandler.ErrorHandeler("", "CD", "01", true);
+                    errorHandler.ErrorHandeler("", "CD", "04", true);
                     errorHandler.ShowDialog();
                     break;
             }
-
-            return (WorkTime, BreakTime, Convert.ToInt32(Properties.Settings.Default.roundCountdown));
         }
-        // Bottun press input
-        public string CountdownInputControl(string btnText)
+        /// <summary>
+        /// Start and stop the timer.
+        /// The input has to be "Start" or "Stop".
+        /// </summary>
+        /// <param name="btnText">Takes the text of the button and execute the faction</param>
+        /// <returns>The name of the button after execution</returns>
+        public static string StartStop(this string btnText)
         {
             var errorHandler = new ErrorHandlerWin();
-            // start timer 
+            // Start timer 
             if (btnText == "Start")
             {
-                TimerControler("Start");
+                // start from the top
+                if (WorkTimerLive == LastUserInput.Item1 || BreakTimerLive == LastUserInput.Item2 && LapCounterLive == LastUserInput.Item3)
+                {
+                    
+                    LapCounterLive--;
+                    TimeTickSegment = SegmentNames.Work;
+                    _countdownTimer.Start();
+                    TimerTick = true;
+                }
+                // start from work segment
+                else if ((WorkTimerLive > 0 || WorkTimerLive  != LastUserInput.Item1) && LapCounterLive >= 0)
+                {
+                    TimeTickSegment = SegmentNames.Work;
+                    _countdownTimer.Start();
+                    TimerTick = true;
+                }
+                // start from break
+                else if (BreakTimerLive != LastUserInput.Item2 && WorkTimerLive <= 0 && LapCounterLive >= 0)
+                {
+                    MessageBox.Show("break");
+                    TimeTickSegment = SegmentNames.Break;
+                    _countdownTimer.Start();
+                    TimerTick = true;
+                }
+                else
+                {
+                    Set();
+                    StartStop("Start");
+                }
                 return "Stop";
             }
-            // stop timer 
+            // Stop timer 
             else if (btnText == "Stop")
             {
-                if (TimerRoundName == "Break")
+                // Stop during break
+                if (TimeTickSegment == SegmentNames.Break)
                 {
-                    errorHandler.ErrorHandeler("You can NOT stop during a break.", "CD", "05", false);
-                    errorHandler.Show();
-                    errorHandler.TopMost = true;
+                    // error
                     return "Stop";
                 }
-                else if (TimerRoundName == "End Break")
+                // Stop after break ended 
+                else if (TimeTickSegment == SegmentNames.EndBreak)
                 {
-                    if (Countdown.RoundValueLive > 0)
+                    if (LapCounterLive > 0)
                     {
-                        TimerControler("Lap");
+                        StartLap();
                     }
-                    else if (Countdown.RoundValueLive <= 0)
+                    else if (LapCounterLive <= 0)
                     {
-                        TimerControler("End");
+                        EndLapPackage();
                     }
                     return "Start";
                 }
-                else /*if (TimerRoundName == "Work")*/
+                else
                 {
                     _countdownTimer.Stop();
-                    TimerControler("Stop");
+                    TimerTick = false;
+                    TimeTickSegment = SegmentNames.Paused;
                     return "Start";
                 }
-
-            }
-            // reset timer 
-            else if (btnText == "Reset" || btnText == "Set")
-            {
-                TimerControler("Set");
-                return "Reset";
-            }
-            // break popup input
-            else if (btnText == "BreakWinYes")
-            {
-                TimerControler("Lap");
-                return "";
-            }
-            else if (btnText == "BreakWinOkay")
-            {
-                TimerControler("End");
-                return "";
-            }
-            else if (btnText == "BreakWinNo")
-            {
-                TimerControler("LapPause");
-                return "";
-            }
-            // to break popup input 
-            else if (btnText == "ToBreakYes")
-            {
-                TimerControler("ToBreak");
-                return "";
-            }
-            // setting win input 
-            else if (btnText == "Default")
-            {
-                SetSettingsToDefault();
-                return "";
             }
             else
             {
@@ -278,157 +318,59 @@ namespace Worker_Ant
                 return "CD/2";
             }
         }
-        // timer tike  
-        private static void CountdownTimer_Tick(object sender, EventArgs e)
+        /// <summary>
+        /// Set last used values to the live countdowns.
+        /// </summary>
+        public static void Set()
         {
-            _countdownTimer.Interval = 1000;
-            if (TimerRoundName == "Work")
-            {
-                if (WorkValueLive > 0)
-                {
-                    WorkValueLive--;
-                    if (WorkValueLive == 300)
-                    {
-                        TimerControler("ToBreakPopup");
-                    }
-                }
-                else if (WorkValueLive <= 0)
-                {
-                    TimerControler("Break");
-                }
-
-            }
-            else if (TimerRoundName == "Break")
-            {
-                BreakValueLive--;
-                if (BreakValueLive == 0)
-                {
-                    TimerControler("End Break");
-                }
-            }
-            else if (TimerRoundName == "End Break")
-            {
-                BreakValueLive++;
-                if (Properties.Settings.Default.audioAlert == true)
-                {
-                    Console.Beep(800, 100);
-                }
-            }
+            WorkTimerLive = LastUserInput.Item1;
+            BreakTimerLive = LastUserInput.Item2;
+            LapCounterLive = LastUserInput.Item3;
         }
-        // timer controler
-        private static void TimerControler(string function)
+        /// <summary>
+        /// Skipping to break form work segment.
+        /// </summary>
+        public static void SkipToBreak()
         {
-            var errorHandler = new ErrorHandlerWin();
-            var winBehavior = new WinBehavior();
-            switch (function)
-            {
-                case "Start":
-                    if (WorkValueLive == SavedCountdownValuesWBR.Item1 || BreakValueLive == SavedCountdownValuesWBR.Item2 && RoundValueLive == SavedCountdownValuesWBR.Item3)
-                    {
-                        // start from the top
+            WorkTimerLive = 0;
+            TimerController("Break");
+        }
+        /// <summary>
+        /// Start to the next lap.
+        /// </summary>
+        public static void StartLap()
+        {
+            _countdownTimer.Stop();
+            TimerTick = false;
+            WorkTimerLive = LastUserInput.Item1;
+            BreakTimerLive = LastUserInput.Item2;
 
-                        RoundValueLive--;
-                        TimerRoundName = "Work";
-                        _countdownTimer.Start();
-                        TimerStatus = "Tick";
-                    }
-                    else if (WorkValueLive > 0 && BreakValueLive > 0 && RoundValueLive >= 0)
-                    {
-                        // start from work 
-                        TimerRoundName = "Work";
-                        _countdownTimer.Start();
-                        TimerStatus = "Tick";
-                    }
-                    else if (BreakValueLive != SavedCountdownValuesWBR.Item2 && WorkValueLive <= 0)
-                    {
-                        // start from break
-                        MessageBox.Show("break");
-                        TimerRoundName = "Break";
-                        _countdownTimer.Start();
-                        TimerStatus = "Tick";
-                    }
-                    else
-                    {
-                        errorHandler.ErrorHandeler("", "CD", "03", true);
-                        errorHandler.ShowDialog();
-                    }
-                    break;
-                case "Stop":
-                    _countdownTimer.Stop();
-                    TimerStatus = "Pause";
-                    break;
-                case "Set":
-                    WorkValueLive = SavedCountdownValuesWBR.Item1;
-                    BreakValueLive = SavedCountdownValuesWBR.Item2;
-                    RoundValueLive = SavedCountdownValuesWBR.Item3;
-                    break;
-                //------------------------------------ 
-                case "ToBreakPopup":
-                    winBehavior.ChackWins("ToBreak");
-                    if (Properties.Settings.Default.audioAlert == true)
-                    {
-                        Console.Beep(1000, 500);
-                    }
-                    break;
-                case "ToBreak":
-                    WorkValueLive = 0;
-                    TimerControler("Break");
-                    break;
-                //-------------------------------------
-                case "LapPause":
-                    TimerRoundName = "Work";
-                    _countdownTimer.Stop();
-                    TimerStatus = "Pause";
+            LapCounterLive--;
+            TimeTickSegment = SegmentNames.Work;
+            _countdownTimer.Start();
+            TimerTick = true;
+        }
+        /// <summary>
+        /// Finish up the last lap 
+        /// </summary>
+        public static void EndLapPackage()
+        {
+            Set();
 
-                    WorkValueLive = SavedCountdownValuesWBR.Item1;
-                    BreakValueLive = SavedCountdownValuesWBR.Item2;
-                    break;
-                //-------------------------------------
-                case "Break":
-                    _countdownTimer.Stop();
-                    if (Properties.Settings.Default.audioAlert == true)
-                    {
-                        Console.Beep(1000, 500);
-                    }
-
-                    winBehavior.ChackWins("Break");
-                    TimerRoundName = "Break";
-                    _countdownTimer.Start();
-                    TimerStatus = "Tick";
-                    break;
-                case "End Break":
-                    TimerRoundName = "End Break";
-                    winBehavior.ChackWins("Main");
-                    if (Properties.Settings.Default.audioAlert == true)
-                    {
-                        Console.Beep(1000, 500);
-                    }
-                    break;
-                case "Lap":
-                    _countdownTimer.Stop();
-                    TimerStatus = "Pause";
-                    WorkValueLive = SavedCountdownValuesWBR.Item1;
-                    BreakValueLive = SavedCountdownValuesWBR.Item2;
-
-                    RoundValueLive--;
-                    TimerRoundName = "Work";
-                    _countdownTimer.Start();
-                    TimerStatus = "Tick";
-                    break;
-                case "End":
-                    WorkValueLive = SavedCountdownValuesWBR.Item1;
-                    BreakValueLive = SavedCountdownValuesWBR.Item2;
-                    RoundValueLive = SavedCountdownValuesWBR.Item3;
-
-                    TimerRoundName = "Work";
-                    _countdownTimer.Stop();
-                    TimerStatus = "Pause";
-                    break;
-                default:
-                    errorHandler.ErrorHandeler("", "CD", "04", true);
-                    errorHandler.ShowDialog();
-                    break;
-            }
+            _countdownTimer.Stop();
+            TimerTick = false;
+            TimeTickSegment = SegmentNames.Paused;
+        }
+        /// <summary>
+        /// pause after end of lap
+        /// </summary>
+        public static void PauseBetweenLap()
+        {
+            _countdownTimer.Stop();
+            TimerTick = false;
+            TimeTickSegment = SegmentNames.Paused;
+            WorkTimerLive = LastUserInput.Item1;
+            BreakTimerLive = LastUserInput.Item2;
         }
         #endregion
     }

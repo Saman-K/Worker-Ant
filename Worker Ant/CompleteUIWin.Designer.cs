@@ -1,6 +1,6 @@
 ﻿namespace Worker_Ant
 {
-    partial class FullViewWin
+    partial class CompleteUIWin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FullViewWin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompleteUIWin));
             this.groupBoxManual = new System.Windows.Forms.GroupBox();
             this.numUDBreakManual = new System.Windows.Forms.NumericUpDown();
             this.numUDWorkManual = new System.Windows.Forms.NumericUpDown();
