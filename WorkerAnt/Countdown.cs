@@ -8,11 +8,11 @@ using System.Timers;
 using System.Windows.Forms;
 using System.Media;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     public static class Countdown
     {
-
+        #region Fields and Properties
         #region Fields
         /// <summary>
         /// live work timer data
@@ -23,7 +23,7 @@ namespace Worker_Ant
         /// </summary>
         private static int _lapCounterLive = 0;
 
-        private static System.Windows.Forms.Timer _countdownTimer = new System.Windows.Forms.Timer();
+        private static readonly System.Windows.Forms.Timer _countdownTimer = new System.Windows.Forms.Timer();
 
         #endregion
 
@@ -32,10 +32,12 @@ namespace Worker_Ant
         /// last user inputed data
         /// Item1 == Work timer , Item2 == Break timer , Item3 == Lap counter
         /// </summary>
-        public static (int, int, int) LastUserInput { get; set; }
+        public static (int Work, int Break, int Laps) LastUserInput { get; set; }
 
-        #region Private live timer data 
-        private static int WorkTimerLive
+        /// <summary>
+        /// Live updating work timer in seconds
+        /// </summary>
+        public static int WorkTimerLive
         {
             get
             {
@@ -55,31 +57,12 @@ namespace Worker_Ant
             }
 
         }
-        private static int BreakTimerLive { get; set; } = 0;
-        #endregion
 
-        #region Publicly available formated live timers
         /// <summary>
-        /// Live updating work timer with format of "00:00".
+        /// Live updating break timer in seconds
         /// </summary>
-        public static string WorkTimerFormatedLive => (_workTimerLive / 60 + ":" + (_workTimerLive % 60).ToString("D2"));
-        /// <summary>
-        /// Live updating break timer with format of "00:00".
-        /// </summary>
-        public static string BreakTimerFormattedLive
-        {
-            get
-            {
-                if (BreakTimerLive < 0 || TimeTickSegment == SegmentNames.EndBreak)
-                {
-                    return ("- " + BreakTimerLive / 60 + ":" + (BreakTimerLive % 60).ToString("D2"));
-                }
-                else
-                {
-                    return (BreakTimerLive / 60 + ":" + (BreakTimerLive % 60).ToString("D2"));
-                }
-            }
-        }
+        public static int BreakTimerLive { get; set; } = 0;
+
         /// <summary>
         /// Number of lap left (private setter)
         /// </summary>
@@ -102,7 +85,6 @@ namespace Worker_Ant
             }
         }
 
-        #endregion
         /// <summary>
         /// Count up to 100 for Work segment.
         /// Count down to 0 for Break segment.
@@ -114,11 +96,11 @@ namespace Worker_Ant
         {
             if (segment == SegmentNames.Work)
             {
-                return 100 - (WorkTimerLive * 100) / LastUserInput.Item1;
+                return 100 - (LastUserInput.Work * 100) / WorkTimerLive;
             }
             else if (segment == SegmentNames.Break)
             {
-                return (BreakTimerLive * 100) / LastUserInput.Item2;
+                return (LastUserInput.Break * 100) / BreakTimerLive;
             }
             else if (segment == SegmentNames.EndBreak)
             {
@@ -139,6 +121,7 @@ namespace Worker_Ant
         /// </summary>
         public static bool TimerTick { get; private set; }
 
+        #endregion
         #endregion
 
         #region Initialization
@@ -191,15 +174,16 @@ namespace Worker_Ant
                 {
                     Console.Beep(800, 100);
                 }
+                // Can add a limit to how long EndBreak would last
             }
         }
+
         /// <summary>
         /// This will control the CountdownTimer() 
         /// </summary>
         /// <param name="function">Function that the controller has to complete </param>
         private static void TimerController(string function)
         {
-            var errorHandler = new ErrorHandlerWin();
             var winBehavior = new WindowBehavior();
             switch (function)
             {
@@ -233,11 +217,11 @@ namespace Worker_Ant
                     }
                     break;
                 default:
-                    errorHandler.ErrorHandeler("", "CD", "04", true);
-                    errorHandler.ShowDialog();
+                    //error
                     break;
             }
         }
+
         /// <summary>
         /// Start and stop the timer.
         /// The input has to be "Start" or "Stop".
@@ -246,12 +230,11 @@ namespace Worker_Ant
         /// <returns>The name of the button after execution</returns>
         public static string StartStop(this string btnText)
         {
-            var errorHandler = new ErrorHandlerWin();
             // Start timer 
             if (btnText == "Start")
             {
                 // start from the top
-                if (WorkTimerLive == LastUserInput.Item1 || BreakTimerLive == LastUserInput.Item2 && LapCounterLive == LastUserInput.Item3)
+                if (WorkTimerLive == LastUserInput.Work || BreakTimerLive == LastUserInput.Break && LapCounterLive == LastUserInput.Laps)
                 {
                     
                     LapCounterLive--;
@@ -260,14 +243,14 @@ namespace Worker_Ant
                     TimerTick = true;
                 }
                 // start from work segment
-                else if ((WorkTimerLive > 0 || WorkTimerLive  != LastUserInput.Item1) && LapCounterLive >= 0)
+                else if ((WorkTimerLive > 0 || WorkTimerLive  != LastUserInput.Work) && LapCounterLive >= 0)
                 {
                     TimeTickSegment = SegmentNames.Work;
                     _countdownTimer.Start();
                     TimerTick = true;
                 }
                 // start from break
-                else if (BreakTimerLive != LastUserInput.Item2 && WorkTimerLive <= 0 && LapCounterLive >= 0)
+                else if (BreakTimerLive != LastUserInput.Break && WorkTimerLive <= 0 && LapCounterLive >= 0)
                 {
                     MessageBox.Show("break");
                     TimeTickSegment = SegmentNames.Break;
@@ -313,20 +296,21 @@ namespace Worker_Ant
             }
             else
             {
-                errorHandler.ErrorHandeler("", "CD", "02", true);
-                errorHandler.ShowDialog();
+                //error
                 return "CD/2";
             }
         }
+
         /// <summary>
         /// Set last used values to the live countdowns.
         /// </summary>
         public static void Set()
         {
-            WorkTimerLive = LastUserInput.Item1;
-            BreakTimerLive = LastUserInput.Item2;
-            LapCounterLive = LastUserInput.Item3;
+            WorkTimerLive = LastUserInput.Work;
+            BreakTimerLive = LastUserInput.Break;
+            LapCounterLive = LastUserInput.Laps;
         }
+
         /// <summary>
         /// Skipping to break form work segment.
         /// </summary>
@@ -335,6 +319,7 @@ namespace Worker_Ant
             WorkTimerLive = 0;
             TimerController("Break");
         }
+
         /// <summary>
         /// Start to the next lap.
         /// </summary>
@@ -342,14 +327,15 @@ namespace Worker_Ant
         {
             _countdownTimer.Stop();
             TimerTick = false;
-            WorkTimerLive = LastUserInput.Item1;
-            BreakTimerLive = LastUserInput.Item2;
+            WorkTimerLive = LastUserInput.Work;
+            BreakTimerLive = LastUserInput.Break;
 
             LapCounterLive--;
             TimeTickSegment = SegmentNames.Work;
             _countdownTimer.Start();
             TimerTick = true;
         }
+
         /// <summary>
         /// Finish up the last lap 
         /// </summary>
@@ -361,16 +347,25 @@ namespace Worker_Ant
             TimerTick = false;
             TimeTickSegment = SegmentNames.Paused;
         }
+
         /// <summary>
         /// pause after end of lap
         /// </summary>
         public static void PauseBetweenLap()
         {
+            if (LapCounterLive <= 0)
+            {
+                EndLapPackage();
+            }
+            else
+            {
             _countdownTimer.Stop();
             TimerTick = false;
             TimeTickSegment = SegmentNames.Paused;
-            WorkTimerLive = LastUserInput.Item1;
-            BreakTimerLive = LastUserInput.Item2;
+            WorkTimerLive = LastUserInput.Work;
+            BreakTimerLive = LastUserInput.Break;
+            }
+
         }
         #endregion
     }

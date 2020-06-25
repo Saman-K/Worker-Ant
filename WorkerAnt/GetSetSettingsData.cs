@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Globalization;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     public static class GetSetSettingsData
     {
@@ -80,7 +80,7 @@ namespace Worker_Ant
                 }
 
                 Properties.Settings.Default.Save();
-                message = message + "Saved.";                
+                message += "Saved.";                
             }
             catch
             {
@@ -96,21 +96,13 @@ namespace Worker_Ant
         public static ((decimal workRecovery, decimal breakRecovery), ( decimal workSmart, decimal breakSmart), (decimal workProgress, decimal breakProgress), decimal lapCounter)
             GetSattingsLapPackages()
         {
-            decimal workRecovery;
-            decimal breakRecovery;
-            decimal workSmart;
-            decimal breakSmart;
-            decimal workProgress;
-            decimal breakProgress;
-            decimal lapCounter;
-
-            workRecovery = Properties.Settings.Default.recoveryWorkTime / 60;
-            breakRecovery = Properties.Settings.Default.recoveryBreakTime / 60;
-            workSmart = Properties.Settings.Default.smartWorkTime / 60;
-            breakSmart = Properties.Settings.Default.smartBreakTime / 60;
-            workProgress = Properties.Settings.Default.progressWorkTime / 60;
-            breakProgress = Properties.Settings.Default.progressBreakTime / 60;
-            lapCounter = Properties.Settings.Default.lapCounter;
+            decimal workRecovery = Properties.Settings.Default.recoveryWorkTime / 60;
+            decimal breakRecovery = Properties.Settings.Default.recoveryBreakTime / 60;
+            decimal workSmart = Properties.Settings.Default.smartWorkTime / 60;
+            decimal breakSmart = Properties.Settings.Default.smartBreakTime / 60;
+            decimal workProgress = Properties.Settings.Default.progressWorkTime / 60;
+            decimal breakProgress = Properties.Settings.Default.progressBreakTime / 60;
+            decimal lapCounter = Properties.Settings.Default.lapCounter;
 
             return ((workRecovery, breakRecovery),( workSmart, breakSmart), (workProgress, breakProgress),lapCounter);
         }
@@ -143,7 +135,22 @@ namespace Worker_Ant
             return (audioAlert, simpleUI, autoStart);
         }
 
-        //------------------------------------------------------------------------- Extended Methods 
+
+
+        #region ------------------------------------------------------------------------- Extended Methods 
+
+        /// <summary>
+        /// it convert int "300" to user readable time "5:00".
+        /// </summary>
+        /// <param name="timer">Timer in seconds.</param>
+        /// <returns>Formated return "00:00".</returns>
+        public static string IntToTimerFormat(this int timer)
+        {
+            var formated = (timer / 60 + ":" + (timer % 60).ToString("D2"));
+
+            return formated;
+        }
+
         /// <summary>
         /// Save the last lap package 
         /// </summary>
@@ -154,12 +161,13 @@ namespace Worker_Ant
 
             Properties.Settings.Default.Save();
         }
+
         /// <summary>
-        /// 
+        /// Get Saved Data
         /// </summary>
         /// <param name="package"></param>
         /// <returns>Work timer, Break timer, Number of laps</returns>
-        public static (int,int,int) GetLapPackageValue(this LapPackageNames package)
+        public static (int Work,int Break,int Laps) GetLapPackageValue(this LapPackageNames package)
         {
             int WorkTime = 0;
             int BreakTime = 0;
@@ -202,5 +210,6 @@ namespace Worker_Ant
         {
             SendMessage(pBar.Handle, 1040, (IntPtr)state, IntPtr.Zero);
         }
+        #endregion
     }
 }

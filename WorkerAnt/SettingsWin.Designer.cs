@@ -1,4 +1,4 @@
-﻿namespace Worker_Ant
+﻿namespace WorkerAnt
 {
     partial class SettingsWin
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsWin));
+            WorkerAnt.Properties.Settings settings1 = new WorkerAnt.Properties.Settings();
             this.labelWinName = new System.Windows.Forms.Label();
             this.groupBoxSetSmart = new System.Windows.Forms.GroupBox();
             this.numUDBreakSmart = new System.Windows.Forms.NumericUpDown();
@@ -345,7 +346,7 @@
             // 
             // picBoxInfo
             // 
-            this.picBoxInfo.Image = global::Worker_Ant.Properties.Resources.Info_L;
+            this.picBoxInfo.Image = ((System.Drawing.Image)(resources.GetObject("picBoxInfo.Image")));
             this.picBoxInfo.Location = new System.Drawing.Point(270, 5);
             this.picBoxInfo.Name = "picBoxInfo";
             this.picBoxInfo.Size = new System.Drawing.Size(15, 15);
@@ -358,7 +359,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Worker_AntBW25;
+            this.picBoxIcon.Image = ((System.Drawing.Image)(resources.GetObject("picBoxIcon.Image")));
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -372,7 +373,7 @@
             // picBoxClose
             // 
             this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
+            this.picBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("picBoxClose.Image")));
             this.picBoxClose.Location = new System.Drawing.Point(305, 0);
             this.picBoxClose.Name = "picBoxClose";
             this.picBoxClose.Size = new System.Drawing.Size(45, 25);
@@ -428,9 +429,58 @@
             // 
             this.checkBoxAudioAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.checkBoxAudioAlert.AutoSize = true;
-            this.checkBoxAudioAlert.Checked = global::Worker_Ant.Properties.Settings.Default.audioAlert;
+            settings1.audioAlert = true;
+            settings1.lapCounter = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            settings1.lastUsedLapPackage = 0;
+            settings1.manualBreakTime = new decimal(new int[] {
+            240,
+            0,
+            0,
+            0});
+            settings1.manualWorkTime = new decimal(new int[] {
+            2700,
+            0,
+            0,
+            0});
+            settings1.progressBreakTime = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            settings1.progressWorkTime = new decimal(new int[] {
+            3300,
+            0,
+            0,
+            0});
+            settings1.recoveryBreakTime = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            settings1.recoveryWorkTime = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            0});
+            settings1.SettingsKey = "";
+            settings1.simpleUI = false;
+            settings1.smartBreakTime = new decimal(new int[] {
+            240,
+            0,
+            0,
+            0});
+            settings1.smartWorkTime = new decimal(new int[] {
+            2400,
+            0,
+            0,
+            0});
+            this.checkBoxAudioAlert.Checked = settings1.audioAlert;
             this.checkBoxAudioAlert.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAudioAlert.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Worker_Ant.Properties.Settings.Default, "audioAlert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxAudioAlert.DataBindings.Add(new System.Windows.Forms.Binding("Checked", settings1, "audioAlert", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxAudioAlert.Location = new System.Drawing.Point(317, 141);
             this.checkBoxAudioAlert.Name = "checkBoxAudioAlert";
             this.checkBoxAudioAlert.Size = new System.Drawing.Size(15, 14);
@@ -440,7 +490,7 @@
             // numUDRound
             // 
             this.numUDRound.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.numUDRound.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Worker_Ant.Properties.Settings.Default, "roundCountdown", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numUDRound.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::WorkerAnt.Properties.Settings.Default, "lapCounter", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numUDRound.Location = new System.Drawing.Point(261, 115);
             this.numUDRound.Maximum = new decimal(new int[] {
             10,
@@ -455,7 +505,7 @@
             this.numUDRound.Name = "numUDRound";
             this.numUDRound.Size = new System.Drawing.Size(71, 20);
             this.numUDRound.TabIndex = 7;
-            this.numUDRound.Value = global::Worker_Ant.Properties.Settings.Default.lapCounter;
+            this.numUDRound.Value = global::WorkerAnt.Properties.Settings.Default.lapCounter;
             // 
             // SettingsWin
             // 

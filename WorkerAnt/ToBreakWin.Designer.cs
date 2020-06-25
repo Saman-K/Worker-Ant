@@ -1,4 +1,4 @@
-﻿namespace Worker_Ant
+﻿namespace WorkerAnt
 {
     partial class ToBreakWin
     {
@@ -115,7 +115,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Image = global::Worker_Ant.Properties.Resources.Worker_AntBWH128;
+            this.pictureBox1.Image = global::WorkerAnt.Properties.Resources.Worker_AntBWH128;
             this.pictureBox1.Location = new System.Drawing.Point(12, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(55, 55);
@@ -125,7 +125,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Worker_AntBW25;
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.Worker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -139,7 +139,7 @@
             // picBoxClose
             // 
             this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
+            this.picBoxClose.Image = global::WorkerAnt.Properties.Resources.X_Close;
             this.picBoxClose.Location = new System.Drawing.Point(305, 0);
             this.picBoxClose.Name = "picBoxClose";
             this.picBoxClose.Size = new System.Drawing.Size(45, 25);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     /// <summary>
     /// Name of default laps available to be used. 

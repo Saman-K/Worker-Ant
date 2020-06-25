@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     partial class InfoWin : Form
     {
@@ -110,7 +110,7 @@ namespace Worker_Ant
         }
         #endregion
 
-        #region FormBorderStyle
+        #region Form Border Style
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
         {

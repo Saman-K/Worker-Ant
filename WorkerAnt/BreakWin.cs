@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     public partial class BreakWin : Form
     {
@@ -27,11 +27,11 @@ namespace Worker_Ant
         private void BreakBasicWin_Load(object sender, EventArgs e)
         {
             winRefresh.Start();
-            if (Countdown.RoundValueLive > 0)
+            if (Countdown.LapCounterLive > 0)
             {
                 btnYesOkay.Text = "Yes";
             }
-            else if (Countdown.RoundValueLive <= 0)
+            else if (Countdown.LapCounterLive <= 0)
             {
                 btnYesOkay.Text = "Okay";
                 btnNo.Visible = false;
@@ -68,10 +68,9 @@ namespace Worker_Ant
         //click
         private void picBoxClose_Click(object sender, EventArgs e)
         {
-            var countdown = new Countdown();
-            if (Countdown.TimerRoundName == "End Break")
+            if (Countdown.TimeTickSegment == SegmentNames.EndBreak)
             {
-                countdown.CountdownInputControl("BreakWinOkay");
+                Countdown.EndLapPackage();
                 Close();
             }
         }
@@ -92,25 +91,24 @@ namespace Worker_Ant
         // refresh window data (timer)
         private void winRefresh_Tick(object sender, EventArgs e)
         {
-            if (Countdown.TimerStatus == "Tick" )
+            if (Countdown.TimerTick == true)
             {
-                if (Countdown.TimerRoundName == "Break")
+                labelLiveBreakTime.Text = Countdown.BreakTimerLive.IntToTimerFormat();
+                if (Countdown.TimeTickSegment == SegmentNames.Break)
                 {
-                    labelLiveBreakTime.Text = (Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
                     btnYesOkay.Enabled = false;
                     btnNo.Enabled = false;
                     labelAnotherRound.Visible = false;
                 }
-                else if (Countdown.TimerRoundName == "End Break")
+                else if (Countdown.TimeTickSegment == SegmentNames.EndBreak)
                 {
-                    labelLiveBreakTime.Text = (" - " + Countdown.BreakValueLive / 60 + ":" + (Countdown.BreakValueLive % 60).ToString("D2"));
-                    if (Countdown.BreakValueLive == 0)
+                    if (Countdown.BreakTimerLive == 0)
                     {
                         labelLiveBreakTime.ForeColor = Color.Red;
                         labelTheBreakWEI.Text = "Break has ended";
                         labelTheBreakWEI.ForeColor = Color.Red;
                         btnYesOkay.Enabled = true;
-                        if (Countdown.RoundValueLive > 0)
+                        if (Countdown.LapCounterLive > 0)
                         {
                             btnNo.Enabled = true;
                             labelAnotherRound.Visible = true;
@@ -130,22 +128,20 @@ namespace Worker_Ant
         // okey btn
         private void btnYesOkay_Click(object sender, EventArgs e)
         {
-            var countdown = new Countdown();
             if (btnYesOkay.Text == "Yes")
             {
-                countdown.CountdownInputControl("BreakWinYes");
+                Countdown.StartLap();
             }
             else if (btnYesOkay.Text == "Okay")
             {
-                countdown.CountdownInputControl("BreakWinOkay");
+                Countdown.EndLapPackage();
             }
             Close();
         }
         // no btn
         private void btnNo_Click(object sender, EventArgs e)
         {
-            var countdown = new Countdown();
-            countdown.CountdownInputControl("BreakWinNo");
+            Countdown.PauseBetweenLap();
             Close();
         }
         #endregion

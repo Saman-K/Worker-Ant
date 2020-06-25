@@ -8,23 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
-    public partial class CompleteUIWin : Form
+    public partial class CompleteUI : Form
     {
-        #region Fields
-        internal int MouseXAxis;
-        internal int MouseYAxis;
-        internal bool MouseDrag;
-        internal (int, int, int) TimeDataWBR;
+        #region Fields and Properties
+        private int mouseXAxis;
+        private int mouseYAxis;
+        private bool mouseDrag;
+        // saving data for preview
+        private (int Work, int Break, int Laps) PreviewLapPackage { get; set;}
         #endregion
 
         #region Initialization
-        public CompleteUIWin()
+        // Initialization
+        public CompleteUI()
         {
             InitializeComponent();
         }
-        private void FullViewWin_Load(object sender, EventArgs e)
+        // Window Opens
+        private void CompleteUILoad(object sender, EventArgs e)
         {
             numUDWorkManual.Value = Properties.Settings.Default.manualWorkTime / 60;
             numUDBreakManual.Value = Properties.Settings.Default.manualBreakTime / 60;
@@ -48,100 +51,106 @@ namespace Worker_Ant
             }
             else
             {
-                var errorHandler = new ErrorHandlerWin();
-                errorHandler.ErrorHandeler("Radio Button not found", "FVW", "02", true);
-                errorHandler.ShowDialog();
+                MessageBox.Show("Radio Button not found!", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                Application.Exit();
             }
 
         }
         #endregion
 
-        #region FormBorderStyle
-        //------------------------------------------------------------------------- win move
-        //form mouse down
-        private void Win_MouseDown(object sender, MouseEventArgs e)
+        #region Form Border Style
+        #region ------------------------------------------------------------------------- Move Window
+        // Window mouse down
+        private void WindowMouseDown(object sender, MouseEventArgs e)
         {
-            MouseDrag = true;
-            MouseXAxis = Cursor.Position.X - this.Left;
-            MouseYAxis = Cursor.Position.Y - this.Top;
+            mouseDrag = true;
+            mouseXAxis = Cursor.Position.X - this.Left;
+            mouseYAxis = Cursor.Position.Y - this.Top;
         }
-        //form mouse move
-        private void Win_MouseMove(object sender, MouseEventArgs e)
+        // Window mouse move
+        private void WindowMouseMove(object sender, MouseEventArgs e)
         {
-            if (MouseDrag)
+            if (mouseDrag)
             {
-                this.Left = Cursor.Position.X - MouseXAxis;
-                this.Top = Cursor.Position.Y - MouseYAxis;
+                this.Left = Cursor.Position.X - mouseXAxis;
+                this.Top = Cursor.Position.Y - mouseYAxis;
             }
         }
-        //form mouse up
-        private void Win_MouseUp(object sender, MouseEventArgs e)
+        // Window mouse up
+        private void WindowMouseUp(object sender, MouseEventArgs e)
         {
-            MouseDrag = false;
+            mouseDrag = false;
         }
-
-        //------------------------------------------------------------------------- Picture box close
-        //click
-        private void PicBoxClose_Click(object sender, EventArgs e)
+        #endregion
+        #region ------------------------------------------------------------------------- Close picture box
+        // Minimize Window
+        private void CloseWindow(object sender, EventArgs e)
         {
             Visible = false;
-            //Notify("Worker Ant", "Worker Ant is Minimized");
+            // notify
         }
-        //double click
-        private void PicBoxClose_DoubleClick(object sender, EventArgs e)
+        // Close Application
+        private void CloseApplication(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Are you sure you want to close this Worker Ant?", "WorkerAnt", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
-        //mouse leave
-        private void PicBoxClose_MouseLeave(object sender, EventArgs e)
+        // Close mouse leave 
+        private void ClosePicBoxMouseLeave(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.Control;
         }
-        //mouse enter
-        private void PicBoxClose_MouseEnter(object sender, EventArgs e)
+        // Close mouse enter
+        private void ClosePicBoxMouseEnter(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
         }
-
-        //------------------------------------------------------------------------- Picture box info
-        //info enter
-        private void PicBoxInfo_MouseEnter(object sender, EventArgs e)
+        #endregion
+        #region ------------------------------------------------------------------------- About picture box
+        // About enter
+        private void AboutPicBoxMouseEnter(object sender, EventArgs e)
         {
-            picBoxInfo.Image = Worker_Ant.Properties.Resources.Info;
+            picBoxInfo.Image = WorkerAnt.Properties.Resources.Info;
         }
-        //info leave
-        private void PicBoxInfo_MouseLeave(object sender, EventArgs e)
+        // About leave
+        private void AboutPicBoxMouseLeave(object sender, EventArgs e)
         {
-            picBoxInfo.Image = Worker_Ant.Properties.Resources.Info_L;
+            picBoxInfo.Image = WorkerAnt.Properties.Resources.Info_L;
         }
-        //info click
-        private void PicBoxInfo_Click(object sender, EventArgs e)
+        // About click
+        private void OpenAbout(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
             winCouter.WindowsOpenCheck(WindowNames.Info);
         }
-        //------------------------------------------------------------------------- Picture box settings
-        //settings enter
-        private void PicBoxSettings_MouseEnter(object sender, EventArgs e)
+        #endregion
+        #region ------------------------------------------------------------------------- Settings picture box
+        // Settings mouse enter
+        private void SettingsPicBoxMouseEnter(object sender, EventArgs e)
         {
-            picBoxSettings.Image = Worker_Ant.Properties.Resources.Settings;
+            picBoxSettings.Image = WorkerAnt.Properties.Resources.Settings;
         }
-        //settings leave
-        private void PicBoxSettings_MouseLeave(object sender, EventArgs e)
+        // settings mouse leave
+        private void SettingsPicBoxMouseLeave(object sender, EventArgs e)
         {
-            picBoxSettings.Image = Worker_Ant.Properties.Resources.Settings_L;
+            picBoxSettings.Image = WorkerAnt.Properties.Resources.Settings_L;
         }
-        //settings click
-        private void PicBoxSettings_Click(object sender, EventArgs e)
+        // Open settings
+        private void OpenSettings(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
             winCouter.WindowsOpenCheck(WindowNames.Settings);
         }
         #endregion
+        #endregion
 
         #region Methods
-        // button set/reset click
-        private void BtnSetReset_Click(object sender, EventArgs e)
+
+        // Set button click
+        private void SetBtn(object sender, EventArgs e)
         {
             if (radioBtnManual.Checked == true)
             {
@@ -150,71 +159,78 @@ namespace Worker_Ant
                 Properties.Settings.Default.Save();
             }
 
-            GetTimeData();
+            GetLapPackage();
 
-            labelWorkTimeCountdown.Text = (TimeDataWBR.Item1 / 60 + ":" + (TimeDataWBR.Item1 % 60).ToString("D2"));
-            labelBreakTimeCountdown.Text = (TimeDataWBR.Item2 / 60 + ":" + (TimeDataWBR.Item2 % 60).ToString("D2"));
-            labelRoundNumCountdown.Text = TimeDataWBR.Item3.ToString();
+            labelWorkTimeCountdown.Text = PreviewLapPackage.Work.IntToTimerFormat();
+            labelBreakTimeCountdown.Text = PreviewLapPackage.Break.IntToTimerFormat();
+            labelRoundNumCountdown.Text = PreviewLapPackage.Laps.ToString();
 
-            progressBarCountdown.Maximum = 1;
-            progressBarCountdown.Value = 0;
+            progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.Paused);
 
-            Countdown.LastUserInput = TimeDataWBR;
+            Countdown.LastUserInput = PreviewLapPackage;
             btnSetReset.Text = "Reset";
             Countdown.Set();
 
-            SaveLastUsedRadioBtn();
+            SaveLapPackageUsed();
         }
-        // Start/Stop button clicked
-        private void BtnStartStop_Click(object sender, EventArgs e)
+
+        // Start/Stop button click
+        private void StartStopBtn(object sender, EventArgs e)
         {
             if (btnStartStop.Text == "Start")
             {
                 if (labelWorkTimeCountdown.Text == "Work Time" || labelBreakCountdown.Text == "Break Time")
                 {
-                    BtnSetReset_Click(null, null);
+                    SetBtn(null, null);
                 }
                 winRefresh.Start();
             }
             else if (btnStartStop.Text == "Stop" && Countdown.TimeTickSegment == SegmentNames.Break)
             {
-                //winRefresh.Stop();
+                winRefresh.Stop();
             }
             btnStartStop.Text = btnStartStop.Text.StartStop();
 
         }
-        // radio button changed
-        private void RadioBtnChineged_CheckedChanged(object sender, EventArgs e)
-        {
-            GetTimeData();
 
-            labelWorkTimePreview.Text = (TimeDataWBR.Item1 / 60 + ":" + (TimeDataWBR.Item1 % 60).ToString("D2"));
-            labelBreakTimePreview.Text = (TimeDataWBR.Item2 / 60 + ":" + (TimeDataWBR.Item2 % 60).ToString("D2"));
-            labelRoundNumPreview.Text = TimeDataWBR.Item3.ToString() ;
+        /// <summary>
+        /// Radio button check changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadioBtnChineged(object sender, EventArgs e)
+        {
+            GetLapPackage();
+
+            labelWorkTimePreview.Text = PreviewLapPackage.Work.IntToTimerFormat();
+            labelBreakTimePreview.Text = PreviewLapPackage.Break.IntToTimerFormat();
+            labelRoundNumPreview.Text = PreviewLapPackage.Laps.ToString() ;
         }
-        // number up down manual 
-        private void NumUDManual_ValueChanged(object sender, EventArgs e)
+
+        // Manual number up down changed
+        private void NumUDManualValueChanged(object sender, EventArgs e)
         {
             if (radioBtnManual.Checked == true)
             {
                 Properties.Settings.Default.manualWorkTime = numUDWorkManual.Value * 60;
                 Properties.Settings.Default.manualBreakTime = numUDBreakManual.Value * 60;
-                RadioBtnChineged_CheckedChanged(null, null);
+                RadioBtnChineged(null, null);
             }
         }
-        // refresh window data (timer)
-        private void WinRefresh_Tick(object sender, EventArgs e)
+        
+        // Live data Updater (timer)
+        private void LiveDataUpdate(object sender, EventArgs e)
         {
-            labelWorkTimeCountdown.Text = Countdown.WorkTimerFormatedLive;
+            labelWorkTimeCountdown.Text = Countdown.WorkTimerLive.IntToTimerFormat();
 
             if (Countdown.TimeTickSegment == SegmentNames.EndBreak)
             {
-                labelBreakTimeCountdown.Text = Countdown.BreakTimerFormattedLive;
+                labelBreakTimeCountdown.Text = "- " + Countdown.BreakTimerLive.IntToTimerFormat();
                 labelBreakTimeCountdown.ForeColor = Color.Red;
             }
             else
             {
-                labelBreakTimeCountdown.Text = Countdown.BreakTimerFormattedLive;
+                labelBreakTimeCountdown.Text = Countdown.BreakTimerLive.IntToTimerFormat();
                 labelBreakTimeCountdown.ForeColor = SystemColors.ControlText;
             }
 
@@ -249,8 +265,9 @@ namespace Worker_Ant
                 progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.EndBreak);
             }
         }
-        // get data
-        private void GetTimeData()
+        
+        // Get radio btn selected lap package
+        private void GetLapPackage()
         {
             if (radioBtnManual.Checked == false)
             {
@@ -259,62 +276,48 @@ namespace Worker_Ant
 
             if (radioBtnManual.Checked == true)
             {
-                TimeDataWBR = LapPackageNames.Manual.GetLapPackageValue();
+                PreviewLapPackage = LapPackageNames.Manual.GetLapPackageValue();
                 groupBoxManual.Enabled = true;
             }
             else if (radioBtnRecovery.Checked == true)
             {
-                TimeDataWBR = LapPackageNames.Recovery.GetLapPackageValue();
+                PreviewLapPackage = LapPackageNames.Recovery.GetLapPackageValue();
             }
             else if (radioBtnSmart.Checked == true)
             {
-                TimeDataWBR = LapPackageNames.Smart.GetLapPackageValue();
+                PreviewLapPackage = LapPackageNames.Smart.GetLapPackageValue();
             }
             else if (radioBtnProgress.Checked == true)
             {
-                TimeDataWBR = LapPackageNames.Progress.GetLapPackageValue();
+                PreviewLapPackage = LapPackageNames.Progress.GetLapPackageValue();
             }
             else
             {
-                var errorHandler = new ErrorHandlerWin();
-                errorHandler.ErrorHandeler("Radio Button not found", "FVW", "01", true);
-                errorHandler.ShowDialog();
-                Application.Exit();
+                // error "Radio Button not found"
+                PreviewLapPackage = LapPackageNames.Smart.GetLapPackageValue();
             }
             
         }
-        // save RadioBtn 
-        private void SaveLastUsedRadioBtn()
+
+        // Save lap package used
+        private void SaveLapPackageUsed()
         {
             if (radioBtnManual.Checked == true) LapPackageNames.Manual.SaveLastUsedLapPackage();
             else if (radioBtnRecovery.Checked == true) LapPackageNames.Recovery.SaveLastUsedLapPackage();
             else if (radioBtnSmart.Checked == true) LapPackageNames.Smart.SaveLastUsedLapPackage();
             else if (radioBtnProgress.Checked == true) LapPackageNames.Progress.SaveLastUsedLapPackage();
         }
-        //  icon double click
-        private void NotifyIconFVW_MouseDoubleClick(object sender, MouseEventArgs e)
+
+        //  Notify Icon Double Click
+        private void NotifyIconDoubleClick(object sender, EventArgs e)
         {
             if (Visible == false)
             {
                 Visible = true;
             }
-        }
-        // notify Strip Menu open button
-        private void NotifyIco(object sender, EventArgs e)
-        {
-            if (Visible == false)
-            {
-                Visible = true;
-            }
-        }
-        // notify icon notifying
-        public void Notify(string titel, string message)
-        {
-            //notifyIconFVW.BalloonTipIcon = ToolTipIcon.Info;
-            notifyIconFVW.BalloonTipTitle = titel;
-            notifyIconFVW.BalloonTipText = message;
-            notifyIconFVW.ShowBalloonTip(1000);
         }
         #endregion
+
+
     }
 }

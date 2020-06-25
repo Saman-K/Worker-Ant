@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using RedCell.Diagnostics.Update;
 
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     public class WindowBehavior
     {
@@ -34,24 +34,25 @@ namespace Worker_Ant
 
             if (Properties.Settings.Default.simpleUI == true)
             {
-                Application.Run(new SimpleUIWin());
+                Application.Run(new SimpleUI());
             }
             else if (Properties.Settings.Default.simpleUI == false)
             {
-                Application.Run(new CompleteUIWin());
+                Application.Run(new CompleteUI());
             }
         }
+
+
         #endregion
 
         #region Methods
+
         /// <summary>
         /// Get the name of the window and send it to OpenWindow()
         /// </summary>
         /// <param name="winName">win name</param>
         public void WindowsOpenCheck(WindowNames winName)
         {
-            var errorHandler = new ErrorHandlerWin();
-
             switch (winName)
             {
                 case WindowNames.Info:
@@ -77,8 +78,8 @@ namespace Worker_Ant
                     }
                     break;
                 default:
-
-                    errorHandler.ErrorHandeler("", "WB", "01", true);
+                    MessageBox.Show("WB 81", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //error
                     break;
             }
 
@@ -89,8 +90,6 @@ namespace Worker_Ant
         /// <param name="winName">Name of the window to open</param>
         private void OpenWindow(string winName)
         {
-            var errorHandler = new ErrorHandlerWin();
-
             foreach (Form win in Application.OpenForms)
             {
                 if (win.Name == winName)
@@ -102,7 +101,8 @@ namespace Worker_Ant
                     }
                     catch 
                     {
-                        errorHandler.ErrorHandeler("", "WB", "03", true);
+                        MessageBox.Show("WB 104", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //error
                     }
                 }
             }
@@ -119,25 +119,24 @@ namespace Worker_Ant
                         settingsWin.Show();
                         break;
                     case "BreakWin":
-                        var breakBasicWin = new BreakWin();
-                        breakBasicWin.Show();
+                        var breakWin = new BreakWin();
+                        breakWin.Show();
                         break;
                     case "ToBreakWin":
-                        var toBreakBasicWin = new ToBreakWin();
-                        toBreakBasicWin.Show();
+                        var toBreakWin = new ToBreakWin();
+                        toBreakWin.Show();
                         break;
                     case "SimpleUIWin":
-                        var simpleViewWin = new SimpleUIWin();
+                        var simpleViewWin = new SimpleUI();
                         simpleViewWin.Show();
                         break;
                     case "CompleteUIWin":
-                        var fullViewWin = new CompleteUIWin();
+                        var fullViewWin = new CompleteUI();
                         fullViewWin.Show();
 
                         break;
                     default:
-                        errorHandler.ErrorHandeler("", "WB", "04", true);
-                        errorHandler.Show();
+                        //error
                         break;
                 }
             }

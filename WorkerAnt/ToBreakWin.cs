@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     public partial class ToBreakWin : Form
     {
@@ -81,17 +81,16 @@ namespace Worker_Ant
         //button Yes
         private void btnYes_Click(object sender, EventArgs e)
         {
-            var countdown = new Countdown();
-            countdown.CountdownInputControl("ToBreakYes");
+            Countdown.SkipToBreak();
             Close();
         }
         // refresh window data (timer)
         private void winRefresh_Tick(object sender, EventArgs e)
         {
-            if (Countdown.TimerStatus == "Tick" && Countdown.TimerRoundName == "Work")
+            if (Countdown.TimerTick == true && Countdown.TimeTickSegment == SegmentNames.Work)
             {
-                labelLiveWorkTime.Text = (Countdown.WorkValueLive / 60 + ":" + (Countdown.WorkValueLive % 60).ToString("D2"));
-                if (Countdown.WorkValueLive <= 295)
+                labelLiveWorkTime.Text = Countdown.WorkTimerLive.IntToTimerFormat();
+                if (Countdown.WorkTimerLive <= 295)
                 {
                     this.Close();
                 }

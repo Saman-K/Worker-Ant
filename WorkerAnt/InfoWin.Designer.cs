@@ -1,4 +1,4 @@
-﻿namespace Worker_Ant
+﻿namespace WorkerAnt
 {
     partial class InfoWin
     {
@@ -78,7 +78,7 @@
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoPictureBox.Image = global::Worker_Ant.Properties.Resources.Worker_Ant_About_FC;
+            this.logoPictureBox.Image = global::WorkerAnt.Properties.Resources.Worker_Ant_About_FC;
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
@@ -174,7 +174,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::Worker_Ant.Properties.Resources.Worker_AntBW25;
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.Worker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -188,7 +188,7 @@
             // picBoxClose
             // 
             this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxClose.Image = global::Worker_Ant.Properties.Resources.X_Close;
+            this.picBoxClose.Image = global::WorkerAnt.Properties.Resources.X_Close;
             this.picBoxClose.Location = new System.Drawing.Point(393, 0);
             this.picBoxClose.Name = "picBoxClose";
             this.picBoxClose.Size = new System.Drawing.Size(45, 25);

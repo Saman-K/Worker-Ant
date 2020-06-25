@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     public partial class ErrorHandlerWin : Form
     {

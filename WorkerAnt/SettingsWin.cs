@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Worker_Ant
+namespace WorkerAnt
 {
     public partial class SettingsWin : Form
     {
@@ -35,7 +35,7 @@ namespace Worker_Ant
         }
         #endregion
 
-        #region FormBorderStyle
+        #region Form Border Style
         //------------------------------------------------------------------------- Win move
         //form mouse down
         private void Win_MouseDown(object sender, MouseEventArgs e)
@@ -63,7 +63,7 @@ namespace Worker_Ant
         //click
         private void PicBoxClose_Click(object sender, EventArgs e)
         {
-            Visible = false;
+            Close();
         }
         //double click
         private void PicBoxClose_DoubleClick(object sender, EventArgs e)
@@ -85,12 +85,12 @@ namespace Worker_Ant
         //info enter
         private void PicBoxInfo_MouseEnter(object sender, EventArgs e)
         {
-            picBoxInfo.Image = Worker_Ant.Properties.Resources.Info;
+            picBoxInfo.Image = WorkerAnt.Properties.Resources.Info;
         }
         //info leave
         private void PicBoxInfo_MouseLeave(object sender, EventArgs e)
         {
-            picBoxInfo.Image = Worker_Ant.Properties.Resources.Info_L;
+            picBoxInfo.Image = WorkerAnt.Properties.Resources.Info_L;
         }
         //info click
         private void PicBoxInfo_Click(object sender, EventArgs e)
