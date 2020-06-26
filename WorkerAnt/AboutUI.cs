@@ -10,16 +10,16 @@ using System.Diagnostics;
 
 namespace WorkerAnt
 {
-    partial class InfoWin : Form
+    partial class AboutUI : Form
     {
         #region Fields
-        internal int _mouseXAxis;
-        internal int _mouseYAxis;
-        internal bool _mouseDrag;
+        private int _mouseXAxis;
+        private int _mouseYAxis;
+        private bool _mouseDrag;
         #endregion
 
         #region Initialization
-        public InfoWin()
+        public AboutUI()
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
@@ -111,15 +111,16 @@ namespace WorkerAnt
         #endregion
 
         #region Form Border Style
-        //form mouse down
-        private void Win_MouseDown(object sender, MouseEventArgs e)
+        #region ------------------------------------------------------------------------- Move Window
+        // Window mouse down
+        private void WindowMouseDown(object sender, MouseEventArgs e)
         {
             _mouseDrag = true;
             _mouseXAxis = Cursor.Position.X - this.Left;
             _mouseYAxis = Cursor.Position.Y - this.Top;
         }
-        //form mouse move
-        private void Win_MouseMove(object sender, MouseEventArgs e)
+        // Window mouse move
+        private void WindowMouseMove(object sender, MouseEventArgs e)
         {
             if (_mouseDrag)
             {
@@ -127,32 +128,35 @@ namespace WorkerAnt
                 this.Top = Cursor.Position.Y - _mouseYAxis;
             }
         }
-        //form mouse up
-        private void Win_MouseUp(object sender, MouseEventArgs e)
+        // Window mouse up
+        private void WindowMouseUp(object sender, MouseEventArgs e)
         {
             _mouseDrag = false;
         }
+        #endregion
 
-        //click
-        private void picBoxClose_Click(object sender, EventArgs e)
+        #region ------------------------------------------------------------------------- Picture box close
+        // Close Window
+        private void CloseWindow(object sender, EventArgs e)
         {
             Close();
         }
-        //mouse leave
-        private void picBoxClose_MouseLeave(object sender, EventArgs e)
+        // Close mouse leave 
+        private void ClosePicBoxMouseLeave(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.Control;
         }
-        //mouse enter
-        private void picBoxClose_MouseEnter(object sender, EventArgs e)
+        // Close mouse enter
+        private void ClosePicBoxMouseEnter(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
-
         }
+
+        #endregion
         #endregion
 
         #region Method
-        private void okButton_Click(object sender, EventArgs e)
+        private void LearnMoreBtn(object sender, EventArgs e)
         {
             Process.Start("https://samank.me");
             Close();

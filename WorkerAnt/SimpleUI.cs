@@ -13,10 +13,10 @@ namespace WorkerAnt
     public partial class SimpleUI : Form
     {
         #region Fields and Properties
-        // for Moving the form
-        private int mouseXAxis;
-        private int mouseYAxis;
-        private bool mouseDrag;
+        // For moving the form
+        private int _mouseXAxis;
+        private int _mouseYAxis;
+        private bool _mouseDrag;
         // saving data for preview
         private (int Work, int Break, int Laps) PreviewLapPackage { get; set; }
         #endregion
@@ -46,7 +46,7 @@ namespace WorkerAnt
             {
                 MessageBox.Show("Radio Button not found!", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                Application.Exit();
+                radioBtnSmart.Checked = true;
             }
         }
         #endregion
@@ -56,23 +56,23 @@ namespace WorkerAnt
         // Window mouse down
         private void WindowMouseDown(object sender, MouseEventArgs e)
         {
-            mouseDrag = true;
-            mouseXAxis = Cursor.Position.X - this.Left;
-            mouseYAxis = Cursor.Position.Y - this.Top;
+            _mouseDrag = true;
+            _mouseXAxis = Cursor.Position.X - this.Left;
+            _mouseYAxis = Cursor.Position.Y - this.Top;
         }
         // Window mouse move
         private void WindowMouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDrag)
+            if (_mouseDrag)
             {
-                this.Left = Cursor.Position.X - mouseXAxis;
-                this.Top = Cursor.Position.Y - mouseYAxis;
+                this.Left = Cursor.Position.X - _mouseXAxis;
+                this.Top = Cursor.Position.Y - _mouseYAxis;
             }
         }
         // Window mouse up
         private void WindowMouseUp(object sender, MouseEventArgs e)
         {
-            mouseDrag = false;
+            _mouseDrag = false;
         }
         #endregion
         #region ------------------------------------------------------------------------- Close picture box
@@ -85,7 +85,7 @@ namespace WorkerAnt
         // Close Application
         private void CloseApplication(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close this Worker Ant?", "WorkerAnt", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to close this Worker Ant?", "WorkerAnt", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -154,6 +154,7 @@ namespace WorkerAnt
                 winRefresh.Stop();
                 RadioBtnEnabel(true);
             }
+            SaveLapPackageUsed();
 
             btnStartStop.Text = btnStartStop.Text.StartStop();
         }
@@ -174,7 +175,7 @@ namespace WorkerAnt
             Countdown.Set();
         }
 
-        // Get radio btn selected lap package
+        // Get radio button selected lap package
         private void GetLapPackage()
         {
             if (radioBtnRecovery.Checked == true)
@@ -191,12 +192,13 @@ namespace WorkerAnt
             }
             else
             {
+                MessageBox.Show("Radio Button not found!", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 PreviewLapPackage = LapPackageNames.Smart.GetLapPackageValue();
-                // error "Radio Button not found"
             }
         }
 
-        // radio button Enable
+        // Radio button Enable
         private void RadioBtnEnabel(bool trueFalse)
         {
             radioBtnRecovery.Enabled = trueFalse;
@@ -204,7 +206,7 @@ namespace WorkerAnt
             radioBtnProgress.Enabled = trueFalse;
         }
 
-        // refresh window data (timer)
+        // Refresh window data (timer)
         private void LiveDataUpdate(object sender, EventArgs e)
         {
             labelWorkTimeCountdown.Text = Countdown.WorkTimerLive.IntToTimerFormat();
@@ -251,7 +253,15 @@ namespace WorkerAnt
             }
         }
 
-        // notify icon click
+        // Save lap package used
+        private void SaveLapPackageUsed()
+        {
+            if (radioBtnRecovery.Checked == true) LapPackageNames.Recovery.SaveLastUsedLapPackage();
+            else if (radioBtnSmart.Checked == true) LapPackageNames.Smart.SaveLastUsedLapPackage();
+            else if (radioBtnProgress.Checked == true) LapPackageNames.Progress.SaveLastUsedLapPackage();
+        }
+
+        // Notify icon click
         private void NotifyIconDoubleClick(object sender, EventArgs e)
         {
             if (Visible == false)

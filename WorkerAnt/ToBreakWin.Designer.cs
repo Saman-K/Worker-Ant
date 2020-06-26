@@ -1,6 +1,6 @@
 ﻿namespace WorkerAnt
 {
-    partial class ToBreakWin
+    partial class DueBreakUI
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToBreakWin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DueBreakUI));
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.labelWinName = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.btnYes.TabIndex = 0;
             this.btnYes.Text = "Yes";
             this.btnYes.UseVisualStyleBackColor = true;
-            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
+            this.btnYes.Click += new System.EventHandler(this.YesBtn);
             // 
             // btnNo
             // 
@@ -67,7 +67,7 @@
             this.btnNo.TabIndex = 1;
             this.btnNo.Text = "No";
             this.btnNo.UseVisualStyleBackColor = true;
-            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
+            this.btnNo.Click += new System.EventHandler(this.NoBtn);
             // 
             // labelWinName
             // 
@@ -77,9 +77,9 @@
             this.labelWinName.Size = new System.Drawing.Size(61, 13);
             this.labelWinName.TabIndex = 9;
             this.labelWinName.Text = "Worker Ant";
-            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             // 
             // labelLiveWorkTime
             // 
@@ -115,7 +115,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Image = global::WorkerAnt.Properties.Resources.Worker_AntBWH128;
+            this.pictureBox1.Image = global::WorkerAnt.Properties.Resources.WorkerAntBWH128;
             this.pictureBox1.Location = new System.Drawing.Point(12, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(55, 55);
@@ -125,16 +125,16 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.Worker_AntBW25;
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.WorkerAntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxIcon.TabIndex = 8;
             this.picBoxIcon.TabStop = false;
-            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             // 
             // picBoxClose
             // 
@@ -146,9 +146,9 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 7;
             this.picBoxClose.TabStop = false;
-            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
-            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
-            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
+            this.picBoxClose.Click += new System.EventHandler(this.CloseWindow);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.ClosePicBoxMouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.ClosePicBoxMouseLeave);
             // 
             // pictureBox2
             // 
@@ -161,7 +161,7 @@
             // 
             // winRefresh
             // 
-            this.winRefresh.Tick += new System.EventHandler(this.winRefresh_Tick);
+            this.winRefresh.Tick += new System.EventHandler(this.LiveDataUpdate);
             // 
             // ToBreakBasicWin
             // 
@@ -184,10 +184,10 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ToBreakBasic";
-            this.Load += new System.EventHandler(this.ToBreakBasicWin_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.Load += new System.EventHandler(this.DueBreakUILoad);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).EndInit();

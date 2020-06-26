@@ -1,6 +1,6 @@
 ﻿namespace WorkerAnt
 {
-    partial class SettingsWin
+    partial class SettingsUI
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsWin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsUI));
             WorkerAnt.Properties.Settings settings1 = new WorkerAnt.Properties.Settings();
             this.labelWinName = new System.Windows.Forms.Label();
             this.groupBoxSetSmart = new System.Windows.Forms.GroupBox();
@@ -84,9 +84,9 @@
             this.labelWinName.Size = new System.Drawing.Size(45, 13);
             this.labelWinName.TabIndex = 2;
             this.labelWinName.Text = "Settings";
-            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             // 
             // groupBoxSetSmart
             // 
@@ -309,7 +309,7 @@
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.SaveBtn);
             // 
             // btnDefault
             // 
@@ -320,7 +320,7 @@
             this.btnDefault.TabIndex = 11;
             this.btnDefault.Text = "Default";
             this.btnDefault.UseVisualStyleBackColor = true;
-            this.btnDefault.Click += new System.EventHandler(this.BtnDefault_Click);
+            this.btnDefault.Click += new System.EventHandler(this.DefaultBtn);
             // 
             // labelAudioAlert
             // 
@@ -353,9 +353,9 @@
             this.picBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxInfo.TabIndex = 18;
             this.picBoxInfo.TabStop = false;
-            this.picBoxInfo.Click += new System.EventHandler(this.PicBoxInfo_Click);
-            this.picBoxInfo.MouseEnter += new System.EventHandler(this.PicBoxInfo_MouseEnter);
-            this.picBoxInfo.MouseLeave += new System.EventHandler(this.PicBoxInfo_MouseLeave);
+            this.picBoxInfo.Click += new System.EventHandler(this.OpenAbout);
+            this.picBoxInfo.MouseEnter += new System.EventHandler(this.AboutPicBoxMouseEnter);
+            this.picBoxInfo.MouseLeave += new System.EventHandler(this.AboutPicBoxMouseLeave);
             // 
             // picBoxIcon
             // 
@@ -366,9 +366,9 @@
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxIcon.TabIndex = 1;
             this.picBoxIcon.TabStop = false;
-            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             // 
             // picBoxClose
             // 
@@ -380,9 +380,9 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 0;
             this.picBoxClose.TabStop = false;
-            this.picBoxClose.Click += new System.EventHandler(this.PicBoxClose_Click);
-            this.picBoxClose.MouseEnter += new System.EventHandler(this.PicBoxClose_MouseEnter);
-            this.picBoxClose.MouseLeave += new System.EventHandler(this.PicBoxClose_MouseLeave);
+            this.picBoxClose.Click += new System.EventHandler(this.CloseWindow);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.ClosePicBoxMouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.ClosePicBoxMouseLeave);
             // 
             // pictureBox1
             // 
@@ -535,10 +535,10 @@
             this.Name = "SettingsWin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.Load += new System.EventHandler(this.SettingsWin_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.Load += new System.EventHandler(this.SettingsUILoad);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             this.groupBoxSetSmart.ResumeLayout(false);
             this.groupBoxSetSmart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakSmart)).EndInit();

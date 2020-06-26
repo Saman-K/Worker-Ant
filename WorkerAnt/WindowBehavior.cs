@@ -111,19 +111,19 @@ namespace WorkerAnt
                 switch (winName)
                 {
                     case "InfoWin":
-                        var infoWin = new InfoWin();
+                        var infoWin = new AboutUI();
                         infoWin.Show();
                         break;
                     case "SettingsWin":
-                        var settingsWin = new SettingsWin();
+                        var settingsWin = new SettingsUI();
                         settingsWin.Show();
                         break;
                     case "BreakWin":
-                        var breakWin = new BreakWin();
+                        var breakWin = new BreakUI();
                         breakWin.Show();
                         break;
                     case "ToBreakWin":
-                        var toBreakWin = new ToBreakWin();
+                        var toBreakWin = new DueBreakUI();
                         toBreakWin.Show();
                         break;
                     case "SimpleUIWin":

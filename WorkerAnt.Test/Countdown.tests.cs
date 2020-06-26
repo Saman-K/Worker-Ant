@@ -12,7 +12,7 @@ namespace WorkerAnt.Test
         {
 
             // Arrange
-            Countdown.LastUserInput = (3000, 300, 3);
+           Countdown.LastUserInput = (3000, 300, 3);
             Countdown.Set();
             Countdown.LastUserInput = (1000, 100, 3);
 
@@ -72,7 +72,7 @@ namespace WorkerAnt.Test
         }
 
         [TestMethod]
-        public void test()
+        public void Test()
         {
             // Arrange
            

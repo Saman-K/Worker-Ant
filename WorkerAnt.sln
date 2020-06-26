@@ -8,10 +8,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedCell.Net", "RedCell.Net\RedCell.Net.csproj", "{98145560-729A-41A2-9B41-4B3DE1114471}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerAnt.Tests", "WorkerAnt.Test\WorkerAnt.Tests.csproj", "{E1E18003-B75D-4F23-817F-A0897B9B7077}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F45C6111-66AC-446C-90D6-FC5514382BC4} = {F45C6111-66AC-446C-90D6-FC5514382BC4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerAnt", "WorkerAnt\WorkerAnt.csproj", "{F45C6111-66AC-446C-90D6-FC5514382BC4}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WorkerAntSetup", "WorkerAnt Setup\Worker Ant Setup.vdproj", "{B625B86E-42A2-4F25-9B8B-8D9D5918CF38}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F45C6111-66AC-446C-90D6-FC5514382BC4} = {F45C6111-66AC-446C-90D6-FC5514382BC4}
+		{98145560-729A-41A2-9B41-4B3DE1114471} = {98145560-729A-41A2-9B41-4B3DE1114471}
+		{67D2CCA7-489C-42DC-80FC-4B264C0323EE} = {67D2CCA7-489C-42DC-80FC-4B264C0323EE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

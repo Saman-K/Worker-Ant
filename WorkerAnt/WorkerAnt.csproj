@@ -73,11 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BreakWin.cs">
+    <Compile Include="BreakUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BreakWin.Designer.cs">
-      <DependentUpon>BreakWin.cs</DependentUpon>
+    <Compile Include="BreakUI.Designer.cs">
+      <DependentUpon>BreakUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Countdown.cs" />
     <Compile Include="Enums.cs" />
@@ -94,24 +94,19 @@
       <DependentUpon>CompleteUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GetSetSettingsData.cs" />
-    <Compile Include="InfoWin.cs">
+    <Compile Include="AboutUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InfoWin.Designer.cs">
-      <DependentUpon>InfoWin.cs</DependentUpon>
+    <Compile Include="AboutUI.Designer.cs">
+      <DependentUpon>AboutUI.cs</DependentUpon>
     </Compile>
     <Compile Include="IUserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="SettingsWin.cs">
+    <Compile Include="SettingsUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsWin.Designer.cs">
-      <DependentUpon>SettingsWin.cs</DependentUpon>
+    <Compile Include="SettingsUI.Designer.cs">
+      <DependentUpon>SettingsUI.cs</DependentUpon>
     </Compile>
     <Compile Include="SimpleUI.cs">
       <SubType>Form</SubType>
@@ -119,15 +114,15 @@
     <Compile Include="SimpleUI.Designer.cs">
       <DependentUpon>SimpleUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToBreakWin.cs">
+    <Compile Include="DueBreakUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ToBreakWin.Designer.cs">
-      <DependentUpon>ToBreakWin.cs</DependentUpon>
+      <DependentUpon>DueBreakUI.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowBehavior.cs" />
-    <EmbeddedResource Include="BreakWin.resx">
-      <DependentUpon>BreakWin.cs</DependentUpon>
+    <EmbeddedResource Include="BreakUI.resx">
+      <DependentUpon>BreakUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Countdown.resx">
       <DependentUpon>Countdown.cs</DependentUpon>
@@ -138,22 +133,21 @@
     <EmbeddedResource Include="CompleteUI.resx">
       <DependentUpon>CompleteUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InfoWin.resx">
-      <DependentUpon>InfoWin.cs</DependentUpon>
+    <EmbeddedResource Include="AboutUI.resx">
+      <DependentUpon>AboutUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsWin.resx">
-      <DependentUpon>SettingsWin.cs</DependentUpon>
+    <EmbeddedResource Include="SettingsUI.resx">
+      <DependentUpon>SettingsUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SimpleUI.resx">
       <DependentUpon>SimpleUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToBreakWin.resx">
-      <DependentUpon>ToBreakWin.cs</DependentUpon>
+      <DependentUpon>DueBreakUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>

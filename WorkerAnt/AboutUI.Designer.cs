@@ -1,6 +1,6 @@
 ﻿namespace WorkerAnt
 {
-    partial class InfoWin
+    partial class AboutUI
     {
         /// <summary>
         /// Required designer variable.
@@ -27,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoWin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutUI));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.labelProductName = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoPictureBox.Image = global::WorkerAnt.Properties.Resources.Worker_Ant_About_FC;
+            this.logoPictureBox.Image = global::WorkerAnt.Properties.Resources.WorkerAnt_About_FC;
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
@@ -158,7 +158,7 @@
             this.okButton.Size = new System.Drawing.Size(81, 23);
             this.okButton.TabIndex = 1;
             this.okButton.Text = "Lean More...";
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.LearnMoreBtn);
             // 
             // labelWinName
             // 
@@ -168,22 +168,22 @@
             this.labelWinName.Size = new System.Drawing.Size(92, 13);
             this.labelWinName.TabIndex = 12;
             this.labelWinName.Text = "About Worker Ant";
-            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.labelWinName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.labelWinName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.labelWinName.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.Worker_AntBW25;
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.WorkerAntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
             this.picBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxIcon.TabIndex = 11;
             this.picBoxIcon.TabStop = false;
-            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.picBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.picBoxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.picBoxIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             // 
             // picBoxClose
             // 
@@ -195,9 +195,9 @@
             this.picBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBoxClose.TabIndex = 10;
             this.picBoxClose.TabStop = false;
-            this.picBoxClose.Click += new System.EventHandler(this.picBoxClose_Click);
-            this.picBoxClose.MouseEnter += new System.EventHandler(this.picBoxClose_MouseEnter);
-            this.picBoxClose.MouseLeave += new System.EventHandler(this.picBoxClose_MouseLeave);
+            this.picBoxClose.Click += new System.EventHandler(this.CloseWindow);
+            this.picBoxClose.MouseEnter += new System.EventHandler(this.ClosePicBoxMouseEnter);
+            this.picBoxClose.MouseLeave += new System.EventHandler(this.ClosePicBoxMouseLeave);
             // 
             // pictureBox1
             // 
@@ -233,9 +233,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InfoWin";
             this.TopMost = true;
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Win_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Win_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Win_MouseUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

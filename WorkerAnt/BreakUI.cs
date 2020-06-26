@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace WorkerAnt
 {
-    public partial class BreakWin : Form
+    public partial class BreakUI : Form
     {
         #region Fields
-        internal static int MouseXAxis;
-        internal static int MouseYAxis;
-        internal static bool MouseDrag;
+        private int _mouseXAxis;
+        private int _mouseYAxis;
+        private bool _mouseDrag;
         #endregion
 
         #region Initialization
-        public BreakWin()
+        public BreakUI()
         {
             InitializeComponent();
         }
@@ -41,32 +41,34 @@ namespace WorkerAnt
         #endregion
 
         #region FormBorderStyle
-        //------------------------------------------------------------------------- win move
-        //form mouse down
-        private void Win_MouseDown(object sender, MouseEventArgs e)
+
+        #region ------------------------------------------------------------------------- Move Window
+        // Window mouse down
+        private void WindowMouseDown(object sender, MouseEventArgs e)
         {
-            MouseDrag = true;
-            MouseXAxis = Cursor.Position.X - this.Left;
-            MouseYAxis = Cursor.Position.Y - this.Top;
+            _mouseDrag = true;
+            _mouseXAxis = Cursor.Position.X - this.Left;
+            _mouseYAxis = Cursor.Position.Y - this.Top;
         }
-        //form mouse move
-        private void Win_MouseMove(object sender, MouseEventArgs e)
+        // Window mouse move
+        private void WindowMouseMove(object sender, MouseEventArgs e)
         {
-            if (MouseDrag)
+            if (_mouseDrag)
             {
-                this.Left = Cursor.Position.X - MouseXAxis;
-                this.Top = Cursor.Position.Y - MouseYAxis;
+                this.Left = Cursor.Position.X - _mouseXAxis;
+                this.Top = Cursor.Position.Y - _mouseYAxis;
             }
         }
-        //form mouse up
-        private void Win_MouseUp(object sender, MouseEventArgs e)
+        // Window mouse up
+        private void WindowMouseUp(object sender, MouseEventArgs e)
         {
-            MouseDrag = false;
+            _mouseDrag = false;
         }
+        #endregion
 
-        //------------------------------------------------------------------------- pic close
-        //click
-        private void picBoxClose_Click(object sender, EventArgs e)
+        #region ------------------------------------------------------------------------- Picture box close
+        // Close Window
+        private void CloseWindow(object sender, EventArgs e)
         {
             if (Countdown.TimeTickSegment == SegmentNames.EndBreak)
             {
@@ -74,22 +76,23 @@ namespace WorkerAnt
                 Close();
             }
         }
-        //mouse leave
-        private void picBoxClose_MouseLeave(object sender, EventArgs e)
+        // Close mouse leave 
+        private void ClosePicBoxMouseLeave(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.Control;
         }
-        //mouse enter
-        private void picBoxClose_MouseEnter(object sender, EventArgs e)
+        // Close mouse enter
+        private void ClosePicBoxMouseEnter(object sender, EventArgs e)
         {
             picBoxClose.BackColor = SystemColors.ControlDark;
-
         }
+
+        #endregion
         #endregion
 
         #region Methods
         // refresh window data (timer)
-        private void winRefresh_Tick(object sender, EventArgs e)
+        private void LiveDataUpdate(object sender, EventArgs e)
         {
             if (Countdown.TimerTick == true)
             {
@@ -125,8 +128,8 @@ namespace WorkerAnt
                 Close();
             }
         }
-        // okey btn
-        private void btnYesOkay_Click(object sender, EventArgs e)
+        // yes and okay button
+        private void YesOkayBtn(object sender, EventArgs e)
         {
             if (btnYesOkay.Text == "Yes")
             {
@@ -138,8 +141,8 @@ namespace WorkerAnt
             }
             Close();
         }
-        // no btn
-        private void btnNo_Click(object sender, EventArgs e)
+        // No button
+        private void NoBtn(object sender, EventArgs e)
         {
             Countdown.PauseBetweenLap();
             Close();

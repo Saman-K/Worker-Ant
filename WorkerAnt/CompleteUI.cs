@@ -13,9 +13,9 @@ namespace WorkerAnt
     public partial class CompleteUI : Form
     {
         #region Fields and Properties
-        private int mouseXAxis;
-        private int mouseYAxis;
-        private bool mouseDrag;
+        private int _mouseXAxis;
+        private int _mouseYAxis;
+        private bool _mouseDrag;
         // saving data for preview
         private (int Work, int Break, int Laps) PreviewLapPackage { get; set;}
         #endregion
@@ -53,7 +53,7 @@ namespace WorkerAnt
             {
                 MessageBox.Show("Radio Button not found!", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                Application.Exit();
+                radioBtnSmart.Checked = true;
             }
 
         }
@@ -64,23 +64,23 @@ namespace WorkerAnt
         // Window mouse down
         private void WindowMouseDown(object sender, MouseEventArgs e)
         {
-            mouseDrag = true;
-            mouseXAxis = Cursor.Position.X - this.Left;
-            mouseYAxis = Cursor.Position.Y - this.Top;
+            _mouseDrag = true;
+            _mouseXAxis = Cursor.Position.X - this.Left;
+            _mouseYAxis = Cursor.Position.Y - this.Top;
         }
         // Window mouse move
         private void WindowMouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDrag)
+            if (_mouseDrag)
             {
-                this.Left = Cursor.Position.X - mouseXAxis;
-                this.Top = Cursor.Position.Y - mouseYAxis;
+                this.Left = Cursor.Position.X - _mouseXAxis;
+                this.Top = Cursor.Position.Y - _mouseYAxis;
             }
         }
         // Window mouse up
         private void WindowMouseUp(object sender, MouseEventArgs e)
         {
-            mouseDrag = false;
+            _mouseDrag = false;
         }
         #endregion
         #region ------------------------------------------------------------------------- Close picture box
@@ -93,7 +93,7 @@ namespace WorkerAnt
         // Close Application
         private void CloseApplication(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close this Worker Ant?", "WorkerAnt", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to close this Worker Ant?", "WorkerAnt", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -293,6 +293,8 @@ namespace WorkerAnt
             }
             else
             {
+                MessageBox.Show("Radio Button not found!", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 // error "Radio Button not found"
                 PreviewLapPackage = LapPackageNames.Smart.GetLapPackageValue();
             }
@@ -317,7 +319,5 @@ namespace WorkerAnt
             }
         }
         #endregion
-
-
     }
 }
