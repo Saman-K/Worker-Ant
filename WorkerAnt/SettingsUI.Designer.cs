@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsUI));
             WorkerAnt.Properties.Settings settings1 = new WorkerAnt.Properties.Settings();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsUI));
             this.labelWinName = new System.Windows.Forms.Label();
             this.groupBoxSetSmart = new System.Windows.Forms.GroupBox();
             this.numUDBreakSmart = new System.Windows.Forms.NumericUpDown();
@@ -346,7 +346,7 @@
             // 
             // picBoxInfo
             // 
-            this.picBoxInfo.Image = ((System.Drawing.Image)(resources.GetObject("picBoxInfo.Image")));
+            this.picBoxInfo.Image = global::WorkerAnt.Properties.Resources.Info_L;
             this.picBoxInfo.Location = new System.Drawing.Point(270, 5);
             this.picBoxInfo.Name = "picBoxInfo";
             this.picBoxInfo.Size = new System.Drawing.Size(15, 15);
@@ -359,7 +359,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = ((System.Drawing.Image)(resources.GetObject("picBoxIcon.Image")));
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.WorkerAntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -373,7 +373,7 @@
             // picBoxClose
             // 
             this.picBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("picBoxClose.Image")));
+            this.picBoxClose.Image = global::WorkerAnt.Properties.Resources.X_Close;
             this.picBoxClose.Location = new System.Drawing.Point(305, 0);
             this.picBoxClose.Name = "picBoxClose";
             this.picBoxClose.Size = new System.Drawing.Size(45, 25);
@@ -507,7 +507,7 @@
             this.numUDRound.TabIndex = 7;
             this.numUDRound.Value = global::WorkerAnt.Properties.Settings.Default.lapCounter;
             // 
-            // SettingsWin
+            // SettingsUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -532,7 +532,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SettingsWin";
+            this.Name = "SettingsUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.SettingsUILoad);

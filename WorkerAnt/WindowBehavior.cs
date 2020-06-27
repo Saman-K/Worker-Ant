@@ -78,7 +78,8 @@ namespace WorkerAnt
                     }
                     break;
                 default:
-                    MessageBox.Show("WB 81", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please report to the developer (WB 81)", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
                     //error
                     break;
             }
@@ -101,7 +102,8 @@ namespace WorkerAnt
                     }
                     catch 
                     {
-                        MessageBox.Show("WB 104", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please report to the developer (WB 104)", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Application.Exit();
                         //error
                     }
                 }
@@ -136,6 +138,8 @@ namespace WorkerAnt
 
                         break;
                     default:
+                        MessageBox.Show("Please report to the developer (WB 139)", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Application.Exit();
                         //error
                         break;
                 }

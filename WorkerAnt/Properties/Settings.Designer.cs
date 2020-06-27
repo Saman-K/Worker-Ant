@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Worker_Ant.Properties {
+namespace WorkerAnt.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

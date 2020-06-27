@@ -34,13 +34,13 @@
             this.btnYesOkay = new System.Windows.Forms.Button();
             this.labelTheBreakWEI = new System.Windows.Forms.Label();
             this.labelLiveBreakTime = new System.Windows.Forms.Label();
+            this.winRefresh = new System.Windows.Forms.Timer(this.components);
+            this.labelAnotherRound = new System.Windows.Forms.Label();
+            this.btnNo = new System.Windows.Forms.Button();
             this.picBoxLogo = new System.Windows.Forms.PictureBox();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.picBoxBackground = new System.Windows.Forms.PictureBox();
-            this.winRefresh = new System.Windows.Forms.Timer(this.components);
-            this.labelAnotherRound = new System.Windows.Forms.Label();
-            this.btnNo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
@@ -90,9 +90,34 @@
             this.labelLiveBreakTime.TabIndex = 8;
             this.labelLiveBreakTime.Text = "LiveBreakTime";
             // 
+            // winRefresh
+            // 
+            this.winRefresh.Tick += new System.EventHandler(this.LiveDataUpdate);
+            // 
+            // labelAnotherRound
+            // 
+            this.labelAnotherRound.AutoSize = true;
+            this.labelAnotherRound.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelAnotherRound.Location = new System.Drawing.Point(89, 87);
+            this.labelAnotherRound.Name = "labelAnotherRound";
+            this.labelAnotherRound.Size = new System.Drawing.Size(177, 13);
+            this.labelAnotherRound.TabIndex = 10;
+            this.labelAnotherRound.Text = "Do you want to start another round?";
+            // 
+            // btnNo
+            // 
+            this.btnNo.Location = new System.Drawing.Point(182, 115);
+            this.btnNo.Name = "btnNo";
+            this.btnNo.Size = new System.Drawing.Size(75, 23);
+            this.btnNo.TabIndex = 2;
+            this.btnNo.Text = "No";
+            this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.Click += new System.EventHandler(this.NoBtn);
+            // 
             // picBoxLogo
             // 
             this.picBoxLogo.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.picBoxLogo.Image = global::WorkerAnt.Properties.Resources.WorkerAntBWH128;
             this.picBoxLogo.Location = new System.Drawing.Point(12, 45);
             this.picBoxLogo.Name = "picBoxLogo";
             this.picBoxLogo.Size = new System.Drawing.Size(55, 55);
@@ -135,30 +160,6 @@
             this.picBoxBackground.Size = new System.Drawing.Size(350, 119);
             this.picBoxBackground.TabIndex = 9;
             this.picBoxBackground.TabStop = false;
-            // 
-            // winRefresh
-            // 
-            this.winRefresh.Tick += new System.EventHandler(this.LiveDataUpdate);
-            // 
-            // labelAnotherRound
-            // 
-            this.labelAnotherRound.AutoSize = true;
-            this.labelAnotherRound.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelAnotherRound.Location = new System.Drawing.Point(89, 87);
-            this.labelAnotherRound.Name = "labelAnotherRound";
-            this.labelAnotherRound.Size = new System.Drawing.Size(177, 13);
-            this.labelAnotherRound.TabIndex = 10;
-            this.labelAnotherRound.Text = "Do you want to start another round?";
-            // 
-            // btnNo
-            // 
-            this.btnNo.Location = new System.Drawing.Point(182, 115);
-            this.btnNo.Name = "btnNo";
-            this.btnNo.Size = new System.Drawing.Size(75, 23);
-            this.btnNo.TabIndex = 2;
-            this.btnNo.Text = "No";
-            this.btnNo.UseVisualStyleBackColor = true;
-            this.btnNo.Click += new System.EventHandler(this.NoBtn);
             // 
             // BreakUI
             // 

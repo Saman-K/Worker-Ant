@@ -14,12 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerAnt.Tests", "WorkerAn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerAnt", "WorkerAnt\WorkerAnt.csproj", "{F45C6111-66AC-446C-90D6-FC5514382BC4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WorkerAntSetup", "WorkerAnt Setup\Worker Ant Setup.vdproj", "{B625B86E-42A2-4F25-9B8B-8D9D5918CF38}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F45C6111-66AC-446C-90D6-FC5514382BC4} = {F45C6111-66AC-446C-90D6-FC5514382BC4}
-		{98145560-729A-41A2-9B41-4B3DE1114471} = {98145560-729A-41A2-9B41-4B3DE1114471}
-		{67D2CCA7-489C-42DC-80FC-4B264C0323EE} = {67D2CCA7-489C-42DC-80FC-4B264C0323EE}
-	EndProjectSection
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WorkerAntSetup", "WorkerAnt.Setup\Worker Ant Setup.vdproj", "{8ACDC36C-57D3-4322-9027-7EAB5BC1209B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +38,10 @@ Global
 		{F45C6111-66AC-446C-90D6-FC5514382BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45C6111-66AC-446C-90D6-FC5514382BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F45C6111-66AC-446C-90D6-FC5514382BC4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B625B86E-42A2-4F25-9B8B-8D9D5918CF38}.Debug|Any CPU.ActiveCfg = Debug
-		{B625B86E-42A2-4F25-9B8B-8D9D5918CF38}.Debug|Any CPU.Build.0 = Debug
-		{B625B86E-42A2-4F25-9B8B-8D9D5918CF38}.Release|Any CPU.ActiveCfg = Release
-		{B625B86E-42A2-4F25-9B8B-8D9D5918CF38}.Release|Any CPU.Build.0 = Release
+		{8ACDC36C-57D3-4322-9027-7EAB5BC1209B}.Debug|Any CPU.ActiveCfg = Debug
+		{8ACDC36C-57D3-4322-9027-7EAB5BC1209B}.Debug|Any CPU.Build.0 = Debug
+		{8ACDC36C-57D3-4322-9027-7EAB5BC1209B}.Release|Any CPU.ActiveCfg = Release
+		{8ACDC36C-57D3-4322-9027-7EAB5BC1209B}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
