@@ -56,25 +56,25 @@ namespace WorkerAnt
             switch (winName)
             {
                 case WindowNames.Info:
-                    OpenWindow("InfoWin");
+                    OpenWindow("AboutUI");
                     break;
                 case WindowNames.Settings:
-                    OpenWindow("SettingsWin");
+                    OpenWindow("SettingsUI");
                     break;
                 case WindowNames.Break:
-                    OpenWindow("BreakWin");
+                    OpenWindow("BreakUI");
                     break;
                 case WindowNames.ToBreak:
-                    OpenWindow("ToBreakWin");
+                    OpenWindow("DueBreakUI");
                     break;
                 case WindowNames.Main:
                     if (Properties.Settings.Default.simpleUI == true)
                     {
-                        OpenWindow("SimpleUIWin");
+                        OpenWindow("SimpleUI");
                     }
                     else if (Properties.Settings.Default.simpleUI == false)
                     {
-                        OpenWindow("CompleteUIWin");
+                        OpenWindow("CompleteUI");
                     }
                     break;
                 default:
@@ -112,29 +112,29 @@ namespace WorkerAnt
             {
                 switch (winName)
                 {
-                    case "InfoWin":
-                        var infoWin = new AboutUI();
-                        infoWin.Show();
+                    case "AboutUI":
+                        var aboutUI = new AboutUI();
+                        aboutUI.Show();
                         break;
-                    case "SettingsWin":
-                        var settingsWin = new SettingsUI();
-                        settingsWin.Show();
+                    case "SettingsUI":
+                        var settingsUI = new SettingsUI();
+                        settingsUI.Show();
                         break;
-                    case "BreakWin":
-                        var breakWin = new BreakUI();
-                        breakWin.Show();
+                    case "BreakUI":
+                        var breakUI = new BreakUI();
+                        breakUI.Show();
                         break;
-                    case "ToBreakWin":
-                        var toBreakWin = new DueBreakUI();
-                        toBreakWin.Show();
+                    case "DueBreakUI":
+                        var dueBreakUI = new DueBreakUI();
+                        dueBreakUI.Show();
                         break;
-                    case "SimpleUIWin":
-                        var simpleViewWin = new SimpleUI();
-                        simpleViewWin.Show();
+                    case "SimpleUI":
+                        var simpleUI = new SimpleUI();
+                        simpleUI.Show();
                         break;
-                    case "CompleteUIWin":
-                        var fullViewWin = new CompleteUI();
-                        fullViewWin.Show();
+                    case "CompleteUI":
+                        var completeUI = new CompleteUI();
+                        completeUI.Show();
 
                         break;
                     default:

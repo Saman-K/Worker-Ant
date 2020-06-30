@@ -359,7 +359,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.WorkerAntBW25;
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.Worker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -534,7 +534,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = "Settings";
             this.Load += new System.EventHandler(this.SettingsUILoad);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);

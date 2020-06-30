@@ -93,7 +93,14 @@ namespace WorkerAnt
         // Close Application
         private void CloseApplication(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close this Worker Ant?", "WorkerAnt", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (Countdown.TimerTick == true)
+            {
+                if (MessageBox.Show("Are you sure you want to close Worker Ant while the timer is running?", "Worker Ant", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            else
             {
                 Application.Exit();
             }
@@ -163,7 +170,7 @@ namespace WorkerAnt
 
             labelWorkTimeCountdown.Text = PreviewLapPackage.Work.IntToTimerFormat();
             labelBreakTimeCountdown.Text = PreviewLapPackage.Break.IntToTimerFormat();
-            labelRoundNumCountdown.Text = PreviewLapPackage.Laps.ToString();
+            labelLapCounterLive.Text = PreviewLapPackage.Laps.ToString();
 
             progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.Paused);
 
@@ -204,7 +211,7 @@ namespace WorkerAnt
 
             labelWorkTimePreview.Text = PreviewLapPackage.Work.IntToTimerFormat();
             labelBreakTimePreview.Text = PreviewLapPackage.Break.IntToTimerFormat();
-            labelRoundNumPreview.Text = PreviewLapPackage.Laps.ToString() ;
+            labelLapCounterPreview.Text = PreviewLapPackage.Laps.ToString() ;
         }
 
         // Manual number up down changed
@@ -234,7 +241,8 @@ namespace WorkerAnt
                 labelBreakTimeCountdown.ForeColor = SystemColors.ControlText;
             }
 
-            labelRoundNumCountdown.Text = Countdown.LapCounterLive.ToString();
+            labelLapCounterLive.Text = Countdown.LapCounterLive.ToString();
+
 
             if (Countdown.TimerTick == true)
             {
@@ -249,23 +257,38 @@ namespace WorkerAnt
 
             if (Countdown.TimeTickSegment == SegmentNames.Work)
             {
+                progressBarCountdown.Maximum = 100;
                 progressBarCountdown.SetState(1);
                 progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.Work);
-                progressBarCountdown.Style = ProgressBarStyle.Continuous;
             }
             else if (Countdown.TimeTickSegment == SegmentNames.Break)
             {
+                progressBarCountdown.Maximum = 100;
                 progressBarCountdown.SetState(3);
                 progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.Break);
-                progressBarCountdown.Style = ProgressBarStyle.Continuous;
             }
             else if (Countdown.TimeTickSegment == SegmentNames.EndBreak)
             {
                 progressBarCountdown.SetState(2);
-                progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.EndBreak);
+                progressBarCountdown.Maximum = 1;
+                progressBarCountdown.Value = 1;
+
+                if (Visible == false)
+                {
+                    Visible = true;
+                }
+            }
+            else
+            {
+                if (progressBarCountdown.Maximum == 1)
+                {
+                    progressBarCountdown.Maximum = 100;
+                    progressBarCountdown.SetState(1);
+                    progressBarCountdown.Value = Countdown.GetProgressInPercentage(SegmentNames.Paused);
+                }
             }
         }
-        
+
         // Get radio btn selected lap package
         private void GetLapPackage()
         {
@@ -311,7 +334,7 @@ namespace WorkerAnt
         }
 
         //  Notify Icon Double Click
-        private void NotifyIconDoubleClick(object sender, EventArgs e)
+        private void NotifyIconClick(object sender, EventArgs e)
         {
             if (Visible == false)
             {

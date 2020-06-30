@@ -22,19 +22,19 @@
         "Entry"
         {
         "MsmKey" = "8:_38A3AA744D35F9F8B532929FE9BE72C7"
-        "OwnerKey" = "8:_958A9D428D42422D8E9EB617E3C63A95"
+        "OwnerKey" = "8:_B90AD64856A741BBAADF1D50028E4547"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_7F163A8CACC5C2BC39FB267534808F9D"
-        "OwnerKey" = "8:_958A9D428D42422D8E9EB617E3C63A95"
+        "OwnerKey" = "8:_B90AD64856A741BBAADF1D50028E4547"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_95471B5D1B67103CEB998852B5581DE8"
-        "OwnerKey" = "8:_958A9D428D42422D8E9EB617E3C63A95"
+        "OwnerKey" = "8:_B90AD64856A741BBAADF1D50028E4547"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -45,14 +45,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_958A9D428D42422D8E9EB617E3C63A95"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_9ACBE2273891BCC30719D1C94ED3DFF2"
+        "OwnerKey" = "8:_B90AD64856A741BBAADF1D50028E4547"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9ACBE2273891BCC30719D1C94ED3DFF2"
-        "OwnerKey" = "8:_958A9D428D42422D8E9EB617E3C63A95"
+        "MsmKey" = "8:_B90AD64856A741BBAADF1D50028E4547"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_958A9D428D42422D8E9EB617E3C63A95"
+        "OwnerKey" = "8:_B90AD64856A741BBAADF1D50028E4547"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -110,6 +110,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -134,6 +142,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -199,7 +215,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:RedCell.Diagnostics.Update, Version=1.0.0.25403, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:RedCell.Diagnostics.Update, Version=1.0.0.32250, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_7F163A8CACC5C2BC39FB267534808F9D"
@@ -345,7 +361,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WorkerAnt"
         "ProductCode" = "8:{246F214E-3051-4FE0-9E1D-58D25DCFDC6F}"
-        "PackageCode" = "8:{93E3DF4F-8D36-408C-8AE3-6947FE251A47}"
+        "PackageCode" = "8:{D18E63F4-1B18-4417-8548-1F0977982788}"
         "UpgradeCode" = "8:{D578DB53-2366-4118-A710-CAE7F1D4A664}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -465,32 +481,32 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1387F82D02744743BCB62BBC22EBE851"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_29ED05D8B4AE4233A0ACC3C15A2F7363"
             {
             "Name" = "8:Worker Ant"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_958A9D428D42422D8E9EB617E3C63A95"
+            "Target" = "8:_B90AD64856A741BBAADF1D50028E4547"
             "Folder" = "8:_404B6C80CA774B3E9A665805A3BAF743"
             "WorkingFolder" = "8:_3C51379D9D194DEA9134276F4B0EF163"
-            "Icon" = "8:"
+            "Icon" = "8:_B90AD64856A741BBAADF1D50028E4547"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AB59A16AA4D04100B19CB6D74E202D4A"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_932C67B7024E4A2F920DA915C4FFFF1B"
             {
             "Name" = "8:Worker Ant"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_958A9D428D42422D8E9EB617E3C63A95"
+            "Target" = "8:_B90AD64856A741BBAADF1D50028E4547"
             "Folder" = "8:_4F0B5C7BC44E4F809760F46091E3F106"
             "WorkingFolder" = "8:_3C51379D9D194DEA9134276F4B0EF163"
-            "Icon" = "8:"
+            "Icon" = "8:_B90AD64856A741BBAADF1D50028E4547"
             "Feature" = "8:"
             }
         }
@@ -892,7 +908,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_958A9D428D42422D8E9EB617E3C63A95"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B90AD64856A741BBAADF1D50028E4547"
             {
             "SourcePath" = "8:..\\WorkerAnt\\obj\\Debug\\Worker Ant.exe"
             "TargetName" = "8:"

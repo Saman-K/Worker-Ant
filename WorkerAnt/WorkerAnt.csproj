@@ -80,6 +80,9 @@
       <DependentUpon>BreakUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Countdown.cs" />
+    <Compile Include="DueBreakUI.Designer.cs">
+      <DependentUpon>DueBreakUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enums.cs" />
     <Compile Include="CompleteUI.cs">
       <SubType>Form</SubType>
@@ -94,9 +97,12 @@
     <Compile Include="AboutUI.Designer.cs">
       <DependentUpon>AboutUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="IUserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SettingsUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,9 +118,6 @@
     <Compile Include="DueBreakUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToBreakWin.Designer.cs">
-      <DependentUpon>DueBreakUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="WindowBehavior.cs" />
     <EmbeddedResource Include="BreakUI.resx">
       <DependentUpon>BreakUI.cs</DependentUpon>
@@ -128,19 +131,19 @@
     <EmbeddedResource Include="AboutUI.resx">
       <DependentUpon>AboutUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DueBreakUI.resx">
+      <DependentUpon>DueBreakUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsUI.resx">
       <DependentUpon>SettingsUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SimpleUI.resx">
       <DependentUpon>SimpleUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ToBreakWin.resx">
-      <DependentUpon>DueBreakUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -191,6 +194,7 @@
   <ItemGroup>
     <None Include="Worker_AntBWH128.ico" />
     <None Include="Resources\Worker_Ant_About_FC.png" />
+    <None Include="Resources\Worker_AntBW25.png" />
     <Content Include="update.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

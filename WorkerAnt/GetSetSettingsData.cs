@@ -70,13 +70,13 @@ namespace WorkerAnt
 
                 RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
-                if (autoStart == true && registry.GetValue("Worker Ant") == null)
+                if (autoStart == true && registry.GetValue(Application.ProductName) == null)
                 {
-                    registry.SetValue("Worker Ant", Application.ExecutablePath.ToString());
+                    registry.SetValue(Application.ProductName, Application.ExecutablePath.ToString());
                 }
-                else if (autoStart == false && registry.GetValue("Worker Ant") != null)
+                else if (autoStart == false && registry.GetValue(Application.ProductName) != null)
                 {
-                    registry.DeleteValue("Worker Ant");
+                    registry.DeleteValue(Application.ProductName);
                 }
 
                 Properties.Settings.Default.Save();
@@ -122,14 +122,14 @@ namespace WorkerAnt
             simpleUI = Properties.Settings.Default.simpleUI;
 
             RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            // loading registry data for auto start
-            if (registry.GetValue("Worker Ant", Application.ExecutablePath.ToString()) == null)
+
+            if (registry.GetValue(Application.ProductName) != null && Application.ExecutablePath == registry.GetValue(Application.ProductName).ToString())
             {
-                autoStart = false;
+                autoStart = true;
             }
             else
             {
-                autoStart = true;
+                autoStart = false;
             }
 
             return (audioAlert, simpleUI, autoStart);

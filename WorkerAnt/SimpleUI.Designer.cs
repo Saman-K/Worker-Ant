@@ -32,7 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleUI));
             this.labelWinName = new System.Windows.Forms.Label();
             this.rightClickMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.radioBtnRecovery = new System.Windows.Forms.RadioButton();
             this.radioBtnProgress = new System.Windows.Forms.RadioButton();
@@ -40,26 +43,23 @@
             this.progressBarCountdown = new System.Windows.Forms.ProgressBar();
             this.winRefresh = new System.Windows.Forms.Timer(this.components);
             this.groupBoxCountdown = new System.Windows.Forms.GroupBox();
-            this.labelRoundNumCountdown = new System.Windows.Forms.Label();
+            this.labelLapCounterLive = new System.Windows.Forms.Label();
             this.labelBreakTimeCountdown = new System.Windows.Forms.Label();
             this.labelWorkTimeCountdown = new System.Windows.Forms.Label();
-            this.labelRoundCountdown = new System.Windows.Forms.Label();
+            this.labelLapLive = new System.Windows.Forms.Label();
             this.labelBreakCountdown = new System.Windows.Forms.Label();
             this.labelWorkCountdown = new System.Windows.Forms.Label();
             this.notifyIconSUI = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.picBoxSettings = new System.Windows.Forms.PictureBox();
             this.picBoxInfo = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rightClickMenuStrip.SuspendLayout();
             this.groupBoxCountdown.SuspendLayout();
             this.contextMenuStripNotifyIcon.SuspendLayout();
@@ -93,10 +93,34 @@
             this.rightClickMenuStrip.Name = "rightClickMenuStrip";
             this.rightClickMenuStrip.Size = new System.Drawing.Size(117, 76);
             // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolStripMenuItem.Image")));
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.OpenSettings);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OpenAbout);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(113, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.CloseApplication);
             // 
             // btnStartStop
             // 
@@ -167,10 +191,10 @@
             // 
             this.groupBoxCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxCountdown.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBoxCountdown.Controls.Add(this.labelRoundNumCountdown);
+            this.groupBoxCountdown.Controls.Add(this.labelLapCounterLive);
             this.groupBoxCountdown.Controls.Add(this.labelBreakTimeCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkTimeCountdown);
-            this.groupBoxCountdown.Controls.Add(this.labelRoundCountdown);
+            this.groupBoxCountdown.Controls.Add(this.labelLapLive);
             this.groupBoxCountdown.Controls.Add(this.labelBreakCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkCountdown);
             this.groupBoxCountdown.Location = new System.Drawing.Point(137, 36);
@@ -180,16 +204,16 @@
             this.groupBoxCountdown.TabStop = false;
             this.groupBoxCountdown.Text = "Countdown";
             // 
-            // labelRoundNumCountdown
+            // labelLapCounterLive
             // 
-            this.labelRoundNumCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelRoundNumCountdown.AutoSize = true;
-            this.labelRoundNumCountdown.Location = new System.Drawing.Point(79, 56);
-            this.labelRoundNumCountdown.Name = "labelRoundNumCountdown";
-            this.labelRoundNumCountdown.Size = new System.Drawing.Size(71, 13);
-            this.labelRoundNumCountdown.TabIndex = 5;
-            this.labelRoundNumCountdown.Text = "Round(s) Left";
-            this.labelRoundNumCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLapCounterLive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLapCounterLive.AutoSize = true;
+            this.labelLapCounterLive.Location = new System.Drawing.Point(79, 56);
+            this.labelLapCounterLive.Name = "labelLapCounterLive";
+            this.labelLapCounterLive.Size = new System.Drawing.Size(51, 13);
+            this.labelLapCounterLive.TabIndex = 5;
+            this.labelLapCounterLive.Text = "Laps Left";
+            this.labelLapCounterLive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBreakTimeCountdown
             // 
@@ -213,14 +237,14 @@
             this.labelWorkTimeCountdown.Text = "Work Time";
             this.labelWorkTimeCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelRoundCountdown
+            // labelLapLive
             // 
-            this.labelRoundCountdown.AutoSize = true;
-            this.labelRoundCountdown.Location = new System.Drawing.Point(6, 56);
-            this.labelRoundCountdown.Name = "labelRoundCountdown";
-            this.labelRoundCountdown.Size = new System.Drawing.Size(39, 13);
-            this.labelRoundCountdown.TabIndex = 2;
-            this.labelRoundCountdown.Text = "Round";
+            this.labelLapLive.AutoSize = true;
+            this.labelLapLive.Location = new System.Drawing.Point(6, 56);
+            this.labelLapLive.Name = "labelLapLive";
+            this.labelLapLive.Size = new System.Drawing.Size(25, 13);
+            this.labelLapLive.TabIndex = 2;
+            this.labelLapLive.Text = "Lap";
             // 
             // labelBreakCountdown
             // 
@@ -246,7 +270,7 @@
             this.notifyIconSUI.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconSUI.Icon")));
             this.notifyIconSUI.Text = "Worker Ant";
             this.notifyIconSUI.Visible = true;
-            this.notifyIconSUI.DoubleClick += new System.EventHandler(this.NotifyIconDoubleClick);
+            this.notifyIconSUI.Click += new System.EventHandler(this.NotifyIconSUI_Click);
             // 
             // contextMenuStripNotifyIcon
             // 
@@ -263,36 +287,28 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconDoubleClick);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconSUI_Click);
+            // 
+            // aboutToolStripMenuItem1
+            // 
+            this.aboutToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem1.Image")));
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem1.Text = "About";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.OpenAbout);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
             // 
-            // settingsToolStripMenuItem
+            // exitToolStripMenuItem1
             // 
-            this.settingsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolStripMenuItem.Image")));
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.OpenSettings);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OpenAbout);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.CloseApplication);
+            this.exitToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem1.Image")));
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.CloseApplication);
             // 
             // picBoxSettings
             // 
@@ -365,22 +381,6 @@
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
-            // aboutToolStripMenuItem1
-            // 
-            this.aboutToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem1.Image")));
-            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem1.Text = "About";
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.OpenAbout);
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem1.Image")));
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.CloseApplication);
-            // 
             // SimpleUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,10 +437,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer winRefresh;
         private System.Windows.Forms.GroupBox groupBoxCountdown;
-        public System.Windows.Forms.Label labelRoundNumCountdown;
+        public System.Windows.Forms.Label labelLapCounterLive;
         public System.Windows.Forms.Label labelBreakTimeCountdown;
         public System.Windows.Forms.Label labelWorkTimeCountdown;
-        private System.Windows.Forms.Label labelRoundCountdown;
+        private System.Windows.Forms.Label labelLapLive;
         private System.Windows.Forms.Label labelBreakCountdown;
         private System.Windows.Forms.Label labelWorkCountdown;
         private System.Windows.Forms.ContextMenuStrip rightClickMenuStrip;

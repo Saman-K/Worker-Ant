@@ -117,7 +117,7 @@
             // picBoxLogo
             // 
             this.picBoxLogo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picBoxLogo.Image = global::WorkerAnt.Properties.Resources.WorkerAntBWH128;
+            this.picBoxLogo.Image = global::WorkerAnt.Properties.Resources.Worker_AntBWH128;
             this.picBoxLogo.Location = new System.Drawing.Point(12, 45);
             this.picBoxLogo.Name = "picBoxLogo";
             this.picBoxLogo.Size = new System.Drawing.Size(55, 55);
@@ -127,7 +127,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.WorkerAntBW25;
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.Worker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -180,6 +180,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BreakUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Break Time";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.BreakBasicWin_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);

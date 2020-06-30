@@ -96,11 +96,11 @@ namespace WorkerAnt
         {
             if (segment == SegmentNames.Work)
             {
-                return 100 - (LastUserInput.Work * 100) / WorkTimerLive;
+                return  100 - ((WorkTimerLive* 100) / LastUserInput.Work );
             }
             else if (segment == SegmentNames.Break)
             {
-                return (LastUserInput.Break * 100) / BreakTimerLive;
+                return (BreakTimerLive * 100) / LastUserInput.Break;
             }
             else if (segment == SegmentNames.EndBreak)
             {
@@ -234,7 +234,7 @@ namespace WorkerAnt
             if (btnText == "Start")
             {
                 // start from the top
-                if (WorkTimerLive == LastUserInput.Work || BreakTimerLive == LastUserInput.Break && LapCounterLive == LastUserInput.Laps)
+                if ((WorkTimerLive == LastUserInput.Work || BreakTimerLive == LastUserInput.Break && LapCounterLive == LastUserInput.Laps) || TimeTickSegment == SegmentNames.EndBreak)
                 {
                     
                     LapCounterLive--;
@@ -288,9 +288,10 @@ namespace WorkerAnt
                 }
                 else
                 {
+                    TimeTickSegment = SegmentNames.Paused;
                     _countdownTimer.Stop();
                     TimerTick = false;
-                    TimeTickSegment = SegmentNames.Paused;
+
                     return "Start";
                 }
             }
@@ -343,9 +344,9 @@ namespace WorkerAnt
         {
             Set();
 
+            TimeTickSegment = SegmentNames.Paused;
             _countdownTimer.Stop();
             TimerTick = false;
-            TimeTickSegment = SegmentNames.Paused;
         }
 
         /// <summary>
@@ -359,13 +360,13 @@ namespace WorkerAnt
             }
             else
             {
-            _countdownTimer.Stop();
-            TimerTick = false;
-            TimeTickSegment = SegmentNames.Paused;
-            WorkTimerLive = LastUserInput.Work;
-            BreakTimerLive = LastUserInput.Break;
-            }
+                TimeTickSegment = SegmentNames.Paused;
+                _countdownTimer.Stop();
+                TimerTick = false;
 
+                WorkTimerLive = LastUserInput.Work;
+                BreakTimerLive = LastUserInput.Break;
+            }
         }
         #endregion
     }

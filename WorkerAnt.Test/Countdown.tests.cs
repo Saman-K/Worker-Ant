@@ -12,26 +12,32 @@ namespace WorkerAnt.Test
         {
 
             // Arrange
-           Countdown.LastUserInput = (3000, 300, 3);
-            Countdown.Set();
             Countdown.LastUserInput = (1000, 100, 3);
+            Countdown.Set();
+            Countdown.LastUserInput = (3000, 300, 3);
+            
+
+
 
             var expectedWork = 67;
             var expectedBreak = 33;
+            var expectedEndBreak = 100;
+            var expectedPaused = 0;
 
 
             // Act
-            var actualWork =  Countdown.GetProgressInPercentage(SegmentNames.Work);
+            var actualWork = Countdown.GetProgressInPercentage(SegmentNames.Work);
             var actualBreak = Countdown.GetProgressInPercentage(SegmentNames.Break);
             var actualEndBreak = Countdown.GetProgressInPercentage(SegmentNames.EndBreak);
             var actualPaused = Countdown.GetProgressInPercentage(SegmentNames.Paused);
 
 
-            // Assert
+            //Assert
             Assert.AreEqual(expectedWork, actualWork);
             Assert.AreEqual(expectedBreak, actualBreak);
-            Assert.AreEqual(100, actualEndBreak);
-            Assert.AreEqual(0, actualPaused);
+            Assert.AreEqual(expectedEndBreak, actualEndBreak);
+            Assert.AreEqual(expectedPaused, actualPaused);
+
         }
 
         [TestMethod]
@@ -71,17 +77,5 @@ namespace WorkerAnt.Test
             Assert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void Test()
-        {
-            // Arrange
-           
-
-            // Act
-
-
-            // Assert
-
-        }
     }
 }

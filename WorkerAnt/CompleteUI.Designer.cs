@@ -36,10 +36,10 @@
             this.labelBreakManual = new System.Windows.Forms.Label();
             this.labelWorkManual = new System.Windows.Forms.Label();
             this.groupBoxCountdown = new System.Windows.Forms.GroupBox();
-            this.labelRoundNumCountdown = new System.Windows.Forms.Label();
+            this.labelLapCounterLive = new System.Windows.Forms.Label();
             this.labelBreakTimeCountdown = new System.Windows.Forms.Label();
             this.labelWorkTimeCountdown = new System.Windows.Forms.Label();
-            this.labelRoundCountdown = new System.Windows.Forms.Label();
+            this.labellabelLapLive = new System.Windows.Forms.Label();
             this.labelBreakCountdown = new System.Windows.Forms.Label();
             this.labelWorkCountdown = new System.Windows.Forms.Label();
             this.progressBarCountdown = new System.Windows.Forms.ProgressBar();
@@ -49,10 +49,10 @@
             this.btnSetReset = new System.Windows.Forms.Button();
             this.btnStartStop = new System.Windows.Forms.Button();
             this.groupBoxPreview = new System.Windows.Forms.GroupBox();
-            this.labelRoundNumPreview = new System.Windows.Forms.Label();
+            this.labelLapCounterPreview = new System.Windows.Forms.Label();
             this.labelBreakTimePreview = new System.Windows.Forms.Label();
             this.labelWorkTimePreview = new System.Windows.Forms.Label();
-            this.labelRoundPreview = new System.Windows.Forms.Label();
+            this.labelLapPreview = new System.Windows.Forms.Label();
             this.labelBreakPreview = new System.Windows.Forms.Label();
             this.labelWorkPreview = new System.Windows.Forms.Label();
             this.rightClickMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -169,10 +169,10 @@
             // 
             this.groupBoxCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxCountdown.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBoxCountdown.Controls.Add(this.labelRoundNumCountdown);
+            this.groupBoxCountdown.Controls.Add(this.labelLapCounterLive);
             this.groupBoxCountdown.Controls.Add(this.labelBreakTimeCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkTimeCountdown);
-            this.groupBoxCountdown.Controls.Add(this.labelRoundCountdown);
+            this.groupBoxCountdown.Controls.Add(this.labellabelLapLive);
             this.groupBoxCountdown.Controls.Add(this.labelBreakCountdown);
             this.groupBoxCountdown.Controls.Add(this.labelWorkCountdown);
             this.groupBoxCountdown.Location = new System.Drawing.Point(12, 115);
@@ -182,16 +182,16 @@
             this.groupBoxCountdown.TabStop = false;
             this.groupBoxCountdown.Text = "Countdown";
             // 
-            // labelRoundNumCountdown
+            // labelLapCounterLive
             // 
-            this.labelRoundNumCountdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelRoundNumCountdown.AutoSize = true;
-            this.labelRoundNumCountdown.Location = new System.Drawing.Point(79, 56);
-            this.labelRoundNumCountdown.Name = "labelRoundNumCountdown";
-            this.labelRoundNumCountdown.Size = new System.Drawing.Size(71, 13);
-            this.labelRoundNumCountdown.TabIndex = 5;
-            this.labelRoundNumCountdown.Text = "Round(s) Left";
-            this.labelRoundNumCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLapCounterLive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelLapCounterLive.AutoSize = true;
+            this.labelLapCounterLive.Location = new System.Drawing.Point(79, 56);
+            this.labelLapCounterLive.Name = "labelLapCounterLive";
+            this.labelLapCounterLive.Size = new System.Drawing.Size(51, 13);
+            this.labelLapCounterLive.TabIndex = 5;
+            this.labelLapCounterLive.Text = "Laps Left";
+            this.labelLapCounterLive.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBreakTimeCountdown
             // 
@@ -215,14 +215,14 @@
             this.labelWorkTimeCountdown.Text = "Work Time";
             this.labelWorkTimeCountdown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelRoundCountdown
+            // labellabelLapLive
             // 
-            this.labelRoundCountdown.AutoSize = true;
-            this.labelRoundCountdown.Location = new System.Drawing.Point(6, 56);
-            this.labelRoundCountdown.Name = "labelRoundCountdown";
-            this.labelRoundCountdown.Size = new System.Drawing.Size(39, 13);
-            this.labelRoundCountdown.TabIndex = 2;
-            this.labelRoundCountdown.Text = "Round";
+            this.labellabelLapLive.AutoSize = true;
+            this.labellabelLapLive.Location = new System.Drawing.Point(6, 56);
+            this.labellabelLapLive.Name = "labellabelLapLive";
+            this.labellabelLapLive.Size = new System.Drawing.Size(25, 13);
+            this.labellabelLapLive.TabIndex = 2;
+            this.labellabelLapLive.Text = "Lap";
             // 
             // labelBreakCountdown
             // 
@@ -320,10 +320,10 @@
             // 
             this.groupBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxPreview.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBoxPreview.Controls.Add(this.labelRoundNumPreview);
+            this.groupBoxPreview.Controls.Add(this.labelLapCounterPreview);
             this.groupBoxPreview.Controls.Add(this.labelBreakTimePreview);
             this.groupBoxPreview.Controls.Add(this.labelWorkTimePreview);
-            this.groupBoxPreview.Controls.Add(this.labelRoundPreview);
+            this.groupBoxPreview.Controls.Add(this.labelLapPreview);
             this.groupBoxPreview.Controls.Add(this.labelBreakPreview);
             this.groupBoxPreview.Controls.Add(this.labelWorkPreview);
             this.groupBoxPreview.Location = new System.Drawing.Point(174, 115);
@@ -333,16 +333,16 @@
             this.groupBoxPreview.TabStop = false;
             this.groupBoxPreview.Text = "Preview";
             // 
-            // labelRoundNumPreview
+            // labelLapCounterPreview
             // 
-            this.labelRoundNumPreview.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelRoundNumPreview.AutoSize = true;
-            this.labelRoundNumPreview.Location = new System.Drawing.Point(89, 56);
-            this.labelRoundNumPreview.Name = "labelRoundNumPreview";
-            this.labelRoundNumPreview.Size = new System.Drawing.Size(50, 13);
-            this.labelRoundNumPreview.TabIndex = 5;
-            this.labelRoundNumPreview.Text = "Round(s)";
-            this.labelRoundNumPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLapCounterPreview.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelLapCounterPreview.AutoSize = true;
+            this.labelLapCounterPreview.Location = new System.Drawing.Point(89, 56);
+            this.labelLapCounterPreview.Name = "labelLapCounterPreview";
+            this.labelLapCounterPreview.Size = new System.Drawing.Size(30, 13);
+            this.labelLapCounterPreview.TabIndex = 5;
+            this.labelLapCounterPreview.Text = "Laps";
+            this.labelLapCounterPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBreakTimePreview
             // 
@@ -366,14 +366,14 @@
             this.labelWorkTimePreview.Text = "Work Time";
             this.labelWorkTimePreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelRoundPreview
+            // labelLapPreview
             // 
-            this.labelRoundPreview.AutoSize = true;
-            this.labelRoundPreview.Location = new System.Drawing.Point(6, 56);
-            this.labelRoundPreview.Name = "labelRoundPreview";
-            this.labelRoundPreview.Size = new System.Drawing.Size(39, 13);
-            this.labelRoundPreview.TabIndex = 2;
-            this.labelRoundPreview.Text = "Round";
+            this.labelLapPreview.AutoSize = true;
+            this.labelLapPreview.Location = new System.Drawing.Point(6, 56);
+            this.labelLapPreview.Name = "labelLapPreview";
+            this.labelLapPreview.Size = new System.Drawing.Size(25, 13);
+            this.labelLapPreview.TabIndex = 2;
+            this.labelLapPreview.Text = "Lap";
             // 
             // labelBreakPreview
             // 
@@ -476,7 +476,7 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconDoubleClick);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconClick);
             // 
             // aboutToolStripMenuItem1
             // 
@@ -577,7 +577,7 @@
             this.notifyIconCUI.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconCUI.Icon")));
             this.notifyIconCUI.Text = "Worker Ant";
             this.notifyIconCUI.Visible = true;
-            this.notifyIconCUI.DoubleClick += new System.EventHandler(this.NotifyIconDoubleClick);
+            this.notifyIconCUI.Click += new System.EventHandler(this.NotifyIconClick);
             // 
             // CompleteUI
             // 
@@ -636,12 +636,12 @@
         private System.Windows.Forms.Label labelBreakManual;
         private System.Windows.Forms.Label labelWorkManual;
         private System.Windows.Forms.GroupBox groupBoxCountdown;
-        private System.Windows.Forms.Label labelRoundCountdown;
+        private System.Windows.Forms.Label labellabelLapLive;
         private System.Windows.Forms.Label labelBreakCountdown;
         private System.Windows.Forms.Label labelWorkCountdown;
         private System.Windows.Forms.ProgressBar progressBarCountdown;
         private System.Windows.Forms.GroupBox groupBoxPreview;
-        private System.Windows.Forms.Label labelRoundPreview;
+        private System.Windows.Forms.Label labelLapPreview;
         private System.Windows.Forms.Label labelBreakPreview;
         private System.Windows.Forms.Label labelWorkPreview;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -651,12 +651,12 @@
         public System.Windows.Forms.RadioButton radioBtnProgress;
         public System.Windows.Forms.RadioButton radioBtnRecovery;
         public System.Windows.Forms.RadioButton radioBtnManual;
-        public System.Windows.Forms.Label labelRoundNumCountdown;
+        public System.Windows.Forms.Label labelLapCounterLive;
         public System.Windows.Forms.Label labelBreakTimeCountdown;
         public System.Windows.Forms.Label labelWorkTimeCountdown;
         public System.Windows.Forms.Button btnSetReset;
         public System.Windows.Forms.Button btnStartStop;
-        public System.Windows.Forms.Label labelRoundNumPreview;
+        public System.Windows.Forms.Label labelLapCounterPreview;
         public System.Windows.Forms.Label labelBreakTimePreview;
         public System.Windows.Forms.Label labelWorkTimePreview;
         private System.Windows.Forms.Timer winRefresh;

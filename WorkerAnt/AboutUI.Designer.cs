@@ -78,7 +78,7 @@
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoPictureBox.Image = global::WorkerAnt.Properties.Resources.WorkerAnt_About_FC;
+            this.logoPictureBox.Image = global::WorkerAnt.Properties.Resources.Worker_Ant_About_FC;
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
@@ -174,7 +174,7 @@
             // 
             // picBoxIcon
             // 
-            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.WorkerAntBW25;
+            this.picBoxIcon.Image = global::WorkerAnt.Properties.Resources.Worker_AntBW25;
             this.picBoxIcon.Location = new System.Drawing.Point(3, 1);
             this.picBoxIcon.Name = "picBoxIcon";
             this.picBoxIcon.Size = new System.Drawing.Size(25, 25);
@@ -231,7 +231,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InfoWin";
+            this.Text = "About Worker Ant";
             this.TopMost = true;
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);

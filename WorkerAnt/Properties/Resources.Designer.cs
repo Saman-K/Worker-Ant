@@ -22,7 +22,7 @@ namespace WorkerAnt.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace WorkerAnt.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WorkerAnt.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace WorkerAnt.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Info {
+        public static System.Drawing.Bitmap Info {
             get {
                 object obj = ResourceManager.GetObject("Info", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Info_L {
+        public static System.Drawing.Bitmap Info_L {
             get {
                 object obj = ResourceManager.GetObject("Info_L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Settings {
+        public static System.Drawing.Bitmap Settings {
             get {
                 object obj = ResourceManager.GetObject("Settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +93,7 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Settings_L {
+        public static System.Drawing.Bitmap Settings_L {
             get {
                 object obj = ResourceManager.GetObject("Settings_L", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,9 +103,9 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WorkerAnt_About_FC {
+        public static System.Drawing.Bitmap Worker_Ant_About_FC {
             get {
-                object obj = ResourceManager.GetObject("WorkerAnt_About_FC", resourceCulture);
+                object obj = ResourceManager.GetObject("Worker_Ant_About_FC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WorkerAntBW25 {
+        public static System.Drawing.Bitmap Worker_AntBW25 {
             get {
-                object obj = ResourceManager.GetObject("WorkerAntBW25", resourceCulture);
+                object obj = ResourceManager.GetObject("Worker_AntBW25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WorkerAntBWH128 {
+        public static System.Drawing.Bitmap Worker_AntBWH128 {
             get {
-                object obj = ResourceManager.GetObject("WorkerAntBWH128", resourceCulture);
+                object obj = ResourceManager.GetObject("Worker_AntBWH128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,7 +133,17 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap X_Close {
+        public static System.Drawing.Bitmap Worker_AntBWH1281 {
+            get {
+                object obj = ResourceManager.GetObject("Worker_AntBWH1281", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap X_Close {
             get {
                 object obj = ResourceManager.GetObject("X_Close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +153,7 @@ namespace WorkerAnt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap X_Close_D {
+        public static System.Drawing.Bitmap X_Close_D {
             get {
                 object obj = ResourceManager.GetObject("X_Close_D", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

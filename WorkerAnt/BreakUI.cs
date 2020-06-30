@@ -120,12 +120,12 @@ namespace WorkerAnt
                 }
                 else
                 {
-                    //Close();
+                    Close();
                 }
             }
             else
             {
-                //Close();
+                Close();
             }
         }
         // yes and okay button
