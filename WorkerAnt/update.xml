@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Manifest version="1">
+<Manifest version="1.0.2.0">
   <CheckInterval>3600</CheckInterval>
   <RemoteConfigUri>https://samank.me/Download/WorkerAnt/update.xml</RemoteConfigUri>
   <SecurityToken>f45c6111-66ac-446c-90d6-fc5514382bc4</SecurityToken>
