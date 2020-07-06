@@ -16,7 +16,7 @@ namespace RedCell.Diagnostics.Update
         /// The default check interval
         /// </summary>
         public const int DefaultCheckInterval = 3600; // 3600s == 60 min
-        public const int FirstCheckDelay = 15;
+        public const int FirstCheckDelay = 0;
 
         /// <summary>
         /// The default configuration file
@@ -101,6 +101,7 @@ namespace RedCell.Diagnostics.Update
             {
                 Log.Write("Updater is already updating.");
                 Log.Write("Check ending.");
+                return;
             }
             var remoteUri = new Uri(this._localConfig.RemoteConfigUri);
 
@@ -109,7 +110,7 @@ namespace RedCell.Diagnostics.Update
             http.Load(remoteUri.AbsoluteUri);
             if (!http.Success)
             {
-                Log.Write("Fetch error: {0}", http.Response.StatusDescription);
+                //Log.Write("Fetch error: {0}", http.Response.StatusDescription);
                 this._remoteConfig = null;
                 return;
             }

@@ -107,7 +107,6 @@ namespace WorkerAnt
         // Default Button
         private void DefaultBtn(object sender, EventArgs e)
         {
-
             GetSetSettingsData.SetSettingsToDefault();
             SettingsUILoad(null, null);
             checkBoxAutoStart.Checked = true;

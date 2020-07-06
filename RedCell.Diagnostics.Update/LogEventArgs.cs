@@ -19,7 +19,7 @@ namespace RedCell.Diagnostics.Update
         }
         #endregion
 
-        #region Proprties
+        #region Properties
         /// <summary>
         /// Gets the time stamp.
         /// </summary>
