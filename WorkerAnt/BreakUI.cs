@@ -24,7 +24,7 @@ namespace WorkerAnt
             InitializeComponent();
         }
         // win load
-        private void BreakBasicWin_Load(object sender, EventArgs e)
+        private void BreakUILoad(object sender, EventArgs e)
         {
             winRefresh.Start();
             if (Countdown.LapCounterLive > 0)

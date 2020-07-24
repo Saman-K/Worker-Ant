@@ -182,7 +182,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Break Time";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.BreakBasicWin_Load);
+            this.Load += new System.EventHandler(this.BreakUILoad);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.WindowMouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.WindowMouseUp);

@@ -283,7 +283,7 @@ namespace WorkerAnt
         }
 
         // Notify icon click
-        private void NotifyIconSUI_Click(object sender, EventArgs e)
+        private void NotifyIconSUIClick(object sender, EventArgs e)
         {
             if (Visible == false)
             {

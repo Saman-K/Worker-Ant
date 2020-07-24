@@ -270,7 +270,7 @@
             this.notifyIconSUI.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconSUI.Icon")));
             this.notifyIconSUI.Text = "Worker Ant";
             this.notifyIconSUI.Visible = true;
-            this.notifyIconSUI.Click += new System.EventHandler(this.NotifyIconSUI_Click);
+            this.notifyIconSUI.Click += new System.EventHandler(this.NotifyIconSUIClick);
             // 
             // contextMenuStripNotifyIcon
             // 
@@ -287,7 +287,7 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconSUI_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.NotifyIconSUIClick);
             // 
             // aboutToolStripMenuItem1
             // 
