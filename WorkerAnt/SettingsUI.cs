@@ -96,7 +96,14 @@ namespace WorkerAnt
         private void OpenAbout(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
-            winCouter.WindowsOpenCheck(WindowNames.Info);
+            try
+            {
+                winCouter.WindowsOpenCheck(WindowNames.Info);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
 

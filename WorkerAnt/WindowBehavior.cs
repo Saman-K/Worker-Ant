@@ -36,8 +36,6 @@ namespace WorkerAnt
                 Application.Run(new CompleteUI());
             }
         }
-
-
         #endregion
 
         #region Methods
@@ -73,10 +71,8 @@ namespace WorkerAnt
                     }
                     break;
                 default:
-                    MessageBox.Show("Please report to the developer (WB 81)", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Application.Exit();
-                    //error
-                    break;
+                    throw new ArgumentOutOfRangeException("winName", winName, "Please report to the developer (WB 74)");
+
             }
 
         }
@@ -97,9 +93,7 @@ namespace WorkerAnt
                     }
                     catch 
                     {
-                        MessageBox.Show("Please report to the developer (WB 104)", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Application.Exit();
-                        //error
+                        throw new ArgumentOutOfRangeException("WindowsOpenStatus", WindowsOpenStatus, "Please report to the developer (WB 96)");
                     }
                 }
             }
@@ -133,10 +127,7 @@ namespace WorkerAnt
 
                         break;
                     default:
-                        MessageBox.Show("Please report to the developer (WB 139)", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Application.Exit();
-                        //error
-                        break;
+                        throw new ArgumentOutOfRangeException("winName", winName, "Please report to the developer (WB 130)");
                 }
             }
         }

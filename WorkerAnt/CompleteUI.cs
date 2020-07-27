@@ -51,8 +51,7 @@ namespace WorkerAnt
             }
             else
             {
-                MessageBox.Show("Radio Button not found!", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                // error "Radio Button not found!"
                 radioBtnSmart.Checked = true;
             }
 
@@ -131,7 +130,14 @@ namespace WorkerAnt
         private void OpenAbout(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
-            winCouter.WindowsOpenCheck(WindowNames.Info);
+            try
+            {
+                winCouter.WindowsOpenCheck(WindowNames.Info);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
         #region ------------------------------------------------------------------------- Settings picture box
@@ -149,7 +155,15 @@ namespace WorkerAnt
         private void OpenSettings(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
-            winCouter.WindowsOpenCheck(WindowNames.Settings);
+            try
+            {
+                winCouter.WindowsOpenCheck(WindowNames.Settings);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message , "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
         #endregion
         #endregion
@@ -196,7 +210,18 @@ namespace WorkerAnt
             {
                 winRefresh.Stop();
             }
-            btnStartStop.Text = btnStartStop.Text.StartStop();
+            try
+            {
+                btnStartStop.Text = btnStartStop.Text.StartStop();
+            }
+            catch (TimeoutException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
@@ -316,8 +341,6 @@ namespace WorkerAnt
             }
             else
             {
-                MessageBox.Show("Radio Button not found!", "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 // error "Radio Button not found"
                 PreviewLapPackage = LapPackageNames.Smart.GetLapPackageValue();
             }

@@ -84,7 +84,7 @@ namespace WorkerAnt
             }
             catch
             {
-                message = "Settings has been saved!";
+                message = "Settings could not be saved!";
             }
             return message;
         }
@@ -96,6 +96,7 @@ namespace WorkerAnt
         public static ((decimal workRecovery, decimal breakRecovery), ( decimal workSmart, decimal breakSmart), (decimal workProgress, decimal breakProgress), decimal lapCounter)
             GetSattingsLapPackages()
         {
+
             decimal workRecovery = Properties.Settings.Default.recoveryWorkTime / 60;
             decimal breakRecovery = Properties.Settings.Default.recoveryBreakTime / 60;
             decimal workSmart = Properties.Settings.Default.smartWorkTime / 60;
@@ -105,6 +106,7 @@ namespace WorkerAnt
             decimal lapCounter = Properties.Settings.Default.lapCounter;
 
             return ((workRecovery, breakRecovery),( workSmart, breakSmart), (workProgress, breakProgress),lapCounter);
+
         }
 
         /// <summary>
