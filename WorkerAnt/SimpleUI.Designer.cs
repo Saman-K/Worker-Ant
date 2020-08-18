@@ -41,7 +41,7 @@
             this.radioBtnProgress = new System.Windows.Forms.RadioButton();
             this.radioBtnSmart = new System.Windows.Forms.RadioButton();
             this.progressBarCountdown = new System.Windows.Forms.ProgressBar();
-            this.winRefresh = new System.Windows.Forms.Timer(this.components);
+            this.liveDataUpdate = new System.Windows.Forms.Timer(this.components);
             this.groupBoxCountdown = new System.Windows.Forms.GroupBox();
             this.labelLapCounterLive = new System.Windows.Forms.Label();
             this.labelBreakTimeCountdown = new System.Windows.Forms.Label();
@@ -183,9 +183,9 @@
             this.progressBarCountdown.Size = new System.Drawing.Size(200, 22);
             this.progressBarCountdown.TabIndex = 20;
             // 
-            // winRefresh
+            // liveDataUpdate
             // 
-            this.winRefresh.Tick += new System.EventHandler(this.LiveDataUpdate);
+            this.liveDataUpdate.Tick += new System.EventHandler(this.LiveDataUpdate);
             // 
             // groupBoxCountdown
             // 
@@ -435,7 +435,7 @@
         public System.Windows.Forms.RadioButton radioBtnSmart;
         private System.Windows.Forms.ProgressBar progressBarCountdown;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer winRefresh;
+        private System.Windows.Forms.Timer liveDataUpdate;
         private System.Windows.Forms.GroupBox groupBoxCountdown;
         public System.Windows.Forms.Label labelLapCounterLive;
         public System.Windows.Forms.Label labelBreakTimeCountdown;

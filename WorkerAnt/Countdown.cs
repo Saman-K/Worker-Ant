@@ -140,7 +140,7 @@ namespace WorkerAnt
         /// <param name="e"></param>
         private static void CountdownTimer_Tick(object sender, EventArgs e)
         {
-            _countdownTimer.Interval = 100;
+            _countdownTimer.Interval = 1000;
             if (TimeTickSegment == SegmentNames.Work)
             {
                 if (WorkTimerLive > 0)

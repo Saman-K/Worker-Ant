@@ -167,12 +167,12 @@ namespace WorkerAnt
         {
             if (btnStartStop.Text == "Start")
             {
-                winRefresh.Start();
+                liveDataUpdate.Start();
                 RadioBtnEnabel(false);
             }
             else if (btnStartStop.Text == "Stop" && Countdown.TimeTickSegment == SegmentNames.Break)
             {
-                winRefresh.Stop();
+                liveDataUpdate.Stop();
                 RadioBtnEnabel(true);
             }
             SaveLapPackageUsed();
@@ -238,7 +238,7 @@ namespace WorkerAnt
             radioBtnProgress.Enabled = trueFalse;
         }
 
-        // Refresh window data (timer)
+        // Live data Updater (timer)
         private void LiveDataUpdate(object sender, EventArgs e)
         {
             labelWorkTimeCountdown.Text = Countdown.WorkTimerLive.IntToTimerFormat();

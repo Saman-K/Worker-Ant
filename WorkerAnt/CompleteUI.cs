@@ -204,11 +204,11 @@ namespace WorkerAnt
                 {
                     SetBtn(null, null);
                 }
-                winRefresh.Start();
+                liveDataUpdate.Start();
             }
             else if (btnStartStop.Text == "Stop" && Countdown.TimeTickSegment == SegmentNames.Break)
             {
-                winRefresh.Stop();
+                liveDataUpdate.Stop();
             }
             try
             {

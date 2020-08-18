@@ -62,7 +62,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioBtnManual = new System.Windows.Forms.RadioButton();
-            this.winRefresh = new System.Windows.Forms.Timer(this.components);
+            this.liveDataUpdate = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStripNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -457,9 +457,9 @@
             this.radioBtnManual.UseVisualStyleBackColor = false;
             this.radioBtnManual.CheckedChanged += new System.EventHandler(this.RadioBtnChineged);
             // 
-            // winRefresh
+            // liveDataUpdate
             // 
-            this.winRefresh.Tick += new System.EventHandler(this.LiveDataUpdate);
+            this.liveDataUpdate.Tick += new System.EventHandler(this.LiveDataUpdate);
             // 
             // contextMenuStripNotifyIcon
             // 
@@ -659,7 +659,7 @@
         public System.Windows.Forms.Label labelLapCounterPreview;
         public System.Windows.Forms.Label labelBreakTimePreview;
         public System.Windows.Forms.Label labelWorkTimePreview;
-        private System.Windows.Forms.Timer winRefresh;
+        private System.Windows.Forms.Timer liveDataUpdate;
         private System.Windows.Forms.ContextMenuStrip rightClickMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

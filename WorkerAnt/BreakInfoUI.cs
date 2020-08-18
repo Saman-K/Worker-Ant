@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WorkerAnt
 {
-    public partial class BreakUI : Form
+    public partial class BreakInfoUI : Form
     {
         #region Fields
         private int _mouseXAxis;
@@ -19,12 +19,12 @@ namespace WorkerAnt
         #endregion
 
         #region Initialization
-        public BreakUI()
+        public BreakInfoUI()
         {
             InitializeComponent();
         }
         // win load
-        private void BreakUILoad(object sender, EventArgs e)
+        private void BreakInfoUILoad(object sender, EventArgs e)
         {
             liveDataUpdate.Start();
             if (Countdown.LapCounterLive > 0)

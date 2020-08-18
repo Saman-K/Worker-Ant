@@ -39,7 +39,7 @@
             this.picBoxIcon = new System.Windows.Forms.PictureBox();
             this.picBoxClose = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.winRefresh = new System.Windows.Forms.Timer(this.components);
+            this.liveDataUpdate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxClose)).BeginInit();
@@ -158,9 +158,9 @@
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 
-            // winRefresh
+            // liveDataUpdate
             // 
-            this.winRefresh.Tick += new System.EventHandler(this.LiveDataUpdate);
+            this.liveDataUpdate.Tick += new System.EventHandler(this.LiveDataUpdate);
             // 
             // DueBreakUI
             // 
@@ -207,6 +207,6 @@
         internal System.Windows.Forms.Label labelDoYouWant;
         internal System.Windows.Forms.Label labelBreakWillSL;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Timer winRefresh;
+        private System.Windows.Forms.Timer liveDataUpdate;
     }
 }

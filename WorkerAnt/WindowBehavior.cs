@@ -55,20 +55,19 @@ namespace WorkerAnt
                     OpenWindow("SettingsUI");
                     break;
                 case WindowNames.Break:
-                    OpenWindow("BreakUI");
+                    if (Properties.Settings.Default.breakInfo == true)
+                        OpenWindow("BreakInfoUI");
+                    else if (Properties.Settings.Default.breakInfo == false)
+                        OpenWindow("BreakUI");
                     break;
                 case WindowNames.ToBreak:
                     OpenWindow("DueBreakUI");
                     break;
                 case WindowNames.Main:
                     if (Properties.Settings.Default.simpleUI == true)
-                    {
                         OpenWindow("SimpleUI");
-                    }
                     else if (Properties.Settings.Default.simpleUI == false)
-                    {
                         OpenWindow("CompleteUI");
-                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("winName", winName, "Please report to the developer (WB 74)");
@@ -112,6 +111,10 @@ namespace WorkerAnt
                     case "BreakUI":
                         var breakUI = new BreakUI();
                         breakUI.Show();
+                        break;
+                    case "BreakInfoUI":
+                        var breakInfoUI = new BreakInfoUI();
+                        breakInfoUI.Show();
                         break;
                     case "DueBreakUI":
                         var dueBreakUI = new DueBreakUI();

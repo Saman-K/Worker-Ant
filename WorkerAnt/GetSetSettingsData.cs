@@ -27,6 +27,7 @@ namespace WorkerAnt
 
             Properties.Settings.Default.audioAlert = true;
             Properties.Settings.Default.simpleUI = false;
+            Properties.Settings.Default.breakInfo = true;
         }
         /// <summary>
         /// It will save the settings.
@@ -43,7 +44,7 @@ namespace WorkerAnt
         /// <param name="autoStart">Auto Start</param>
         /// <returns>String: User readable message.</returns>
         public static string SaveSettings(decimal workRecovery, decimal breakRecovery, decimal workSmart, decimal breakSmart, decimal workProgress,
-            decimal breakProgress, decimal lapCounter, bool audioAlert, bool simpleUI, bool autoStart)
+            decimal breakProgress, decimal lapCounter, bool audioAlert, bool simpleUI, bool autoStart, bool breakInfo)
         {
             var message = "";
             try
@@ -57,7 +58,7 @@ namespace WorkerAnt
                 Properties.Settings.Default.lapCounter = lapCounter;
 
                 Properties.Settings.Default.audioAlert = audioAlert;
-                //Properties.Settings.Default.saftyInfo = checkBoxSafetyInfo.Checked;
+                Properties.Settings.Default.breakInfo = breakInfo;
 
                 if (Properties.Settings.Default.simpleUI != simpleUI)
                 {
@@ -113,15 +114,17 @@ namespace WorkerAnt
         /// Get user preferred working settings.
         /// </summary>
         /// <returns>Audio alert, Simple UI, Auto Start</returns>
-        public static (bool audioAlert, bool simpleUI, bool autoStart)
+        public static (bool audioAlert, bool simpleUI, bool autoStart, bool breakInfo)
             GetSettingsUserPreferences()
         {
             bool audioAlert;
             bool simpleUI;
             bool autoStart;
+            bool breakInfo;
 
             audioAlert = Properties.Settings.Default.audioAlert;
             simpleUI = Properties.Settings.Default.simpleUI;
+            breakInfo = Properties.Settings.Default.breakInfo;
 
             RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
@@ -134,7 +137,7 @@ namespace WorkerAnt
                 autoStart = false;
             }
 
-            return (audioAlert, simpleUI, autoStart);
+            return (audioAlert, simpleUI, autoStart, breakInfo);
         }
 
 

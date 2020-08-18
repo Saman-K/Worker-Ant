@@ -32,7 +32,7 @@ namespace WorkerAnt
                 numUDBreakProgress.Value), numUDRound.Value) = GetSetSettingsData.GetSattingsLapPackages();
             
             // load user preferred
-            (checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked) = GetSetSettingsData.GetSettingsUserPreferences();
+            (checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked, checkBoxBreakInfo.Checked) = GetSetSettingsData.GetSettingsUserPreferences();
         }
         #endregion
 
@@ -123,7 +123,7 @@ namespace WorkerAnt
         {
             MessageBox.Show(
             GetSetSettingsData.SaveSettings(numUDWorkRecovery.Value, numUDBreakRecovery.Value, numUDWorkSmart.Value, numUDBreakSmart.Value,
-                numUDWorkProgress.Value, numUDBreakProgress.Value, numUDRound.Value, checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked), "Worker Ant Settings", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                numUDWorkProgress.Value, numUDBreakProgress.Value, numUDRound.Value, checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked, checkBoxBreakInfo.Checked), "Worker Ant Settings", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
         #endregion
     }
