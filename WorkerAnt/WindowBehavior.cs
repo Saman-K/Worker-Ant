@@ -55,9 +55,9 @@ namespace WorkerAnt
                     OpenWindow("SettingsUI");
                     break;
                 case WindowNames.Break:
-                    if (Properties.Settings.Default.breakInfo == true)
-                        OpenWindow("BreakInfoUI");
-                    else if (Properties.Settings.Default.breakInfo == false)
+                    if (Properties.Settings.Default.breakStretches == true)
+                        OpenWindow("BreakStretchesUI");
+                    else if (Properties.Settings.Default.breakStretches == false)
                         OpenWindow("BreakUI");
                     break;
                 case WindowNames.ToBreak:
@@ -112,9 +112,9 @@ namespace WorkerAnt
                         var breakUI = new BreakUI();
                         breakUI.Show();
                         break;
-                    case "BreakInfoUI":
-                        var breakInfoUI = new BreakInfoUI();
-                        breakInfoUI.Show();
+                    case "BreakStretchesUI":
+                        var breakStretchesUI = new BreakStretchesUI();
+                        breakStretchesUI.Show();
                         break;
                     case "DueBreakUI":
                         var dueBreakUI = new DueBreakUI();

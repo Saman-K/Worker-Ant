@@ -170,12 +170,12 @@ namespace WorkerAnt.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool breakInfo {
+        public bool breakStretches {
             get {
-                return ((bool)(this["breakInfo"]));
+                return ((bool)(this["breakStretches"]));
             }
             set {
-                this["breakInfo"] = value;
+                this["breakStretches"] = value;
             }
         }
     }

@@ -60,8 +60,8 @@
             this.checkBoxAutoStart = new System.Windows.Forms.CheckBox();
             this.checkBoxAudioAlert = new System.Windows.Forms.CheckBox();
             this.numUDRound = new System.Windows.Forms.NumericUpDown();
-            this.labelBreakInfo = new System.Windows.Forms.Label();
-            this.checkBoxBreakInfo = new System.Windows.Forms.CheckBox();
+            this.labelRecommendStretches = new System.Windows.Forms.Label();
+            this.checkBoxBreakStretches = new System.Windows.Forms.CheckBox();
             this.groupBoxSetSmart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDBreakSmart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDWorkSmart)).BeginInit();
@@ -432,7 +432,7 @@
             this.checkBoxAudioAlert.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.checkBoxAudioAlert.AutoSize = true;
             settings1.audioAlert = true;
-            settings1.breakInfo = true;
+            settings1.breakStretches = true;
             settings1.lapCounter = new decimal(new int[] {
             4,
             0,
@@ -510,34 +510,34 @@
             this.numUDRound.TabIndex = 7;
             this.numUDRound.Value = global::WorkerAnt.Properties.Settings.Default.lapCounter;
             // 
-            // labelBreakInfo
+            // labelRecommendStretches
             // 
-            this.labelBreakInfo.AutoSize = true;
-            this.labelBreakInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelBreakInfo.Location = new System.Drawing.Point(18, 187);
-            this.labelBreakInfo.Name = "labelBreakInfo";
-            this.labelBreakInfo.Size = new System.Drawing.Size(56, 13);
-            this.labelBreakInfo.TabIndex = 20;
-            this.labelBreakInfo.Text = "Break Info";
+            this.labelRecommendStretches.AutoSize = true;
+            this.labelRecommendStretches.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelRecommendStretches.Location = new System.Drawing.Point(18, 187);
+            this.labelRecommendStretches.Name = "labelRecommendStretches";
+            this.labelRecommendStretches.Size = new System.Drawing.Size(115, 13);
+            this.labelRecommendStretches.TabIndex = 20;
+            this.labelRecommendStretches.Text = "Recommend Stretches";
             // 
-            // checkBoxBreakInfo
+            // checkBoxBreakStretches
             // 
-            this.checkBoxBreakInfo.AutoSize = true;
-            this.checkBoxBreakInfo.Checked = true;
-            this.checkBoxBreakInfo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxBreakInfo.Location = new System.Drawing.Point(151, 187);
-            this.checkBoxBreakInfo.Name = "checkBoxBreakInfo";
-            this.checkBoxBreakInfo.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxBreakInfo.TabIndex = 21;
-            this.checkBoxBreakInfo.UseVisualStyleBackColor = true;
+            this.checkBoxBreakStretches.AutoSize = true;
+            this.checkBoxBreakStretches.Checked = true;
+            this.checkBoxBreakStretches.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxBreakStretches.Location = new System.Drawing.Point(151, 187);
+            this.checkBoxBreakStretches.Name = "checkBoxBreakStretches";
+            this.checkBoxBreakStretches.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxBreakStretches.TabIndex = 21;
+            this.checkBoxBreakStretches.UseVisualStyleBackColor = true;
             // 
             // SettingsUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 240);
-            this.Controls.Add(this.checkBoxBreakInfo);
-            this.Controls.Add(this.labelBreakInfo);
+            this.Controls.Add(this.checkBoxBreakStretches);
+            this.Controls.Add(this.labelRecommendStretches);
             this.Controls.Add(this.checkBoxAutoStart);
             this.Controls.Add(this.labelAutoStart);
             this.Controls.Add(this.btnSave);
@@ -619,7 +619,7 @@
         public System.Windows.Forms.CheckBox checkBoxSimpleView;
         private System.Windows.Forms.Label labelAutoStart;
         private System.Windows.Forms.CheckBox checkBoxAutoStart;
-        private System.Windows.Forms.Label labelBreakInfo;
-        private System.Windows.Forms.CheckBox checkBoxBreakInfo;
+        private System.Windows.Forms.Label labelRecommendStretches;
+        private System.Windows.Forms.CheckBox checkBoxBreakStretches;
     }
 }

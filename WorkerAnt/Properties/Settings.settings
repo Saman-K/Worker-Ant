@@ -38,7 +38,7 @@
     <Setting Name="lastUsedLapPackage" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="breakInfo" Type="System.Boolean" Scope="User">
+    <Setting Name="breakStretches" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

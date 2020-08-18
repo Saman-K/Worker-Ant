@@ -27,7 +27,7 @@ namespace WorkerAnt
 
             Properties.Settings.Default.audioAlert = true;
             Properties.Settings.Default.simpleUI = false;
-            Properties.Settings.Default.breakInfo = true;
+            Properties.Settings.Default.breakStretches = true;
         }
         /// <summary>
         /// It will save the settings.
@@ -58,7 +58,7 @@ namespace WorkerAnt
                 Properties.Settings.Default.lapCounter = lapCounter;
 
                 Properties.Settings.Default.audioAlert = audioAlert;
-                Properties.Settings.Default.breakInfo = breakInfo;
+                Properties.Settings.Default.breakStretches = breakInfo;
 
                 if (Properties.Settings.Default.simpleUI != simpleUI)
                 {
@@ -124,7 +124,7 @@ namespace WorkerAnt
 
             audioAlert = Properties.Settings.Default.audioAlert;
             simpleUI = Properties.Settings.Default.simpleUI;
-            breakInfo = Properties.Settings.Default.breakInfo;
+            breakInfo = Properties.Settings.Default.breakStretches;
 
             RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 

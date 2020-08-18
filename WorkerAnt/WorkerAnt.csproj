@@ -73,11 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BreakInfoUI.cs">
+    <Compile Include="BreakStretchesUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BreakInfoUI.Designer.cs">
-      <DependentUpon>BreakInfoUI.cs</DependentUpon>
+    <Compile Include="BreakStretchesUI.Designer.cs">
+      <DependentUpon>BreakStretchesUI.cs</DependentUpon>
     </Compile>
     <Compile Include="BreakUI.cs">
       <SubType>Form</SubType>
@@ -125,8 +125,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WindowBehavior.cs" />
-    <EmbeddedResource Include="BreakInfoUI.resx">
-      <DependentUpon>BreakInfoUI.cs</DependentUpon>
+    <EmbeddedResource Include="BreakStretchesUI.resx">
+      <DependentUpon>BreakStretchesUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BreakUI.resx">
       <DependentUpon>BreakUI.cs</DependentUpon>

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WorkerAnt
 {
-    public partial class BreakInfoUI : Form
+    public partial class BreakStretchesUI : Form
     {
         #region Fields
         private int _mouseXAxis;
@@ -19,7 +19,7 @@ namespace WorkerAnt
         #endregion
 
         #region Initialization
-        public BreakInfoUI()
+        public BreakStretchesUI()
         {
             InitializeComponent();
         }
