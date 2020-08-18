@@ -32,7 +32,7 @@ namespace WorkerAnt
                 numUDBreakProgress.Value), numUDRound.Value) = GetSetSettingsData.GetSattingsLapPackages();
             
             // load user preferred
-            (checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked) = GetSetSettingsData.GetSettingsUserPreferences();
+            (checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked, checkBoxBreakInfo.Checked) = GetSetSettingsData.GetSettingsUserPreferences();
         }
         #endregion
 
@@ -96,7 +96,14 @@ namespace WorkerAnt
         private void OpenAbout(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
-            winCouter.WindowsOpenCheck(WindowNames.Info);
+            try
+            {
+                winCouter.WindowsOpenCheck(WindowNames.Info);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
 
@@ -116,7 +123,7 @@ namespace WorkerAnt
         {
             MessageBox.Show(
             GetSetSettingsData.SaveSettings(numUDWorkRecovery.Value, numUDBreakRecovery.Value, numUDWorkSmart.Value, numUDBreakSmart.Value,
-                numUDWorkProgress.Value, numUDBreakProgress.Value, numUDRound.Value, checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked), "Worker Ant Settings", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                numUDWorkProgress.Value, numUDBreakProgress.Value, numUDRound.Value, checkBoxAudioAlert.Checked, checkBoxSimpleView.Checked, checkBoxAutoStart.Checked, checkBoxBreakInfo.Checked), "Worker Ant Settings", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
         #endregion
     }

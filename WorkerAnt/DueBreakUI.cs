@@ -25,7 +25,7 @@ namespace WorkerAnt
         }
         private void DueBreakUILoad(object sender, EventArgs e)
         {
-            winRefresh.Start();
+            liveDataUpdate.Start();
         }
         #endregion
 
@@ -87,7 +87,7 @@ namespace WorkerAnt
             Countdown.SkipToBreak();
             Close();
         }
-        // refresh window data (timer)
+        // Live data Updater (timer)
         private void LiveDataUpdate(object sender, EventArgs e)
         {
             if (Countdown.TimerTick == true && Countdown.TimeTickSegment == SegmentNames.Work)

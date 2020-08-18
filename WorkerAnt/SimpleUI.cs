@@ -123,7 +123,14 @@ namespace WorkerAnt
         private void OpenAbout(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
-            winCouter.WindowsOpenCheck(WindowNames.Info);
+            try
+            {
+                winCouter.WindowsOpenCheck(WindowNames.Info);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
         #region ------------------------------------------------------------------------- Settings picture box
@@ -141,7 +148,14 @@ namespace WorkerAnt
         private void OpenSettings(object sender, EventArgs e)
         {
             var winCouter = new WindowBehavior();
-            winCouter.WindowsOpenCheck(WindowNames.Settings);
+            try
+            {
+                winCouter.WindowsOpenCheck(WindowNames.Settings);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
         #endregion
@@ -153,17 +167,28 @@ namespace WorkerAnt
         {
             if (btnStartStop.Text == "Start")
             {
-                winRefresh.Start();
+                liveDataUpdate.Start();
                 RadioBtnEnabel(false);
             }
             else if (btnStartStop.Text == "Stop" && Countdown.TimeTickSegment == SegmentNames.Break)
             {
-                winRefresh.Stop();
+                liveDataUpdate.Stop();
                 RadioBtnEnabel(true);
             }
             SaveLapPackageUsed();
 
-            btnStartStop.Text = btnStartStop.Text.StartStop();
+            try
+            {
+                btnStartStop.Text = btnStartStop.Text.StartStop();
+            }
+            catch (TimeoutException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         // radio button Change
@@ -213,7 +238,7 @@ namespace WorkerAnt
             radioBtnProgress.Enabled = trueFalse;
         }
 
-        // Refresh window data (timer)
+        // Live data Updater (timer)
         private void LiveDataUpdate(object sender, EventArgs e)
         {
             labelWorkTimeCountdown.Text = Countdown.WorkTimerLive.IntToTimerFormat();

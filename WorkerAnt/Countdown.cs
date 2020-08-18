@@ -125,8 +125,6 @@ namespace WorkerAnt
         #endregion
 
         #region Initialization
-
-        // error
         public static void Start()
         {
             _countdownTimer.Tick += CountdownTimer_Tick;
@@ -157,7 +155,6 @@ namespace WorkerAnt
                 {
                     TimerController("Break");
                 }
-
             }
             else if (TimeTickSegment == SegmentNames.Break)
             {
@@ -188,13 +185,19 @@ namespace WorkerAnt
             switch (function)
             {
                 case "ToBreakPopup":
-                    winBehavior.WindowsOpenCheck(WindowNames.ToBreak);
+                    try
+                    {
+                        winBehavior.WindowsOpenCheck(WindowNames.ToBreak);
+                    }
+                    catch (ArgumentOutOfRangeException ex)
+                    {
+                        MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     if (Properties.Settings.Default.audioAlert == true)
                     {
                         Console.Beep(1000, 500);
                     }
                     break;
-                //-------------------------------------
                 case "Break":
                     _countdownTimer.Stop();
                     TimerTick = false;
@@ -203,22 +206,36 @@ namespace WorkerAnt
                         Console.Beep(1000, 500);
                     }
 
-                    winBehavior.WindowsOpenCheck(WindowNames.Break);
+                    try
+                    {
+                        winBehavior.WindowsOpenCheck(WindowNames.Break);
+                    }
+                    catch (ArgumentOutOfRangeException ex)
+                    {
+                        MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     TimeTickSegment = SegmentNames.Break;
                     _countdownTimer.Start();
                     TimerTick = true;
                     break;
                 case "End Break":
                     TimeTickSegment = SegmentNames.EndBreak;
-                    winBehavior.WindowsOpenCheck(WindowNames.Main);
+                    try
+                    {
+                        winBehavior.WindowsOpenCheck(WindowNames.Main);
+                    }
+                    catch (ArgumentOutOfRangeException ex)
+                    {
+                        MessageBox.Show(ex.Message, "WorkerAnt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                     if (Properties.Settings.Default.audioAlert == true)
                     {
                         Console.Beep(1000, 500);
                     }
                     break;
                 default:
-                    //error
-                    break;
+                    throw new ArgumentOutOfRangeException("function", function, "Please report to the developer (CD 241)");
             }
         }
 
@@ -270,8 +287,7 @@ namespace WorkerAnt
                 // Stop during break
                 if (TimeTickSegment == SegmentNames.Break)
                 {
-                    // error
-                    return "Stop";
+                    throw new TimeoutException("Can not Stop during break time.");
                 }
                 // Stop after break ended 
                 else if (TimeTickSegment == SegmentNames.EndBreak)
@@ -297,8 +313,7 @@ namespace WorkerAnt
             }
             else
             {
-                //error
-                return "CD/2";
+                throw new ArgumentOutOfRangeException("btnText", btnText, "Please report to the developer (CD 318)");
             }
         }
 

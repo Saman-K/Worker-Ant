@@ -28,13 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9ACBE2273891BCC30719D1C94ED3DFF2"
+        "OwnerKey" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+        "OwnerKey" = "8:_9ACBE2273891BCC30719D1C94ED3DFF2"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -220,7 +220,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WorkerAnt"
         "ProductCode" = "8:{246F214E-3051-4FE0-9E1D-58D25DCFDC6F}"
-        "PackageCode" = "8:{4CB35E18-2063-4467-A286-7BCAB67D6D2C}"
+        "PackageCode" = "8:{76DB6896-CEB8-4D44-A9EE-168E89B32075}"
         "UpgradeCode" = "8:{D578DB53-2366-4118-A710-CAE7F1D4A664}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -237,7 +237,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Worker Ant was made to help manage stretch break from your desk, which helps decreases your chances of any RSI injuries. Worker Ant was designed and programmed by Saman.K."
         "ARPURLINFOABOUT" = "8:https://SamanK.me/"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -789,34 +789,6 @@
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{F45C6111-66AC-446C-90D6-FC5514382BC4}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DFAA0DFD43614118B2C40752934D01E8"
-            {
-            "SourcePath" = "8:"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_3C51379D9D194DEA9134276F4B0EF163"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:ContentFiles"
             "OutputProjectGuid" = "8:{F45C6111-66AC-446C-90D6-FC5514382BC4}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
