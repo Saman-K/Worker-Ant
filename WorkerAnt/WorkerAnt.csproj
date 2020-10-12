@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -85,18 +85,15 @@
     <Compile Include="BreakUI.Designer.cs">
       <DependentUpon>BreakUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Countdown.cs" />
     <Compile Include="DueBreakUI.Designer.cs">
       <DependentUpon>DueBreakUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Enums.cs" />
     <Compile Include="CompleteUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CompleteUI.Designer.cs">
       <DependentUpon>CompleteUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GetSetSettingsData.cs" />
     <Compile Include="AboutUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,9 +128,6 @@
     <EmbeddedResource Include="BreakUI.resx">
       <DependentUpon>BreakUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Countdown.resx">
-      <DependentUpon>Countdown.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CompleteUI.resx">
       <DependentUpon>CompleteUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +157,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Countdown.cs" />
+    <EmbeddedResource Include="Countdown.resx">
+      <DependentUpon>Countdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Enums.cs" />
+    <Compile Include="GetSetSettingsData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
