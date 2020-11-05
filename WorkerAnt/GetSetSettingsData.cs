@@ -67,7 +67,7 @@ namespace WorkerAnt
                     
                     //notify balloon can be used
                 }
-                // save autostart in registry 
+                 //save autostart in registry 
 
                 RegistryKey registry = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 

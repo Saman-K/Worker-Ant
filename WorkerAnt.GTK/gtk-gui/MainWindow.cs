@@ -9,14 +9,6 @@ public partial class MainWindow
 
 	private global::Gtk.Action aboutAction;
 
-	private global::Gtk.Action closeAction;
-
-	private global::Gtk.Action Action;
-
-	private global::Gtk.Action preferencesAction1;
-
-	private global::Gtk.Action aboutAction1;
-
 	private global::Gtk.Fixed fixed1;
 
 	private global::Gtk.Button button1;
@@ -29,9 +21,9 @@ public partial class MainWindow
 
 	private global::Gtk.RadioButton radiobutton2;
 
-	private global::Gtk.RadioButton radiobutton4;
-
 	private global::Gtk.RadioButton radiobutton3;
+
+	private global::Gtk.RadioButton radiobutton4;
 
 	protected virtual void Build()
 	{
@@ -40,23 +32,9 @@ public partial class MainWindow
 		this.UIManager = new global::Gtk.UIManager();
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup("Default");
 		this.preferencesAction = new global::Gtk.Action("preferencesAction", null, null, "gtk-preferences");
-		this.preferencesAction.ShortLabel = "";
 		w1.Add(this.preferencesAction, null);
 		this.aboutAction = new global::Gtk.Action("aboutAction", null, null, "gtk-about");
-		this.aboutAction.ShortLabel = "";
 		w1.Add(this.aboutAction, null);
-		this.closeAction = new global::Gtk.Action("closeAction", null, null, "gtk-close");
-		this.closeAction.ShortLabel = "";
-		w1.Add(this.closeAction, null);
-		this.Action = new global::Gtk.Action("Action", null, null, null);
-		this.Action.ShortLabel = "";
-		w1.Add(this.Action, null);
-		this.preferencesAction1 = new global::Gtk.Action("preferencesAction1", null, null, "gtk-preferences");
-		this.preferencesAction1.ShortLabel = "";
-		w1.Add(this.preferencesAction1, null);
-		this.aboutAction1 = new global::Gtk.Action("aboutAction1", null, null, "gtk-about");
-		this.aboutAction1.ShortLabel = "";
-		w1.Add(this.aboutAction1, null);
 		this.UIManager.InsertActionGroup(w1, 0);
 		this.AddAccelGroup(this.UIManager.AccelGroup);
 		this.WidthRequest = 400;
@@ -98,20 +76,21 @@ public partial class MainWindow
 		w3.X = 246;
 		w3.Y = 264;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.UIManager.AddUiFromString("<ui><toolbar name=\'toolbar2\'><toolitem name=\'preferencesAction1\' action=\'preferen" +
-				"cesAction1\'/><toolitem name=\'aboutAction1\' action=\'aboutAction1\'/></toolbar></ui" +
-				">");
+		this.UIManager.AddUiFromString("<ui><toolbar name=\'toolbar2\'><toolitem/><toolitem/><toolitem name=\'preferencesAct" +
+				"ion\' action=\'preferencesAction\'/><toolitem name=\'aboutAction\' action=\'aboutActio" +
+				"n\'/></toolbar></ui>");
 		this.toolbar2 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget("/toolbar2")));
 		this.toolbar2.WidthRequest = 400;
 		this.toolbar2.HeightRequest = 35;
 		this.toolbar2.Name = "toolbar2";
+		this.toolbar2.ShowArrow = false;
 		this.toolbar2.ToolbarStyle = ((global::Gtk.ToolbarStyle)(0));
 		this.toolbar2.IconSize = ((global::Gtk.IconSize)(2));
 		this.fixed1.Add(this.toolbar2);
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.radiobutton1 = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Recovery"));
 		this.radiobutton1.CanFocus = true;
-		this.radiobutton1.Name = "radiobutton1";
+		this.radiobutton1.Active = false;
 		this.radiobutton1.DrawIndicator = true;
 		this.radiobutton1.UseUnderline = true;
 		this.radiobutton1.Group = new global::GLib.SList(global::System.IntPtr.Zero);
@@ -123,6 +102,7 @@ public partial class MainWindow
 		this.radiobutton2 = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Smart"));
 		this.radiobutton2.CanFocus = true;
 		this.radiobutton2.Name = "radiobutton2";
+		this.radiobutton2.Active = false;
 		this.radiobutton2.DrawIndicator = true;
 		this.radiobutton2.UseUnderline = true;
 		this.radiobutton2.Group = this.radiobutton1.Group;
@@ -131,27 +111,29 @@ public partial class MainWindow
 		w6.X = 10;
 		w6.Y = 75;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.radiobutton4 = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Manual"));
-		this.radiobutton4.CanFocus = true;
-		this.radiobutton4.Name = "radiobutton4";
-		this.radiobutton4.DrawIndicator = true;
-		this.radiobutton4.UseUnderline = true;
-		this.radiobutton4.Group = this.radiobutton1.Group;
-		this.fixed1.Add(this.radiobutton4);
-		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.radiobutton4]));
-		w7.X = 173;
-		w7.Y = 46;
-		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.radiobutton3 = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Productive"));
 		this.radiobutton3.CanFocus = true;
 		this.radiobutton3.Name = "radiobutton3";
+		this.radiobutton3.Active = false;
 		this.radiobutton3.DrawIndicator = true;
 		this.radiobutton3.UseUnderline = true;
 		this.radiobutton3.Group = this.radiobutton1.Group;
 		this.fixed1.Add(this.radiobutton3);
-		global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.radiobutton3]));
-		w8.X = 10;
-		w8.Y = 105;
+		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.radiobutton3]));
+		w7.X = 10;
+		w7.Y = 105;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.radiobutton4 = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Manual"));
+		this.radiobutton4.CanFocus = true;
+		this.radiobutton4.Name = "radiobutton4";
+		this.radiobutton4.Active = false;
+		this.radiobutton4.DrawIndicator = true;
+		this.radiobutton4.UseUnderline = true;
+		this.radiobutton4.Group = this.radiobutton1.Group;
+		this.fixed1.Add(this.radiobutton4);
+		global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.radiobutton4]));
+		w8.X = 219;
+		w8.Y = 52;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{

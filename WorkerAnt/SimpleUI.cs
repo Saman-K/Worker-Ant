@@ -259,10 +259,12 @@ namespace WorkerAnt
             if (Countdown.TimerTick == true)
             {
                 btnStartStop.Text = "Stop";
+                RadioBtnEnabel(false);
             }
             else if (Countdown.TimerTick == false)
             {
                 btnStartStop.Text = "Start";
+                RadioBtnEnabel(true);
             }
 
             if (Countdown.TimeTickSegment == SegmentNames.Work)
