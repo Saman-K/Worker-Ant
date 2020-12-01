@@ -15,26 +15,26 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+        "MsmKey" = "8:_5604D050DD954EC8A78CD2737EBE636D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_9ACBE2273891BCC30719D1C94ED3DFF2"
-        "OwnerKey" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+        "OwnerKey" = "8:_5604D050DD954EC8A78CD2737EBE636D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9ACBE2273891BCC30719D1C94ED3DFF2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_5604D050DD954EC8A78CD2737EBE636D"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -60,7 +60,7 @@
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
-            "Url" = "8:"
+            "Url" = "8:https://samank.me/Download/WorkerAnt/WorkerAntSetup.msi"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
@@ -220,7 +220,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:WorkerAnt"
         "ProductCode" = "8:{246F214E-3051-4FE0-9E1D-58D25DCFDC6F}"
-        "PackageCode" = "8:{76DB6896-CEB8-4D44-A9EE-168E89B32075}"
+        "PackageCode" = "8:{1BC02754-1A78-4F40-AFD7-41B508840173}"
         "UpgradeCode" = "8:{D578DB53-2366-4118-A710-CAE7F1D4A664}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -237,7 +237,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Worker Ant was made to help manage stretch break from your desk, which helps decreases your chances of any RSI injuries. Worker Ant was designed and programmed by Saman.K."
         "ARPURLINFOABOUT" = "8:https://SamanK.me/"
-        "ARPPRODUCTICON" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+        "ARPPRODUCTICON" = "8:_5604D050DD954EC8A78CD2737EBE636D"
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -340,7 +340,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_01EE65D5E59A41C1B48A1FFE8C1F7ECA"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_470A055B4D81417B91B3A5671DF66C64"
             {
             "Name" = "8:Worker Ant"
             "Arguments" = "8:"
@@ -348,13 +348,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+            "Target" = "8:_5604D050DD954EC8A78CD2737EBE636D"
             "Folder" = "8:_4F0B5C7BC44E4F809760F46091E3F106"
             "WorkingFolder" = "8:_3C51379D9D194DEA9134276F4B0EF163"
-            "Icon" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+            "Icon" = "8:_5604D050DD954EC8A78CD2737EBE636D"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B47189A5F21A496684F10A7617662D78"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4DB260E6DE944332BCAB5DFE3189E47C"
             {
             "Name" = "8:Worker Ant"
             "Arguments" = "8:"
@@ -362,10 +362,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+            "Target" = "8:_5604D050DD954EC8A78CD2737EBE636D"
             "Folder" = "8:_404B6C80CA774B3E9A665805A3BAF743"
             "WorkingFolder" = "8:_3C51379D9D194DEA9134276F4B0EF163"
-            "Icon" = "8:_7CA09A49BCF04107B4994AD4D9D20DCB"
+            "Icon" = "8:_5604D050DD954EC8A78CD2737EBE636D"
             "Feature" = "8:"
             }
         }
@@ -767,7 +767,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7CA09A49BCF04107B4994AD4D9D20DCB"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_5604D050DD954EC8A78CD2737EBE636D"
             {
             "SourcePath" = "8:..\\WorkerAnt\\obj\\Debug\\Worker Ant.exe"
             "TargetName" = "8:"
